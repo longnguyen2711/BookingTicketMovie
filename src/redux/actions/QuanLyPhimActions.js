@@ -1,5 +1,5 @@
 import { quanLyPhimService } from "../../services/QuanLyPhimService";
-import { SET_DANH_SACH_PHIM } from "../types/QuanLyPhimType";
+import { SET_DANH_SACH_PHIM } from "../types";
 
 export const layDanhSachPhimAction = () => {
   return async (dispatch) => {

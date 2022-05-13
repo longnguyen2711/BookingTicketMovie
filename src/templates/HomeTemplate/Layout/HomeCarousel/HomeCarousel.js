@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Carousel } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { getCarouselAction } from "../../../../redux/actions/CarouselActions";
+import './HomeCarousel.css'
 
 const contentStyle = {
   height: "600px",
@@ -27,7 +28,7 @@ export default function HomeCarousel(props) {
       return (
         <div key={index}>
           <div
-            style={{ ...contentStyle, backgroundImage: `url(${item.hinhAnh})` }}
+            style={{ ...contentStyle, backgroundImage: `url(${item.hinhAnh})`}}
           >
             <img
               src={item.hinhAnh}
