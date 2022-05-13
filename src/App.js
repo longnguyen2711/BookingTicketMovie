@@ -1,6 +1,6 @@
 import "./App.css";
 import { createBrowserHistory } from "history";
-import { Route, Router, Switch } from "react-router-dom";
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import { HomeTemplate } from "./templates/HomeTemplate/HomeTemplate";
 import Home from "./pages/Home/Home";
 import Contact from "./pages/Contact/Contact";

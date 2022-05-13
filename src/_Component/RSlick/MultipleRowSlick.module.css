@@ -6,6 +6,8 @@
 .slick-prev:before {
   color: black !important;
   font-size: 3rem !important;
+  position: absolute;
+  left: -30px;
 }
 
 .width-item {
@@ -13,7 +15,7 @@
 }
 
 .active_Film {
-  @apply bg-gray-800 text-white;
+  @apply bg-yellow-800 text-white;
 }
 
 .none_active_Film {

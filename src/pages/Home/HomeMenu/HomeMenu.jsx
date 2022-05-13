@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Tabs, Radio, Space } from "antd";
 import { connect } from "react-redux";
+import moment from "moment";
 const { TabPane } = Tabs;
 
 export default class HomeMenu extends React.PureComponent {
@@ -20,7 +22,7 @@ export default class HomeMenu extends React.PureComponent {
       return (
         <TabPane
           tab={
-            <img src={heThongRap.logo} className="rounded-full" width="50" />
+            <img src={heThongRap.logo} className="rounded-full" width="50"/>
           }
           key={index}
         >
@@ -49,8 +51,27 @@ export default class HomeMenu extends React.PureComponent {
                     </div>
                   }
                   key={index}
-                >{cumRap.danhSachPhim.map((phim,index) => {
-                  return <div></div>
+                >{cumRap.danhSachPhim.slice(0, 4).map((phim,index) => {
+                  return <Fragment key={index}>
+                    <div className="p-5 hover:bg-violet-600">
+                      <div className="flex items-start">
+                        <img style={{width:75, height:75}} src={phim.hinhAnh} alt={phim.tenPhim} onError={e => {
+                          e.target.onError = null; e.target.src = 'https://picsum.photos/75/75'
+                        }}/>
+                        <div className="ml-3">
+                          <h1 className="text-2xl text-blue-700">{phim.tenPhim}</h1>
+                          <p>{cumRap.diaChi}</p>
+                          <div className="grid grid-cols-4 gap-3">
+                          {phim.lstLichChieuTheoPhim?.slice(0, 8).map((lichChieu, index) => {
+                            return <NavLink to="/" key={index} className=" text-blue-400">
+                              {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
+                            </NavLink> 
+                          })}
+                          </div>
+                        </div>
+                      </div>
+                                       </div>
+                  </Fragment>
                 })}
 
                 </TabPane>

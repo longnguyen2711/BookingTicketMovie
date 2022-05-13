@@ -5,7 +5,7 @@ export default function Film_Flip(props) {
   const { item } = props;
 
   return (
-    <div className="flip-card mt-2">
+    <div className="flip-card mt-2" title={item.tenPhim}>
       <div className="flip-card-inner">
         <div className="flip-card-front">
           <img
