@@ -7,7 +7,7 @@ export const layDanhSachHeThongRapAction = () => {
         try{
             const result = await quanLyRapService.layDanhSachHeThongRap();
 
-            if(result.status === 200){
+            if(result.data.statusCode === 200){
                 dispatch({
                     type: SET_HE_THONG_RAP_CHIEU,
                     heThongRapChieu: result.data.content

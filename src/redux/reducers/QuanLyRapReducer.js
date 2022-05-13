@@ -1,7 +1,7 @@
 import { SET_HE_THONG_RAP_CHIEU } from "../types";
 
 const stateDefault = {
-  heThongRapChieu: [123],
+  heThongRapChieu: [],
 };
 
 export const QuanLyRapReducer = (state = stateDefault, action) => {
