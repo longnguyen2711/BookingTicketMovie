@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Carousel } from "antd";
+import Slider from "react-slick";
 import { useSelector, useDispatch } from "react-redux";
 import { getCarouselAction } from "../../../../redux/actions/CarouselActions";
 import './HomeCarousel.css'
@@ -41,9 +42,28 @@ export default function HomeCarousel(props) {
     });
   };
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+    dots: true,
+    appendDots: (dots) => (
+      <div
+        style={{
+          position: "relative",
+        }}>
+        <ul style={{ margin: "0px" }}> {dots} </ul>
+      </div>
+    ),
+  };
+
   return (
-    <Carousel effect="fade" className="relative, z-1">
-      {renderImg()}
-    </Carousel>
+    <Slider {...settings} className="relative z-1 m-auto">{renderImg()}</Slider>
+
   );
 }

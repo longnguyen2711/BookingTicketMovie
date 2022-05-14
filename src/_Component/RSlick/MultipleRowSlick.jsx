@@ -28,7 +28,6 @@ function SamplePrevArrow(props) {
 }
 
 const MultipleRowSlick = (props) => {
-  
   const dispatch = useDispatch();
 
   const { dangChieu, sapChieu } = useSelector(
@@ -49,20 +48,22 @@ const MultipleRowSlick = (props) => {
 
   let activeClassSC = sapChieu === true ? "active_Film" : "none_active_Film";
 
-  console.log("dangChieu", dangChieu)
-  console.log("sapChieu", sapChieu)
+  console.log("dangChieu", dangChieu);
+  console.log("sapChieu", sapChieu);
 
   const settings = {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     className: "center variable-width",
     variableWidth: true,
-    // centerMode: true,
+    centerPadding: "60px",
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    // centerMode: true,
+    slidesToShow: 3.5,
     slidesToScroll: 1,
-    rows: 2,
+    slidesPerRow: 2,
+    rows: 1,
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
@@ -114,7 +115,9 @@ const MultipleRowSlick = (props) => {
           PHIM SẮP CHIẾU
         </button>
       </div>
-      <Slider {...settings}>{renderFilms()}</Slider>
+      <div>
+        <Slider {...settings} className="mx-20">{renderFilms()}</Slider>
+      </div>
     </div>
   );
 };

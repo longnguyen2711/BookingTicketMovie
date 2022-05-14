@@ -3,20 +3,23 @@ import {NavLink} from 'react-router-dom'
 
 export default function Header(props) {
   return (
-    <header className="p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-40 bg-black text-white fixed w-full z-10" >
-        <div className="container flex justify-between h-16 mx-auto">
+    <header className="p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-40 bg-black text-white fixed top-0 left-0 w-full z-10">
+        <div className="container flex justify-between h-16 mx-auto max-w-screen-xl">
             <a href="#" aria-label="Back to homepage" className="flex items-center p-2">
                 <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="cyberlearn.vn"/>
             </a>
             <ul className="items-stretch hidden space-x-3 lg:flex">
                 <li className="flex">
-                    <NavLink to="/home" className="flex items-center px-4 text-white" activeClassName='font-bold border-b-2 text-violet-400 border-violet-400'>Home</NavLink>
+                    <NavLink to="/home" className="flex items-center px-4 text-white" activeClassName='font-bold border-b-2 text-violet-400 border-violet-400'>Trang chủ</NavLink>
                 </li>
                 <li className="flex">
-                    <NavLink to="/contact" className="flex items-center px-4 text-white" activeClassName='font-bold border-b-2 text-violet-400 border-violet-400'>Contact</NavLink>
+                    <NavLink to="/contact" className="flex items-center px-4 text-white" activeClassName='font-bold border-b-2 text-violet-400 border-violet-400'>Liên hệ</NavLink>
                 </li>
                 <li className="flex">
-                    <NavLink to="/news" className="flex items-center px-4 text-white" activeClassName='font-bold border-b-2 text-violet-400 border-violet-400'>News</NavLink>
+                    <NavLink to="/news" className="flex items-center px-4 text-white" activeClassName='font-bold border-b-2 text-violet-400 border-violet-400'>Tin tức</NavLink>
+                </li>
+                <li className="flex">
+                    <NavLink to="/products" className="flex items-center px-4 text-white" activeClassName='font-bold border-b-2 text-violet-400 border-violet-400'>Sản phẩm</NavLink>
                 </li>
             </ul>
             <div className="items-center flex-shrink-0 hidden lg:flex">
