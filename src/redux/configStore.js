@@ -15,3 +15,16 @@ const rootReducer = combineReducers({
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));
+
+// import {configureStore} from '@reduxjs/toolkit'
+// import  CarouselReducer  from "./reducers/CarouselReducer";
+// import  {QuanLyPhimReducer}  from "./reducers/QuanLyPhimReducer";
+// import { QuanLyRapReducer}  from "./reducers/QuanLyRapReducer";
+
+// export const store = configureStore({
+//     reducer: {
+//       CarouselReducer: CarouselReducer,
+//       QuanLyPhimReducer: QuanLyPhimReducer,
+//       QuanLyRapReducer: QuanLyPhimReducer,
+//     }
+// })
