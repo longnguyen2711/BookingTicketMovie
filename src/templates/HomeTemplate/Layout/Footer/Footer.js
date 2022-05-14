@@ -15,19 +15,19 @@ export default function Footer(props) {
     {
       title: "Facebook",
       href: "https://www.facebook.com/",
-      class: "fab fa-facebook hover:scale-150 ease-in duration-300",
-      color: "#0674e8",
+      class: "fab fa-facebook-f",
+      color: "#0674e8", 
     },
     {
       title: "Youtube",
       href: "https://www.youtube.com/",
-      class: "fab fa-youtube hover:scale-150 ease-in duration-300",
+      class: "fab fa-youtube",
       color: "#f00",
     },
     {
       title: "Instagram",
       href: "https://www.instagram.com/",
-      class: "fab fa-instagram hover:scale-150 ease-in duration-300",
+      class: "fab fa-instagram",
       color: `background: -webkit-linear-gradient(#e9c461, #691dbb);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent`,
@@ -35,13 +35,13 @@ export default function Footer(props) {
     {
       title: "Twitter",
       href: "https://www.twitter.com/",
-      class: "fab fa-twitter  hover:scale-150 ease-in duration-300",
+      class: "fab fa-twitter ",
       color: "#0c72b7",
     },
     {
       title: "Linkedin",
       href: "https://www.linkedin.com/",
-      class: "fab fa-linkedin-in hover:scale-150 ease-in duration-300",
+      class: "fab fa-linkedin-in",
       color: "#5ab0f7",
     },
   ];
@@ -49,7 +49,7 @@ export default function Footer(props) {
   console.log("arrContact", arrContact);
 
   return (
-    <footer className="py-6 bg-coolGray-100 text-coolGray-900 bg-gray-800">
+    <footer className="py-6 bg-coolGray-100 text-coolGray-900 bg-black">
       <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
         <div className="grid grid-cols-12">
           <div className="pb-6 col-span-full md:pb-0 md:col-span-4">
@@ -62,6 +62,7 @@ export default function Footer(props) {
               <img
                 src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png"
                 alt="cyberlearn.vn"
+                className="rounded-full"
               />
             </a>
           </div>
@@ -99,8 +100,7 @@ export default function Footer(props) {
                         href={contact.href}
                       >
                         <i
-                          className={contact.class}
-                          style={{ color: `${contact.color}` }}
+                          className={contact.class} style={{color:`${contact.color}`}}
                         ></i>
                       </a>
                     </li>

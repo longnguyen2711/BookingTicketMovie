@@ -1,18 +1,41 @@
 .footer__bottom {
-    margin-top: 18px !important;
+  margin-top: 18px !important;
 }
 
-footer .footer-contact ul{
-    margin: 0
+footer .footer-contact ul {
+  margin: 0;
 }
 
 footer .footer-contact ul li {
-    margin-right: 20px;
-    font-size: 32px;
-    width: 32px;
-    height: 32px;
-    line-height: 32px;    
+  margin-right: 20px;
+  color: white;
+  text-align: center;
 }
 
+footer .footer-contact ul li:hover {
+  transform: scale(1.4);
+  transition: 0.3s;
+}
 
+footer .footer-contact ul li i {
+  border: 1px solid #35a22c;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 18px;
+  border-radius: 50%;
+  color: white;
+  box-shadow: 0 0 8px #35a22c;
+}
+
+footer .footer-contact ul li i:hover {
+  box-shadow: 0 0 15px #f02323;
+  border: 1px solid #f02323;
+}
+
+footer .footer-contact ul li i.fa-instagram {
+  background: -webkit-linear-gradient(#f3c33f, #b601ca);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
