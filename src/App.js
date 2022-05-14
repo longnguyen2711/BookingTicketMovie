@@ -8,6 +8,7 @@ import News from "./pages/News/News";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Propducts from "./pages/Propducts/Propducts";
+import Detail from "./pages/Detail/Detail";
 
 export const history = createBrowserHistory();
 
@@ -19,6 +20,7 @@ function App() {
         <HomeTemplate path="/contact" exact Component={Contact} />
         <HomeTemplate path="/news" exact Component={News} />
         <HomeTemplate path="/products" exact Component={Propducts} />
+        <HomeTemplate path="/detail/:id" exact Component={Detail} />
         <Route path="/login" exact Component={Login}/>
         <Route path="/register" exact Component={Register}/>
         <HomeTemplate path="/" exact Component={Home} />

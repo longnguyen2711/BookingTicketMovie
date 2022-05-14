@@ -1,11 +1,12 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import './Header.css'
 
 export default function Header(props) {
   return (
-    <header className="p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-40 bg-black text-white fixed top-0 left-0 w-full z-10">
+    <header id="header" className="p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-40 bg-black text-white fixed top-0 left-0 w-full z-10">
         <div className="container flex justify-between h-16 mx-auto max-w-screen-xl">
-            <a href="#" aria-label="Back to homepage" className="flex items-center p-2">
+            <a id="header_home" href="#" aria-label="Back to homepage" className="flex items-center p-2">
                 <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="cyberlearn.vn"/>
             </a>
             <ul className="items-stretch hidden space-x-3 lg:flex">
@@ -32,6 +33,7 @@ export default function Header(props) {
                 </svg>
             </button>
         </div>
+        <a class="back-to-top" href="#" title="Về đầu trang"><i class="fa fa-angle-up"></i></a>
     </header>
   )
 }

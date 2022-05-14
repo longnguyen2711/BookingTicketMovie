@@ -2,7 +2,7 @@ import React, { Component, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Slider from "react-slick";
 import { SET_PHIM_DANG_CHIEU, SET_PHIM_SAP_CHIEU } from "../../redux/types";
-import Film_Flip from "../Film/Film_Flip";
+import Film from "../Film/Film";
 import styleSlick from "./MultipleRowSlick.module.css";
 
 function SampleNextArrow(props) {
@@ -38,7 +38,7 @@ const MultipleRowSlick = (props) => {
     return props.arrFilm.map((item, index) => {
       return (
         <div className={`${styleSlick["width-item"]}`} key={index}>
-          <Film_Flip item={item} />
+          <Film item={item} />
         </div>
       );
     });

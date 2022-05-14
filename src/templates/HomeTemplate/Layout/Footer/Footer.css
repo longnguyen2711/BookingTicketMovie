@@ -2,22 +2,22 @@
   margin-top: 18px !important;
 }
 
-footer .footer-contact ul {
+#footer .footer-contact ul {
   margin: 0;
 }
 
-footer .footer-contact ul li {
+#footer .footer-contact ul li {
   margin-right: 20px;
   color: white;
   text-align: center;
 }
 
-footer .footer-contact ul li:hover {
+#footer .footer-contact ul li:hover {
   transform: scale(1.4);
   transition: 0.3s;
 }
 
-footer .footer-contact ul li i {
+#footer .footer-contact ul li i {
   border: 1px solid #35a22c;
   width: 35px;
   height: 35px;
@@ -28,14 +28,18 @@ footer .footer-contact ul li i {
   box-shadow: 0 0 8px #35a22c;
 }
 
-footer .footer-contact ul li i:hover {
+#footer .footer-contact ul li i:hover {
   box-shadow: 0 0 15px #f02323;
   border: 1px solid #f02323;
 }
 
-footer .footer-contact ul li i.fa-instagram {
+#footer .footer-contact ul li i.fa-instagram {
   background: -webkit-linear-gradient(#f3c33f, #b601ca);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+#footer {
+  border-top: 1px solid #ffff00;
+  border-bottom: 1px solid #ffff00;
+}
