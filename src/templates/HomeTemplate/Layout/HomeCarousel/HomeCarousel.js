@@ -27,7 +27,7 @@ export default function HomeCarousel(props) {
   const renderImg = () => {
     return arrImg.map((item, index) => {
       return (
-        <div key={index}>
+        <div className="Carousel" key={index}>
           <div
             style={{ ...contentStyle, backgroundImage: `url(${item.hinhAnh})`}}
           >

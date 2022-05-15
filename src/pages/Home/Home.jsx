@@ -24,7 +24,7 @@ export default function Home(props) {
           <MultipleRowSlick arrFilm={arrFilm} />
         </div>
       </section>
-      <div id="HomeMenu" className="mx-32 border border-gray-400 p-4 rounded">
+      <div id="HomeMenu" className="mx-32 border border-gray-400 p-4 mb-10 rounded">
         <HomeMenu heThongRapChieu={heThongRapChieu} />
       </div>
     </div>

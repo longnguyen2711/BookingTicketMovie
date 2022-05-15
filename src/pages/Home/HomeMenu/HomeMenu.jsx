@@ -46,9 +46,9 @@ export default class HomeMenu extends React.PureComponent {
                         <p className="mb-0">
                           {" "}
                           {cumRap.diaChi.length > 40 ? (
-                            <span>{cumRap.diaChi.slice(0, 40)}...</span>
+                            <span className="text-gray-600">{cumRap.diaChi.slice(0, 40)}...</span>
                           ) : (
-                            <span>{cumRap.diaChi}</span>
+                            <span className="text-gray-600">{cumRap.diaChi}</span>
                           )}
                         </p>
                         <p className="mb-0 text-red-500 cursor-pointer">

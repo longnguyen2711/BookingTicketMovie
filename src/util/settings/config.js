@@ -7,3 +7,5 @@ export const TOKEN_CYBERSOFT = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3A
 export const GROUPID = "GP01";
 
 export const ACCESSTOKEN = "accessToken";
+
+export const USER_LOGIN = 'USER_LOGIN'

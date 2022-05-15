@@ -41,14 +41,28 @@ export default function Detail(props) {
           </div>
           <div className="film-information flex-col w-3/4 md:w-1/2">
             <div className="box ">
-              <p className="text-yellow-400 font-bold text-2xl mb-1">{filmDetail.tenPhim}</p>
+              <p className="text-yellow-400 font-bold text-2xl mb-1">
+                {filmDetail.tenPhim}
+              </p>
               <p className="text-yellow-400 font-bold">
                 Ngày chiếu:{" "}
                 {moment(filmDetail.ngayKhoiChieu).format("DD.MM.YYYY")}
               </p>
+              <div className="btn-trailer absolute bottom-8 right-8">
+                {" "}
+                <a
+                  href={filmDetail.trailer}
+                  target="_blank"
+                  title="Xem trailer trên Youtube"
+                >
+                  Trailer
+                </a>
+              </div>
               <p className="mb-0">{filmDetail.moTa}</p>
               <div className="film-rate mt-5 flex items-center">
-                <div className={`c100 p${filmDetail.danhGia * 10} small`}>
+                <div
+                  className={`c100 p${filmDetail.danhGia * 10} small orange`}
+                >
                   <span>{filmDetail.danhGia * 10}%</span>
                   <div className="slice">
                     <div className="bar" />
@@ -56,7 +70,9 @@ export default function Detail(props) {
                   </div>
                 </div>
                 <div className="ml-3">
-                  <h1 className="text-yellow-400 font-bold mb-0 text-lg text-center">Đánh giá</h1>
+                  <h1 className="text-yellow-400 font-bold mb-0 text-lg text-center">
+                    Đánh giá
+                  </h1>
                   <h1>
                     <Rate allowHalf value={filmDetail.danhGia / 2} />
                   </h1>
@@ -65,83 +81,93 @@ export default function Detail(props) {
             </div>
           </div>
           <div className="Detail__overlay__booking flex justify-center w-full mt-10 md:mt-16 ">
-          <div className="rounded bg-white px-5 py-5 w-3/4">
-            <Tabs defaultActiveKey="1" centered>
-              <TabPane tab="Lịch chiếu" key="1" style={{ minHeight: 320 }}>
-                <div>
-                  <Tabs tabPosition={"left"}>
-                    {filmDetail.heThongRapChieu?.map((htr, index) => {
-                      return (
-                        <TabPane
-                          tab={
-                            <div className="flex items-center justify-center" title={htr.tenHeThongRap}>
-                              <img
-                                src={htr.logo}
-                                width={50}
-                                height={50}
-                                alt={htr.logo}
-                              />
-                              <p className="ml-3 mb-0 font-bold">{htr.tenHeThongRap}</p>
-                            </div>
-                          }
-                          key={index}
-                        >
-                          {htr.cumRapChieu?.map((cumRap, index) => {
-                            return (
-                              <div className="mb-4 cursor-pointer" key={index} title={cumRap.diaChi}>
-                                <div className="flex items-center justify-start">
-                                  <img
-                                    src={htr.logo}
-                                    width={50}
-                                    height={50}
-                                    alt={htr.logo}
-                                  />
-                                  <div className="text-left">
-                                    <p className="ml-3 mb-1 font-bold">
-                                      {cumRap.tenCumRap}                                      
-                                    </p>
-                                    <p className="ml-3 mb-0">Địa chỉ: {cumRap.diaChi}</p>
-                                  </div>
-                                </div>
-                                <div className="thong-tin-lich-chieu  text-left mt-2 ml-16">
-                                  <div className="grid grid-cols-2 gap-1 md:grid-cols-3 md:gap-1 lg:grid-cols-5 lg:gap-3">
-                                    {cumRap.lichChieuPhim
-                                      ?.slice(0, 8)
-                                      .map((lichChieu, index) => {
-                                        return (
-                                          <NavLink
-                                            to=""
-                                            key={index}
-                                            className="col-span-1"
-                                          >
-                                            {moment(
-                                              lichChieu.ngayChieuGioChieu
-                                            ).format("hh:mm A")}
-                                          </NavLink>
-                                        );
-                                      })}
-                                  </div>
-                                </div>
+            <div className="rounded bg-white px-5 py-5 w-3/4">
+              <Tabs defaultActiveKey="1" centered>
+                <TabPane tab="Lịch chiếu" key="1" style={{ minHeight: 100 }}>
+                  <div>
+                    <Tabs tabPosition={"left"}>
+                      {filmDetail.heThongRapChieu?.map((htr, index) => {
+                        return (
+                          <TabPane
+                            tab={
+                              <div
+                                className="flex items-center justify-center"
+                                title={htr.tenHeThongRap}
+                              >
+                                <img
+                                  src={htr.logo}
+                                  width={50}
+                                  height={50}
+                                  alt={htr.logo}
+                                />
+                                <p className="ml-3 mb-0 font-bold">
+                                  {htr.tenHeThongRap}
+                                </p>
                               </div>
-                            );
-                          })}
-                        </TabPane>
-                      );
-                    })}
-                  </Tabs>
-                </div>
-              </TabPane>
-              <TabPane tab="Thông tin" key="2" style={{ minHeight: 320 }}>
-                Content of Tab Pane 2
-              </TabPane>
-              <TabPane tab="Đánh giá" key="3" style={{ minHeight: 320 }}>
-                Content of Tab Pane 3
-              </TabPane>
-            </Tabs>
+                            }
+                            key={index}
+                          >
+                            {htr.cumRapChieu?.map((cumRap, index) => {
+                              return (
+                                <div
+                                  className="mb-4 cursor-pointer"
+                                  key={index}
+                                  title={cumRap.diaChi}
+                                >
+                                  <div className="flex items-center justify-start">
+                                    <img
+                                      src={htr.logo}
+                                      width={50}
+                                      height={50}
+                                      alt={htr.logo}
+                                    />
+                                    <div className="text-left">
+                                      <p className="ml-3 mb-1 font-bold">
+                                        {cumRap.tenCumRap}
+                                      </p>
+                                      <p className="ml-3 mb-0 text-gray-600">
+                                        Địa chỉ: {cumRap.diaChi}
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div className="thong-tin-lich-chieu  text-left mt-2 ml-16">
+                                    <div className="grid grid-cols-2 gap-1 md:grid-cols-3 md:gap-1 lg:grid-cols-5 lg:gap-3">
+                                      {cumRap.lichChieuPhim
+                                        ?.slice(0, 8)
+                                        .map((lichChieu, index) => {
+                                          return (
+                                            <NavLink
+                                              to=""
+                                              key={index}
+                                              className="col-span-1"
+                                            >
+                                              {moment(
+                                                lichChieu.ngayChieuGioChieu
+                                              ).format("hh:mm A")}
+                                            </NavLink>
+                                          );
+                                        })}
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </TabPane>
+                        );
+                      })}
+                    </Tabs>
+                  </div>
+                </TabPane>
+                <TabPane tab="Thông tin" key="2" style={{ minHeight: 100 }}>
+                  Content of Tab Pane 2
+                </TabPane>
+                <TabPane tab="Đánh giá" key="3" style={{ minHeight: 100 }}>
+                  Content of Tab Pane 3
+                </TabPane>
+              </Tabs>
+            </div>
           </div>
         </div>
-        </div>
-
       </div>
     </section>
   );

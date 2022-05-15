@@ -1,13 +1,12 @@
 .Detail {
   font-family: sans-serif;
   text-align: center;
-  height: 800px;
-  background-position: center;
+  height: 1100px;
+  /* background-position: center; */
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
 }
-
 
 .Detail__overlay {
   width: 100%;
@@ -82,9 +81,29 @@
 .Detail__overlay__booking .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   font-weight: bold;
   font-family:'Times New Roman', Times, serif;
+  padding-bottom: 10px;
 }
 
+.Detail .film-information .btn-trailer {
+  border: 1px solid white;
+  border-radius: 5px; 
+}
 
+.Detail .film-information .btn-trailer a{
+  display: block;
+  padding: 8px 20px; 
+  font-weight: bold;
+  color: white;
+}
+
+.Detail .film-information .btn-trailer:hover{
+  box-shadow: 0 0 15px yellow;
+  border: 1px solid yellow;
+}
+
+.Detail .film-information .btn-trailer:hover a{
+  color: yellow;
+}
 
 /* <----- Cricle -----> */
 /****************************************************************
@@ -364,7 +383,7 @@
   width: 5em;
   line-height: 5em;
   font-size: 0.2em;
-  color: #307bbb;
+  color: orange;
   display: block;
   text-align: center;
   white-space: nowrap;
@@ -1128,7 +1147,7 @@
   left: 0.04em;
   width: 0.92em;
   height: 0.92em;
-  box-shadow: 0 0 10px white;
+  box-shadow: 0 0 30px yellow;
 }
 .c100.dark {
   background-color: #777777;

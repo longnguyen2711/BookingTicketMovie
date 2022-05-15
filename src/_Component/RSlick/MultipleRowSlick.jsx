@@ -59,7 +59,6 @@ const MultipleRowSlick = (props) => {
     centerPadding: "60px",
     infinite: true,
     speed: 500,
-    // centerMode: true,
     slidesToShow: 5,
     slidesToScroll: 1,
     slidesPerRow: 2,
@@ -91,7 +90,7 @@ const MultipleRowSlick = (props) => {
       >
         {i + 1}
       </div>
-    ),
+    ),    
   };
   return (
     <div>
