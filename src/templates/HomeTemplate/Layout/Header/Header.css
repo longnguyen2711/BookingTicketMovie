@@ -1,6 +1,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 #header .back-to-top {
   color: #ffffff;
   background-color: rgba(53, 162, 44, 0.5);
@@ -21,3 +22,153 @@ html {
   box-shadow: 0 0 15px #35a22c;
   background-color: rgba(0, 0, 0, 1);
 }
+
+#header .singn-in-up button{
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+#header .singn-in-up button:hover{
+  border: 2px solid yellow;
+  box-shadow: 0 0 15px yellow;
+}
+
+/* --------------- */
+#header .navigation {
+  position: relative;
+  width: 400px;
+  height: 40px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  top: 25px
+}
+
+#header .navigation ul {
+  display: flex;
+  width: 420px;
+}
+
+#header .navigation ul li {
+  list-style: none;
+  position: relative;
+  width: 100px;
+  height: 60px;
+  z-index: 2;
+}
+
+/* #header .navigation-indicator {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  top: -30px;
+  background-color: black;
+  z-index: 1;
+  transition: 0.5s;
+  border-radius: 50%;
+} */
+
+#header .navigation-indicator {
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  top: -40px;
+  background-color: black;
+  z-index: 1;
+  transition: 0.5s;
+  border-radius: 50%;
+}
+
+#header .navigation ul li .navLink {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+#header .navigation ul li .navLink .icon {
+  position: relative;
+  display: block;
+  line-height: 70px;
+  font-size: 1.6em;
+  transition: 0.5s;
+  color: transparent;
+}
+
+#header .navigation ul li.navigation-active .navLink .icon {
+  transform: translateY(-30px);
+  color: yellow;
+}
+
+#header .navigation ul li .navLink .text {
+  position: absolute;
+  color: white;
+  padding: 3px 6px;
+  padding-bottom: 8px;
+  border-radius: 12px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  transform: translateY(15px);
+  opacity: 1;
+  font-size: 15px;
+  bottom: 17px;
+}
+
+#header .navigation ul li.navigation-active .navLink .text {
+  transform: translateY(0);
+  color: yellow;
+  opacity: 1;
+}
+
+#header .navigation-indicator::before {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: -5px;
+  left: -26px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 20px 18px transparent;
+}
+
+#header .navigation-indicator::after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: -5px;
+  right: -26px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: -20px 18px transparent;
+}
+
+#header .navigation ul li:nth-child(1).navigation-active ~ .navigation-indicator {
+  transform: translateX(calc(3px + 100px * 0));
+    box-shadow: 0 0 15px yellow;
+    border: 2px solid  yellow;
+}
+#header .navigation ul li:nth-child(2).navigation-active ~ .navigation-indicator {
+  transform: translateX(calc(3px + 100px * 1));
+    box-shadow: 0 0 15px yellow;
+    border: 2px solid  yellow;
+}
+#header .navigation ul li:nth-child(3).navigation-active ~ .navigation-indicator {
+  transform: translateX(calc(3px + 100px * 2));
+    box-shadow: 0 0 15px yellow;
+    border: 2px solid  yellow;
+}
+#header .navigation ul li:nth-child(4).navigation-active ~ .navigation-indicator {
+  transform: translateX(calc(3px + 100px * 3));
+    box-shadow: 0 0 15px yellow;
+    border: 2px solid  yellow;
+}
+

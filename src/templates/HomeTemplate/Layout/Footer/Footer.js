@@ -134,7 +134,7 @@ export default function Footer(props) {
                     <img
                       src={partner.logo}
                       style={{ width: 35 }}
-                      className="hover:scale-150 ease-in duration-300"
+                      className="hover:scale-150 ease-in duration-200"
                     />
                   </a>
                 );

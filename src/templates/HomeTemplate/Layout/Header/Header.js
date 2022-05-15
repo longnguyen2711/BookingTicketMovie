@@ -2,30 +2,106 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 import './Header.css'
 
+
+
+
+
 export default function Header(props) {
+
+    const navigation_list = document.querySelectorAll('.navigation_list');
+    function activeLink() {
+        navigation_list.forEach((item) =>
+        item.classList.remove('navigation-active'))
+        this.classList.add('navigation-active')
+    }
+    navigation_list.forEach((item) =>
+    item.addEventListener('click', activeLink))
+
   return (
-    <header id="header" className="p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-40 bg-black text-white fixed top-0 left-0 w-full z-10">
+    <header id="header" className="overflow-hidden p-5 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-40 bg-black text-white fixed top-0 left-0 w-full z-10">
         <div className="container flex justify-between h-16 mx-auto max-w-screen-xl">
-            <a id="header_home" href="#" aria-label="Back to homepage" className="flex items-center p-2">
-                <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="cyberlearn.vn"/>
-            </a>
-            <ul className="items-stretch hidden space-x-3 lg:flex">
+            <NavLink id="header_home" to="/" aria-label="Back to homepage" className="flex items-center p-2">
+                <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="cyberlearn.vn" width={150}/>
+            </NavLink>
+
+            {/* <ul className="items-stretch hidden space-x-3 lg:flex">
                 <li className="flex">
-                    <NavLink to="/home" className="flex items-center px-4 text-white" activeClassName='font-bold border-b-2 text-violet-400 border-violet-400'>Trang chủ</NavLink>
+                    <NavLink to="/home" className="hover:text-yellow-500 font-bold flex items-center px-4 text-white" activeClassName='border-b-2 text-yellow-500 border-yellow-500'>Trang chủ</NavLink>
                 </li>
                 <li className="flex">
-                    <NavLink to="/contact" className="flex items-center px-4 text-white" activeClassName='font-bold border-b-2 text-violet-400 border-violet-400'>Liên hệ</NavLink>
+                    <NavLink to="/contact" className="hover:text-yellow-500 font-bold flex items-center px-4 text-white" activeClassName='border-b-2 text-yellow-500 border-yellow-500'>Liên hệ</NavLink>
                 </li>
                 <li className="flex">
-                    <NavLink to="/news" className="flex items-center px-4 text-white" activeClassName='font-bold border-b-2 text-violet-400 border-violet-400'>Tin tức</NavLink>
+                    <NavLink to="/news" className="hover:text-yellow-500 font-bold flex items-center px-4 text-white" activeClassName='border-b-2 text-yellow-500 border-yellow-500'>Tin tức</NavLink>
                 </li>
                 <li className="flex">
-                    <NavLink to="/products" className="flex items-center px-4 text-white" activeClassName='font-bold border-b-2 text-violet-400 border-violet-400'>Sản phẩm</NavLink>
+                    <NavLink to="/products" className="hover:text-yellow-500 font-bold flex items-center px-4 text-white" activeClassName='border-b-2 text-yellow-500 border-yellow-500'>Sản phẩm</NavLink>
                 </li>
-            </ul>
-            <div className="items-center flex-shrink-0 hidden lg:flex">
-                <button className="self-center px-8 py-3 rounded">Sign in</button>
-                <button className="self-center px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-coolGray-900">Sign up</button>
+            </ul> */}
+
+                {/* <div className="navigation">
+                <ul>
+                    <li className="navigation_list navigation-active">
+                    <a href="#" className='navLink'>
+                        <span className="icon"><i className="fa fa-home" /></span>
+                        <span className="text text-sm">Trang chủ</span>
+                    </a>
+                    </li>
+                    <li className="navigation_list">
+                    <a href="#" className='navLink'>
+                        <span className="icon"><i className="fa fa-phone"></i></span>
+                        <span className="text text-sm">Liên hệ</span>
+                    </a>
+                    </li>
+                    <li className="navigation_list">
+                    <a href="#" className='navLink'>
+                        <span className="icon"><i className="fa fa-newspaper"></i></span>
+                        <span className="text text-sm">Tin tức</span>
+                    </a>
+                    </li>
+                    <li className="navigation_list">
+                    <a href="#" className='navLink'>
+                        <span className="icon"><i class="fab fa-react"></i></span>
+                        <span className="text text-sm">Sản phẩm</span>
+                    </a>
+                    </li>
+                    <div className="navigation-indicator" />
+                </ul>
+                </div> */}
+
+                <div className="navigation">
+                <ul>
+                    <li className="navigation_list navigation-active">
+                    <NavLink to="/home" className='navLink' title="Trang chủ">
+                        <span className="icon"><i className="fa fa-home" /></span>
+                        <span className="text text-sm">Trang chủ</span>
+                    </NavLink>
+                    </li>
+                    <li className="navigation_list">
+                    <NavLink to="/contact" className='navLink' title="Liên hệ">
+                        <span className="icon"><i className="fa fa-phone"></i></span>
+                        <span className="text text-sm">Liên hệ</span>
+                    </NavLink>
+                    </li>
+                    <li className="navigation_list">
+                    <NavLink to="/news" className='navLink' title="Tin tức">
+                        <span className="icon"><i className="fa fa-newspaper"></i></span>
+                        <span className="text text-sm">Tin tức</span>
+                    </NavLink>
+                    </li>
+                    <li className="navigation_list">
+                    <NavLink to="/products" className='navLink' title="Sản phẩm">
+                        <span className="icon"><i class="fab fa-react"></i></span>
+                        <span className="text text-sm">Sản phẩm</span>
+                    </NavLink>
+                    </li>
+                    <div className="navigation-indicator" />
+                </ul>
+                </div>
+
+             <div className="singn-in-up items-center flex-shrink-0 hidden lg:flex">
+                <button title="Bấm để đăng nhập" className="focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3 hover:text-yellow-500 hover:border-yellow-500 hover:bg-black">Đăng nhập</button>
+                <button title="Bấm để đăng ký" className="focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black hover:text-yellow-500 hover:border-yellow-500 hover:bg-black">Đăng ký</button>
             </div>
             <button className="p-4 lg:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-coolGray-100">

@@ -42,7 +42,7 @@ export default class HomeMenu extends React.PureComponent {
                         width="40"
                       />{" "}
                       <div className="text-left ml-5 flex-col justify-center">
-                        <p className="mb-0 font-bold"> {cumRap.tenCumRap}</p>
+                        <p className="mb-0 font-bold">{cumRap.tenCumRap}</p>
                         <p className="mb-0">
                           {" "}
                           {cumRap.diaChi.length > 40 ? (
