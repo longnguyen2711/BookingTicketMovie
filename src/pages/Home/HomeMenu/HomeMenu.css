@@ -49,6 +49,7 @@
 
 #HomeMenu .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab:hover {
   background-color: #e5e7eb;
+  box-shadow: 0 0 5px black;
 }
 
 /* .my-container{

@@ -1,12 +1,13 @@
 .Detail {
   font-family: sans-serif;
   text-align: center;
-  height: 100vh;
+  height: 800px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  background-attachment: fixed;
 }
+
 
 .Detail__overlay {
   width: 100%;
@@ -18,29 +19,70 @@
   backdrop-filter: blur(5px);
 }
 
+.Detail .film-picture {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 250px;
+  height: 350px;
+  border: 1px solid white;
+  box-shadow: 0 0 15px white;
+}
 
+.Detail .box {
+  padding: 15px 25px;
+  border: 1px solid white;
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  text-align: justify;
+  box-shadow: 0 0 15px white;
+  background-color: black;
+  color: white;
+}
 
+.Detail .film-information p:last-of-type {
+  font-family: 'Times New Roman', Times, serif;
+}
 
+.Detail__overlay__booking > div{
+  border: 1px solid black;
+  box-shadow: 0 0 15px white;
+  padding: 20px;
+}
 
+.Detail__overlay__booking .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
 
+.Detail__overlay__booking .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab:hover {
+  background-color: #e5e7eb;
+  box-shadow: 0 0 5px black;
+}
 
+.Detail__overlay__booking .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab {
+  margin-top: 0;
+}
 
+.Detail__overlay__booking .ant-tabs-left > .ant-tabs-content-holder > .ant-tabs-content > .ant-tabs-tabpane {
+  padding-left: 0;
+}
 
+.Detail__overlay__booking .ant-tabs-left > .ant-tabs-content-holder > .ant-tabs-content > .ant-tabs-tabpane > div{
+  padding: 15px;
+  border-radius: 5px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.Detail__overlay__booking .ant-tabs-left > .ant-tabs-content-holder > .ant-tabs-content > .ant-tabs-tabpane > div:hover {
+  background-color: #e5e7eb;
+  box-shadow: 0 0 5px black;
+}
+.Detail__overlay__booking .ant-tabs-tab + .ant-tabs-tab > div, 
+.Detail__overlay__booking .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list > div > div,
+.Detail__overlay__booking .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  font-weight: bold;
+  font-family:'Times New Roman', Times, serif;
+}
 
 
 
@@ -322,7 +364,7 @@
   width: 5em;
   line-height: 5em;
   font-size: 0.2em;
-  color: #cccccc;
+  color: #307bbb;
   display: block;
   text-align: center;
   white-space: nowrap;
@@ -1086,6 +1128,7 @@
   left: 0.04em;
   width: 0.92em;
   height: 0.92em;
+  box-shadow: 0 0 10px white;
 }
 .c100.dark {
   background-color: #777777;
