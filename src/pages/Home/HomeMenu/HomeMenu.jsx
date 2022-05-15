@@ -35,10 +35,7 @@ export default class HomeMenu extends React.PureComponent {
               return (
                 <TabPane
                   tab={
-                    <div
-                      className="flex items-center"
-                      title={cumRap.diaChi}
-                    >
+                    <div className="flex items-center" title={cumRap.diaChi}>
                       <img
                         src={heThongRap.logo}
                         className="rounded-full"
@@ -79,7 +76,6 @@ export default class HomeMenu extends React.PureComponent {
                                 padding: "5px",
                               }}
                             ></div>
-
                             <div className="w-3/4 border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                               <div>
                                 <div className="text-gray-900 font-bold text-xl mb-2">

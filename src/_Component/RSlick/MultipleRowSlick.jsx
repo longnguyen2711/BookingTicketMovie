@@ -64,7 +64,7 @@ const MultipleRowSlick = (props) => {
     slidesToScroll: 1,
     slidesPerRow: 2,
     rows: 1,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
     dots: true,

@@ -46,13 +46,11 @@ export default function Footer(props) {
     },
   ];
 
-  console.log("arrContact", arrContact);
-
   return (
     <footer className="py-6 bg-coolGray-100 text-coolGray-900 bg-black" id="footer">
       <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
         <div className="grid grid-cols-12">
-          <div className="pb-6 col-span-full md:pb-0 md:col-span-4">
+          <div className="pb-6 md:pb-0 col-span-full md:col-span-4">
             <a
               href="https://cybersoft.edu.vn/"
               className="flex justify-center space-x-3 md:justify-start text-black"
@@ -66,7 +64,7 @@ export default function Footer(props) {
               />
             </a>
           </div>
-          <div className="footer-partner col-span-6 text-center md:text-left md:col-span-4">
+          <div className="footer-partner col-span-full text-center md:text-left md:col-span-4">
             <p className="pb-1 text-lg font-medium text-white">ĐỐI TÁC</p>
             <div className="flex" style={{ color: "#fff" }}>
               {arrHeThongRap.map((heThongRap, index) => {
@@ -87,7 +85,7 @@ export default function Footer(props) {
               })}
             </div>
           </div>
-          <div className="footer-contact col-span-6 text-center md:text-left md:col-span-4 text-white">
+          <div className="footer-contact col-span-full text-center md:text-left md:col-span-4 text-white">
             <p className="pb-1 text-lg font-medium">LIÊN HỆ</p>
             <div>
               <ul className="flex text-white">
