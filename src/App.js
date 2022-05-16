@@ -14,29 +14,37 @@ import CheckoutTemplate from "./templates/CheckoutTemplate/CheckoutTemplate";
 
 import Checkout from "./pages/Checkout/Checkout";
 import { Suspense, lazy } from "react";
+import { UserTemplate } from "./templates/UserTemplate/UserTemplate";
+
 
 const CheckoutTemplateLazy = lazy(() => import("./templates/CheckoutTemplate/CheckoutTemplate"))
-
-
 
 export const history = createBrowserHistory();
 
 function App() {
   return (
     <Router history={history}>
+
+      {/* <Login /> */}
+      {/* <UserTemplate /> */}
+
       <Switch>
         <HomeTemplate path="/home" exact Component={Home} />
         <HomeTemplate path="/contact" exact Component={Contact} />
         <HomeTemplate path="/news" exact Component={News} />
         <HomeTemplate path="/products" exact Component={Propducts} />
         <HomeTemplate path="/detail/:id" exact Component={Detail} />
-        <Route path="/login" exact Component={Login}/>
         <Route path="/register" exact Component={Register}/>
 
-        {/* Suspense: Dữ liệu html load xong mới hiển thị nếu ko sẽ hiển thị h1 */}
+
+        <CheckoutTemplateLazy path="/checkout/:id" exact Component={Checkout} />
+        {/* Suspense: Dữ liệu html load xong mới hiển thị nếu ko sẽ hiển thị h1
         <Suspense fallback={<h1 className="font-bold text-center text-8xl mt-60">LOADING...</h1>}>
           <CheckoutTemplateLazy path="/checkout/:id" exact Component={Checkout} />
-        </Suspense>
+        </Suspense> */}
+
+
+        <UserTemplate path="/login" exact Component={Login}/>
 
         <HomeTemplate path="/" exact Component={Home} />
       </Switch>

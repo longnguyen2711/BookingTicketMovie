@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import './Header.css'
-
+import { history } from '../../../../App';
 
 
 
@@ -20,7 +20,7 @@ export default function Header(props) {
   return (
     <header id="header" className="overflow-hidden p-5 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-40 bg-black text-white fixed top-0 left-0 w-full z-10">
         <div className="container flex justify-between h-16 mx-auto max-w-screen-xl">
-            <NavLink id="header_home" to="/" aria-label="Back to homepage" className="flex items-center p-2">
+            <NavLink id="header_home" to="/" aria-label="Back to homepage" className="flex items-center p-2 hidden lg:flex">
                 <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="cyberlearn.vn" width={150}/>
             </NavLink>
 
@@ -99,14 +99,23 @@ export default function Header(props) {
                 </ul>
                 </div>
 
-             <div className="singn-in-up items-center flex-shrink-0 hidden lg:flex">
-                <button title="Bấm để đăng nhập" className="focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3 hover:text-yellow-500 hover:border-yellow-500 hover:bg-black">Đăng nhập</button>
-                <button title="Bấm để đăng ký" className="focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black hover:text-yellow-500 hover:border-yellow-500 hover:bg-black">Đăng ký</button>
+             <div className="sign-in-up items-center flex-shrink-0 hidden md:flex">
+                {/* Phải bấm reload lại mới được */}
+                {/* <button onClick={() => {
+                    history.push('/login')
+                }} title="Bấm để đăng nhập" className="sign-in focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3 hover:text-yellow-500 hover:border-yellow-500 hover:bg-black">Đăng nhập</button> */}
+                
+                {/* Không cần bấm reload nhưng ảnh hưởng css */}
+                <NavLink to='/login' title="Bấm để đăng nhập" className="sign-in focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3 hover:text-yellow-500 hover:border-yellow-500 hover:bg-black">Đăng nhập</NavLink>
+
+                <button title="Bấm để đăng ký" className="sign-up focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black hover:text-yellow-500 hover:border-yellow-500 hover:bg-black">Đăng ký</button>
             </div>
-            <button className="p-4 lg:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-coolGray-100">
+            
+            <button className="header__logo md:hidden px-2">
+                <img src="https://i.imgur.com/lC22izJ.png" alt="cyberlearn.vn" width={45}/>
+                {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-coolGray-100">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+                </svg> */}
             </button>
         </div>
         <a class="back-to-top" href="#" title="Về đầu trang"><i class="fa fa-angle-up"></i></a>
