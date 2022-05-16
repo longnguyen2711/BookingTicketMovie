@@ -22,11 +22,11 @@ export default function Detail(props) {
 
   return (
     <section
-      className="Detail relative"
+      className="Detail"
       style={{ backgroundImage: `url(${filmDetail.hinhAnh})` }}
     >
-      <div className="Detail__overlay flex-col items-center justify-center">
-        <div className="w-full absolute top-32 flex flex-wrap justify-center items-center">
+      <div className="Detail__overlay flex-col items-center justify-center pt-40 pb-20">
+        <div className="w-full top-32 flex flex-wrap justify-center items-center">
           <div
             className="film-picture self-start md:mr-20 mb-10 md:mb-0 w-3/4 md:w-1/2 "
             style={{ backgroundImage: `url(${filmDetail.hinhAnh})` }}
@@ -85,7 +85,7 @@ export default function Detail(props) {
               <Tabs defaultActiveKey="1" centered>
                 <TabPane tab="Lịch chiếu" key="1" style={{ minHeight: 100 }}>
                   <div>
-                    <Tabs tabPosition={"left"}>
+                    <Tabs tabPosition="left">
                       {filmDetail.heThongRapChieu?.map((htr, index) => {
                         return (
                           <TabPane
@@ -100,7 +100,7 @@ export default function Detail(props) {
                                   height={50}
                                   alt={htr.logo}
                                 />
-                                <p className="ml-3 mb-0 font-bold">
+                                <p className="ml-3 mb-0 font-bold hidden md:block">
                                   {htr.tenHeThongRap}
                                 </p>
                               </div>

@@ -39,36 +39,6 @@ export default function Header(props) {
                 </li>
             </ul> */}
 
-                {/* <div className="navigation">
-                <ul>
-                    <li className="navigation_list navigation-active">
-                    <a href="#" className='navLink'>
-                        <span className="icon"><i className="fa fa-home" /></span>
-                        <span className="text text-sm">Trang chủ</span>
-                    </a>
-                    </li>
-                    <li className="navigation_list">
-                    <a href="#" className='navLink'>
-                        <span className="icon"><i className="fa fa-phone"></i></span>
-                        <span className="text text-sm">Liên hệ</span>
-                    </a>
-                    </li>
-                    <li className="navigation_list">
-                    <a href="#" className='navLink'>
-                        <span className="icon"><i className="fa fa-newspaper"></i></span>
-                        <span className="text text-sm">Tin tức</span>
-                    </a>
-                    </li>
-                    <li className="navigation_list">
-                    <a href="#" className='navLink'>
-                        <span className="icon"><i class="fab fa-react"></i></span>
-                        <span className="text text-sm">Sản phẩm</span>
-                    </a>
-                    </li>
-                    <div className="navigation-indicator" />
-                </ul>
-                </div> */}
-
                 <div className="navigation">
                 <ul>
                     <li className="navigation_list navigation-active">
@@ -100,12 +70,9 @@ export default function Header(props) {
                 </div>
 
              <div className="sign-in-up items-center flex-shrink-0 hidden md:flex">
-                {/* Phải bấm reload lại mới được */}
                 {/* <button onClick={() => {
-                    history.push('/login')
+                    props.history.push('/login')
                 }} title="Bấm để đăng nhập" className="sign-in focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3 hover:text-yellow-500 hover:border-yellow-500 hover:bg-black">Đăng nhập</button> */}
-                
-                {/* Không cần bấm reload nhưng ảnh hưởng css */}
                 <NavLink to='/login' title="Bấm để đăng nhập" className="sign-in focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3 hover:text-yellow-500 hover:border-yellow-500 hover:bg-black">Đăng nhập</NavLink>
 
                 <button title="Bấm để đăng ký" className="sign-up focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black hover:text-yellow-500 hover:border-yellow-500 hover:bg-black">Đăng ký</button>

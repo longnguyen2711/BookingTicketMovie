@@ -58,39 +58,39 @@ const MultipleRowSlick = (props) => {
     variableWidth: true,
     centerPadding: "60px",
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 5,
     slidesToScroll: 1,
-    slidesPerRow: 2,
-    rows: 1,
+    // slidesPerRow: 2,
+    rows: 2,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
     pauseOnHover: true,
-    dots: true,
-    appendDots: (dots) => (
-      <div
-        style={{
-          backgroundColor: "#ddd",
-          borderRadius: "10px",
-          padding: "10px",
-          position: "relative",
-        }}
-      >
-        <ul style={{ margin: "0px" }}> {dots} </ul>
-      </div>
-    ),
-    customPaging: (i) => (
-      <div
-        style={{
-          width: "30px",
-          color: "black",
-          fontSize: "20px",
-          fontWeight: "bold",
-        }}
-      >
-        {i + 1}
-      </div>
-    ),    
+    // dots: true,
+    // appendDots: (dots) => (
+    //   <div
+    //     style={{
+    //       backgroundColor: "#ddd",
+    //       borderRadius: "10px",
+    //       padding: "10px",
+    //       position: "relative",
+    //     }}
+    //   >
+    //     <ul style={{ margin: "0px" }}> {dots} </ul>
+    //   </div>
+    // ),
+    // customPaging: (i) => (
+    //   <div
+    //     style={{
+    //       width: "30px",
+    //       color: "black",
+    //       fontSize: "20px",
+    //       fontWeight: "bold",
+    //     }}
+    //   >
+    //     {i + 1}
+    //   </div>
+    // ),    
   };
   return (
     <div>
@@ -115,7 +115,7 @@ const MultipleRowSlick = (props) => {
         </button>
       </div>
       <div>
-        <Slider {...settings} className="mx-20">{renderFilms()}</Slider>
+        <Slider {...settings} className="mx-20 rounded">{renderFilms()}</Slider>
       </div>
     </div>
   );

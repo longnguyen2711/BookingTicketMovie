@@ -3,11 +3,17 @@
   width: 200px !important;
   height: 280px !important;
   overflow: hidden !important;
+  border-radius: 5px;
+}
+
+.card{
+  border: 2px solid transparent;
 }
 
 .card:hover{
-  box-shadow: 0 0 5px #000000;
+  box-shadow: 0 0 15px white;
   border-radius: 5px;
+  border: 2px solid white;
 }
 
 .card-inner:hover img{
@@ -38,3 +44,6 @@
   height: 15%;
 }
 
+#root > div > section{
+  background-color: black;
+}

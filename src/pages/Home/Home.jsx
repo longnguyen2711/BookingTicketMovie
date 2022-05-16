@@ -20,11 +20,11 @@ export default function Home(props) {
     <div>
       <HomeCarousel />
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container py-24 mx-auto">
           <MultipleRowSlick arrFilm={arrFilm} />
         </div>
       </section>
-      <div id="HomeMenu" className="mx-32 border border-gray-400 p-4 mb-10 rounded">
+      <div id="HomeMenu" className="mx-32 border border-gray-400 p-4 my-10 rounded">
         <HomeMenu heThongRapChieu={heThongRapChieu} />
       </div>
     </div>

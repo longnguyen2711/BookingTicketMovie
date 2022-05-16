@@ -34,7 +34,7 @@ function App() {
         <HomeTemplate path="/news" exact Component={News} />
         <HomeTemplate path="/products" exact Component={Propducts} />
         <HomeTemplate path="/detail/:id" exact Component={Detail} />
-        <Route path="/register" exact Component={Register}/>
+        <Route path="/register" exact component={Register}/>
 
 
         <CheckoutTemplateLazy path="/checkout/:id" exact Component={Checkout} />
