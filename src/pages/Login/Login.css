@@ -1,0 +1,46 @@
+#Login .form-login, h2 {
+    color: yellow !important;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#Login .form-login input{
+    color:  black;
+}
+
+#Login .register{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#Login .register-button{
+    border: 1px solid transparent;
+    padding: 7px 12px;
+    border-radius: 5px;
+}
+
+#Login .register-button:hover{
+    border: 1px solid yellow;
+    box-shadow: 0 0 15px yellow;
+    color: yellow;
+}
+
+#Login .forgot-password .forgot-password-title {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 5px 8px;
+}
+
+#Login .forgot-password .forgot-password-title:hover {
+    border: 1px solid yellow;
+    box-shadow: 0 0 10px yellow;
+    color: yellow;
+}
+
+#Login .login-button{
+    border: 2px solid transparent;
+}
+
+#Login .login-button:hover{
+    border: 2px solid yellow;
+    box-shadow: 0 0 15px yellow;
+    color: yellow;
+}

@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Contact(props) {
   return (
-    <div className='mb-96'>Contact</div>
+    <div className='pb-96 bg-black'>Contact</div>
   )
 }
