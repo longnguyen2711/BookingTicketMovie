@@ -29,6 +29,11 @@
   box-shadow: 0 0 30px #f02323;
   border: 2px solid #f02323;
   transition: 0.3s;
+
+  /* animation: animate-changecolor 1s linear infinite;
+  animation-delay: calc(-0.25s * var(--i));
+  transform-origin: 20px;
+  transition: 1s; */
 }
 
 @media screen and (max-width: 768px) {
@@ -45,4 +50,13 @@
     margin-top: 15px;
     margin-bottom: 15px;
   }
+}
+
+@keyframes animate-changecolor {
+0% {
+  filter: rotate(0deg);
+}
+100% {
+  filter: hue-rotate(360deg); 
+}
 }

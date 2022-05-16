@@ -17,7 +17,8 @@
     border-radius: 5px;
 }
 
-#Login .register-button:hover{
+#Login .register-button:hover,
+#Login .forgot-password .forgot-password-title:hover{
     border: 1px solid yellow;
     box-shadow: 0 0 15px yellow;
     color: yellow;
@@ -26,15 +27,8 @@
 #Login .forgot-password .forgot-password-title {
     border: 1px solid transparent;
     border-radius: 5px;
-    padding: 5px 8px;
+    padding: 6px 8px;
 }
-
-#Login .forgot-password .forgot-password-title:hover {
-    border: 1px solid yellow;
-    box-shadow: 0 0 10px yellow;
-    color: yellow;
-}
-
 #Login .login-button{
     border: 2px solid transparent;
 }
@@ -43,4 +37,29 @@
     border: 2px solid yellow;
     box-shadow: 0 0 15px yellow;
     color: yellow;
+    background-color: black;
 }
+
+#Login #taiKhoan,
+#Login #matKhau{
+    border: 2px solid transparent;
+}
+
+#Login #taiKhoan:focus,
+#Login #matKhau:focus{
+    border: 2px solid #00efff;
+    box-shadow: 0 0 10px #00efff;
+    animation: animate-changecolor 1s linear infinite;
+    animation-delay: calc(-0.25s * var(--i));
+    transform-origin: 20px;
+    transition: 1s;
+}
+
+@keyframes animate-changecolor {
+    0% {
+      filter: rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg); 
+    }
+  }

@@ -44,7 +44,7 @@ export default function Login(props) {
             <div>
               <label for="taiKhoan" className="mb-0 ml-1 text-lg font-bold tracking-wide">Tài khoản</label>
               <input
-                className="w-full rounded-md text-lg pl-4 py-2 mt-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
+                className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
                 type = 'text'
                 placeholder="Nhập vào email"
                 name="taiKhoan"
@@ -60,7 +60,7 @@ export default function Login(props) {
                 </div>
               </div>
               <input
-                className="w-full rounded-md text-lg pl-4 py-2 mt-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
+                className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
                 type="password"
                 placeholder="Nhập vào mật khẩu"
                 name="matKhau"
@@ -78,7 +78,7 @@ export default function Login(props) {
             </div>
           </div>
           <div className="flex justify-center items-center flex-wrap register mt-10 text-lg text-white font-display text-gray-700 text-center">
-            <p className="mb-0 text-right">Bạn chưa có tài khoản ?</p> 
+            <p className="mb-0 text-right text-white">Bạn chưa có tài khoản ?</p> 
             <NavLink to="/register" className="register-button text-left ml-3 cursor-pointer text-indigo-500 font-semibold" title="Bấm để đăng ký tài khoản">Đăng ký</NavLink>
           </div>
         </div>

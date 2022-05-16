@@ -28,12 +28,27 @@ html {
   color: white;
   border-radius: 10px;
   border: 2px solid transparent;
+
+  animation: animate-changecolor 1s linear infinite;
+  animation-delay: calc(-0.25s * var(--i));
+  transform-origin: 20px;
+  transition: 1s;
 }
 
 #header .sign-in-up .sign-in:hover,
 #header .sign-in-up .sign-up:hover{
+  color: yellow;
   border: 2px solid yellow;
   box-shadow: 0 0 15px yellow;
+}
+
+@keyframes animate-changecolor {
+0% {
+  filter: rotate(0deg);
+}
+100% {
+  filter: hue-rotate(360deg); 
+}
 }
 
 /* -------- Logo ------- */
@@ -78,7 +93,7 @@ html {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  top: 25px
+  top: 25px;
 }
 
 #header .navigation ul {
@@ -135,7 +150,7 @@ html {
 }
 
 #header .navigation ul li .navLink .text:hover {
-  color: yellow;
+  color: yellow;  
 }
 
 
