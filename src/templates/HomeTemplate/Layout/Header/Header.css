@@ -32,7 +32,7 @@ html {
   animation: animate-changecolor 1s linear infinite;
   animation-delay: calc(-0.25s * var(--i));
   transform-origin: 20px;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 #header .sign-in-up .sign-in:hover,

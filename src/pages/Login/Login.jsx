@@ -30,11 +30,14 @@ export default function Login(props) {
 
   return (
     <form onSubmit={formik.handleSubmit} className="lg:w-1/2 xl:max-w-screen-sm bg-black pb-10" id="Login">
-      <div className="py-12 flex justify-center lg:justify-start lg:px-12">
+      <div className="py-12 flex justify-around lg:px-12">
         <div className="cursor-pointer flex items-center">
           <div className="text-2xl text-indigo-800 tracking-wide ml-2 font-semibold">
-            <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="cyberlearn.vn"/>
+            <a href="https://cybersoft.edu.vn/" target="_blank" title="Mở trang cybersoft.edu.vn"><img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="cyberlearn.vn"/></a>
           </div>
+        </div>
+        <div className="back-to-homepage font-bold">
+          <NavLink to="/home" title="Bấm để quay về trang chủ" className="back-to-homepage-button flex justify-center items-center"><i class="fa fa-home"></i></NavLink>
         </div>
       </div>
       <div className="px-12 sm:px-24 md:px-48 lg:px-12 xl:px-24 xl:max-w-2xl">
