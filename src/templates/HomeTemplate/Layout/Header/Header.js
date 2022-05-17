@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import './Header.css'
-import { history } from '../../../../App';
+// import { history } from '../../../../App';
 
 
 
@@ -20,7 +20,7 @@ export default function Header(props) {
   return (
     <header id="header" className="overflow-hidden p-5 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-40 bg-black text-white fixed top-0 left-0 w-full z-10">
         <div className="container flex justify-between h-16 mx-auto max-w-screen-xl">
-            <NavLink id="header_home" to="/" aria-label="Back to homepage" className="flex items-center p-2 hidden lg:flex">
+            <NavLink id="header_home" to="/" aria-label="Back to homepage" className="flex items-center p-2">
                 <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="cyberlearn.vn" width={150}/>
             </NavLink>
 

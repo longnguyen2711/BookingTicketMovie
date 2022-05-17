@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./Detail.css";
-import { Tabs, Radio, Space } from "antd";
+import { Tabs} from "antd";
+// import { Tabs, Radio, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { layThongTinChiTietPhim } from "../../redux/actions/QuanLyRapActions";
 import moment from "moment";

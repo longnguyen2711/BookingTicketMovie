@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Carousel } from "antd";
 import Slider from "react-slick";
 import { useSelector, useDispatch } from "react-redux";
 import { getCarouselAction } from "../../../../redux/actions/CarouselActions";
@@ -43,7 +42,6 @@ export default function HomeCarousel(props) {
   };
 
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,

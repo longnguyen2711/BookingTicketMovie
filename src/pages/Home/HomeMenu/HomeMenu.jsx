@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
-import { Tabs, Radio, Space } from "antd";
-import { connect } from "react-redux";
+import { Tabs} from "antd";
+// import { Tabs, Radio, Space } from "antd";
 import moment from "moment";
 import "./HomeMenu.css";
 const { TabPane } = Tabs;
@@ -25,7 +25,7 @@ export default class HomeMenu extends React.PureComponent {
           tab={
             <div>
               {" "}
-              <img src={heThongRap.logo} className="rounded-full" width="50" />
+              <img src={heThongRap.logo} className="rounded-full" width="50" alt={heThongRap.logo}/>
             </div>
           }
           key={index}
@@ -40,6 +40,7 @@ export default class HomeMenu extends React.PureComponent {
                         src={heThongRap.logo}
                         className="rounded-full"
                         width="40"
+                        alt={heThongRap.logo}
                       />{" "}
                       <div className="text-left ml-5 flex-col justify-center">
                         <p className="mb-0 font-bold">{cumRap.tenCumRap}</p>

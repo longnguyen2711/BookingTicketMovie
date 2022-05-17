@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Film.css";
-import {history} from '../../App'
+// import {history} from '../../App'
 
 export default function Film_Flip(props) {
   const { item } = props;

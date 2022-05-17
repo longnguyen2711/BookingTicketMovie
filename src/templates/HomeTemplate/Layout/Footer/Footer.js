@@ -1,16 +1,16 @@
 import React from "react";
-import _ from "lodash";
-import { useSelector } from "react-redux";
 import "./Footer.css";
+// import _ from "lodash";
+// import { useSelector } from "react-redux";
 
 export default function Footer(props) {
-  const { heThongRapChieu } = useSelector((state) => state.QuanLyRapReducer);
 
+  // const { heThongRapChieu } = useSelector((state) => state.QuanLyRapReducer);
   // Tạo ra mảng ít phức tạp hơn, chỉ chứa những thông tin cần thiết bằng lodash
   // Reload lại trang sẽ biến mất
-  const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) =>
-    _.pick(heThongRap, ["maHeThongRap", "tenHeThongRap", "logo"])
-  );
+  // const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) =>
+  //   _.pick(heThongRap, ["maHeThongRap", "tenHeThongRap", "logo"])
+  // );
 
   // Hanlde
   const arrPartner = [
@@ -97,6 +97,7 @@ export default function Footer(props) {
               <a
                 href="https://www.google.com/maps/place/112+%C4%90.+Cao+Th%E1%BA%AFng,+Ph%C6%B0%E1%BB%9Dng+4,+Qu%E1%BA%ADn+3,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.7722385,106.6776846,663m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752f21198a62c1:0xa091bdb5049e5008!8m2!3d10.7722385!4d106.6798733"
                 target="_blank"
+                rel="noreferrer"
                 title="Bấm để xem trên google map"
                 className="mb-2 "
               >
@@ -106,6 +107,7 @@ export default function Footer(props) {
               <a
                 href="tel:0961011014"
                 target="_blank"
+                rel="noreferrer"
                 title="Bấm để gọi tư vấn"
                 className="mb-2 "
               >
@@ -114,6 +116,7 @@ export default function Footer(props) {
               <a
                 href="mailto:cybersoft@gmail.com"
                 target="_blank"
+                rel="noreferrer"
                 title="Bấm để gửi mail"
                 className="mb-5 "
               >
@@ -153,11 +156,13 @@ export default function Footer(props) {
                     href={partner.href}
                     title={partner.name}
                     target="_blank"
+                    rel="noreferrer"
                     className="mr-5"
                   >
                     <img
                       src={partner.logo}
                       style={{ width: 35 }}
+                      alt={partner.logo}
                     />
                   </a>
                 );
@@ -173,6 +178,7 @@ export default function Footer(props) {
                     <li key={index}>
                       <a
                         target="_blank"
+                        rel="noreferrer"
                         title={contact.title}
                         href={contact.href}
                       >
@@ -199,6 +205,7 @@ export default function Footer(props) {
               href="https://cybersoft.edu.vn/"
               title="Cyberlearn"
               target="_blank"
+              rel="noreferrer"
             >
               <img
                 src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png"
@@ -212,8 +219,4 @@ export default function Footer(props) {
       </div>
     </footer>
   );
-}
-
-{
-  /* <img className="logo-zalo" src="https://cybersoft.edu.vn/wp-content/plugins/contact-me-on-zalo/assets/images/zalo-1.png" width={35} alt="zalo-logo"/> */
 }

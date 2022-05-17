@@ -57,7 +57,7 @@ export default function Login(props) {
               <div className="flex justify-between items-center">
                 <label for="matKhau" className="mb-0 ml-1 text-lg font-bold tracking-wide">Mật khẩu</label>
                 <div>
-                  <a className="forgot-password-title text-md font-display font-semibold text-indigo-500 cursor-pointer" title="Bấm để tìm lại mật khẩu">Quên mật khẩu?</a>
+                  <a href="#" className="forgot-password-title text-md font-display font-semibold text-indigo-500 cursor-pointer" title="Bấm để tìm lại mật khẩu">Quên mật khẩu?</a>
                 </div>
               </div>
               <input
@@ -78,7 +78,7 @@ export default function Login(props) {
               </button>
             </div>
           </div>
-          <div className="flex justify-center items-center flex-wrap register mt-10 text-lg text-white font-display text-gray-700 text-center">
+          <div className="flex justify-center items-center flex-wrap register mt-10 text-lg text-white font-display text-center">
             <p className="mb-0 text-right text-white">Bạn chưa có tài khoản ?</p> 
             <NavLink to="/register" className="register-button text-left ml-3 cursor-pointer text-indigo-500 font-semibold" title="Bấm để đăng ký tài khoản">Đăng ký</NavLink>
           </div>
