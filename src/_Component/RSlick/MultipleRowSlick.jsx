@@ -48,10 +48,7 @@ const MultipleRowSlick = (props) => {
 
   let activeClassSC = sapChieu === true ? "active_Film" : "none_active_Film";
 
-  console.log("dangChieu", dangChieu);
-  console.log("sapChieu", sapChieu);
-
-  const settings = {
+   const settings = {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     className: "center variable-width",
@@ -62,7 +59,7 @@ const MultipleRowSlick = (props) => {
     slidesToShow: 5,
     slidesToScroll: 1,
     // slidesPerRow: 2,
-    rows: 2,
+    rows: 1,
     autoplay: true,
     autoplaySpeed: 5000,
     pauseOnHover: true,

@@ -44,7 +44,7 @@ export default function Header(props) {
                     <li className="navigation_list navigation-active">
                     <NavLink to="/home" className='navLink' title="Trang chủ">
                         <span className="icon"><i className="fa fa-home" /></span>
-                        <span className="text text-sm">Trang chủ</span>
+                        <span className="text text-sm cursor-pointer">Trang chủ</span>
                     </NavLink>
                     </li>
                     <li className="navigation_list">

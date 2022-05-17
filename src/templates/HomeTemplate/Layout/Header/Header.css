@@ -14,6 +14,7 @@ html {
   position: fixed;
   right: 25px;
   bottom: 12px;
+  cursor: pointer !important;
 }
 
 #header .back-to-top:hover {
@@ -21,6 +22,7 @@ html {
   border: 1px solid #35a22c;
   box-shadow: 0 0 15px #35a22c;
   background-color: rgba(0, 0, 0, 1);
+  
 
   animation: animate-changecolor 1s linear infinite;
   animation-delay: calc(-0.25s * var(--i));

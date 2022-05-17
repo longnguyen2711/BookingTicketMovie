@@ -1,0 +1,13 @@
+#checkout .screen {
+    border-bottom: 50px solid rgb(68, 68, 68);
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    height: 100;
+    width: 85%;
+    font-size: 25px;
+    color: #fff;
+    margin-left: 35px;
+    opacity: 0.8;
+    filter: drop-shadow(4px 30px 20px rgb(255, 0, 0));
+
+  }

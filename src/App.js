@@ -37,9 +37,9 @@ function App() {
         <Route path="/register" exact component={Register}/>
 
 
-        <CheckoutTemplateLazy path="/checkout/:id" exact Component={Checkout} />
-        {/* Suspense: Dữ liệu html load xong mới hiển thị nếu ko sẽ hiển thị h1
-        <Suspense fallback={<h1 className="font-bold text-center text-8xl mt-60">LOADING...</h1>}>
+        <CheckoutTemplate path="/checkout/:id" exact Component={Checkout} />
+        {/* Suspense: Dữ liệu html load xong mới hiển thị nếu ko sẽ hiển thị h1 */}
+        {/* <Suspense fallback={<h1 className="font-bold text-center text-8xl mt-60">LOADING...</h1>}>
           <CheckoutTemplateLazy path="/checkout/:id" exact Component={Checkout} />
         </Suspense> */}
 

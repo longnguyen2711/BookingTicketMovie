@@ -84,7 +84,7 @@ export default function Footer(props) {
 
   return (
     <footer
-      className="pt-6 mt-0 bg-coolGray-100 text-coolGray-900 bg-black"
+      className="pt-8 mt-0 bg-coolGray-100 text-coolGray-900 bg-black"
       id="footer"
     >
       <div className="space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
@@ -93,11 +93,12 @@ export default function Footer(props) {
             <p className="footer-title pb-1 text-lg font-medium text-white">
               THÔNG TIN LIÊN HỆ
             </p>
-            <nav className="flex flex-col">
+            <nav className="flex flex-col md:flex-row md:justify-between lg:flex-col">
               <a
                 href="https://www.google.com/maps/place/112+%C4%90.+Cao+Th%E1%BA%AFng,+Ph%C6%B0%E1%BB%9Dng+4,+Qu%E1%BA%ADn+3,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.7722385,106.6776846,663m/data=!3m2!1e3!4b1!4m5!3m4!1s0x31752f21198a62c1:0xa091bdb5049e5008!8m2!3d10.7722385!4d106.6798733"
                 target="_blank"
                 title="Bấm để xem trên google map"
+                className="mb-2 "
               >
                 <i class="fa fa-map-marker-alt"></i>Địa chỉ: 112 Cao Thắng, Quận
                 3
@@ -106,6 +107,7 @@ export default function Footer(props) {
                 href="tel:0961011014"
                 target="_blank"
                 title="Bấm để gọi tư vấn"
+                className="mb-2 "
               >
                 <i class="fa fa-phone-volume"></i>Hotline: 0961.01.10.14
               </a>
@@ -113,10 +115,12 @@ export default function Footer(props) {
                 href="mailto:cybersoft@gmail.com"
                 target="_blank"
                 title="Bấm để gửi mail"
+                className="mb-5 "
               >
                 <i class="fa fa-envelope"></i>Email: cybersoft@gmail.com
               </a>
             </nav>
+            <hr className="lg:hidden"/>
           </div>
           <div className="footer-partner col-span-full text-left md:col-span-7 lg:col-span-4 md:mt-0">
             <p className="footer-title pb-1 text-lg font-medium text-white">ĐỐI TÁC</p>
@@ -154,7 +158,6 @@ export default function Footer(props) {
                     <img
                       src={partner.logo}
                       style={{ width: 35 }}
-                      className="hover:scale-150 ease-in duration-200"
                     />
                   </a>
                 );

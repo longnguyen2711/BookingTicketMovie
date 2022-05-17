@@ -13,8 +13,8 @@
 }
 
 #footer .footer-contact ul li:hover {
-  transform: scale(1.4);
-  transition: 0.3s;
+  transform: scale(1.5);
+  transition: 0.2s ease-in;
 }
 
 #footer .footer-contact ul li i {
@@ -50,11 +50,13 @@
 
 #footer .footer-infomation nav a {
   color: white;
-  margin-bottom: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 #footer .footer-infomation nav a:hover {
   color: yellow;
+  transition: none;
 }
 
 #footer .footer-infomation nav a i {
@@ -65,6 +67,21 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
 }
+
+#footer .footer-partner a{
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+
+#footer .footer-partner a:hover{
+  border: 1px solid #f02323;
+  box-shadow: 0 0 15px #f02323;
+  transform: scale(1.5);
+  transition: 0.2s ease-in;
+}
+
+
+
 
 /* animation: animate-changecolor 1s linear infinite;
 animation-delay: calc(-0.25s * var(--i));
