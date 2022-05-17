@@ -118,7 +118,7 @@ export default function Footer(props) {
                 target="_blank"
                 rel="noreferrer"
                 title="Bấm để gửi mail"
-                className="mb-5 "
+                className="mb-5 lg:mb-2"
               >
                 <i class="fa fa-envelope"></i>Email: cybersoft@gmail.com
               </a>

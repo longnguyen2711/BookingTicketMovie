@@ -9,5 +9,26 @@
     margin-left: 35px;
     opacity: 0.8;
     filter: drop-shadow(4px 30px 20px rgb(255, 0, 0));
+}
 
-  }
+#checkout .ghe{
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: gray;
+}
+
+#checkout .gheDaDat{
+  background-color: red;
+  cursor: no-drop;
+}
+
+#checkout .gheDangDat{
+  background-color: green;
+}
+
+#checkout .gheVip{
+  background-color: aqua;
+}

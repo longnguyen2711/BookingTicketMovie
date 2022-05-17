@@ -30,23 +30,32 @@ html {
   transition: 0.5s;
 }
 
+#header .sign-in-up .to-profile{
+  color: yellow;
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+#header .sign-in-up .sign-out,
 #header .sign-in-up .sign-in,
 #header .sign-in-up .sign-up{
   color: white;
   border-radius: 10px;
   border: 2px solid transparent;
-
-  animation: animate-changecolor 1s linear infinite;
-  animation-delay: calc(-0.25s * var(--i));
-  transform-origin: 20px;
-  transition: 0.5s;
 }
 
+#header .sign-in-up .sign-out:hover,
+#header .sign-in-up .to-profile:hover,
 #header .sign-in-up .sign-in:hover,
 #header .sign-in-up .sign-up:hover{
   color: yellow;
   border: 2px solid yellow;
   box-shadow: 0 0 15px yellow;
+
+  animation: animate-changecolor 1s linear infinite;
+  animation-delay: calc(-0.25s * var(--i));
+  transform-origin: 20px;
+  transition: 0.5s;
 }
 
 @keyframes animate-changecolor {

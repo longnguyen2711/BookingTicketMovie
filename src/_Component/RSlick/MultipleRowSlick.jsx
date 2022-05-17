@@ -34,21 +34,11 @@ const MultipleRowSlick = (props) => {
     (state) => state.QuanLyPhimReducer
   );
 
-  const renderFilms = () => {
-    return props.arrFilm.map((item, index) => {
-      return (
-        <div className={`${styleSlick["width-item"]}`} key={index}>
-          <Film item={item} />
-        </div>
-      );
-    });
-  };
-
   let activeClassDC = dangChieu === true ? "active_Film" : "none_active_Film";
 
   let activeClassSC = sapChieu === true ? "active_Film" : "none_active_Film";
 
-   const settings = {
+  const settings = {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     className: "center variable-width",
@@ -87,7 +77,7 @@ const MultipleRowSlick = (props) => {
     //   >
     //     {i + 1}
     //   </div>
-    // ),    
+    // ),
   };
   return (
     <div>
@@ -112,7 +102,15 @@ const MultipleRowSlick = (props) => {
         </button>
       </div>
       <div>
-        <Slider {...settings} className="mx-20 rounded">{renderFilms()}</Slider>
+        <Slider {...settings} className="mx-20 rounded">
+          {props.arrFilm.map((item, index) => {
+            return (
+              <div className={`${styleSlick["width-item"]}`} key={index}>
+                <Film item={item} />
+              </div>
+            );
+          })}
+        </Slider>
       </div>
     </div>
   );

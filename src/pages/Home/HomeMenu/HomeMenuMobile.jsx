@@ -6,7 +6,7 @@ import moment from "moment";
 import "./HomeMenu.css";
 const { TabPane } = Tabs;
 
-export default class HomeMenu extends React.PureComponent {
+export default class HomeMenuMobile extends React.PureComponent {
   state = {
     tabPosition: "left",
   };
@@ -126,7 +126,8 @@ export default class HomeMenu extends React.PureComponent {
     const { tabPosition } = this.state;
     return (
       <>
-        <Tabs tabPosition={tabPosition}>{this.renderHeThongRap()}</Tabs>
+        {/* <Tabs tabPosition={tabPosition}>{this.renderHeThongRap()}</Tabs> */}
+        <div>NHÁP</div>
       </>
     );
   }
