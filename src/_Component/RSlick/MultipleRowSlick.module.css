@@ -1,13 +1,25 @@
 .slick-next:before {
-  color: black !important;
+  color: yellow !important;
   font-size: 3rem !important;
+  background-color: yellow !important;
+  border-radius: 50%;
+  /* padding: 5px 2px 0px 2px; */
+
 }
 
 .slick-prev:before {
-  color: black !important;
+  color: yellow !important;
   font-size: 3rem !important;
-  position: absolute;
-  left: -30px;
+  background-color: yellow !important;
+  border-radius: 50%;
+  /* position: absolute;
+  left: -30px; */
+  /* padding: 5px 2px 0px 2px; */
+}
+
+.slick-next:hover:before,
+.slick-prev:hover:before{
+  box-shadow: 0 0 15px yellow !important;
 }
 
 .width-item {

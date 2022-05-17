@@ -30,7 +30,7 @@
 
 #footer .footer-contact ul li i:hover {
   box-shadow: 0 0 15px #f02323;
-  border: 1px solid #f02323;  
+  border: 1px solid #f02323;
 }
 
 #footer .footer-contact ul li i.fa-instagram {
@@ -44,8 +44,26 @@
   border-bottom: 1px solid #ffff00;
 }
 
-#footer .footer__bottom{
-  background-color: rgba(255,255,255,0.1);
+#footer .footer__bottom {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#footer .footer-infomation nav a {
+  color: white;
+  margin-bottom: 10px;
+}
+
+#footer .footer-infomation nav a:hover {
+  color: yellow;
+}
+
+#footer .footer-infomation nav a i {
+  width: 25px;
+}
+
+#footer .footer-title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
 }
 
 /* animation: animate-changecolor 1s linear infinite;
@@ -61,4 +79,3 @@ transition: 1s;
   filter: hue-rotate(360deg); 
 }
 } */
-

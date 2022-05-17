@@ -13,7 +13,7 @@ html {
   line-height: 40px;
   position: fixed;
   right: 25px;
-  bottom: 25px;
+  bottom: 12px;
 }
 
 #header .back-to-top:hover {
