@@ -14,18 +14,13 @@ export default function Checkout(props) {
 
   const { chiTietPhongVe, danhSachGheDangDat } = useSelector((state) => state.QuanLyDatVeReducer);
 
-  const dispatch = useDispatch;
-
-  console.log("props.match.params.id => ok", props.match.params.id)
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // Mở khóa 2 dòng dưới là bị lỗi, ko dispatch được
-    // const action = layChiTietPhongVeAction(props.match.params.id);
-    // dispatch(action)
+   const action = layChiTietPhongVeAction(props.match.params.id);
+   dispatch(action)
   }, []);
 
-
-  // ko gọi được api nên copy tạm dữ liệu vào file _core/models/ThongTinPhongVe để load hàng ghế
   const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
 
   console.log("Hiện đang cpoy thủ công vào file _core/ThongTinPhongVe", danhSachGhe)

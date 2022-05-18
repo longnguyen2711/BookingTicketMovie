@@ -12,8 +12,6 @@ export const dangNhapAction = (thongTinDangNhap) => {
           type: DANG_NHAP_ACTION,
           thongTinDangNhap: result.data.content,
         });
-
-        // Chuyển hướng đăng nhập về trang trước đó sau khi đăng nhập thành công
         history.goBack();
       }
 

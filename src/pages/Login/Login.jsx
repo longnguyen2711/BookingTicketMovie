@@ -23,6 +23,9 @@ export default function Login(props) {
     onSubmit: values => {
       const action = dangNhapAction(values);
       dispatch(action)
+      setTimeout(() => {
+        props.history.goBack();
+      }, 1000);
     },
   })
   //formik đã xử lý luôn e.preventDefault();
