@@ -22,6 +22,7 @@ export default function Home(props) {
     width: window.innerWidth,
     height: window.innerHeight,
   });
+  
   useEffect(() => {
     // Mỗi lần load dữ liệu component lên hoặc resize sẽ xét lại kích thước cho biến screen
     window.onload = () => {
@@ -43,7 +44,7 @@ export default function Home(props) {
   }, []);
 
   const renderHomeMenu = () => {
-    if (screen.width >= 768) {
+    if (screen.width >= 800) {
       return (
         <div
           id="HomeMenu"
@@ -65,7 +66,7 @@ export default function Home(props) {
   };
 
   const renderMultipleRowSlick = () => {
-    if (screen.width >= 768) {
+    if (screen.width >= 800) {
       return (
         <section id="MultipleRowSlick" className="bg-black py-24">
           <div className="container mx-auto text-gray-600 body-font"></div>

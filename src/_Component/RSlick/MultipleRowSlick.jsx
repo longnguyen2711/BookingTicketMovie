@@ -27,47 +27,27 @@ function SamplePrevArrow(props) {
   );
 }
 
-
-
 const MultipleRowSlick = (props) => {
-
-
   const dispatch = useDispatch();
 
   const { dangChieu, sapChieu } = useSelector(
     (state) => state.QuanLyPhimReducer
   );
 
-
   let activeClassDC = dangChieu === true ? "active_Film" : "none_active_Film";
 
   let activeClassSC = sapChieu === true ? "active_Film" : "none_active_Film";
-  const [screen, setScreen] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-  useEffect(() => {
-    // Mỗi lần load dữ liệu component lên hoặc resize sẽ xét lại kích thước cho biến screen
-    window.onload = () => {
-      setScreen({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-    window.onresize = () => {
-      setScreen({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-    return () => {
-      window.removeEventListener("onload");
-      window.removeEventListener("onresize");
-    };
-  }, []);
-  
 
-  let numberSlidesToShow = screen.width < 1200 ? 4 : 5
+  var numberSlidesToShow = 5;
+  if (window.innerWidth < 1200) {
+    numberSlidesToShow = 4;
+  }
+  if (window.innerWidth < 1000) {
+    numberSlidesToShow = 3.5;
+  }
+  if (window.innerWidth < 900) {
+    numberSlidesToShow = 3;
+  }
 
   const settings = {
     nextArrow: <SampleNextArrow />,

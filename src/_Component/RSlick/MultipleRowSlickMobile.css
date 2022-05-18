@@ -6,6 +6,9 @@
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 } */
+#MultipleRowSlickMobile > div > div{
+width: 100% !important;
+}
 
 #MultipleRowSlickMobile .mul-background img {
   border-top-left-radius: 10px;
