@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import _ from "lodash";
 import "./Header.css";
-// import { history } from '../../../../App';
 
 export default function Header(props) {
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
@@ -49,6 +48,70 @@ export default function Header(props) {
     );
   };
 
+  // Nút ẩn trang thái đăng nhập
+  const renderDropdownMenu = () => {
+    if (_.isEmpty(userLogin)) {
+      return (
+        <div class="dropdown inline-block z-50 fixed right-7 top-8">
+          <button className="header__logo md:hidden">
+            <img
+              src="https://i.imgur.com/lC22izJ.png"
+              alt="cyberlearn.vn"
+              width={45}
+            />
+          </button>
+          <div class="dropdown-menu absolute hidden text-gray-700 pt-7 right-3">
+            <div className="flex flex-col justify-start items-end">
+              <NavLink
+                to="/login"
+                title="Bấm để đăng nhập"
+                className="md-sign-in bg-black w-36 text-center z-50 mb-3 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
+              >
+                Đăng nhập
+              </NavLink>
+              <NavLink
+                to="/register"
+                title="Bấm để đăng ký"
+                className="md-sign-up bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
+              >
+                Đăng ký
+              </NavLink>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div class="dropdown inline-block z-50 fixed right-7 top-8">
+          <button className="header__logo md:hidden">
+            <img
+              src="https://i.imgur.com/lC22izJ.png"
+              alt="cyberlearn.vn"
+              width={45}
+            />
+          </button>
+          <div class="dropdown-menu absolute hidden text-gray-700 pt-7 right-3">
+            <div className="flex flex-col justify-start items-end">
+              <NavLink
+                to="/profile"
+                title="Đến trang cá nhân"
+                className="md-sign-in bg-black w-36 text-center z-50 mb-3 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
+              >
+                {userLogin.taiKhoan}
+              </NavLink>
+              <button
+                title="Bấm để đăng xuất"
+                className="md-sign-up bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
+              >
+                Đăng xuất
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  };
+
   // Hiệu ứng trượt navbar
   const navigation_list = document.querySelectorAll(".navigation_list");
   function activeLink() {
@@ -83,11 +146,6 @@ export default function Header(props) {
       window.removeEventListener("onresize");
     };
   }, []);
-
-  var classNavbar = "navbar-laptop";
-  if (screen.width < 768) {
-    classNavbar = "navbar-mobile";
-  }
 
   // Chọn kích cỡ navbar theo kích thước màn hình
   const layoutNabar = () => {
@@ -163,40 +221,9 @@ export default function Header(props) {
 
         <div className="sign-in-up items-center flex-shrink-0 hidden md:flex">
           {renderLogin()}
-          {/* <button onClick={() => {
-                    props.history.push('/login')
-                }} title="Bấm để đăng nhập" className="sign-in focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3 hover:text-yellow-500 hover:border-yellow-500 hover:bg-black">Đăng nhập</button> */}
-          {/* <NavLink to='/login' title="Bấm để đăng nhập" className="sign-in focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3 hover:text-yellow-500 hover:border-yellow-500 hover:bg-black">Đăng nhập</NavLink>
-                <NavLink to='/register' title="Bấm để đăng ký" className="sign-up focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black hover:text-yellow-500 hover:border-yellow-500 hover:bg-black">Đăng ký</NavLink> */}
         </div>
 
-        <div class="dropdown inline-block z-50 fixed right-7 top-8">
-          <button className="header__logo md:hidden">
-            <img
-              src="https://i.imgur.com/lC22izJ.png"
-              alt="cyberlearn.vn"
-              width={45}
-            />
-          </button>
-          <div class="dropdown-menu absolute hidden text-gray-700 pt-7 right-3">
-            <div className="flex flex-col justify-start items-end">
-              <NavLink
-                to="/login"
-                title="Bấm để đăng nhập"
-                className="md-sign-in bg-black w-36 text-center z-50 mb-3 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
-              >
-                Đăng nhập
-              </NavLink>
-              <NavLink
-                to="/register"
-                title="Bấm để đăng ký"
-                className="md-sign-up bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
-              >
-                Đăng ký
-              </NavLink>
-            </div>
-          </div>
-        </div>
+        {renderDropdownMenu()}
       </div>
       <a class="back-to-top" href="#" title="Về đầu trang">
         <i class="fa fa-angle-up"></i>
