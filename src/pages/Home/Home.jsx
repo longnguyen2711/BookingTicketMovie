@@ -76,7 +76,7 @@ export default function Home(props) {
       return (
         <section
           id="MultipleRowSlickMobile"
-          className="container mx-auto body-font"
+          className="container mt-10 mx-auto body-font"
         >
           <MultipleRowSlickMobile arrFilm={arrFilm} />
         </section>

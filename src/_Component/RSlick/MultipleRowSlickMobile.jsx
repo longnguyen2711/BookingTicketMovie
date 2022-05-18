@@ -20,12 +20,12 @@ const MultipleRowSlickMobile = (props) => {
   console.log("props", props.arrFilm);
 
   const renderFilms = () => {
-    return props.arrFilm?.map((item, index) => {
+    return props.arrFilm?.slice(0,20).map((item, index) => {
       return (
         <div className={`${styleSlick["width-item"]}`} key={index}>
-          <div className="card grid grid-cols-12 relative mb-10 border-2 border-red-600 h-52">
+          <div className="film-card grid grid-cols-12 relative mb-5 border-1">
             <div
-              className="mul-background col-span-3 h-52"
+              className="mul-background col-span-3 h-60"
               style={{ backgroundImage: `url(${item.hinhAnh})` }}
             >
               <img
@@ -35,31 +35,32 @@ const MultipleRowSlickMobile = (props) => {
                 style={{ width: 200, height: 300, opacity: 0 }}
               />
             </div>
-            <div className="col-span-9 p-3">
-              <p className="">{item.tenPhim}</p>
-              <p>
+            <div className="film-info flex-col p-0 col-span-9 px-3 py-4">
+              <p className="font-bold text-xl mb-2">{item.tenPhim}</p>
+              <p className="font-bold mb-3 text-md">
                 Khởi chiếu: {moment(item.ngayKhoiChieu).format("DD.MM.YYYY")}
               </p>
-              {item.moTa.length > 200 ? (
-                <p>{item.moTa.slice(0, 200)}...</p>
+              {item.moTa.length > 180 ? (
+                <p className="mb-2">{item.moTa.slice(0, 180)}...</p>
               ) : (
-                <p>{item.moTa}</p>
+                <p className="mb-2">{item.moTa}</p>
               )}
-              <p>
+              <p className="mb-0" title={`${item.danhGia / 2} sao`}>
                 <Rate allowHalf value={item.danhGia / 2} />
               </p>
             </div>
-            <div className="absolute bottom-0 right-0">
+            <div className="booking-trailer-button absolute bottom-5 right-5">
               <a
                 href={item.trailer}
-                className=" py-1 px-4 text-white bg-green-500 rounded mr-4"
+                className="trailer-button py-2 px-4 mr-5 font-bold"
                 title="Xem trailer trên Youtube"
+                target="_blank"
               >
                 Trailer
               </a>
               <NavLink
                 to={`/detail/${item.maPhim}`}
-                className="py-1 px-4 text-white bg-green-500 rounded"
+                className="booking-button py-2 px-5 font-bold "
                 title="Bấm để đặt vé"
               >
                 Đặt vé

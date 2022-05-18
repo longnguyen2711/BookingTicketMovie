@@ -2,5 +2,47 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    background-clip: content-box;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    /* padding: 5px;
+    border-radius: 10px; */
 }
+
+#MultipleRowSlickMobile .film-card{
+    border: 1px solid black;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-radius: 10px;
+}
+
+#MultipleRowSlickMobile .film-info{
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: justify;
+}
+
+#MultipleRowSlickMobile .film-info p:first-of-type{
+    font-family:'Times New Roman', Times, serif;
+}
+
+#MultipleRowSlickMobile .booking-trailer-button .trailer-button,
+#MultipleRowSlickMobile .booking-trailer-button .booking-button{
+    border: 1px solid #35a22c;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#MultipleRowSlickMobile .booking-trailer-button .trailer-button:hover,
+#MultipleRowSlickMobile .booking-trailer-button .booking-button:hover{
+    border: 1px solid black;
+    color: white;
+    background-color: #35a22c;
+    box-shadow: 0 0 8px black;
+    transition: 0.4s;
+}
+
+
 
