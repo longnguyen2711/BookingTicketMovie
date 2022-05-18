@@ -6,8 +6,9 @@ import "./Checkout.css";
 
 export default function Checkout(props) {
 
-  // Để làm background
-  const filmDetail = useSelector((state) => state.QuanLyPhimReducer.filmDetail); 
+  // Để làm background khi đặt vé của từng phim
+  // const filmDetail = useSelector((state) => state.QuanLyPhimReducer.filmDetail); 
+
 
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
 
@@ -15,11 +16,15 @@ export default function Checkout(props) {
 
   const dispatch = useDispatch;
 
+  console.log("props.match.params.id", props.match.params.id)
+
   useEffect(() => {
+    // Mở khóa 2 dòng dưới là bị lỗi, ko dispatch được
     // const action = layChiTietPhongVeAction(props.match.params.id);
     // dispatch(action)
   }, []);
 
+  // ko gọi được api nên nopy tạm dữ liệu vào file _core/models/ThongTinPhongVe để load hàng ghế
   const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
 
   console.log({danhSachGhe})
@@ -44,7 +49,8 @@ export default function Checkout(props) {
               className={`ghe ${classGheVip}  ${classGheDaDat} ${classGheDangDat} ${classSpacingHeight} ${classSpacingWidth} m-2`}
               key={index}
               onClick={() => {
-                console.log("Cái này này lên, dispatch ko lên")
+                // dispatch ko được
+                console.log("Dòng này lên, dispatch ở dưới ko lên")
                 dispatch({
                   type: DAT_VE,
                   gheDuocChon:ghe 

@@ -1,6 +1,7 @@
 export class ThongTinLichChieu {
   thongTinPhim = new ThongTinPhim();
   danhSachGhe = [{
+    // Không call được api nên copy tạm để render hàng ghế
     "maGhe": 50281,
     "tenGhe": "01",
     "maRap": 469,

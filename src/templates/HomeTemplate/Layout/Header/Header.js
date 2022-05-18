@@ -98,6 +98,7 @@ export default function Header(props) {
                 <NavLink to='/register' title="Bấm để đăng ký" className="sign-up focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black hover:text-yellow-500 hover:border-yellow-500 hover:bg-black">Đăng ký</NavLink> */}
             </div>
             
+       
             <button className="header__logo md:hidden px-2">
                 <img src="https://i.imgur.com/lC22izJ.png" alt="cyberlearn.vn" width={45}/>
             </button>

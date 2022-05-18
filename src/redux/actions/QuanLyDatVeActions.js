@@ -7,7 +7,7 @@ export const layChiTietPhongVeAction = (maLichChieu) => {
 
       const result = await quanLyDatVeService.layChiTietPhongVe(maLichChieu);
 
-        console.log("234234", result)
+        console.log("Không load được", result)
         
       if (result.data.statusCode === 200) {
         dispatch({
