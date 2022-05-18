@@ -19,13 +19,13 @@ export default function Checkout(props) {
   console.log("props.match.params.id => ok", props.match.params.id)
 
   useEffect(() => {
-    // Mở khóa 2 dòng dưới là bị lỗi, ko dispatch đượcs
-    const action = layChiTietPhongVeAction(props.match.params.id);
-    dispatch(action)
+    // Mở khóa 2 dòng dưới là bị lỗi, ko dispatch được
+    // const action = layChiTietPhongVeAction(props.match.params.id);
+    // dispatch(action)
   }, []);
 
 
-  // ko gọi được api nên nopy tạm dữ liệu vào file _core/models/ThongTinPhongVe để load hàng ghế
+  // ko gọi được api nên copy tạm dữ liệu vào file _core/models/ThongTinPhongVe để load hàng ghế
   const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
 
   console.log("Hiện đang cpoy thủ công vào file _core/ThongTinPhongVe", danhSachGhe)

@@ -1,19 +1,22 @@
-.slick-next:before {
-  color: yellow !important;
-  font-size: 3rem !important;
-  background-color: yellow !important;
-  border-radius: 50%;
-  /* padding: 5px 2px 0px 2px; */
+  .slick-next:before {
+    color: black !important;
+    font-size: 3rem !important;
+    background-color: yellow !important;
+    border-radius: 50%;
+    position: absolute;
+    left: -20px;
+    /* padding: 5px 2px 0px 2px; */
 
-}
+  }
 
 .slick-prev:before {
-  color: yellow !important;
+  color: black !important;
   font-size: 3rem !important;
   background-color: yellow !important;
   border-radius: 50%;
-  /* position: absolute;
-  left: -30px; */
+  position: absolute;
+  left: -30px;
+
   /* padding: 5px 2px 0px 2px; */
 }
 
@@ -23,7 +26,7 @@
 }
 
 .width-item {
-  width: 100% !important;
+  width: 80% !important;
 }
 
 .active_Film {

@@ -30,8 +30,8 @@
 }
 
 #footer .footer-contact ul li i:hover {
-  box-shadow: 0 0 15px ;
-  border: 1px solid ;
+  box-shadow: 0 0 15px #f02323;
+  border: 1px solid #f02323;
 }
 
 #footer .footer-contact ul li i.fa-instagram {

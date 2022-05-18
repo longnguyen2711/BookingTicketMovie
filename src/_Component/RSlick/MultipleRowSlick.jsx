@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Slider from "react-slick";
 import { SET_PHIM_DANG_CHIEU, SET_PHIM_SAP_CHIEU } from "../../redux/types";
@@ -27,16 +27,47 @@ function SamplePrevArrow(props) {
   );
 }
 
+
+
 const MultipleRowSlick = (props) => {
+
+
   const dispatch = useDispatch();
 
   const { dangChieu, sapChieu } = useSelector(
     (state) => state.QuanLyPhimReducer
   );
 
+
   let activeClassDC = dangChieu === true ? "active_Film" : "none_active_Film";
 
   let activeClassSC = sapChieu === true ? "active_Film" : "none_active_Film";
+  const [screen, setScreen] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+  useEffect(() => {
+    // Mỗi lần load dữ liệu component lên hoặc resize sẽ xét lại kích thước cho biến screen
+    window.onload = () => {
+      setScreen({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    window.onresize = () => {
+      setScreen({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    return () => {
+      window.removeEventListener("onload");
+      window.removeEventListener("onresize");
+    };
+  }, []);
+  
+
+  let numberSlidesToShow = screen.width < 1200 ? 4 : 5
 
   const settings = {
     nextArrow: <SampleNextArrow />,
@@ -46,12 +77,12 @@ const MultipleRowSlick = (props) => {
     centerPadding: "60px",
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: numberSlidesToShow,
     slidesToScroll: 1,
     // slidesPerRow: 2,
-    rows: 1,
+    rows: 2,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 4000,
     pauseOnHover: true,
     // dots: true,
     // appendDots: (dots) => (

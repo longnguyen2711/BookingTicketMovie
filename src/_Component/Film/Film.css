@@ -10,8 +10,8 @@
   border: 2px solid transparent;
 }
 
-.card:hover{
-  box-shadow: 0 0 15px white;
+.card-inner:hover{
+  box-shadow: 0 0 10px white;
   border-radius: 5px;
   border: 2px solid white;
 }

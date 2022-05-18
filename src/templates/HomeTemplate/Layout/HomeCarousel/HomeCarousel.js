@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Slider from "react-slick";
 import { useSelector, useDispatch } from "react-redux";
 import { getCarouselAction } from "../../../../redux/actions/CarouselActions";
-import './HomeCarousel.css'
+import "./HomeCarousel.css";
 
 const contentStyle = {
   height: "600px",
@@ -26,9 +26,9 @@ export default function HomeCarousel(props) {
   const renderImg = () => {
     return arrImg.map((item, index) => {
       return (
-        <div className="Carousel" key={index}>
+        <div key={index}>
           <div
-            style={{ ...contentStyle, backgroundImage: `url(${item.hinhAnh})`}}
+            style={{ ...contentStyle, backgroundImage: `url(${item.hinhAnh})` }}
           >
             <img
               src={item.hinhAnh}
@@ -47,21 +47,15 @@ export default function HomeCarousel(props) {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 4000,
     pauseOnHover: true,
-    dots: true,
-    appendDots: (dots) => (
-      <div
-        style={{
-          position: "relative",
-        }}>
-        <ul style={{ margin: "0px" }}> {dots} </ul>
-      </div>
-    ),
   };
 
   return (
-    <Slider {...settings} className="relative z-1 m-auto">{renderImg()}</Slider>
-
+    <section id="Carousel">
+      <Slider {...settings} className="relative z-1 m-auto">
+        {renderImg()}
+      </Slider>
+    </section>
   );
 }

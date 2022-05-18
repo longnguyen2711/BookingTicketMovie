@@ -23,7 +23,6 @@ export default function Login(props) {
     onSubmit: values => {
       const action = dangNhapAction(values);
       dispatch(action)
-      console.log({values})
     },
   })
   //formik đã xử lý luôn e.preventDefault();
