@@ -14,11 +14,15 @@ export default function Film_Flip(props) {
             src={item.hinhAnh}
             alt="Avatar"
             title={item.tenPhim}
-            style={{ width: 200, height: 300}}
+            style={{ width: 200, height: 300 }}
           />
         </div>
-        <NavLink to={`/detail/${item.maPhim}`} className="card-booking" title="Bấm để đặt vé">
-          ĐẶT VÉ
+        <NavLink
+          to={`/detail/${item.maPhim}`}
+          className="card-booking"
+          title="Bấm để đặt vé"
+        >
+          <p className="z-10 mb-0">ĐẶT VÉ</p>
         </NavLink>
 
         {/* Cách 2: Dùng history */}
@@ -27,7 +31,6 @@ export default function Film_Flip(props) {
         }}>
           ĐẶT VÉ
         </div> */}
-        
       </div>{" "}
     </div>
   );

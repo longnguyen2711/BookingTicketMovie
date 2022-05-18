@@ -3,33 +3,37 @@ import { NavLink } from "react-router-dom";
 import { Tabs } from "antd";
 // import { Tabs, Radio, Space } from "antd";
 import moment from "moment";
-import "./HomeMenu.css";
+import "./HomeMenuMobile.css";
 const { TabPane } = Tabs;
 
 export default class HomeMenuMobile extends React.PureComponent {
   state = {
-    tabPosition: "left",
+    tabPosition: "top",
   };
 
   changeTabPosition = (e) => {
     this.setState({ tabPosition: e.target.value });
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    
+  }
 
   renderHeThongRap = () => {
+   
     return this.props.heThongRapChieu?.map((heThongRap, index) => {
       let { tabPosition } = this.state;
       return (
         <TabPane
           tab={
-            <div>
+            <div className="flex justify-center">
               {" "}
               <img
                 src={heThongRap.logo}
-                className="rounded-full"
+                className="rounded-full cursor-pointer"
                 width="50"
                 alt={heThongRap.logo}
+                title={heThongRap.tenHeThongRap}
               />
             </div>
           }
@@ -41,15 +45,9 @@ export default class HomeMenuMobile extends React.PureComponent {
                 <TabPane
                   tab={
                     <div className="flex items-center" title={cumRap.diaChi}>
-                      <img
-                        src={heThongRap.logo}
-                        className="rounded-full"
-                        width="40"
-                        alt={heThongRap.logo}
-                      />{" "}
-                      <div className="text-left ml-5 flex-col justify-center">
-                        <p className="mb-0 font-bold">{cumRap.tenCumRap}</p>
-                        <p className="mb-0">
+                      <div className="text-left flex-col justify-center">
+                        <p className="mb-0 font-bold cursor-pointer">{cumRap.tenCumRap}</p>
+                        <p className="mb-0 cursor-pointer">
                           {" "}
                           {cumRap.diaChi.length > 40 ? (
                             <span className="text-gray-600">
@@ -61,64 +59,67 @@ export default class HomeMenuMobile extends React.PureComponent {
                             </span>
                           )}
                         </p>
-                        <p className="mb-0 text-red-500 cursor-pointer">
-                          Chi tiết
-                        </p>
                       </div>
                     </div>
                   }
                   key={index}
                 >
-                  {cumRap.danhSachPhim.slice(0, 5).map((phim, index) => {
+                  {cumRap.danhSachPhim.slice(0, 15).map((phim, index) => {
                     return (
                       <Fragment key={index}>
-                        <div
-                          className="p-10 cursor-pointer"
-                          title={phim.tenPhim}
-                        >
-                          <div className=" w-full lg:max-w-full lg:flex">
-                            <div
-                              className="w-1/4 border-t border-b border-l border-gray-400 h-48 lg:h-auto flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-                              style={{
-                                backgroundImage: `url(${phim.hinhAnh})`,
-                                backgroundPosition: "center",
-                                backgroundClip: "content-box",
-                                padding: "5px",
-                              }}
-                            ></div>
-                            <div className="w-3/4 border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                              <div>
-                                <div className="text-gray-900 font-bold text-xl mb-2">
-                                  {phim.tenPhim}
-                                </div>
-                                <p className="text-gray-700 text-base">
-                                  {cumRap.diaChi}
-                                </p>
+                        <div className="w-full grid grid-cols-12">
+                          <div
+                            className="col-span-2 bg-cover cursor-pointer"
+                            title={phim.tenPhim}
+                            style={{
+                              backgroundImage: `url(${phim.hinhAnh})`,
+                              backgroundPosition: "center",
+                              backgroundClip: "content-box",
+                              padding: "",
+                            }}
+                          ></div>
+                          <div className="col-span-10 p-4 flex flex-col justify-between leading-normal">
+                            <div>
+                              <div
+                                className="text-gray-900 font-bold text-xl mb-2 cursor-pointer"
+                                title={phim.tenPhim}
+                              >
+                                {phim.tenPhim}
                               </div>
-                              <div className="flex items-center">
-                                <div className="text-sm">
-                                  <div className="grid grid-cols-4 gap-3">
-                                    {phim.lstLichChieuTheoPhim
-                                      ?.slice(0, 8)
-                                      .map((lichChieu, index) => {
-                                        return (
-                                          <NavLink
-                                            to={`/checkout/${lichChieu.maLichChieu}`}
-                                            key={index}
-                                            className=" text-blue-600 hover:text-red-600 text-xs	font-sans	"
-                                          >
-                                            {moment(
-                                              lichChieu.ngayChieuGioChieu
-                                            ).format("hh:mm A")}
-                                          </NavLink>
-                                        );
-                                      })}
-                                  </div>
+                              <p
+                                className="text-gray-700 text-base cursor-pointer"
+                                title={cumRap.diaChi}
+                              >
+                                {cumRap.diaChi}
+                              </p>
+                            </div>
+                            <div className="flex items-center">
+                              <div className="text-sm">
+                                <div className="grid grid-cols-6 gap-y-3">
+                                  {phim.lstLichChieuTheoPhim
+                                    ?.slice(0,window.innerWidth < 600 ? 10 : 12)
+                                    .map((lichChieu, index) => {
+                                      return (
+                                        <NavLink
+                                          to={`/checkout/${lichChieu.maLichChieu}`}
+                                          key={index}
+                                          title={`Đặt vé lúc ${moment(
+                                            lichChieu.ngayChieuGioChieu
+                                          ).format("hh:mm A")}`}
+                                          className=" text-blue-600 hover:text-red-600 text-xs cursor-pointer w-20"
+                                        >
+                                          {moment(
+                                            lichChieu.ngayChieuGioChieu
+                                          ).format("hh:mm A")}
+                                        </NavLink>
+                                      );
+                                    })}
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
+                        <hr />
                       </Fragment>
                     );
                   })}
@@ -134,13 +135,9 @@ export default class HomeMenuMobile extends React.PureComponent {
   render() {
     const { tabPosition } = this.state;
     return (
-      <div>
-
-        {/* <Tabs tabPosition={tabPosition}>{this.renderHeThongRap()}</Tabs> */}
-        
-
-
-      </div>
+      <section>
+        <Tabs tabPosition={tabPosition}>{this.renderHeThongRap()}</Tabs>
+      </section>
     );
   }
 }

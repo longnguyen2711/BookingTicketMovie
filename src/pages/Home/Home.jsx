@@ -57,7 +57,7 @@ export default function Home(props) {
       return (
         <div
           id="HomeMenuMobile"
-          className="mx-32 border border-gray-400 p-4 my-10 rounded"
+          className="m-10 border border-gray-400 rounded"
         >
           <HomeMenuMobile heThongRapChieu={heThongRapChieu} />
         </div>

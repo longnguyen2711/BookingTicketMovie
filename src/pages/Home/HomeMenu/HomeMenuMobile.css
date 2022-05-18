@@ -1,0 +1,14 @@
+#HomeMenuMobile .ant-tabs > .ant-tabs-nav .ant-tabs-nav-wrap{
+  display: flex;
+  justify-content: center;
+}
+
+#HomeMenuMobile .ant-tabs > .ant-tabs-nav .ant-tabs-nav-more{
+  background-color: rgb(230, 230, 230);
+  color: black
+}
+
+#HomeMenuMobile .ant-tabs > .ant-tabs-nav{
+  margin-bottom: 0;
+}
+

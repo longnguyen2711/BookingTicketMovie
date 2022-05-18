@@ -52,7 +52,7 @@ export default function Header(props) {
   const renderDropdownMenu = () => {
     if (_.isEmpty(userLogin)) {
       return (
-        <div class="dropdown inline-block z-50 fixed right-7 top-8">
+        <div class="dropdown-button dropdown inline-block z-50">
           <button className="header__logo md:hidden">
             <img
               src="https://i.imgur.com/lC22izJ.png"
@@ -60,7 +60,7 @@ export default function Header(props) {
               width={45}
             />
           </button>
-          <div class="dropdown-menu absolute hidden text-gray-700 pt-7 right-3">
+          <div class="dropdown-menu hidden text-gray-700 right-0">
             <div className="flex flex-col justify-start items-end">
               <NavLink
                 to="/login"
@@ -82,7 +82,7 @@ export default function Header(props) {
       );
     } else {
       return (
-        <div class="dropdown inline-block z-50 fixed right-7 top-8">
+        <div class="dropdown-button dropdown inline-block z-50">
           <button className="header__logo md:hidden">
             <img
               src="https://i.imgur.com/lC22izJ.png"
@@ -90,7 +90,7 @@ export default function Header(props) {
               width={45}
             />
           </button>
-          <div class="dropdown-menu absolute hidden text-gray-700 pt-7 right-3">
+          <div class="dropdown-menu hidden text-gray-700 right-0">
             <div className="flex flex-col justify-start items-end">
               <NavLink
                 to="/profile"
@@ -121,6 +121,7 @@ export default function Header(props) {
     this.classList.add("navigation-active");
   }
   navigation_list.forEach((item) => item.addEventListener("click", activeLink));
+
 
   // Xét kích thước màn hình
   const [screen, setScreen] = useState({
@@ -201,7 +202,7 @@ export default function Header(props) {
   return (
     <header
       id="header"
-      className="overflow-hidden p-5 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-40 bg-black text-white fixed top-0 left-0 w-full z-10"
+      className="overflow-hidden p-4 md:p-5 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-40 bg-black text-white fixed top-0 left-0 w-full z-10"
     >
       <div className="container flex justify-between h-16 mx-auto max-w-screen-xl">
         <NavLink

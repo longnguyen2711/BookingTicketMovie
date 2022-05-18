@@ -16,7 +16,7 @@
 }
 
 #MultipleRowSlickMobile .film-card {
-  border: 1px solid black;
+  border: 1px solid gray;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   border-radius: 10px;
@@ -57,6 +57,7 @@
 #MultipleRowSlickMobile .film-card {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   display: grid;
+  margin-bottom: 20px;
 }
 
 #MultipleRowSlickMobile .mul-background {
@@ -74,6 +75,15 @@
   }
   #MultipleRowSlickMobile .film-info {
     grid-column: 1 / span 12;
+  }
+  #MultipleRowSlickMobile .film-card {
+    margin-bottom: 10px !important;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #MultipleRowSlickMobile .film-card {
+    margin-bottom: 15px;
   }
 }
 

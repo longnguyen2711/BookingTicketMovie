@@ -2,6 +2,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Nút quay về đầu trang */
 #header .back-to-top {
   color: #ffffff;
   background-color: rgba(53, 162, 44, 0.5);
@@ -21,8 +22,7 @@ html {
   color: yellow;
   border: 1px solid #35a22c;
   box-shadow: 0 0 15px #35a22c;
-  background-color: rgba(0, 0, 0, 1);
-  
+  background-color: rgba(0, 0, 0, 1);  
 
   animation: animate-changecolor 1s linear infinite;
   animation-delay: calc(-0.25s * var(--i));
@@ -30,6 +30,7 @@ html {
   transition: 0.5s;
 }
 
+/* Đăng nhập - Đăng xuất */
 #header .sign-in-up .to-profile{
   color: yellow;
   border-radius: 10px;
@@ -51,7 +52,7 @@ html {
   color: yellow;
   border: 2px solid yellow;
   box-shadow: 0 0 15px yellow;
-
+  background-color: black !important;
   animation: animate-changecolor 1s linear infinite;
   animation-delay: calc(-0.25s * var(--i));
   transform-origin: 20px;
@@ -67,7 +68,6 @@ html {
 }
 }
 
-/* -------- Logo ------- */
 #header .md-sign-in,
 #header .md-sign-up{
   color: yellow;
@@ -323,3 +323,35 @@ html {
     box-shadow: 0 0 15px yellow;
     border: 2px solid  yellow;
 } 
+
+/* Dropdown button */
+#header .dropdown-button{
+  position: fixed;
+  top: 32px;
+  right: 28px;
+}
+#header .dropdown-menu{
+  position: absolute;
+  padding-top: 28px;
+}
+
+/* Responsive */
+@media screen and (max-width: 450px) {
+  #MultipleRowSlickMobile .mul-background {
+    display: none;
+    grid-column: auto;
+  }
+
+  #MultipleRowSlickMobile .film-info {
+    grid-column: 1 / span 12;
+  }
+
+  #header .dropdown-button{
+    top: 110px;
+    right: 15px;
+  }
+
+  #header .dropdown-menu{
+    padding-top: 5px;
+  }
+}
