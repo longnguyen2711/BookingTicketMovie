@@ -49,3 +49,19 @@ width: 100% !important;
   box-shadow: 0 0 8px black;
   transition: 0.4s;
 }
+
+#MultipleRowSlickMobile .film-info p:nth-child(3){
+  display: none;
+}
+
+@media screen and (max-width: 450px) {
+  #MultipleRowSlickMobile .mul-background{
+    display: none;    
+  }
+}
+
+@media screen and (min-width: 640px) {
+  #MultipleRowSlickMobile .film-info p:nth-child(3){
+    display: block;    
+  }
+}

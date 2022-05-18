@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
-import { Tabs} from "antd";
+import { Tabs } from "antd";
 // import { Tabs, Radio, Space } from "antd";
 import moment from "moment";
 import "./HomeMenu.css";
@@ -25,7 +25,12 @@ export default class HomeMenuMobile extends React.PureComponent {
           tab={
             <div>
               {" "}
-              <img src={heThongRap.logo} className="rounded-full" width="50" alt={heThongRap.logo}/>
+              <img
+                src={heThongRap.logo}
+                className="rounded-full"
+                width="50"
+                alt={heThongRap.logo}
+              />
             </div>
           }
           key={index}
@@ -47,9 +52,13 @@ export default class HomeMenuMobile extends React.PureComponent {
                         <p className="mb-0">
                           {" "}
                           {cumRap.diaChi.length > 40 ? (
-                            <span className="text-gray-600">{cumRap.diaChi.slice(0, 40)}...</span>
+                            <span className="text-gray-600">
+                              {cumRap.diaChi.slice(0, 40)}...
+                            </span>
                           ) : (
-                            <span className="text-gray-600">{cumRap.diaChi}</span>
+                            <span className="text-gray-600">
+                              {cumRap.diaChi}
+                            </span>
                           )}
                         </p>
                         <p className="mb-0 text-red-500 cursor-pointer">
@@ -125,10 +134,25 @@ export default class HomeMenuMobile extends React.PureComponent {
   render() {
     const { tabPosition } = this.state;
     return (
-      <>
+      <div>
         {/* <Tabs tabPosition={tabPosition}>{this.renderHeThongRap()}</Tabs> */}
-        <div>NHÁP</div>
-      </>
+
+        <div class="p-10">
+
+<div class="dropdown inline-block relative">
+  <button class="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
+    <span class="mr-1">Dropdown</span>
+    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+  </button>
+  <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+    <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">One</a></li>
+    <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Two</a></li>
+    <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Three is the magic number</a></li>
+  </ul>
+</div>
+
+</div>
+      </div>
     );
   }
 }

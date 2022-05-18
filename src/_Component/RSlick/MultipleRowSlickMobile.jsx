@@ -23,7 +23,7 @@ const MultipleRowSlickMobile = (props) => {
         <div className={`${styleSlick["width-item"]}`} key={index}>
           <div className="film-card grid grid-cols-12 relative mb-5 border-1 h-full">
             <div
-              className="mul-background col-span-3 flex items-center"
+              className="mul-background col-span-1 xs:col-span-3 flex items-center"
               // style={{ backgroundImage: `url(${item.hinhAnh})` }}
             >
               <img
@@ -33,7 +33,7 @@ const MultipleRowSlickMobile = (props) => {
                 style={{ width: "100%", height: "100%", opacity: 1 }}
               />
             </div>
-            <div className="film-info flex-col p-0 col-span-9 px-3 py-4">
+            <div className="film-info flex-col p-0 col-span-12 xs:col-span-9 px-3 py-4">
               <p className="font-bold  text-lg sm:text-xl mb-2">
                 {item.tenPhim}
               </p>
@@ -41,11 +41,11 @@ const MultipleRowSlickMobile = (props) => {
                 Khởi chiếu: {moment(item.ngayKhoiChieu).format("DD.MM.YYYY")}
               </p>
               {item.moTa.length > 180 ? (
-                <p className="mb-2 hidden sm:flex">
+                <p className="mb-2">
                   {item.moTa.slice(0, 180)}...
                 </p>
               ) : (
-                <p className="mb-2 hidden sm:flex">{item.moTa}</p>
+                <p className="mb-2 xs:hidden">{item.moTa}</p>
               )}
               <p className="mb-3 sm:mb-0" title={`${item.danhGia / 2} sao`}>
                 <Rate allowHalf value={item.danhGia / 2} />
