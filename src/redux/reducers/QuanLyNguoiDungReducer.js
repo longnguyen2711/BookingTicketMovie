@@ -23,10 +23,15 @@ export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
       return { ...state, userLogin: thongTinDangNhap };
     }
 
+
+
     case SET_THONG_TIN_NGUOI_DUNG: {
       state.thongTinNguoiDung = action.thongTinNguoiDung;
       return { ...state };
     }
+
+
+    
     default:
       return { ...state };
   }

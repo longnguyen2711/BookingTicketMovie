@@ -37,3 +37,8 @@
   box-shadow: 0 0 10px black;
   border: 1px solid black;
 }
+
+#checkout .gheNguoiKhacDangDat{
+  background-color: orchid;
+  cursor: no-drop;
+}

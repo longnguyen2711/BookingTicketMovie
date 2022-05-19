@@ -18,3 +18,15 @@ export const DAT_VE = "DAT_VE";
 
 export const SET_THONG_TIN_NGUOI_DUNG = "SET_THONG_TIN_NGUOI_DUNG";
 
+export const DISPLAY_LOADING = "DISPLAY_LOADING";
+
+export const HIDE_LOADING = "HIDE_LOADING";
+
+export const DAT_VE_HOAN_TAT = "DAT_VE_HOAN_TAT";
+
+export const CHUYEN_TAB = "CHUYEN_TAB";
+
+export const CHANGE_TAB_ACTIVE = "CHANGE_TAB_ACTIVE";
+
+
+
