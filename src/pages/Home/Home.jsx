@@ -48,7 +48,7 @@ export default function Home(props) {
       return (
         <div
           id="HomeMenu"
-          className="mx-32 border border-gray-400 p-4 my-10 rounded"
+          className="m-20 border border-gray-400 rounded"
         >
           <HomeMenu heThongRapChieu={heThongRapChieu} />
         </div>
@@ -87,7 +87,7 @@ export default function Home(props) {
 
   return (
     <section>
-      <HomeCarousel />
+      {/* <HomeCarousel /> */}
       {renderMultipleRowSlick()}
       {renderHomeMenu()}
     </section>

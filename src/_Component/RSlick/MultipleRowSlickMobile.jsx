@@ -18,7 +18,7 @@ const MultipleRowSlickMobile = (props) => {
   let activeClassSC = sapChieu === true ? "active_Film" : "none_active_Film";
 
   const renderFilms = () => {
-    return props.arrFilm?.slice(0, 20).map((item, index) => {
+    return props.arrFilm?.slice(0, 15).map((item, index) => {
       return (
         <div className={`${styleSlick["width-item"]}`} key={index}>
           <div className="film-card grid grid-cols-12 relative h-full">
@@ -34,10 +34,10 @@ const MultipleRowSlickMobile = (props) => {
               />
             </div>
             <div className="film-info flex-col p-0 px-3 py-4">
-              <p className="font-bold text-lg sm:text-xl mb-2">
+              <p className="font-bold text-lg sm:text-xl mb-2" title={item.tenPhim}>
                 {item.tenPhim}
               </p>
-              <p className="font-bold mb-0 sm:mb-3 text-sm sm:text-md">
+              <p className="font-bold mb-0 sm:mb-3 text-sm sm:text-md" title={`Khởi chiếu: ${moment(item.ngayKhoiChieu).format("DD.MM.YYYY")}`}>
                 Khởi chiếu: {moment(item.ngayKhoiChieu).format("DD.MM.YYYY")}
               </p>
               {item.moTa.length > 175 ? (
@@ -96,7 +96,7 @@ const MultipleRowSlickMobile = (props) => {
           PHIM SẮP CHIẾU
         </button>
       </div>
-      {/* {renderFilms()} */}
+      {renderFilms()}
     </div>
   );
 };
