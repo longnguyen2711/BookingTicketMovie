@@ -20,15 +20,20 @@
   background-color: gray;
 }
 
-#checkout .gheDaDat{
-  background-color: red;
-  cursor: no-drop;
-}
-
 #checkout .gheVip{
   background-color: aqua;
 }
 
 #checkout .gheDangDat{
   background-color: green;
+}
+#checkout .gheDaDat{
+  background-color: red;
+  cursor: no-drop;
+}
+
+#checkout .gheBanThanDat{
+  background-color: yellow;
+  box-shadow: 0 0 10px black;
+  border: 1px solid black;
 }

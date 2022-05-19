@@ -1,6 +1,7 @@
 #HomeMenuMobile .ant-tabs > .ant-tabs-nav .ant-tabs-nav-wrap {
   display: flex;
-  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #HomeMenuMobile .ant-tabs > .ant-tabs-nav .ant-tabs-nav-more {

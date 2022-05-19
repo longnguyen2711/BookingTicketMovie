@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import "./Detail.css";
-import { Tabs} from "antd";
+import { Tabs } from "antd";
 // import { Tabs, Radio, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { layThongTinChiTietPhim } from "../../redux/actions/QuanLyRapActions";
@@ -15,11 +15,39 @@ export default function Detail(props) {
 
   const dispatch = useDispatch();
 
+  // Xét kích thước màn hình
+  const [screen, setScreen] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
   useEffect(() => {
     // Lấy thông tin param từ url
     let { id } = props.match.params;
     dispatch(layThongTinChiTietPhim(id));
+
+    window.onload = () => {
+      setScreen({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    window.onresize = () => {
+      setScreen({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    return () => {
+      window.removeEventListener("onload");
+      window.removeEventListener("onresize");
+    };
   }, []);
+
+  let selectTabPosition = "left";
+  if (screen.width < 1000) {
+    selectTabPosition = "top";
+  }
 
   return (
     <section
@@ -86,7 +114,7 @@ export default function Detail(props) {
               <Tabs defaultActiveKey="1" centered>
                 <TabPane tab="Lịch chiếu" key="1" style={{ minHeight: 100 }}>
                   <div>
-                    <Tabs tabPosition="left">
+                    <Tabs tabPosition={selectTabPosition}>
                       {filmDetail.heThongRapChieu?.map((htr, index) => {
                         return (
                           <TabPane
@@ -111,27 +139,28 @@ export default function Detail(props) {
                             {htr.cumRapChieu?.map((cumRap, index) => {
                               return (
                                 <div
-                                  className="mb-4 cursor-pointer"
+                                  className="pb-4 cursor-pointer booking-info"
                                   key={index}
                                   title={cumRap.diaChi}
                                 >
-                                  <div className="flex items-center justify-start">
+                                  <div className="vi-tri-chieu flex items-center justify-start">
                                     <img
                                       src={htr.logo}
                                       width={50}
                                       height={50}
                                       alt={htr.logo}
+                                      className="img-info"
                                     />
                                     <div className="text-left">
-                                      <p className="ml-3 mb-1 font-bold">
+                                      <p className="ml-4 mb-1 font-bold">
                                         {cumRap.tenCumRap}
                                       </p>
-                                      <p className="ml-3 mb-0 text-gray-600">
+                                      <p className="ml-4 mb-0 text-gray-600">
                                         Địa chỉ: {cumRap.diaChi}
                                       </p>
                                     </div>
                                   </div>
-                                  <div className="thong-tin-lich-chieu  text-left mt-2 ml-16">
+                                  <div className="thong-tin-lich-chieu  text-left mt-2">
                                     <div className="grid grid-cols-2 gap-1 md:grid-cols-3 md:gap-1 lg:grid-cols-5 lg:gap-3">
                                       {cumRap.lichChieuPhim
                                         ?.slice(0, 8)
