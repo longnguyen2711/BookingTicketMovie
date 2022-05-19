@@ -16,6 +16,7 @@ import Checkout from "./pages/Checkout/Checkout";
 // import { Suspense, lazy } from "react";
 import { UserTemplate } from "./templates/UserTemplate/UserTemplate";
 import Profile from "./pages/Profile/Profile";
+import Loading from "./_Component/Loading/Loading";
 
 // const CheckoutTemplateLazy = lazy(() => import("./templates/CheckoutTemplate/CheckoutTemplate"))
 
@@ -24,14 +25,14 @@ export const history = createBrowserHistory();
 function App() {
   return (
     <Router history={history}>
+      <Loading />
       <Switch>
-        
-        <HomeTemplate path="/home" exact Component={Home}/>
+        <HomeTemplate path="/home" exact Component={Home} />
         <HomeTemplate path="/contact" exact Component={Contact} />
         <HomeTemplate path="/news" exact Component={News} />
         <HomeTemplate path="/products" exact Component={Propducts} />
         <HomeTemplate path="/detail/:id" exact Component={Detail} />
-        <HomeTemplate path="/profile" exact Component={Profile}/>
+        <HomeTemplate path="/profile" exact Component={Profile} />
 
         <CheckoutTemplate path="/checkout/:id" exact Component={Checkout} />
         {/* Suspense: Dữ liệu html load xong mới hiển thị nếu ko sẽ hiển thị h1 */}
@@ -39,8 +40,8 @@ function App() {
           <CheckoutTemplateLazy path="/checkout/:id" exact Component={Checkout} />
         </Suspense> */}
 
-        <UserTemplate path="/register" exact Component={Register}/>
-        <UserTemplate path="/login" exact Component={Login}/>
+        <UserTemplate path="/register" exact Component={Register} />
+        <UserTemplate path="/login" exact Component={Login} />
 
         <HomeTemplate path="/" exact Component={Home} />
       </Switch>

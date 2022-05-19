@@ -4,11 +4,13 @@ import {
   datVeAction,
   layChiTietPhongVeAction,
 } from "../../redux/actions/QuanLyDatVeActions";
+import { layThongTinNguoiDungAction } from "../../redux/actions/QuanLyNguoiDungActions";
 import { DAT_VE } from "../../redux/types";
 import "./Checkout.css";
 import _ from "lodash";
 import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
 import { Tabs } from "antd";
+import moment from "moment";
 
 function Checkout(props) {
   // Để làm background khi đặt vé của từng phim
@@ -41,7 +43,6 @@ function Checkout(props) {
       if (userLogin.taiKhoan === ghe.taiKhoanNguoiDat) {
         classGheDaDuocBanThanDat = "gheBanThanDat";
       }
-      console.log(ghe);
       let indexGheDangDat = danhSachGheDangDat.findIndex(
         (gheDD) => gheDD.maGhe === ghe.maGhe
       );
@@ -124,8 +125,8 @@ function Checkout(props) {
                     </button>
                   </td>
                   <td className="text-center pt-4">
-                    <button className="ghe gheBanThanDat">
-                      <i class="fa fa-check"></i>
+                    <button className="ghe gheBanThanDat gheDaDat">
+                      <i className="fa fa-check"></i>
                     </button>
                   </td>
                 </tr>
@@ -234,7 +235,63 @@ export default function (props) {
 }
 
 function KetQuaDatVe(props) {
-return <div className="container">
-  qwe
-</div>
+  const dispatch = useDispatch();
+
+  const { thongTinNguoiDung } = useSelector(
+    (state) => state.QuanLyNguoiDungReducer
+  );
+
+  const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
+
+  useEffect(() => {
+    const action = layThongTinNguoiDungAction();
+    dispatch(action);
+  }, []);
+
+  console.log(thongTinNguoiDung, "thongtingnoidung");
+
+  const renderTicketItem = () => {
+    return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
+      const seats = _.first(ticket.danhSachGhe)
+      return (
+        <div className="p-2 lg:w-1/3 md:w-1/2 w-full" key={index}>
+          <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+            <img
+              alt="team"
+              className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
+              src="https://picsum/photo/1000"
+            />
+            <div className="flex-grow">
+              <h2 className="text-gray-900 title-font">{ticket.tenPhim}</h2>
+              <p className="text-gray-500">Xuất chiếu: {moment(ticket.ngayDat).format('hh:mm A')} </p> 
+              <p className="text-gray-500">Ngày chiếu {moment(ticket.ngayDat).format('DD-MM-YYYY')}</p>
+              <p>Địa điểm: {seats.tenHeThongRap}</p>
+              <p>Tên rạp: {seats.tenCumRap}</p>
+              <p>Ghế: {ticket.danhSachGhe.map((ghe,index) => {
+                return <span key={index}>{ghe.tenGhe}</span>
+              })}</p>
+            </div>
+          </div>
+        </div>
+      );
+    });
+  };
+
+  return (
+    <div className="container">
+      <section className="text-gray-600 body-font">
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-col text-center w-full mb-20">
+            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
+              Lịch sử đặt vé khách hàng
+            </h1>
+            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+              Xem thông tin địa chỉ và thời gian để xem phim vui vẻ bạn nhé!
+            </p>
+          </div>
+          <div className="flex flex-wrap -m-2">{renderTicketItem()}</div>
+        </div>
+      </section>
+    </div>
+  );
 }
