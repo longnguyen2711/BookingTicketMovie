@@ -12,9 +12,6 @@ import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
 import { Tabs } from "antd";
 import moment from "moment";
 
-import { connection } from '../../index';
-
-
 function Checkout(props) {
   // Để làm background khi đặt vé của từng phim
   // const filmDetail = useSelector((state) => state.QuanLyPhimReducer.filmDetail);
@@ -29,39 +26,6 @@ function Checkout(props) {
   useEffect(() => {
     const action = layChiTietPhongVeAction(props.match.params.id);
     dispatch(action);
-
-    // //Có 1 client nào thực hiện việc đặt vé thành công mình sẽ load lại danh sách phòng vé của lịch chiếu đó
-    // connection.on('datVeThanhCong', () =>  {
-    // dispatch(action);
-    // })
-    // //Vừa vào trang load tất cả ghế của các người khác đang đặt
-    // connection.invoke('loadDanhSachGhe',props.match.params.id);
-    //Load danh sách ghế đang đặt từ server về (lắng nghe tín hiệu từ server trả về)
-    connection.on("loadDanhSachGheDaDat", (dsGheKhachDat) => {
-        console.log('danhSachGheKhachDat',dsGheKhachDat);
-        //Bước 1: Loại mình ra khỏi danh sách 
-        dsGheKhachDat = dsGheKhachDat.filter(item => item.taiKhoan !== userLogin.taiKhoan);
-        //Bước 2 gộp danh sách ghế khách đặt ở tất cả user thành 1 mảng chung 
-        let arrGheKhachDat = dsGheKhachDat.reduce((result,item,index)=>{
-            let arrGhe = JSON.parse(item.danhSachGhe);
-            return [...result,...arrGhe];
-        },[]);
-    //     //Đưa dữ liệu ghế khách đặt cập nhật redux
-    //     arrGheKhachDat = _.uniqBy(arrGheKhachDat,'maGhe');
-    //     //Đưa dữ liệu ghế khách đặt về redux
-    //     dispatch({
-    //         type:'DAT_GHE',
-    //         arrGheKhachDat
-    //     })        
-    //  })
-    //  //Cài đặt sự kiện khi reload trang
-    //  window.addEventListener("beforeunload", clearGhe);
-    //  return () => {
-    //      clearGhe();
-    //      window.removeEventListener('beforeunload',clearGhe);
-    //  }
-
-
   }, []);
 
   const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
