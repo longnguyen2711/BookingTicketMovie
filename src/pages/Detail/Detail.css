@@ -157,6 +157,13 @@
   }
 }
 
+@media screen and (max-width: 540px) {
+  .Detail .film-information .film-rate-start{
+    display: none;
+  }
+}
+
+
 /* <----- Cricle -----> */
 /****************************************************************
  *

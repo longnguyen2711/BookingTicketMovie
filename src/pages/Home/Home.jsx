@@ -88,7 +88,7 @@ export default function Home(props) {
 
   return (
     <section>
-      {/* <HomeCarousel /> */}
+      <HomeCarousel />
       {renderMultipleRowSlick()}
       {renderHomeMenu()}
     </section>

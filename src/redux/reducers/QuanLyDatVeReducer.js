@@ -10,7 +10,7 @@ import { ThongTinLichChieu } from "../../_core/models/ThongTinPhongVe";
 const stateDefault = {
   chiTietPhongVe: new ThongTinLichChieu(),
   danhSachGheDangDat: [],
-  danhSachGheKhachDangDat: [{maGhe:48201},{maGhe:48202},{maGhe:48203}],
+  danhSachGheKhachDangDat: [],
 
   //Dùng để chuyển trang sau khi bấm đặt vé
   tabActive: "1",

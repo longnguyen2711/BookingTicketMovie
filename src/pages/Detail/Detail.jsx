@@ -88,7 +88,7 @@ export default function Detail(props) {
                 </a>
               </div>
               <p className="mb-0">{filmDetail.moTa}</p>
-              <div className="film-rate mt-5 flex items-center">
+              <div className="c mt-5 flex items-center">
                 <div
                   className={`c100 p${filmDetail.danhGia * 10} small orange`}
                 >
@@ -98,7 +98,7 @@ export default function Detail(props) {
                     <div className="fill" />
                   </div>
                 </div>
-                <div className="ml-3">
+                <div className="ml-3 film-rate-start">
                   <h1 className="text-yellow-400 font-bold mb-0 text-lg text-center">
                     Đánh giá
                   </h1>
@@ -139,7 +139,7 @@ export default function Detail(props) {
                             {htr.cumRapChieu?.map((cumRap, index) => {
                               return (
                                 <div
-                                  className="pb-4 cursor-pointer booking-info"
+                                  className="pb-4 booking-info"
                                   key={index}
                                   title={cumRap.diaChi}
                                 >
@@ -149,6 +149,7 @@ export default function Detail(props) {
                                       width={50}
                                       height={50}
                                       alt={htr.logo}
+                                      title={cumRap.tenCumRap}
                                       className="img-info"
                                     />
                                     <div className="text-left">
@@ -170,6 +171,9 @@ export default function Detail(props) {
                                               to={`/checkout/${lichChieu.maLichChieu}`}
                                               key={index}
                                               className="col-span-1 hover:text-red-600"
+                                              title={` Đặt vé lúc ${moment(
+                                                lichChieu.ngayChieuGioChieu
+                                              ).format("hh:mm A")} `}
                                             >
                                               {moment(
                                                 lichChieu.ngayChieuGioChieu
@@ -189,10 +193,10 @@ export default function Detail(props) {
                   </div>
                 </TabPane>
                 <TabPane tab="Thông tin" key="2" style={{ minHeight: 100 }}>
-                  Content of Tab Pane 2
+                  Chưa có thông tin
                 </TabPane>
                 <TabPane tab="Đánh giá" key="3" style={{ minHeight: 100 }}>
-                  Content of Tab Pane 3
+                  Chưa có đánh giá
                 </TabPane>
               </Tabs>
             </div>

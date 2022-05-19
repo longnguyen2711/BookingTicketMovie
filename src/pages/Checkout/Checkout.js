@@ -30,6 +30,11 @@ function Checkout(props) {
 
   const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
 
+  var gheBanThanDaDat = 0;
+  var tongGheDaDat = 0;
+  var tongGheVipConLai = 0;
+  var tongGheThuongConLai = 0;
+
   const renderSeats = () => {
     return danhSachGhe.map((ghe, index) => {
       let classGheVip = ghe.loaiGhe === "Vip" ? "gheVip" : "";
@@ -37,6 +42,23 @@ function Checkout(props) {
       let classSpacingHeight =
         ghe.stt % 8 === 0 && ghe.stt % 16 !== 0 ? "mr-5" : "";
       let classSpacingWidth = ghe.stt >= 65 && ghe.stt <= 80 ? "mb-5" : "";
+
+      // Đếm tổng số ghế
+      if (ghe.daDat && userLogin.taiKhoan) {
+        tongGheDaDat++;
+      }
+      // Đếm ghế bản thân đã đặt
+      if (ghe.daDat && userLogin.taiKhoan === ghe.taiKhoanNguoiDat) {
+        gheBanThanDaDat++;
+      }
+      // Đếm ghế Vip chưa được đặt
+      if (!ghe.daDat && ghe.loaiGhe === "Vip") {
+        tongGheVipConLai++;
+      }
+      // Đếm ghế thường chưa được dặt
+      if (!ghe.daDat && ghe.loaiGhe === "Thuong") {
+        tongGheThuongConLai++;
+      }
 
       let classGheDaDuocBanThanDat = "";
       if (userLogin.taiKhoan === ghe.taiKhoanNguoiDat) {
@@ -51,7 +73,6 @@ function Checkout(props) {
       if (indexGheDangDat !== -1) {
         classGheDangDat = "gheDangDat";
       }
-
       // Kiểm tra từng ghế render xem có phải trong mảng ghế khách đang đặt hay không
       let classGheNguoiKhacDangDat = "";
       let indexGheNguoiKhacDangDat = danhSachGheKhachDangDat.findIndex(
@@ -163,6 +184,18 @@ function Checkout(props) {
                     >
                       <i class="fa fa-times"></i>
                     </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="text-center">{tongGheThuongConLai}</td>
+                  <td className="text-center">{tongGheVipConLai}</td>
+                  <td className="text-center">{danhSachGheDangDat.length}</td>
+                  <td className="text-center">{gheBanThanDaDat}</td>
+                  <td className="text-center">
+                    {danhSachGheKhachDangDat.length}
+                  </td>
+                  <td className="text-center">
+                    {tongGheDaDat - gheBanThanDaDat}
                   </td>
                 </tr>
               </tbody>
