@@ -25,10 +25,10 @@
   cursor: no-drop;
 }
 
-#checkout .gheDangDat{
-  background-color: green;
-}
-
 #checkout .gheVip{
   background-color: aqua;
+}
+
+#checkout .gheDangDat{
+  background-color: green;
 }

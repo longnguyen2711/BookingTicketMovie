@@ -37,7 +37,7 @@ export default class HomeMenu extends React.PureComponent {
           key={index}
         >
           <Tabs tabPosition={tabPosition}>
-            {heThongRap.lstCumRap?.map((cumRap, index) => {
+            {heThongRap.lstCumRap?.slice(0,10).map((cumRap, index) => {
               return (
                 <TabPane
                   tab={

@@ -3,18 +3,7 @@ import {ThongTinLichChieu} from '../../_core/models/ThongTinPhongVe'
 
 const stateDefault = {
   chiTietPhongVe: new ThongTinLichChieu(),
-  danhSachGheDangDat: [  {
-    // Không call được api nên copy tạm để làm bước check ghế đăng đặt
-    "maGhe": 50283,
-    "tenGhe": "03",
-    "maRap": 469,
-    "loaiGhe": "Thuong",
-    "stt": "03",
-    "giaVe": 90000,
-    "daDat": false,
-    "taiKhoanNguoiDat": null
-    
-  }],
+  danhSachGheDangDat: [],
 
 };
 
