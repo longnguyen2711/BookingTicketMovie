@@ -30,8 +30,8 @@
 }
 
 #footer .footer-contact ul li i:hover {
-  box-shadow: 0 0 15px #f02323;
-  border: 1px solid #f02323;
+  box-shadow: 0 0 15px rgb(112, 255, 255);
+  border: 1px solid rgb(112, 255, 255);
 }
 
 #footer .footer-contact ul li i.fa-instagram {
@@ -75,8 +75,8 @@
 }
 
 #footer .footer-partner a:hover{
-  border: 1px solid #f02323;
-  box-shadow: 0 0 15px #f02323;
+  border: 1px solid rgb(112, 255, 255);
+  box-shadow: 0 0 15px rgb(112, 255, 255);
   transform: scale(1.5);
   transition: 0.2s ease-in;
 }

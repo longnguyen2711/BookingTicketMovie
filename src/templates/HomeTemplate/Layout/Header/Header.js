@@ -36,7 +36,7 @@ export default function Header(props) {
           title="Đến trang cá nhân"
           className="to-profile focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3"
         >
-          Xin chào {userLogin.taiKhoan}
+          {userLogin.taiKhoan}
         </NavLink>
         <button
           title="Bấm để đăng xuất"
