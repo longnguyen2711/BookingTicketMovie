@@ -2,7 +2,7 @@ import React, { useEffect, useState, Fragment } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import _ from "lodash";
-import "./Header.css";
+import "./Header.scss";
 import { ACCESSTOKEN, USER_LOGIN } from "../../../../util/settings/config";
 
 export default function Header(props) {
@@ -32,18 +32,18 @@ export default function Header(props) {
     }
     return (
       <Fragment>
-            <button
-              onClick={() => {
-                props.history.push("/profile");
-              }}
-              className="to-profile focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3 flex justify-center items-center h-full ml-10"
-              title={`Tài khoản khách: ${userLogin.taiKhoan} `}
-            >
-              <div className="font-bold">{userLogin.taiKhoan}</div>
-              <div className="w-9 h-9 rounded-full bg-black text-yellow-500 font-bold flex justify-center items-center text-2xl ml-3">
-                <p className="mb-2">{userLogin.taiKhoan.substr(0, 1)}</p>
-              </div>
-            </button>
+        <button
+          onClick={() => {
+            props.history.push("/profile");
+          }}
+          className="to-profile focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3 flex justify-center items-center h-full ml-10"
+          title={`Tài khoản khách: ${userLogin.taiKhoan} `}
+        >
+          <div className="font-bold">{userLogin.taiKhoan}</div>
+          <div className="w-9 h-9 rounded-full bg-black text-yellow-500 font-bold flex justify-center items-center text-2xl ml-3">
+            <p className="mb-2">{userLogin.taiKhoan.substr(0, 1)}</p>
+          </div>
+        </button>
         <button
           className="sign-out focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3"
           title="Bấm để đăng xuất"
@@ -171,56 +171,6 @@ export default function Header(props) {
     };
   }, []);
 
-  // Chọn kích cỡ navbar theo kích thước màn hình
-  const layoutNabar = () => {
-    return (
-      <div className="navigation">
-        <ul>
-          <li className="navigation_list navigation-active">
-            <NavLink to="/home" className="navLink" title="Trang chủ">
-              <span className="icon">
-                <i className="fa fa-home" />
-              </span>
-              <span className="text text-sm cursor-pointer">Trang chủ</span>
-            </NavLink>
-          </li>
-          <li className="navigation_list">
-            <NavLink to="/products" className="navLink" title="Sản phẩm">
-              <span className="icon">
-                <i class="fab fa-react"></i>
-              </span>
-              <span className="text text-sm">Sản phẩm</span>
-            </NavLink>
-          </li>
-          <li className="navigation_list">
-            <NavLink to="/news" className="navLink" title="Tin tức">
-              <span className="icon">
-                <i className="fa fa-newspaper"></i>
-              </span>
-              <span className="text text-sm">Tin tức</span>
-            </NavLink>
-          </li>
-          <li className="navigation_list">
-            <NavLink to="/contact" className="navLink" title="Liên hệ">
-              <span className="icon">
-                <i className="fa fa-phone"></i>
-              </span>
-              <span className="text text-sm">Liên hệ</span>
-            </NavLink>
-          </li>
-          <div className="navigation-indicator" />
-        </ul>
-      </div>
-    );
-  };
-
-  const renderNavbar = () => {
-    if (screen.width < 768) {
-      return <div className="navbar-mobile">{layoutNabar()}</div>;
-    } else {
-      return <div className="navbar-laptop">{layoutNabar()}</div>;
-    }
-  };
 
   return (
     <header
@@ -241,7 +191,43 @@ export default function Header(props) {
           />
         </NavLink>
 
-        {renderNavbar()}
+        <div className="navigation">
+          <ul>
+            <li className="navigation_list navigation-active">
+              <NavLink to="/home" className="navLink" title="Trang chủ">
+                <span className="icon">
+                  <i className="fa fa-home" />
+                </span>
+                <span className="text text-sm cursor-pointer">Trang chủ</span>
+              </NavLink>
+            </li>
+            <li className="navigation_list">
+              <NavLink to="/products" className="navLink" title="Sản phẩm">
+                <span className="icon">
+                  <i class="fab fa-react"></i>
+                </span>
+                <span className="text text-sm">Sản phẩm</span>
+              </NavLink>
+            </li>
+            <li className="navigation_list">
+              <NavLink to="/news" className="navLink" title="Tin tức">
+                <span className="icon">
+                  <i className="fa fa-newspaper"></i>
+                </span>
+                <span className="text text-sm">Tin tức</span>
+              </NavLink>
+            </li>
+            <li className="navigation_list">
+              <NavLink to="/contact" className="navLink" title="Liên hệ">
+                <span className="icon">
+                  <i className="fa fa-phone"></i>
+                </span>
+                <span className="text text-sm">Liên hệ</span>
+              </NavLink>
+            </li>
+            <div className="navigation-indicator" />
+          </ul>
+        </div>
 
         <div className="sign-in-up items-center flex-shrink-0 hidden md:flex">
           {renderLogin()}

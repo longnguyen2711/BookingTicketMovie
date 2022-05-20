@@ -12,14 +12,10 @@ import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
 import { Tabs } from "antd";
 import moment from "moment";
 import { history } from "../../App";
-import {
-  ACCESSTOKEN,
-  USER_LOGIN,
-} from "../../util/settings/config";
+import { ACCESSTOKEN, USER_LOGIN } from "../../util/settings/config";
 import { NavLink } from "react-router-dom";
 
 function Checkout(props) {
-  
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
 
   const { chiTietPhongVe, danhSachGheDangDat, danhSachGheKhachDangDat } =
@@ -43,9 +39,9 @@ function Checkout(props) {
     return danhSachGhe.map((ghe, index) => {
       let classGheVip = ghe.loaiGhe === "Vip" ? "gheVip" : "";
       let classGheDaDat = ghe.daDat === true ? "gheDaDat" : "";
-      let classSpacingHeight =
-        ghe.stt % 8 === 0 && ghe.stt % 16 !== 0 ? "mr-5" : "";
-      let classSpacingWidth = ghe.stt >= 65 && ghe.stt <= 80 ? "mb-5" : "";
+      // let classSpacingHeight =
+      //   ghe.stt % 8 === 0 && ghe.stt % 16 !== 0 ? "mr-5" : "";
+      // let classSpacingWidth = ghe.stt >= 65 && ghe.stt <= 80 ? "mb-5" : "";
 
       // Đếm tổng số ghế
       if (ghe.daDat && userLogin.taiKhoan) {
@@ -89,54 +85,55 @@ function Checkout(props) {
       return (
         <Fragment key={index}>
           {
-            <button
-              disabled={ghe.daDa || classGheNguoiKhacDangDat !== ""}
-              className={`ghe ${classGheNguoiKhacDangDat} ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classSpacingHeight} ${classSpacingWidth} ${classGheDaDuocBanThanDat} m-2`}
-              key={index}
-              title={ghe.stt}
-              onClick={() => {
-                dispatch({
-                  type: DAT_VE,
-                  gheDuocChon: ghe,
-                });
-              }}
-            >
-              {/* (Nếu ghế đã được đặt của người khác thì X ko thì của bản thân) hoặc (Nếu ghế người khác đang đặt thì X ngược lại ghế thường) */}
-              {ghe.daDat ? (
-                userLogin.taiKhoan === ghe.taiKhoanNguoiDat ? (
-                  <i class="fa fa-check"></i>
-                ) : (
+            <div>
+              <button
+                disabled={ghe.daDa || classGheNguoiKhacDangDat !== ""}
+                className={`ghe ${classGheNguoiKhacDangDat} ${classGheVip} ${classGheDaDat} ${classGheDangDat}  ${classGheDaDuocBanThanDat}`}
+                key={index}
+                title={ghe.stt}
+                onClick={() => {
+                  dispatch({
+                    type: DAT_VE,
+                    gheDuocChon: ghe,
+                  });
+                }}
+              >
+                {/* (Nếu ghế đã được đặt của người khác thì X ko thì của bản thân) hoặc (Nếu ghế người khác đang đặt thì X ngược lại ghế thường) */}
+                {ghe.daDat ? (
+                  userLogin.taiKhoan === ghe.taiKhoanNguoiDat ? (
+                    <i class="fa fa-check"></i>
+                  ) : (
+                    <i class="fa fa-times"></i>
+                  )
+                ) : classGheNguoiKhacDangDat !== "" ? (
                   <i class="fa fa-times"></i>
-                )
-              ) : classGheNguoiKhacDangDat !== "" ? (
-                <i class="fa fa-times"></i>
-              ) : (
-                ghe.stt
-              )}
-            </button>
+                ) : (
+                  ghe.stt
+                )}
+              </button>
+            </div>
           }
-          {/* Nếu số ghế thứ n chia hết cho 16 thì sẽ xuống dòng */}
-          {(index + 1) % 16 === 0 ? <br /> : ""}
         </Fragment>
       );
     });
   };
 
-    // Để làm background khi đặt vé của từng phim
-    // const filmDetail = useSelector((state) => state.QuanLyPhimReducer.filmDetail);
-    // style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundPosition: "cover", backgroundRepeat:"no" }}
+  // Để làm background khi đặt vé của từng phim
+  // const filmDetail = useSelector((state) => state.QuanLyPhimReducer.filmDetail);
+  // style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundPosition: "cover", backgroundRepeat:"no" }}
 
   return (
-    <div className="min-h-screen mt-10" id="checkout">
-      <div className="grid grid-cols-12">
-        <div className="col-span-9">
+    <div className="min-h-screen p-10 grid grid-cols-12" id="checkout">
+     
+        <div className="col-span-8 flex justify-center items-start">
+          <div>
           <div className="flex flex-col items-center">
             <div className="w-11/12 bg-black h-3"></div>
             <div className="screen relative">
               <p className="absolute top-0 left-0">MÀN HÌNH</p>
             </div>
             <div className="mt-10 flex justify-center">
-              <div>{renderSeats()}</div>
+              <div className="checkout-seats">{renderSeats()}</div>
             </div>
           </div>
 
@@ -209,8 +206,12 @@ function Checkout(props) {
               </tbody>
             </table>
           </div>
+          </div>
         </div>
-        <div className="col-span-3 min-h-screen">
+
+
+        <div className="col-span-4 flex justify-center items-start">
+          <div>
           <h3 className="text-green-400 text-center text-2xl">
             {" "}
             {danhSachGheDangDat
@@ -257,7 +258,7 @@ function Checkout(props) {
           </div>
           <hr />
           <div className="my-5">
-            <span>Email: </span>          
+            <span>Email: </span>
             {userLogin.email}
           </div>
           <hr />
@@ -281,8 +282,9 @@ function Checkout(props) {
               đặt vé
             </div>
           </div>
+          </div>
         </div>
-      </div>
+      
     </div>
   );
 }
@@ -335,12 +337,12 @@ export default function CheckoutTab(props) {
   );
 
   // Khi chuyển sang trang khác sau đó bấm nút quay lại sẽ chuyển vào 01 CHỌN GHẾ - THANH TOÁN
-  useEffect(() =>{
+  useEffect(() => {
     dispatch({
       type: CHANGE_TAB_ACTIVE,
       number: "1",
     });
-  }, [])
+  }, []);
 
   return (
     <div className=" flex justify-center">
@@ -396,13 +398,15 @@ function KetQuaDatVe(props) {
   //Kẹt chưa dispatch được
   //Kẹt chưa dispatch được
   //Kẹt chưa dispatch được
+
   useEffect(() => {
+    console.log("first");
+
     const action = layThongTinNguoiDungAction();
     dispatch(action);
   }, []);
 
   console.log(thongTinNguoiDung, "thongtingnoidung");
-  
 
   const renderTicketItem = () => {
     return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
@@ -442,7 +446,7 @@ function KetQuaDatVe(props) {
     <div className="">
       <section className="text-gray-600 body-font">
         <div className="px-5 py-24 mx-auto">
-          <div className="flex flex-col text-center w-full mb-20">
+          <div className="w-screen flex flex-col text-center w-full mb-20">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
               Lịch sử đặt vé khách hàng
             </h1>

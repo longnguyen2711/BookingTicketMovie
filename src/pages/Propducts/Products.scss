@@ -1,0 +1,86 @@
+#products {
+  ul {
+    li {
+      width: 25%;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      div {
+        width: 180px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        a {
+          border: 2px solid #35a22c;
+          box-shadow: 0 0 15px #35a22c;
+          padding: 15px 20px;
+          border-radius: 5px;
+          color: yellow;
+          font-weight: bold;
+          font-family: "Times New Roman", Times, serif;
+          width: 300px;
+          &:hover {
+            box-shadow: 0 0 30px rgb(112, 255, 255);
+            border: 2px solid rgb(112, 255, 255);
+            transition: 0.3s;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  
+  #products ul li {
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #products ul li {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+// @media screen and (max-width: 768px) {
+//   #product {
+//     ul {
+//       li {
+//         width: 50%;
+//         margin-top: 20px;
+//         margin-bottom: 20px;
+//       }
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 576px) {
+//   #product {
+//     ul {
+//       li {
+//         width: 100%;
+//         margin-top: 15px;
+//         margin-bottom: 15px;
+//       }
+//     }
+//   }
+// }
+
+@keyframes animate-changecolor {
+  0% {
+    filter: rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+
+

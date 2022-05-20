@@ -1,17 +1,17 @@
 #checkout .screen {
-    border-bottom: 50px solid rgb(68, 68, 68);
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    height: 100;
-    width: 85%;
-    font-size: 25px;
-    color: #fff;
-    margin-left: 35px;
-    opacity: 0.8;
-    filter: drop-shadow(4px 30px 20px rgb(255, 0, 0));
+  border-bottom: 50px solid rgb(68, 68, 68);
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  height: 100;
+  width: 85%;
+  font-size: 25px;
+  color: #fff;
+  margin-left: 35px;
+  opacity: 0.8;
+  filter: drop-shadow(4px 30px 20px rgb(255, 0, 0));
 }
 
-#checkout .ghe{
+#checkout .ghe {
   width: 35px;
   height: 35px;
   border: none;
@@ -21,24 +21,72 @@
   border: 1px solid black;
 }
 
-#checkout .gheVip{
+/* Sắp xếp ghế mỗi hàng 16 ghế */
+#checkout .checkout-seats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#checkout .checkout-seats div {
+  width: calc(100% / 16);
+  padding-bottom: 10px;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  #checkout .ghe {
+    width: 30px;
+    height: 30px;
+  }
+  .ant-tabs-tab + .ant-tabs-tab{
+    margin-left: 0 !important;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  #checkout .checkout-seats div {
+    font-size: 11px;
+    padding-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 86\50px) {
+  #checkout .ghe {
+    width: 25px;
+    height: 25px;
+    font-size: 10px;
+  }
+}
+
+
+
+#checkout .gheVip {
   background-color: rgb(107, 255, 255);
 }
 
-#checkout .gheDangDat{
+#checkout .gheDangDat {
   background-color: yellow;
 }
-#checkout .gheDaDat{
+#checkout .gheDaDat {
   background-color: orange;
   cursor: no-drop;
 }
 
-#checkout .gheBanThanDat{
+#checkout .gheBanThanDat {
   background-color: #43c537;
   box-shadow: 0 0 5px #43c537;
 }
 
-#checkout .gheNguoiKhacDangDat{
+#checkout .gheNguoiKhacDangDat {
   background-color: orchid;
   cursor: no-drop;
 }
+
+.ant-tabs-top > .ant-tabs-nav {
+  margin-bottom: 0 !important;
+  margin-left: 5% !important;
+  margin-right: 5% !important;
+}
+

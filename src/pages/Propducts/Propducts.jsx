@@ -1,5 +1,5 @@
 import React from 'react'
-import './Products.css'
+import './Products.scss'
 
 export default function Propducts(props) {
   const productTitle = "Bấm để mở trang trên cửa số mới"
