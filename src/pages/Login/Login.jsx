@@ -39,7 +39,7 @@ export default function Login(props) {
         </div> */}
       </div>
       <div className="px-12 sm:px-24 md:px-48 lg:px-12 xl:px-24 xl:max-w-2xl">
-        <h2 className="text-center text-4xl font-display lg:text-left xl:text-4xl xl:text-bold">Đăng nhập</h2>
+        <h2 className="text-center text-4xl font-display lg:text-left xl:text-4xl xl:text-bold">Đăng nhập tài khoản</h2>
         <div className="mt-12">
           <div className="form-login">
             <div>
@@ -53,7 +53,7 @@ export default function Login(props) {
                 onChange={formik.handleChange}
               />
             </div>
-            <div className="forgot-password mt-8">
+            <div className="forgot-password mt-6">
               <div className="flex justify-between items-center">
                 <label for="matKhau" className="mb-0 ml-1 text-lg font-bold tracking-wide">Mật khẩu</label>
                 <div>

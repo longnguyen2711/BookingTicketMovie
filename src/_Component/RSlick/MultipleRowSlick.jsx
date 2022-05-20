@@ -93,7 +93,7 @@ const MultipleRowSlick = (props) => {
   return (
     <div>
       <div className="mb-6">
-        <button
+        <button          
           className={`${styleSlick[activeClassDC]} px-8 py-3 font-semibold border rounded bg-gray-800 text-white mr-4`}
           onClick={() => {
             const action = { type: SET_PHIM_DANG_CHIEU };

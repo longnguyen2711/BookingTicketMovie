@@ -1,28 +1,31 @@
   .slick-next:before {
     color: black !important;
-    font-size: 3rem !important;
-    background-color: yellow !important;
+    font-size: 2rem !important;
+    background-color: white;
+    padding: 3px 2px 0 1.5px;
     border-radius: 50%;
     position: absolute;
-    left: -20px;
+    left: 0px;
+    top: -5px;
     /* padding: 5px 2px 0px 2px; */
-
   }
 
 .slick-prev:before {
   color: black !important;
-  font-size: 3rem !important;
-  background-color: yellow !important;
+  font-size: 2rem !important;
+  background-color: white;
+  padding: 3px 2px 0 1.5px;
   border-radius: 50%;
   position: absolute;
   left: -30px;
-
+  top: -5px;
   /* padding: 5px 2px 0px 2px; */
 }
 
 .slick-next:hover:before,
 .slick-prev:hover:before{
   box-shadow: 0 0 15px yellow !important;
+  background-color: yellow
 }
 
 .width-item {

@@ -5,12 +5,18 @@ import {
   layChiTietPhongVeAction,
 } from "../../redux/actions/QuanLyDatVeActions";
 import { layThongTinNguoiDungAction } from "../../redux/actions/QuanLyNguoiDungActions";
-import { CHANGE_TAB_ACTIVE, DAT_VE } from "../../redux/types";
+import { CHANGE_TAB_ACTIVE, DANG_XUAT_ACTION, DAT_VE } from "../../redux/types";
 import "./Checkout.css";
 import _ from "lodash";
 import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
 import { Tabs } from "antd";
 import moment from "moment";
+import { history } from "../../App";
+import {
+  ACCESSTOKEN,
+  USER_LOGIN,
+} from "../../util/settings/config";
+import { NavLink } from "react-router-dom";
 
 function Checkout(props) {
   // Để làm background khi đặt vé của từng phim
@@ -283,14 +289,63 @@ function Checkout(props) {
 
 const { TabPane } = Tabs;
 
-function callback(key) {}
-
 export default function CheckoutTab(props) {
   const { tabActive } = useSelector((state) => state.QuanLyDatVeReducer);
   const dispatch = useDispatch();
+
+  const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
+
+  const operations = (
+    <Fragment>
+      {!_.isEmpty(userLogin) ? (
+        <Fragment>
+          <div className="flex">
+            <button
+              title="Bấm để đăng xuất"
+              onClick={() => {
+                // Xóa trong localStorage
+                localStorage.removeItem(USER_LOGIN);
+                localStorage.removeItem(ACCESSTOKEN);
+                // Chuyển hướng về home
+                props.history.push("/home");
+                // Reload lại trang web
+                window.location.reload();
+              }}
+            >
+              Đăng xuất
+            </button>
+            <button
+              onClick={() => {
+                props.history.push("/profile");
+              }}
+              className="flex justify-center items-center h-full ml-10"
+              title={`Tài khoản khách: ${userLogin.taiKhoan} `}
+            >
+              <div className="font-bold">{userLogin.taiKhoan}</div>
+              <div className="w-9 h-9 rounded-full bg-black text-yellow-500 font-bold flex justify-center items-center text-2xl ml-3">
+                <p className="mb-2">{userLogin.taiKhoan.substr(0, 1)}</p>
+              </div>
+            </button>
+          </div>
+        </Fragment>
+      ) : (
+        ""
+      )}
+    </Fragment>
+  );
+
+  // Khi chuyển sang trang khác sau đó bấm nút quay lại sẽ chuyển vào 01 CHỌN GHẾ - THANH TOÁN
+  useEffect(() =>{
+    dispatch({
+      type: CHANGE_TAB_ACTIVE,
+      number: "1",
+    });
+  }, [])
+
   return (
-    <div className="container flex justify-center">
+    <div className=" flex justify-center">
       <Tabs
+        tabBarExtraContent={operations}
         defaultActiveKey="1"
         activeKey={tabActive}
         onChange={(key) => {
@@ -300,6 +355,23 @@ export default function CheckoutTab(props) {
           });
         }}
       >
+        <TabPane
+          tab={
+            <NavLink
+              to="/"
+              title="Về trang chủ"
+              aria-label="Về trang chủ"
+              className="items-center p-2 hidden lg:flex"
+            >
+              <img
+                src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png"
+                alt="cyberlearn.vn"
+                width={100}
+              />
+            </NavLink>
+          }
+          key="3"
+        ></TabPane>
         <TabPane tab="01 CHỌN GHẾ - THANH TOÁN" key="1">
           <Checkout {...props} />
         </TabPane>
@@ -321,12 +393,16 @@ function KetQuaDatVe(props) {
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
 
   //Kẹt chưa dispatch được
+  //Kẹt chưa dispatch được
+  //Kẹt chưa dispatch được
+  //Kẹt chưa dispatch được
   useEffect(() => {
     const action = layThongTinNguoiDungAction();
     dispatch(action);
   }, []);
 
   console.log(thongTinNguoiDung, "thongtingnoidung");
+  
 
   const renderTicketItem = () => {
     return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
@@ -363,14 +439,14 @@ function KetQuaDatVe(props) {
   };
 
   return (
-    <div className="container">
+    <div className="">
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="px-5 py-24 mx-auto">
           <div className="flex flex-col text-center w-full mb-20">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
               Lịch sử đặt vé khách hàng
             </h1>
-            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+            <p className=" mx-auto leading-relaxed text-base">
               Xem thông tin địa chỉ và thời gian để xem phim vui vẻ bạn nhé!
             </p>
           </div>

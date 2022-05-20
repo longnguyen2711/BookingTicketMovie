@@ -19,8 +19,8 @@ import Profile from "./pages/Profile/Profile";
 import Loading from "./_Component/Loading/Loading";
 
 // const CheckoutTemplateLazy = lazy(() => import("./templates/CheckoutTemplate/CheckoutTemplate"))
-
 export const history = createBrowserHistory();
+
 
 function App() {
   return (

@@ -1,15 +1,21 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Route } from "react-router-dom";
 
 
 export const UserTemplate = (props) => {
   const { Component, ...restProps } = props; // path, exact, Component
+
+  // Chuyển hướng về đầu trang khi trở lại trang trước đó
+  useEffect(() => {
+     window.scrollTo(0, 0);
+  });
+    
   return (<Route {...restProps} render={(propsRoute) => { //props.location, props.history, props.match
         return (<Fragment>
         <div className="lg:flex">
 
             <Component {...propsRoute} />
-            
+
             <div className="hidden lg:flex items-center justify-center bg-indigo-100 flex-1 h-screen">
                 <div className="max-w-xs transform duration-200 hover:scale-110 cursor-pointer">
                 <svg className="w-5/6 mx-auto" xmlns="http://www.w3.org/2000/svg" id="f080dbb7-9b2b-439b-a118-60b91c514f72" data-name="Layer 1" viewBox="0 0 528.71721 699.76785">

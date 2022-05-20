@@ -1,0 +1,94 @@
+#Register .form-register, h2 {
+    color: yellow !important;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#Register .form-register input{
+    color:  black;
+}
+
+#Register .register{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#Register .register-button{
+    border: 1px solid transparent;
+    padding: 7px 12px;  
+    border-radius: 5px;
+}
+
+#Register .register-button:hover,
+#Register .forgot-password .forgot-password-title:hover{
+    border: 1px solid yellow;
+    box-shadow: 0 0 15px yellow;
+    color: yellow;
+    transition: none;
+}
+
+#Register .forgot-password .forgot-password-title {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 6px 8px;
+}
+#Register .login-button{
+    border: 2px solid transparent;
+}
+
+#Register .login-button:hover{
+    border: 2px solid yellow;
+    box-shadow: 0 0 15px yellow;
+    color: yellow;
+    background-color: black;
+}
+
+#Register #taiKhoan,
+#Register #tenDangNhapRegister,
+#Register #taiKhoanRegister,
+#Register #matKhauRegister,
+#Register #xacNhanMatKhauRegister{
+    border: 2px solid transparent;
+}
+
+#Register #taiKhoan:focus,
+#Register #tenDangNhapRegister:focus,
+#Register #taiKhoanRegister:focus,
+#Register #matKhauRegister:focus,
+#Register #xacNhanMatKhauRegister:focus{
+    border: 2px solid #00efff;
+    box-shadow: 0 0 10px #00efff;
+    animation: animate-changecolor 1s linear infinite;
+    animation-delay: calc(-0.25s * var(--i));
+    transform-origin: 20px;
+    transition: 1s;
+}
+
+@keyframes animate-changecolor {
+    0% {
+      filter: rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg); 
+    }
+  }
+
+/* Nút quay về trang chủ */
+#Register .back-to-homepage-button i {
+    font-size: 30px;    
+}
+
+#Register .back-to-homepage-button{
+    padding: 20px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    color: yellow;
+  }
+
+  #Register .back-to-homepage-button:hover{
+    border: 2px solid yellow;
+    box-shadow: 0 0 15px yellow;
+
+    animation: animate-changecolor 2s linear infinite;
+    animation-delay: calc(-0.25s * var(--i));
+    transform-origin: 20px;
+    transition: 0.8s;
+  }

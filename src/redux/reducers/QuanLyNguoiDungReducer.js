@@ -1,5 +1,5 @@
 import { ACCESSTOKEN, USER_LOGIN } from "../../util/settings/config";
-import { DANG_NHAP_ACTION, SET_THONG_TIN_NGUOI_DUNG } from "../types";
+import { DANG_NHAP_ACTION, DANG_XUAT_ACTION, SET_THONG_TIN_NGUOI_DUNG } from "../types";
 
 // Kiểm tra trong localStorage đã có thông tin đăng nhập hay chưa, nếu có rồi thì không cần đăng nhập lại
 let user = {};
@@ -23,15 +23,11 @@ export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
       return { ...state, userLogin: thongTinDangNhap };
     }
 
-
-
     case SET_THONG_TIN_NGUOI_DUNG: {
       state.thongTinNguoiDung = action.thongTinNguoiDung;
       return { ...state };
     }
-
-
-    
+ 
     default:
       return { ...state };
   }

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import _ from "lodash";
 import "./Header.css";
+import { ACCESSTOKEN, USER_LOGIN } from "../../../../util/settings/config";
 
 export default function Header(props) {
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
@@ -13,18 +14,18 @@ export default function Header(props) {
       return (
         <Fragment>
           <NavLink
-            to="/login"
-            title="Bấm để đăng nhập"
-            className="sign-in focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3"
-          >
-            Đăng nhập
-          </NavLink>
-          <NavLink
             to="/register"
             title="Bấm để đăng ký"
-            className="sign-up focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black"
+            className="sign-up focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3"
           >
             Đăng ký
+          </NavLink>
+          <NavLink
+            to="/login"
+            title="Bấm để đăng nhập"
+            className="sign-in focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black"
+          >
+            Đăng nhập
           </NavLink>
         </Fragment>
       );
@@ -39,8 +40,17 @@ export default function Header(props) {
           {userLogin.taiKhoan}
         </NavLink>
         <button
+          className="sign-out focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3"
           title="Bấm để đăng xuất"
-          className="sign-out focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black"
+          onClick={() => {
+            // Xóa trong localStorage
+            localStorage.removeItem(USER_LOGIN);
+            localStorage.removeItem(ACCESSTOKEN);
+            // Chuyển hướng về home
+            props.history.push("/home");
+            // Reload lại trang web
+            window.location.reload();
+          }}
         >
           Đăng xuất
         </button>
@@ -63,18 +73,18 @@ export default function Header(props) {
           <div class="dropdown-menu hidden text-gray-700 right-0">
             <div className="flex flex-col justify-start items-end">
               <NavLink
-                to="/login"
-                title="Bấm để đăng nhập"
-                className="md-sign-in bg-black w-36 text-center z-50 mb-3 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
-              >
-                Đăng nhập
-              </NavLink>
-              <NavLink
                 to="/register"
                 title="Bấm để đăng ký"
-                className="md-sign-up bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
+                className="md-sign-up bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2  mb-3"
               >
                 Đăng ký
+              </NavLink>
+              <NavLink
+                to="/login"
+                title="Bấm để đăng nhập"
+                className="md-sign-in bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
+              >
+                Đăng nhập
               </NavLink>
             </div>
           </div>
@@ -100,8 +110,17 @@ export default function Header(props) {
                 {userLogin.taiKhoan}
               </NavLink>
               <button
-                title="Bấm để đăng xuất"
                 className="md-sign-up bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
+                title="Bấm để đăng xuất"
+                onClick={() => {
+                  // Xóa trong localStorage
+                  localStorage.removeItem(USER_LOGIN);
+                  localStorage.removeItem(ACCESSTOKEN);
+                  // Chuyển hướng về home
+                  props.history.push("/home");
+                  // Reload lại trang web
+                  window.location.reload();
+                }}
               >
                 Đăng xuất
               </button>
@@ -121,7 +140,6 @@ export default function Header(props) {
     this.classList.add("navigation-active");
   }
   navigation_list.forEach((item) => item.addEventListener("click", activeLink));
-
 
   // Xét kích thước màn hình
   const [screen, setScreen] = useState({
@@ -162,11 +180,11 @@ export default function Header(props) {
             </NavLink>
           </li>
           <li className="navigation_list">
-            <NavLink to="/contact" className="navLink" title="Liên hệ">
+            <NavLink to="/products" className="navLink" title="Sản phẩm">
               <span className="icon">
-                <i className="fa fa-phone"></i>
+                <i class="fab fa-react"></i>
               </span>
-              <span className="text text-sm">Liên hệ</span>
+              <span className="text text-sm">Sản phẩm</span>
             </NavLink>
           </li>
           <li className="navigation_list">
@@ -178,11 +196,11 @@ export default function Header(props) {
             </NavLink>
           </li>
           <li className="navigation_list">
-            <NavLink to="/products" className="navLink" title="Sản phẩm">
+            <NavLink to="/contact" className="navLink" title="Liên hệ">
               <span className="icon">
-                <i class="fab fa-react"></i>
+                <i className="fa fa-phone"></i>
               </span>
-              <span className="text text-sm">Sản phẩm</span>
+              <span className="text text-sm">Liên hệ</span>
             </NavLink>
           </li>
           <div className="navigation-indicator" />
