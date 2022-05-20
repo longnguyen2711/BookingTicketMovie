@@ -32,13 +32,18 @@ export default function Header(props) {
     }
     return (
       <Fragment>
-        <NavLink
-          to="/profile"
-          title="Đến trang cá nhân"
-          className="to-profile focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3"
-        >
-          {userLogin.taiKhoan}
-        </NavLink>
+            <button
+              onClick={() => {
+                props.history.push("/profile");
+              }}
+              className="to-profile focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3 flex justify-center items-center h-full ml-10"
+              title={`Tài khoản khách: ${userLogin.taiKhoan} `}
+            >
+              <div className="font-bold">{userLogin.taiKhoan}</div>
+              <div className="w-9 h-9 rounded-full bg-black text-yellow-500 font-bold flex justify-center items-center text-2xl ml-3">
+                <p className="mb-2">{userLogin.taiKhoan.substr(0, 1)}</p>
+              </div>
+            </button>
         <button
           className="sign-out focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3"
           title="Bấm để đăng xuất"

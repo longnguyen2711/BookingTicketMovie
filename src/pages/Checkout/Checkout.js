@@ -19,9 +19,7 @@ import {
 import { NavLink } from "react-router-dom";
 
 function Checkout(props) {
-  // Để làm background khi đặt vé của từng phim
-  // const filmDetail = useSelector((state) => state.QuanLyPhimReducer.filmDetail);
-
+  
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
 
   const { chiTietPhongVe, danhSachGheDangDat, danhSachGheKhachDangDat } =
@@ -95,6 +93,7 @@ function Checkout(props) {
               disabled={ghe.daDa || classGheNguoiKhacDangDat !== ""}
               className={`ghe ${classGheNguoiKhacDangDat} ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classSpacingHeight} ${classSpacingWidth} ${classGheDaDuocBanThanDat} m-2`}
               key={index}
+              title={ghe.stt}
               onClick={() => {
                 dispatch({
                   type: DAT_VE,
@@ -123,8 +122,11 @@ function Checkout(props) {
     });
   };
 
+    // Để làm background khi đặt vé của từng phim
+    // const filmDetail = useSelector((state) => state.QuanLyPhimReducer.filmDetail);
+    // style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundPosition: "cover", backgroundRepeat:"no" }}
+
   return (
-    // style={{ backgroundImage: `url(${filmDetail.hinhAnh})` }}
     <div className="min-h-screen mt-10" id="checkout">
       <div className="grid grid-cols-12">
         <div className="col-span-9">
@@ -229,7 +231,7 @@ function Checkout(props) {
           <hr />
           <div className="my-5 flex-col justify-start">
             <div>
-              <span>Ghế: </span>
+              <span>Ghế đang chọn: </span>
               <span className="text-red-400">
                 {danhSachGheDangDat
                   .sort((ghe, gheTT) => {
@@ -255,14 +257,12 @@ function Checkout(props) {
           </div>
           <hr />
           <div className="my-5">
-            <i>Email</i>
-            <br />
+            <span>Email: </span>          
             {userLogin.email}
           </div>
           <hr />
           <div className="my-5">
-            <i>Số điện thoại</i>
-            <br />
+            <span>Số điện thoại: </span>
             {userLogin.soDT}
           </div>
           <hr />
