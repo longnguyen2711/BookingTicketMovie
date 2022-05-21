@@ -47,6 +47,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  background-attachment: fixed;
   backdrop-filter: blur(10px);
 }
 
@@ -82,7 +83,7 @@
   border-radius: 5px;
   cursor: pointer;
   background-color: rgb(187, 187, 187);
-  border: 2px solid orange;
+  border: 1px solid orange;
   box-shadow: 0 0 5px orange;
 }
 
@@ -107,6 +108,7 @@
   border: 1px solid white;
   border-radius: 10px;
   box-shadow: 0 0 15px white;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 #checkout .checkout-left-screen .note-seat {
@@ -136,6 +138,7 @@
   border-radius: 10px;
   box-shadow: 0 0 15px white;
   margin-left: 16px;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 #checkout .checkout-right-infoTicket .nutDatVe div{

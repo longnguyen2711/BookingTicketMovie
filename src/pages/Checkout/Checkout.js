@@ -40,7 +40,7 @@ function Checkout(props) {
       let classGheVip = ghe.loaiGhe === "Vip" ? "gheVip" : "";
       let classGheDaDat = ghe.daDat === true ? "gheDaDat" : "";
       let classSpacingHeight =
-        ghe.stt % 8 === 0 && ghe.stt % 16 !== 0 ? "bg-black" : "";
+        ghe.stt % 8 === 0 && ghe.stt % 16 !== 0 ? "bg-green-500" : "";
       let classSpacingWidth =
         ghe.stt >= 65 && ghe.stt <= 80 ? "mb-2 md:mb-4" : "";
 
@@ -126,7 +126,7 @@ function Checkout(props) {
       style={{ backgroundImage: `url(${thongTinPhim.hinhAnh})` }}
     >
       <div className="checkout__overlay z-0 absolute"></div>
-      <div className="checkout-left-screen flex justify-center items-start z-50 px-4 pt-10 pb-6 bg-black">
+      <div className="checkout-left-screen flex justify-center items-start z-50 px-4 pt-10 pb-6">
         <div>
           <div className="flex flex-col items-center">
             <div className="screen relative">
@@ -198,7 +198,7 @@ function Checkout(props) {
         </div>
       </div>
 
-      <div className="checkout-right-infoTicket flex justify-center items-start z-50 bg-black text-white">
+      <div className="checkout-right-infoTicket flex justify-center items-start z-50  text-white">
         <div>
           <h3 className="text-green-500 text-center text-2xl pb-4 pt-5 mb-0">
             {" "}

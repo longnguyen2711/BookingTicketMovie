@@ -9,14 +9,22 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Propducts from "./pages/Propducts/Propducts";
 import Detail from "./pages/Detail/Detail";
+import Profile from "./pages/Profile/Profile";
+
+import ShowTime from "./pages/Admin/ShowTime/ShowTime";
+import DashBoard from "./pages/Admin/DashBoard/DashBoard";
+import Films from "./pages/Admin/Films/Films";
 
 import CheckoutTemplate from "./templates/CheckoutTemplate/CheckoutTemplate";
 
 import Checkout from "./pages/Checkout/Checkout";
 // import { Suspense, lazy } from "react";
 import { UserTemplate } from "./templates/UserTemplate/UserTemplate";
-import Profile from "./pages/Profile/Profile";
+import { AdminTemplate } from "./templates/AdminTemplate/AdminTemplate";
+
+
 import Loading from "./_Component/Loading/Loading";
+
 
 // const CheckoutTemplateLazy = lazy(() => import("./templates/CheckoutTemplate/CheckoutTemplate"))
 export const history = createBrowserHistory();
@@ -42,6 +50,11 @@ function App() {
 
         <UserTemplate path="/register" exact Component={Register} />
         <UserTemplate path="/login" exact Component={Login} />
+
+        <AdminTemplate path="/admin" exact Component={DashBoard} />
+        <AdminTemplate path="/admin/users" exact Component={DashBoard} />
+        <AdminTemplate path="/admin/films" exact Component={Films} />
+        <AdminTemplate path="/admin/showtimes" exact Component={ShowTime} />
 
         <HomeTemplate path="/" exact Component={Home} />
       </Switch>
