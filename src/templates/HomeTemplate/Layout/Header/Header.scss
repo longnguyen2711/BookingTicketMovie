@@ -1,3 +1,5 @@
+$navbar-color: yellow;
+
 html {
   scroll-behavior: smooth;
 }
@@ -16,48 +18,68 @@ html {
   right: 25px;
   bottom: 12px;
   cursor: pointer !important;
-}
-
-#header .back-to-top:hover {
-  color: yellow;
-  border: 1px solid #35a22c;
-  box-shadow: 0 0 15px #35a22c;
-  background-color: rgba(0, 0, 0, 1);
-
-  animation: animate-changecolor 1s linear infinite;
-  animation-delay: calc(-0.25s * var(--i));
-  transform-origin: 20px;
-  transition: 0.5s;
+  &:hover{
+    color: $navbar-color;
+    border: 1px solid #35a22c;
+    box-shadow: 0 0 15px #35a22c;
+    background-color: rgba(0, 0, 0, 1);  
+    animation: animate-changecolor 1s linear infinite;
+    animation-delay: calc(-0.25s * var(--i));
+    transform-origin: 20px;
+    transition: 0.5s;
+  }
 }
 
 /* Đăng nhập - Đăng xuất */
-
-#header .sign-in-up .to-profile {
-  color: yellow;
-  border-radius: 10px;
-  border: 2px solid transparent;
-}
-
-#header .sign-in-up .sign-out,
-#header .sign-in-up .sign-in,
-#header .sign-in-up .sign-up {
-  color: white;
-  border-radius: 10px;
-  border: 2px solid transparent;
-}
-
-#header .sign-in-up .sign-out:hover,
-#header .sign-in-up .to-profile:hover,
-#header .sign-in-up .sign-in:hover,
-#header .sign-in-up .sign-up:hover {
-  color: yellow;
-  border: 2px solid yellow;
-  box-shadow: 0 0 15px yellow;
-  background-color: black !important;
-  animation: animate-changecolor 1s linear infinite;
-  animation-delay: calc(-0.25s * var(--i));
-  transform-origin: 20px;
-  transition: 0.5s;
+#header {
+  .sign-in-up {
+    .to-profile {
+      color: $navbar-color;
+      border-radius: 10px;
+      border: 2px solid transparent;
+      &:hover {
+        animation: animate-changecolor 1s linear infinite;
+        animation-delay: calc(-0.25s * var(--i));
+        transform-origin: 20px;
+        transition: 0.5s;
+      }
+      .icon-user {
+        color: $navbar-color;
+        border: 1px solid $navbar-color;
+        box-shadow: 0 0 8px $navbar-color;
+      }
+    }
+    .sign-in,
+    .sign-up,
+    .sign-out {
+      color: white;
+      border-radius: 10px;
+      border: 2px solid transparent;
+      &:hover {
+        color: $navbar-color;
+        border: 2px solid $navbar-color;
+        box-shadow: 0 0 15px $navbar-color;
+        background-color: black !important;
+        animation: animate-changecolor 1s linear infinite;
+        animation-delay: calc(-0.25s * var(--i));
+        transform-origin: 20px;
+        transition: 0.5s;
+      }
+    }
+  }
+  .md-sign-in,
+  .md-sign-up {
+    color: yellow;
+    border: 2px solid yellow;
+    border-radius: 8px;
+    &:hover {
+      box-shadow: 0 0 15px yellow;
+      animation: animate-changecolor 1s linear infinite;
+      animation-delay: calc(-0.25s * var(--i));
+      transform-origin: 20px;
+      transition: 0.5s;
+    }
+  }
 }
 
 @keyframes animate-changecolor {
@@ -69,23 +91,7 @@ html {
   }
 }
 
-#header .md-sign-in,
-#header .md-sign-up {
-  color: yellow;
-  border: 2px solid yellow;
-  border-radius: 8px;
-}
-#header .md-sign-in:hover,
-#header .md-sign-up:hover {
-  box-shadow: 0 0 15px yellow;
-  animation: animate-changecolor 1s linear infinite;
-  animation-delay: calc(-0.25s * var(--i));
-  transform-origin: 20px;
-  transition: 0.5s;
-}
-
 /* -------- Home Menu SASS------- */
-$navbar-color: yellow;
 
 /* Navbar màn hình lớn */
 #header {
@@ -268,6 +274,7 @@ $navbar-color: yellow;
     .dropdown-button {
       top: 110px;
       right: 15px;
+      margin-right: 20px;
     }
     .dropdown-menu {
       padding-top: 5px;

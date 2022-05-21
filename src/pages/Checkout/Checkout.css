@@ -1,14 +1,78 @@
+/* ant design */
+
+.ant-checkout .ant-tabs-tab-btn{
+  color: white !important;
+}
+
+.ant-checkout .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+  color: yellow !important;
+}
+
+/* --------------------------- */
+.checkout-profile-logout .profile button div:first-of-type{
+  color: yellow;
+}
+.checkout-profile-logout .profile button div:last-of-type{
+  border: 1px solid yellow;
+  box-shadow: 0 0 10px yellow;
+}
+
+.checkout-profile-logout .profile button:hover{
+  animation: animate-changecolor 1s linear infinite;
+  animation-delay: calc(-0.25s * var(--i));
+  transform-origin: 20px;
+  transition: 0.5s;
+}
+
+.checkout-profile-logout .logout button{
+  color: white;
+  border: 2px solid transparent;
+  padding: 8px 15px;
+  border-radius: 5px;  
+}
+
+.checkout-profile-logout .logout button:hover{
+  color: yellow;
+  border: 2px solid yellow;
+  box-shadow: 0 0 10px yellow;
+  animation: animate-changecolor 1s linear infinite;
+  animation-delay: calc(-0.25s * var(--i));
+  transform-origin: 20px;
+  transition: 0.5s;
+}
+
+
+/* --------------------------- */
+#checkout {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+}
+
+.checkout__overlay {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
 #checkout .screen {
-  border-bottom: 50px solid rgb(68, 68, 68);
+  border-bottom: 50px solid rgb(255, 255, 255);
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
   height: 100;
   width: 85%;
   font-size: 25px;
   color: #fff;
-  margin-left: 35px;
   opacity: 0.8;
-  filter: drop-shadow(4px 30px 20px rgb(255, 0, 0));
+  filter: drop-shadow(4px 15px 20px rgb(250, 85, 85));
+}
+
+#checkout .screen p {
+  font-family: "Times New Roman", Times, serif;
 }
 
 #checkout .ghe {
@@ -18,7 +82,8 @@
   border-radius: 5px;
   cursor: pointer;
   background-color: rgb(187, 187, 187);
-  border: 1px solid black;
+  border: 2px solid orange;
+  box-shadow: 0 0 5px orange;
 }
 
 /* Sắp xếp ghế mỗi hàng 16 ghế */
@@ -33,15 +98,70 @@
   padding-bottom: 10px;
 }
 
+#checkout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+#checkout .checkout-left-screen {
+  grid-column: 1 / span 6;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px white;
+}
 
+#checkout .checkout-left-screen .note-seat {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+#checkout .checkout-left-screen .note-seat > div {
+  display: flex;
+  justify-content: start;
+  align-items: flex-end;
+}
+
+#checkout .checkout-left-screen .note-seat > div span {
+  color: white;
+}
+
+#checkout .checkout-left-screen .note-seat > div span span {
+  color: yellow;
+}
+
+#checkout .checkout-right-infoTicket {
+  grid-column: 7 / span 3;
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px white;
+  margin-left: 16px;
+}
+
+#checkout .checkout-right-infoTicket .nutDatVe div{
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+#checkout .checkout-right-infoTicket .nutDatVe div:hover{
+  border: 1px solid white;
+  box-shadow: 0 0 10px white;
+}
+
+@media screen and (max-width: 1100px) {
+  #checkout .ghe {
+    width: 33px;
+    height: 33px;
+  }
+}
 
 @media screen and (max-width: 1024px) {
-  #checkout .ghe {
-    width: 30px;
-    height: 30px;
-  }
-  .ant-tabs-tab + .ant-tabs-tab{
+  .ant-tabs-tab + .ant-tabs-tab {
     margin-left: 0 !important;
+  }
+  #checkout .ghe {
+    width: 31px;
+    height: 31px;
+    font-size: 13px;
   }
 }
 
@@ -50,17 +170,84 @@
     font-size: 11px;
     padding-bottom: 5px;
   }
+  #checkout .ghe {
+    width: 27px;
+    height: 27px;
+    font-size: 11px;
+  }
 }
 
-@media screen and (max-width: 86\50px) {
+@media screen and (max-width: 850px) {
   #checkout .ghe {
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  #checkout .checkout-left-screen {
+    grid-column: 1 / span 9;
+  }
+  #checkout .checkout-right-infoTicket {
+    grid-column: 1 / span 7;
+    grid-column-start: 2;
+    margin-top: 30px;
+    padding: 0 20px;
+  }
+  #checkout .checkout-right-infoTicket {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #checkout .ghe {
+    width: 33px;
+    height: 33px;
+
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  #checkout .ghe {
+    width: 29px;
+    height: 29px;
+    font-size: 11px;
+  }
+  #checkout .checkout-left-screen .note-seat > div span {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #checkout .ghe {
+    width: 26px;
+    height: 26px;
+  }
+  #checkout .checkout-left-screen .note-seat > div span {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  #checkout .checkout-left-screen .note-seat > div span {
     font-size: 10px;
   }
 }
 
+@media screen and (max-width: 450px) {
+  #checkout .ghe {
+    width: 23px;
+    height: 23px;
+    font-size: 9px;
+  }
+}
 
+@media screen and (max-width: 380px) {
+  #checkout .ghe {
+    width: 22px;
+    height: 22px;
+    font-size: 9px;
+  }
+}
 
 #checkout .gheVip {
   background-color: rgb(107, 255, 255);
@@ -84,9 +271,17 @@
   cursor: no-drop;
 }
 
-.ant-tabs-top > .ant-tabs-nav {
+.ant-checkout .ant-tabs-top > .ant-tabs-nav {
   margin-bottom: 0 !important;
   margin-left: 5% !important;
   margin-right: 5% !important;
 }
 
+@keyframes animate-changecolor {
+  0% {
+    filter: rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg); 
+  }
+  }

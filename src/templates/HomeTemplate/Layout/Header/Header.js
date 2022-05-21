@@ -33,19 +33,7 @@ export default function Header(props) {
     return (
       <Fragment>
         <button
-          onClick={() => {
-            props.history.push("/profile");
-          }}
-          className="to-profile focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3 flex justify-center items-center h-full ml-10"
-          title={`Tài khoản khách: ${userLogin.taiKhoan} `}
-        >
-          <div className="font-bold">{userLogin.taiKhoan}</div>
-          <div className="w-9 h-9 rounded-full bg-black text-yellow-500 font-bold flex justify-center items-center text-2xl ml-3">
-            <p className="mb-2">{userLogin.taiKhoan.substr(0, 1)}</p>
-          </div>
-        </button>
-        <button
-          className="sign-out focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-3"
+          className="sign-out focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-5"
           title="Bấm để đăng xuất"
           onClick={() => {
             // Xóa trong localStorage
@@ -59,6 +47,19 @@ export default function Header(props) {
         >
           Đăng xuất
         </button>
+        <button
+          onClick={() => {
+            props.history.push("/profile");
+          }}
+          className="to-profile focus:outline-none rounded self-center font-bold p-2 flex justify-center items-center h-full"
+          title={`Tài khoản khách: ${userLogin.taiKhoan} `}
+        >
+          <div className="font-bold">{userLogin.taiKhoan}</div>
+          <div className="icon-user w-10 h-10 rounded-full bg-black font-bold flex justify-center items-center ml-3 text-xl">
+            <p className="mb-0 pb-1">{userLogin.taiKhoan.substr(0, 1)}</p>
+          </div>
+        </button>
+
       </Fragment>
     );
   };
@@ -89,7 +90,7 @@ export default function Header(props) {
                 title="Bấm để đăng nhập"
                 className="md-sign-in bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
               >
-                Đăng nhập
+                Đăng
               </NavLink>
             </div>
           </div>
@@ -107,6 +108,7 @@ export default function Header(props) {
           </button>
           <div class="dropdown-menu hidden text-gray-700 right-0">
             <div className="flex flex-col justify-start items-end">
+
               <NavLink
                 to="/profile"
                 title="Đến trang cá nhân"
@@ -114,6 +116,7 @@ export default function Header(props) {
               >
                 {userLogin.taiKhoan}
               </NavLink>
+
               <button
                 className="md-sign-up bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
                 title="Bấm để đăng xuất"
@@ -183,6 +186,7 @@ export default function Header(props) {
           to="/"
           aria-label="Back to homepage"
           className="items-center p-2 hidden lg:flex"
+          title="Về trang chủ"
         >
           <img
             src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png"

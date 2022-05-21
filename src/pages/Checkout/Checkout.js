@@ -39,9 +39,10 @@ function Checkout(props) {
     return danhSachGhe.map((ghe, index) => {
       let classGheVip = ghe.loaiGhe === "Vip" ? "gheVip" : "";
       let classGheDaDat = ghe.daDat === true ? "gheDaDat" : "";
-      // let classSpacingHeight =
-      //   ghe.stt % 8 === 0 && ghe.stt % 16 !== 0 ? "mr-5" : "";
-      // let classSpacingWidth = ghe.stt >= 65 && ghe.stt <= 80 ? "mb-5" : "";
+      let classSpacingHeight =
+        ghe.stt % 8 === 0 && ghe.stt % 16 !== 0 ? "bg-black" : "";
+      let classSpacingWidth =
+        ghe.stt >= 65 && ghe.stt <= 80 ? "mb-2 md:mb-4" : "";
 
       // Đếm tổng số ghế
       if (ghe.daDat && userLogin.taiKhoan) {
@@ -85,10 +86,10 @@ function Checkout(props) {
       return (
         <Fragment key={index}>
           {
-            <div>
+            <div className={`flex justify-center ${classSpacingHeight}`}>
               <button
-                disabled={ghe.daDa || classGheNguoiKhacDangDat !== ""}
-                className={`ghe ${classGheNguoiKhacDangDat} ${classGheVip} ${classGheDaDat} ${classGheDangDat}  ${classGheDaDuocBanThanDat}`}
+                disabled={ghe.daDat || classGheNguoiKhacDangDat !== ""}
+                className={`ghe ${classSpacingWidth} ${classGheNguoiKhacDangDat} ${classGheVip} ${classGheDaDat} ${classGheDangDat}  ${classGheDaDuocBanThanDat}`}
                 key={index}
                 title={ghe.stt}
                 onClick={() => {
@@ -101,12 +102,12 @@ function Checkout(props) {
                 {/* (Nếu ghế đã được đặt của người khác thì X ko thì của bản thân) hoặc (Nếu ghế người khác đang đặt thì X ngược lại ghế thường) */}
                 {ghe.daDat ? (
                   userLogin.taiKhoan === ghe.taiKhoanNguoiDat ? (
-                    <i class="fa fa-check"></i>
+                    <i className="fa fa-check"></i>
                   ) : (
-                    <i class="fa fa-times"></i>
+                    <i className="fa fa-times"></i>
                   )
                 ) : classGheNguoiKhacDangDat !== "" ? (
-                  <i class="fa fa-times"></i>
+                  <i className="fa fa-times"></i>
                 ) : (
                   ghe.stt
                 )}
@@ -118,101 +119,88 @@ function Checkout(props) {
     });
   };
 
-  // Để làm background khi đặt vé của từng phim
-  // const filmDetail = useSelector((state) => state.QuanLyPhimReducer.filmDetail);
-  // style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundPosition: "cover", backgroundRepeat:"no" }}
-
   return (
-    <div className="min-h-screen p-10 grid grid-cols-12" id="checkout">
-     
-        <div className="col-span-8 flex justify-center items-start">
-          <div>
+    <div
+      className="px-10 p-14 border-t"
+      id="checkout"
+      style={{ backgroundImage: `url(${thongTinPhim.hinhAnh})` }}
+    >
+      <div className="checkout__overlay z-0 absolute"></div>
+      <div className="checkout-left-screen flex justify-center items-start z-50 px-4 pt-10 pb-6 bg-black">
+        <div>
           <div className="flex flex-col items-center">
-            <div className="w-11/12 bg-black h-3"></div>
             <div className="screen relative">
-              <p className="absolute top-0 left-0">MÀN HÌNH</p>
+              <div className="w-full bg-gray-500 h-4 rounded-t-md"></div>
+              <p className="absolute left-5 top-6 font-bold text-black">
+                MÀN HÌNH
+              </p>
             </div>
             <div className="mt-10 flex justify-center">
               <div className="checkout-seats">{renderSeats()}</div>
             </div>
           </div>
 
-          <div className="mt-5 flex justify-center items-center w-full">
-            <table className="divide-y divide-gray-200 w-full">
-              <thead className="bg-gray-50 p-5 w-full">
-                <tr>
-                  <th>Ghế chưa đặt</th>
-                  <th>Ghế Vip chưa đặt</th>
-                  <th>Ghế bạn đang đặt</th>
-                  <th>Ghế bạn đã đặt</th>
-                  <th>Ghế người khác đang đặt</th>
-                  <th>Ghế người khác đã đặt</th>
-                </tr>
-              </thead>
-              <tbody className="bg-gray-50 p-5 w-full">
-                <tr>
-                  <td className="text-center pt-4">
-                    <button title="Ghế chưa đặt" className="ghe">
-                      01
-                    </button>
-                  </td>
-                  <td className="text-center pt-4">
-                    <button title="Ghế Vip chưa đặt" className="ghe gheVip">
-                      01
-                    </button>
-                  </td>
-                  <td className="text-center pt-4">
-                    <button title="Ghế bạn đang đặt" className="ghe gheDangDat">
-                      01
-                    </button>
-                  </td>
-                  <td className="text-center pt-4">
-                    <button
-                      title="Ghé bạn đã đặt"
-                      className="ghe gheBanThanDat gheDaDat"
-                    >
-                      <i className="fa fa-check"></i>
-                    </button>
-                  </td>
-                  <td className="text-center pt-4">
-                    <button
-                      title="Ghế người khác đang đặt"
-                      className="ghe gheNguoiKhacDangDat"
-                    >
-                      <i class="fa fa-times"></i>
-                    </button>
-                  </td>
-                  <td className="text-center pt-4">
-                    <button
-                      title="Ghế người khác đã đặt"
-                      className="ghe gheDaDat"
-                    >
-                      <i class="fa fa-times"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="text-center">{tongGheThuongConLai}</td>
-                  <td className="text-center">{tongGheVipConLai}</td>
-                  <td className="text-center">{danhSachGheDangDat.length}</td>
-                  <td className="text-center">{gheBanThanDaDat}</td>
-                  <td className="text-center">
-                    {danhSachGheKhachDangDat.length}
-                  </td>
-                  <td className="text-center">
-                    {tongGheDaDat - gheBanThanDaDat}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <div className="note-seat px-8 font-bold mt-5 flex justify-center items-center w-full">
+            <div>
+              <button title="Ghế chưa đặt" className="ghe">
+                01
+              </button>
+              <span className="ml-3">
+                Ghế chưa đặt: <span>{tongGheThuongConLai}</span>
+              </span>
+            </div>
+            <div>
+              <button title="Ghế Vip chưa đặt" className="ghe gheVip">
+                01
+              </button>
+              <span className="ml-3">
+                Ghế Vip chưa đặt: <span>{tongGheVipConLai}</span>
+              </span>
+            </div>
+            <div>
+              <button title="Ghế bạn đang đặt" className="ghe gheDangDat">
+                01
+              </button>
+              <span className="ml-3">
+                Ghế bạn đang đặt: <span>{danhSachGheDangDat.length}</span>
+              </span>
+            </div>
+            <div>
+              <button title="Ghế bạn đã đặt" className="ghe gheBanThanDat">
+                <i className="fa fa-check"></i>
+              </button>
+              <span className="ml-3">
+                Ghế bạn đã đặt: <span>{gheBanThanDaDat}</span>
+              </span>
+            </div>
+            <div>
+              <button
+                title="Ghế người khác đang đặt"
+                className="ghe gheNguoiKhacDangDat"
+              >
+                <i className="fa fa-times"></i>
+              </button>
+              <span className="ml-3">
+                Ghế người khác đang đặt:{" "}
+                <span>{danhSachGheKhachDangDat.length}</span>
+              </span>
+            </div>
+            <div>
+              <button title="Ghế người khác đã đặt" className="ghe gheDaDat">
+                <i className="fa fa-times"></i>
+              </button>
+              <span className="ml-3">
+                Ghế người khác đã đặt:{" "}
+                <span>{tongGheDaDat - gheBanThanDaDat}</span>
+              </span>
+            </div>
           </div>
         </div>
+      </div>
 
-
-        <div className="col-span-4 flex justify-center items-start">
-          <div>
-          <h3 className="text-green-400 text-center text-2xl">
+      <div className="checkout-right-infoTicket flex justify-center items-start z-50 bg-black text-white">
+        <div>
+          <h3 className="text-green-500 text-center text-2xl pb-4 pt-5 mb-0">
             {" "}
             {danhSachGheDangDat
               .reduce((tongTien, gheDD, index) => {
@@ -222,18 +210,24 @@ function Checkout(props) {
             VNĐ
           </h3>
           <hr />
-          <h3 className="text-xl">{thongTinPhim.tenPhim}</h3>
-          <p>
-            Địa điểm: {thongTinPhim.diaChi} - {thongTinPhim.tenRap}
-          </p>
-          <p>
-            Ngày chiếu: {thongTinPhim.ngayChieu} - {thongTinPhim.gioChieu}
-          </p>
+          <h3 className="text-xl mt-3 text-white">{thongTinPhim.tenPhim}</h3>
+          <div>
+            <span className="font-bold">Địa điểm: </span>
+            <span>
+              {thongTinPhim.diaChi} - {thongTinPhim.tenRap}
+            </span>
+          </div>
+          <div className="my-3">
+            <span className="font-bold">Ngày chiếu: </span>
+            <span>
+              {thongTinPhim.ngayChieu} - {thongTinPhim.gioChieu}
+            </span>
+          </div>
           <hr />
-          <div className="my-5 flex-col justify-start">
-            <div>
-              <span>Ghế đang chọn: </span>
-              <span className="text-red-400">
+          <div className="my-4 flex-col justify-start">
+            <div className="mb-3">
+              <span className="font-bold">Ghế đang chọn: </span>
+              <span className="text-orange-700 ">
                 {danhSachGheDangDat
                   .sort((ghe, gheTT) => {
                     return ghe.stt - gheTT.stt;
@@ -244,7 +238,7 @@ function Checkout(props) {
               </span>
             </div>
             <div className="text-left">
-              <span>Tổng tiền: </span>
+              <span className="font-bold">Tổng tiền: </span>
 
               <span className="text-green-500">
                 {danhSachGheDangDat
@@ -257,17 +251,16 @@ function Checkout(props) {
             </div>
           </div>
           <hr />
-          <div className="my-5">
-            <span>Email: </span>
-            {userLogin.email}
+          <div className="my-4">
+            <span className="font-bold">Email: </span>
+            <span className="italic">{userLogin.email}</span>
           </div>
           <hr />
-          <div className="my-5">
-            <span>Số điện thoại: </span>
-            {userLogin.soDT}
+          <div className="my-4">
+            <span className="font-bold">Số điện thoại: </span>
+            <span className="italic">{userLogin.soDT}</span>
           </div>
-          <hr />
-          <div className="mb-0 h-full flex flex-col justify-end items-center">
+          <div className="nutDatVe mt-8 mb-0 h-full flex flex-col justify-end items-center">
             <div
               onClick={() => {
                 // Tạo và gán lại thông tin đặt vé
@@ -277,14 +270,13 @@ function Checkout(props) {
                 // Dispatch
                 dispatch(datVeAction(thongTinDatVe));
               }}
-              className="bg-green-500 text-white w-full text-center py-2 font-bold text-xl cursor-pointer"
+              className="bg-green-600 hover:bg-green-500 text-black hover:text-white w-full text-center py-2 mb-7 font-bold text-xl cursor-pointer  rounded"
             >
-              đặt vé
+              Đặt vé
             </div>
           </div>
-          </div>
         </div>
-      
+      </div>
     </div>
   );
 }
@@ -301,33 +293,38 @@ export default function CheckoutTab(props) {
     <Fragment>
       {!_.isEmpty(userLogin) ? (
         <Fragment>
-          <div className="flex">
-            <button
-              title="Bấm để đăng xuất"
-              onClick={() => {
-                // Xóa trong localStorage
-                localStorage.removeItem(USER_LOGIN);
-                localStorage.removeItem(ACCESSTOKEN);
-                // Chuyển hướng về home
-                props.history.push("/home");
-                // Reload lại trang web
-                window.location.reload();
-              }}
-            >
-              Đăng xuất
-            </button>
-            <button
-              onClick={() => {
-                props.history.push("/profile");
-              }}
-              className="flex justify-center items-center h-full ml-10"
-              title={`Tài khoản khách: ${userLogin.taiKhoan} `}
-            >
-              <div className="font-bold">{userLogin.taiKhoan}</div>
-              <div className="w-9 h-9 rounded-full bg-black text-yellow-500 font-bold flex justify-center items-center text-2xl ml-3">
-                <p className="mb-2">{userLogin.taiKhoan.substr(0, 1)}</p>
-              </div>
-            </button>
+          <div className="flex checkout-profile-logout">
+            <div className="logout flex items-center">
+              <button
+                className="text-white font-bold"
+                title="Bấm để đăng xuất"
+                onClick={() => {
+                  // Xóa trong localStorage
+                  localStorage.removeItem(USER_LOGIN);
+                  localStorage.removeItem(ACCESSTOKEN);
+                  // Chuyển hướng về home
+                  props.history.push("/home");
+                  // Reload lại trang web
+                  window.location.reload();
+                }}
+              >
+                Đăng xuất
+              </button>
+            </div>
+            <div className="profile">
+              <button                
+                onClick={() => {
+                  props.history.push("/profile");
+                }}
+                className="flex justify-center items-center h-full ml-10 text-white"
+                title="Đến trang cá nhân"
+              >
+                <div className="font-bold">{userLogin.taiKhoan}</div>
+                <div className="w-9 h-9 rounded-full bg-black text-yellow-500 font-bold flex justify-center items-center text-2xl ml-3">
+                  <p className="mb-0 pb-1">{userLogin.taiKhoan.substr(0, 1)}</p>
+                </div>
+              </button>
+            </div>
           </div>
         </Fragment>
       ) : (
@@ -345,7 +342,7 @@ export default function CheckoutTab(props) {
   }, []);
 
   return (
-    <div className=" flex justify-center">
+    <div className="ant-checkout flex justify-center bg-black">
       <Tabs
         tabBarExtraContent={operations}
         defaultActiveKey="1"
@@ -357,13 +354,19 @@ export default function CheckoutTab(props) {
           });
         }}
       >
+        <TabPane tab="01 CHỌN GHẾ - THANH TOÁN" key="1">
+          <Checkout {...props} />
+        </TabPane>
+        <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
+          <KetQuaDatVe {...props} />
+        </TabPane>
         <TabPane
           tab={
             <NavLink
               to="/"
               title="Về trang chủ"
               aria-label="Về trang chủ"
-              className="items-center p-2 hidden lg:flex"
+              className="items-center p-2 hidden md:flex"
             >
               <img
                 src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png"
@@ -374,12 +377,6 @@ export default function CheckoutTab(props) {
           }
           key="3"
         ></TabPane>
-        <TabPane tab="01 CHỌN GHẾ - THANH TOÁN" key="1">
-          <Checkout {...props} />
-        </TabPane>
-        <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
-          <KetQuaDatVe {...props} />
-        </TabPane>
       </Tabs>
     </div>
   );
