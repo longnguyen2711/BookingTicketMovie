@@ -68,7 +68,7 @@ export default function Header(props) {
   const renderDropdownMenu = () => {
     if (_.isEmpty(userLogin)) {
       return (
-        <div class="dropdown-button dropdown inline-block z-50">
+        <div className="dropdown-button dropdown inline-block z-50">
           <button className="header__logo md:hidden">
             <img
               src="https://i.imgur.com/lC22izJ.png"
@@ -76,7 +76,7 @@ export default function Header(props) {
               width={45}
             />
           </button>
-          <div class="dropdown-menu hidden text-gray-700 right-0">
+          <div className="dropdown-menu hidden text-gray-700 right-0">
             <div className="flex flex-col justify-start items-end">
               <NavLink
                 to="/register"
@@ -98,7 +98,7 @@ export default function Header(props) {
       );
     } else {
       return (
-        <div class="dropdown-button dropdown inline-block z-50">
+        <div className="dropdown-button dropdown inline-block z-50">
           <button className="header__logo md:hidden">
             <img
               src="https://i.imgur.com/lC22izJ.png"
@@ -106,7 +106,7 @@ export default function Header(props) {
               width={45}
             />
           </button>
-          <div class="dropdown-menu hidden text-gray-700 right-0">
+          <div className="dropdown-menu hidden text-gray-700 right-0">
             <div className="flex flex-col justify-start items-end">
 
               <NavLink
@@ -208,7 +208,7 @@ export default function Header(props) {
             <li className="navigation_list">
               <NavLink to="/products" className="navLink" title="Sản phẩm">
                 <span className="icon">
-                  <i class="fab fa-react"></i>
+                  <i className="fab fa-react"></i>
                 </span>
                 <span className="text text-sm">Sản phẩm</span>
               </NavLink>
@@ -239,8 +239,8 @@ export default function Header(props) {
 
         {renderDropdownMenu()}
       </div>
-      <a class="back-to-top" href="#" title="Về đầu trang">
-        <i class="fa fa-angle-up"></i>
+      <a className="back-to-top" href="#" title="Về đầu trang">
+        <i className="fa fa-angle-up"></i>
       </a>
     </header>
   );

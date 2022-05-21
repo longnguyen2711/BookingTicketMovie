@@ -28,5 +28,8 @@ export const CHUYEN_TAB = "CHUYEN_TAB";
 
 export const CHANGE_TAB_ACTIVE = "CHANGE_TAB_ACTIVE";
 
+export const SET_PHIM_MOI = "SET_PHIM_MOI";
+
+
 
 

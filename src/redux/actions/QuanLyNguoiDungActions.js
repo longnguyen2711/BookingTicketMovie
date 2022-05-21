@@ -11,6 +11,7 @@ export const dangNhapAction = (thongTinDangNhap) => {
           type: DANG_NHAP_ACTION,
           thongTinDangNhap: result.data.content,
         });
+        alert("Đăng nhập thành công");
         history.goBack();
       }
     } catch (error) {
@@ -24,7 +25,7 @@ export const layThongTinNguoiDungAction = () => {
     try {
       const result = await quanLyNguoiDungService.layThongTinNguoiDung();
 
-      console.log(" console.log(result.data.content)", result)
+      console.log(" console.log(result.data.content)", result);
 
       if (result.data.statusCode === 200) {
         dispatch({

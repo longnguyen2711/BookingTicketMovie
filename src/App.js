@@ -24,6 +24,7 @@ import { AdminTemplate } from "./templates/AdminTemplate/AdminTemplate";
 
 
 import Loading from "./_Component/Loading/Loading";
+import AddNewFilm from "./pages/Admin/AddNewFilm/AddNewFilm";
 
 
 // const CheckoutTemplateLazy = lazy(() => import("./templates/CheckoutTemplate/CheckoutTemplate"))
@@ -54,6 +55,7 @@ function App() {
         <AdminTemplate path="/admin" exact Component={DashBoard} />
         <AdminTemplate path="/admin/users" exact Component={DashBoard} />
         <AdminTemplate path="/admin/films" exact Component={Films} />
+        <AdminTemplate path="/admin/addnewfilm" exact Component={AddNewFilm} />
         <AdminTemplate path="/admin/showtimes" exact Component={ShowTime} />
 
         <HomeTemplate path="/" exact Component={Home} />

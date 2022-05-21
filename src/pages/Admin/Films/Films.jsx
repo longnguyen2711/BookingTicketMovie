@@ -1,12 +1,12 @@
 import React, { Fragment, useEffect } from "react";
 import { Table } from "antd";
-
 import { Input, Space } from "antd";
 import { AudioOutlined, DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Button } from "antd/lib/radio";
 import { useDispatch, useSelector } from "react-redux";
 import { layDanhSachPhimAction } from "../../../redux/actions/QuanLyPhimActions";
 import { NavLink } from "react-router-dom";
+import moment from "moment";
 
 export default function Films(props) {
   const { arrFilmDefault } = useSelector((state) => state.QuanLyPhimReducer);
@@ -17,8 +17,6 @@ export default function Films(props) {
     const action = layDanhSachPhimAction();
     dispatch(action);
   }, []);
-
-  console.log(arrFilmDefault, "rrFilmDefault");
 
   const { Search } = Input;
 
@@ -42,14 +40,14 @@ export default function Films(props) {
       },
       sorter: (a, b) => a.maPhim - b.maPhim,
       sortDirections: ["descend", "ascend"],
-      width: "10%"
+      width: "12.5%",
     },
     {
       title: "Hình ảnh",
       dataIndex: "hinhAnh",
       render: (text, film, index) => {
         return (
-          <Fragment>
+          <Fragment key={index}>
             <img
               src={film.hinhAnh}
               alt={film.tenPhim}
@@ -62,12 +60,11 @@ export default function Films(props) {
           </Fragment>
         );
       },
-      width: "12%"
+      width: "12.5%",
     },
     {
       title: "Tên phim",
       dataIndex: "tenPhim",
-
       sorter: (a, b) => {
         let tenPhimA = a.tenPhim.toLowerCase().trim();
         let tenPhimB = b.tenPhim.toLowerCase().trim();
@@ -77,20 +74,43 @@ export default function Films(props) {
         return -1;
       },
       sortDirections: ["descend", "ascend"],
+      width: "35%",
+    },
+    {
+      title: "Khởi chiếu",
+      dataIndex: "ngayKhoiChieu",
+      render: (text, object) => {
+        return <span>{moment(object.ngayKhoiChieu).format("DD/MM/YYYY")}</span>;
+      },
+      width: "15%",
+    },
+    {
+      title: "Đánh giá",
+      dataIndex: "danhGia",
+      render: (text, object) => {
+        return <span>{object.danhGia}/10</span>;
+      },
+      sorter: (a, b) => a.danhGia - b.danhGia,
+      sortDirections: ["descend", "ascend"],
+      width: "10%",
     },
     {
       title: "Hành động",
       dataIndex: "hanhDong",
       render: (text, film, index) => {
         return (
-          <Fragment>
-              <NavLink to="/" className="bg-dark "><EditOutlined/> </NavLink>
-              <NavLink to="/" className="bg-red-500 text-white"><DeleteOutlined/> </NavLink>
+          <Fragment key={index} className="flex items-center">
+            <NavLink to="/" className="ml-3 text-blue-700 text-lg">
+              <EditOutlined />{" "}
+            </NavLink>
+            <NavLink to="/" className="ml-3 text-red-700 text-lg">
+              <DeleteOutlined />{" "}
+            </NavLink>
           </Fragment>
         );
       },
-
       sortDirections: ["descend", "ascend"],
+      width: "15%",
     },
   ];
 
@@ -104,7 +124,7 @@ export default function Films(props) {
   return (
     <div>
       <h3 className="text-4xl">Quản lý phim</h3>
-      <Button className="mb-5">Thêm phim</Button>
+      <div className="mt-8 mb-6"><NavLink to="/admin/addnewfilm" className="px-3 py-2 boder-1 font-bold duration-0 bg-white text-black hover:bg-black hover:text-white rounded">Thêm phim mới</NavLink></div>
       <Search
         className="mb-5"
         placeholder="input search text"

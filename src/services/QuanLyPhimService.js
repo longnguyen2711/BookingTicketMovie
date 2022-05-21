@@ -14,7 +14,11 @@ export class QuanLyPhimService extends baseService {
     return this.get(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUPID}`);
   };
   
+  themPhimMoi = (formDataFilm) => {
+    return this.post(`/api/QuanLyPhim/ThemPhimUploadHinh`, formDataFilm);
+  };
   
-}
+  
+} 
 
 export const quanLyPhimService = new QuanLyPhimService();

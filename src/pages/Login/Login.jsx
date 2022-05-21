@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormik } from 'formik';
 import {NavLink} from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { dangNhapAction } from "../../redux/actions/QuanLyNguoiDungActions";
 import './Login.css'
+import { USER_LOGIN } from "../../util/settings/config";
+import { Redirect } from "react-router";
 
  
 
 export default function Login(props) {
+  
+  // Kiểm tra nếu đã đăng nhập rồi mà nhập đường dẫn login thì sẽ quay về trang chủ
+
 
   const {userLogin} = useSelector(state => state.QuanLyNguoiDungReducer)
 
@@ -27,6 +32,11 @@ export default function Login(props) {
     },
   })
   //formik đã xử lý luôn e.preventDefault();
+
+  // if (localStorage.getItem(USER_LOGIN)) {
+  //   alert("Bạn chưa đăng nhập !");
+  //   return <Redirect to="/" />;
+  // }
 
   return (
     <form onSubmit={formik.handleSubmit} className="lg:w-1/2 xl:max-w-screen-sm bg-black pb-10" id="Login">

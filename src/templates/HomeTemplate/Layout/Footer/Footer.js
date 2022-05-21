@@ -101,7 +101,7 @@ export default function Footer(props) {
                 title="Bấm để xem trên google map"
                 className="mb-2 "
               >
-                <i class="fa fa-map-marker-alt"></i>Địa chỉ: 112 Cao Thắng, Quận
+                <i className="fa fa-map-marker-alt"></i>Địa chỉ: 112 Cao Thắng, Quận
                 3
               </a>
               <a
@@ -111,7 +111,7 @@ export default function Footer(props) {
                 title="Bấm để gọi tư vấn"
                 className="mb-2 "
               >
-                <i class="fa fa-phone-volume"></i>Hotline: 0961.01.10.14
+                <i className="fa fa-phone-volume"></i>Hotline: 0961.01.10.14
               </a>
               <a
                 href="mailto:cybersoft@gmail.com"
@@ -120,7 +120,7 @@ export default function Footer(props) {
                 title="Bấm để gửi mail"
                 className="mb-5 lg:mb-2"
               >
-                <i class="fa fa-envelope"></i>Email: cybersoft@gmail.com
+                <i className="fa fa-envelope"></i>Email: cybersoft@gmail.com
               </a>
             </nav>
             <hr className="lg:hidden"/>

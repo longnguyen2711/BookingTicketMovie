@@ -59,16 +59,16 @@ export const AdminTemplate = (props) => {
                   {/* Nếu key giống nhau sẽ sổ ra nội dung bên nhau cùng lúc */}
 
                   <Menu.Item key="1" icon={<UserOutlined />}>
-                    <NavLink to="/admin/users">Users</NavLink>
+                    <NavLink to="/admin/users">Người dùng</NavLink>
                   </Menu.Item>
-                
-                    {/* Submenu là dropdown button */}
-                  <SubMenu key="2" icon={<FileOutlined />} title="Films">
+
+                  {/* Submenu là dropdown button */}
+                  <SubMenu key="2" icon={<FileOutlined />} title="Phim">
                     <Menu.Item key="10" icon={<FileOutlined />}>
-                      <NavLink to="/admin/films">Films</NavLink>
+                      <NavLink to="/admin/films">Phim</NavLink>
                     </Menu.Item>
                     <Menu.Item key="3" icon={<FileOutlined />}>
-                      <NavLink to="/admin/films/addnew">Add new</NavLink>
+                      <NavLink to="/admin/addnewfilm">Thêm phim</NavLink>
                     </Menu.Item>
                   </SubMenu>
 
@@ -100,8 +100,11 @@ export const AdminTemplate = (props) => {
                     <Component {...propsRoute} />
                   </div>
                 </Content>
-                <Footer style={{ textAlign: "center" }} className="site-layout-background">
-                  Ant Design ©2018 Created by Ant UED
+                <Footer
+                  style={{ textAlign: "center" }}
+                  className="site-layout-background"
+                >
+                  ©2022 All rights reserved
                 </Footer>
               </Layout>
             </Layout>
