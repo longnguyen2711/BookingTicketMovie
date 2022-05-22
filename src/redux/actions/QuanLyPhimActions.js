@@ -1,5 +1,9 @@
 import { quanLyPhimService } from "../../services/QuanLyPhimService";
-import { SET_DANH_SACH_PHIM, SET_PHIM_MOI, SET_THONG_TIN_PHIM_TRUOC_CAP_NHAT } from "../types";
+import {
+  SET_DANH_SACH_PHIM,
+  SET_PHIM_MOI,
+  SET_THONG_TIN_PHIM_TRUOC_CAP_NHAT,
+} from "../types";
 import { history } from "../../App";
 
 export const layDanhSachPhimAction = () => {
@@ -21,17 +25,15 @@ export const themPhimMoiAction = (formDataFilm) => {
   return async (dispatch) => {
     try {
       const result = await quanLyPhimService.themPhimMoi(formDataFilm);
-      
       dispatch({
         type: SET_PHIM_MOI,
         phimMoi: result.data.content,
       });
       // Thông báo thêm phim thành công
-      alert("Thêm phim thành công")
+      await alert("Thêm phim thành công");
       // Lấy lại danh sách phim
-      dispatch(layDanhSachPhimAction())
-      // Chuyển hướng về trang admin danh sách phim
-      history.push('admin/films/')
+      await dispatch(layDanhSachPhimAction());
+
     } catch (error) {
       console.log("error", error);
     }
@@ -42,7 +44,9 @@ export const themPhimMoiAction = (formDataFilm) => {
 export const layThongTinPhimTruocCapNhatAction = (maPhim) => {
   return async (dispatch) => {
     try {
-      const result = await quanLyPhimService.layThongTinPhimTruocCapNhat(maPhim);
+      const result = await quanLyPhimService.layThongTinPhimTruocCapNhat(
+        maPhim
+      );
 
       dispatch({
         type: SET_THONG_TIN_PHIM_TRUOC_CAP_NHAT,
@@ -58,7 +62,9 @@ export const layThongTinPhimTruocCapNhatAction = (maPhim) => {
 export const capNhatFilmAction = (formDataFilmUpdate) => {
   return async (dispatch) => {
     try {
-      const result = await quanLyPhimService.themPhimMoi(formDataFilmUpdate);
+      const result = await quanLyPhimService.capNhatPhim(formDataFilmUpdate);
+      // ko call được api
+      console.log(result,"cập nhật")
       // Thông báp cập nhật phim thành công
       alert("Cập nhật phim thành công")
       // Lấy lại danh sách phim
@@ -72,11 +78,11 @@ export const capNhatFilmAction = (formDataFilmUpdate) => {
 };
 
 // Xóa phim
-export const xoaFilmAction = (maPhim) => {
+export const xoaPhimAction = (maPhim) => {
   return async (dispatch) => {
     try {
       const result = await quanLyPhimService.xoaPhim(maPhim);
-      console.log(result)
+      console.log(result.data.content,"xoa xoa xoa xoa xoa")
       // Thông báo xóa phim thành công
       alert("Xóa phim thành công")
 
@@ -88,10 +94,3 @@ export const xoaFilmAction = (maPhim) => {
     }
   };
 };
-
-
-
-
-
-
-

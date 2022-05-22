@@ -17,19 +17,18 @@ export class QuanLyPhimService extends baseService {
   themPhimMoi = (formDataFilm) => {
     return this.post(`/api/QuanLyPhim/ThemPhimUploadHinh`, formDataFilm);
   };
-
+  
   layThongTinPhimTruocCapNhat = (maPhim) => {
     return this.get(`/api/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`);
   };
 
-  capNhatPhim = (formDataFilmUpdate) => {
-    return this.post(`/api/QuanLyPhim/CapNhatPhimUpload`, formDataFilmUpdate);
+  capNhatPhim = (formDataFilm) => {
+    return this.post(`/api/QuanLyPhim/CapNhatPhimUpload`, formDataFilm);
   };
 
   xoaPhim = (maPhim) => {
     return this.delete(`/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`);
   };
-  
   
 } 
 

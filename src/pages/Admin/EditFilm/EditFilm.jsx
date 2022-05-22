@@ -1,17 +1,28 @@
 import React, { useDebugValue, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
-import { Form, Input, Radio, DatePicker, InputNumber, Switch } from "antd";
+import {
+  Form,
+  Input,
+  Button,
+  Radio,
+  DatePicker,
+  InputNumber,
+  Switch,
+} from "antd";
 import moment from "moment";
 import {
   capNhatFilmAction,
   layThongTinPhimTruocCapNhatAction,
+  themPhimMoiAction,
 } from "../../../redux/actions/QuanLyPhimActions";
 import { GROUPID } from "../../../util/settings/config";
-import TextArea from "antd/lib/input/TextArea";
 
 const EditFilm = (props) => {
   const [componentSize, setComponentSize] = useState("default");
+
+  // Dùng để hiển thị hình ảnh khi cập nhật file
+  const [imgSrc, setImgSrc] = useState("");
 
   const dispatch = useDispatch();
 
@@ -25,9 +36,6 @@ const EditFilm = (props) => {
     const action = layThongTinPhimTruocCapNhatAction(id);
     dispatch(action);
   }, []);
-
-  // Dùng để hiển thị hình ảnh khi cập nhật file
-  const [imgSrc, setImgSrc] = useState("");
 
   const formik = useFormik({
     //Để xét dữ liệu mặc định cho formik từ props của redux phải bật thuộc tính enableReinitialize, thuộc tính này thường chỉ làm làm cho form edit, ko đụngchạm state khác
@@ -63,11 +71,10 @@ const EditFilm = (props) => {
         }
       }
       // formik ko thể consose.log ra được do tính bảo mật của browser => console.log(formData.get('tenPhim'))
-      console.log({values})
-      console.log({formData})
+
 
       // Gọi api gửi các giá trị formData về backend xử lý
-      // ĐÃ CẬP NHÂT ĐƯỢC FILE NHƯNG CÓ BÁO LỖI
+      // KO GỌI ĐƯỢC
       const action = capNhatFilmAction(formData);
       dispatch(action);
     },
@@ -157,7 +164,7 @@ const EditFilm = (props) => {
         />
       </Form.Item>
       <Form.Item label="Mô tả">
-        <TextArea
+        <Input
           name="moTa"
           onChange={formik.handleChange}
           value={formik.values.moTa}
@@ -165,7 +172,7 @@ const EditFilm = (props) => {
       </Form.Item>
       <Form.Item label="Ngày khởi chiếu">
         <DatePicker
-          format="DD/MM/YYYY"
+          format={"DD/MM/YYYY"}
           onChange={handleChangeDatePicker}
           value={moment(formik.values.ngayKhoiChieu)}
         />
@@ -218,7 +225,6 @@ const EditFilm = (props) => {
       <Form.Item label="Tác vụ">
         <button
           type="submit"
-          title="Bấm để cập nhật"
           className="py-2 px-3 rounded font-bold border duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white"
         >
           Cập nhật
