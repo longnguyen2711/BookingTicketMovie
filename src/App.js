@@ -54,12 +54,12 @@ function App() {
         <UserTemplate path="/register" exact Component={Register} />
         <UserTemplate path="/login" exact Component={Login} />
 
-        <AdminTemplate path="/admin" exact Component={DashBoard} />
+        <AdminTemplate path="/admin" exact Component={Films} />
         <AdminTemplate path="/admin/users" exact Component={DashBoard} />
         <AdminTemplate path="/admin/films" exact Component={Films} />
         <AdminTemplate path="/admin/films/editfilm/:id" exact Component={EditFilm} />
+        <AdminTemplate path="/admin/films/showtime/:id/:tenphim" exact Component={ShowTime} />
         <AdminTemplate path="/admin/addnewfilm" exact Component={AddNewFilm} />
-        <AdminTemplate path="/admin/showtimes" exact Component={ShowTime} />
 
         <HomeTemplate path="/" exact Component={Home} />
       </Switch>

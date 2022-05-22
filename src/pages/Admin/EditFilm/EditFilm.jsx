@@ -225,7 +225,7 @@ const EditFilm = (props) => {
       <Form.Item label="Tác vụ">
         <button
           type="submit"
-          className="py-2 px-3 rounded font-bold border duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white"
+          className="py-2 px-4 rounded font-bold border-2 duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white"
         >
           Cập nhật
         </button>

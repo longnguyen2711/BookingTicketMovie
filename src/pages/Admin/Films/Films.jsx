@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { Table } from "antd";
 import { Input, Space } from "antd";
-import { AudioOutlined, DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { AudioOutlined, DeleteOutlined, EditOutlined, CalendarOutlined } from "@ant-design/icons";
 import { Button } from "antd/lib/radio";
 import { useDispatch, useSelector } from "react-redux";
 import { layDanhSachPhimAction, xoaPhimAction } from "../../../redux/actions/QuanLyPhimActions";
@@ -28,8 +28,6 @@ export default function Films(props) {
       }}
     />
   );
-
-  const onSearch = (value) => console.log(value);
 
   const columns = [
     {
@@ -74,7 +72,7 @@ export default function Films(props) {
         return -1;
       },
       sortDirections: ["descend", "ascend"],
-      width: "35%",
+      width: "33%",
     },
     {
       title: "Khởi chiếu",
@@ -92,7 +90,7 @@ export default function Films(props) {
       },
       sorter: (a, b) => a.danhGia - b.danhGia,
       sortDirections: ["descend", "ascend"],
-      width: "10%",
+      width: "12%",
     },
     {
       title: "Hành động",
@@ -100,9 +98,14 @@ export default function Films(props) {
       render: (text, film, index) => {
         return (
           <Fragment key={index} className="flex items-center">
-            <NavLink key={1} to={`/admin/films/editfilm/${film.maPhim}`} className="ml-3 text-blue-700 text-lg">
+            <NavLink key={1} to={`/admin/films/editfilm/${film.maPhim}`} className=" text-blue-700 text-lg">
               <EditOutlined />{" "}
-            </NavLink>            
+            </NavLink>
+            <NavLink key={1} to={`/admin/films/showtime/${film.maPhim}/${film.tenPhim}`} className="ml-3 text-green-700 text-lg" onClick={() => {
+              localStorage.setItem('filmParams', JSON.stringify(film))
+            }}>
+              < CalendarOutlined  />{" "}
+            </NavLink>           
             <span key={2} className="ml-3 text-red-700 text-lg cursor-pointer" onClick={() => {
               // Gọi action xóa
               if(window.confirm('Bạn có chắc muốn xóa phim ' + film.tenPhim) + ' ?'){
@@ -127,13 +130,20 @@ export default function Films(props) {
     console.log("params", pagination, filters, sorter, extra);
   }
 
+  const onSearch = (value) => {
+    // Gọi api lấy danh sách phim
+    console.log(value,"value")
+    dispatch(layDanhSachPhimAction(value))
+    
+  };
+ 
   return (
     <div>
       <h3 className="text-4xl">Quản lý phim</h3>
-      <div className="mt-8 mb-6"><NavLink to="/admin/addnewfilm" className="px-3 py-2 boder-1 font-bold duration-0 bg-white text-black hover:bg-black hover:text-white rounded">Thêm phim mới</NavLink></div>
+      <div className="mt-8 mb-6"><NavLink to="/admin/addnewfilm" className="py-3 px-3 rounded font-bold border-2 duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white">Thêm phim mới</NavLink></div>
       <Search
-        className="mb-5"
-        placeholder="input search text"
+        className="mb-5 py-1 px-1 rounded font-bold border duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white"
+        placeholder="Nhập từ khóa"
         // Nếu bỏ enterButton sẽ hiện kính lúp
         enterButton="Search"
         size="large"

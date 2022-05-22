@@ -6,10 +6,10 @@ import {
 } from "../types";
 import { history } from "../../App";
 
-export const layDanhSachPhimAction = () => {
+export const layDanhSachPhimAction = (tenPhim="") => {
   return async (dispatch) => {
     try {
-      const result = await quanLyPhimService.layDanhSachPhim();
+      const result = await quanLyPhimService.layDanhSachPhim(tenPhim="");
 
       dispatch({
         type: SET_DANH_SACH_PHIM,

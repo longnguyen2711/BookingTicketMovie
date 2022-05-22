@@ -48,11 +48,15 @@ export const AdminTemplate = (props) => {
           <Fragment>
             <Layout style={{ minHeight: "100vh" }}>
               <Sider>
-                <div className="logo p-5">
-                  <img
-                    src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png"
-                    alt="..."
-                  />
+                <div className="mt-2 mb-7">
+                  <NavLink to="/" className="logo relative top-3 left-5">
+                    <img
+                      src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png"
+                      alt="..."
+                      style={{ width: 150 }}
+                      title="Về trang chủ"
+                    />
+                  </NavLink>
                 </div>
 
                 <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
@@ -63,7 +67,11 @@ export const AdminTemplate = (props) => {
                   </Menu.Item>
 
                   {/* Submenu là dropdown button */}
-                  <SubMenu key="2" icon={<FileOutlined />} title="Danh sách phim">
+                  <SubMenu
+                    key="2"
+                    icon={<FileOutlined />}
+                    title="Danh sách phim"
+                  >
                     <Menu.Item key="10" icon={<FileOutlined />}>
                       <NavLink to="/admin/films">Danh sách phim</NavLink>
                     </Menu.Item>
@@ -79,12 +87,12 @@ export const AdminTemplate = (props) => {
               </Sider>
 
               <Layout className="site-layout">
-                <Header
+                {/* <Header
                   className="site-layout-background"
                   style={{ padding: 0 }}
                 >
                   <div className="text-right pr-10 pt-1"></div>
-                </Header>
+                </Header> */}
                 <Content style={{ margin: "0 16px" }}>
                   {/* Breadcrumb sẽ cho ra những / nhánh */}
                   {/* <Breadcrumb style={{ margin: "16px 0" }}>
@@ -95,7 +103,7 @@ export const AdminTemplate = (props) => {
                   </Breadcrumb> */}
                   <div
                     className="site-layout-background"
-                    style={{ padding: 24, minHeight: "85vh" }}
+                    style={{ paddingTop: 75, paddingLeft: 25, paddingRight: 25}}
                   >
                     <Component {...propsRoute} />
                   </div>
@@ -104,7 +112,8 @@ export const AdminTemplate = (props) => {
                   style={{ textAlign: "center" }}
                   className="site-layout-background"
                 >
-                  ©2022 All rights reserved
+                  {" "}
+                  <div className="text-right"> ©2022 All rights reserved</div>
                 </Footer>
               </Layout>
             </Layout>
