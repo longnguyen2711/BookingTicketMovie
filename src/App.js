@@ -14,6 +14,8 @@ import Profile from "./pages/Profile/Profile";
 import ShowTime from "./pages/Admin/ShowTime/ShowTime";
 import DashBoard from "./pages/Admin/DashBoard/DashBoard";
 import Films from "./pages/Admin/Films/Films";
+import Loading from "./_Component/Loading/Loading";
+import AddNewFilm from "./pages/Admin/AddNewFilm/AddNewFilm";
 
 import CheckoutTemplate from "./templates/CheckoutTemplate/CheckoutTemplate";
 
@@ -21,10 +23,10 @@ import Checkout from "./pages/Checkout/Checkout";
 // import { Suspense, lazy } from "react";
 import { UserTemplate } from "./templates/UserTemplate/UserTemplate";
 import { AdminTemplate } from "./templates/AdminTemplate/AdminTemplate";
+import EditFilm from "./pages/Admin/EditFilm/EditFilm";
 
 
-import Loading from "./_Component/Loading/Loading";
-import AddNewFilm from "./pages/Admin/AddNewFilm/AddNewFilm";
+
 
 
 // const CheckoutTemplateLazy = lazy(() => import("./templates/CheckoutTemplate/CheckoutTemplate"))
@@ -41,7 +43,7 @@ function App() {
         <HomeTemplate path="/news" exact Component={News} />
         <HomeTemplate path="/products" exact Component={Propducts} />
         <HomeTemplate path="/detail/:id" exact Component={Detail} />
-        <HomeTemplate path="/profile" exact Component={Profile} />
+        <HomeTemplate path="/profile" exact Component={Profile} />        
 
         <CheckoutTemplate path="/checkout/:id" exact Component={Checkout} />
         {/* Suspense: Dữ liệu html load xong mới hiển thị nếu ko sẽ hiển thị h1 */}
@@ -55,6 +57,7 @@ function App() {
         <AdminTemplate path="/admin" exact Component={DashBoard} />
         <AdminTemplate path="/admin/users" exact Component={DashBoard} />
         <AdminTemplate path="/admin/films" exact Component={Films} />
+        <AdminTemplate path="/admin/films/editfilm/:id" exact Component={EditFilm} />
         <AdminTemplate path="/admin/addnewfilm" exact Component={AddNewFilm} />
         <AdminTemplate path="/admin/showtimes" exact Component={ShowTime} />
 

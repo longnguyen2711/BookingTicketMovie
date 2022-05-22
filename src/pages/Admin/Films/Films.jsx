@@ -4,7 +4,7 @@ import { Input, Space } from "antd";
 import { AudioOutlined, DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Button } from "antd/lib/radio";
 import { useDispatch, useSelector } from "react-redux";
-import { layDanhSachPhimAction } from "../../../redux/actions/QuanLyPhimActions";
+import { layDanhSachPhimAction, xoaFilmAction } from "../../../redux/actions/QuanLyPhimActions";
 import { NavLink } from "react-router-dom";
 import moment from "moment";
 
@@ -96,16 +96,22 @@ export default function Films(props) {
     },
     {
       title: "Hành động",
-      dataIndex: "hanhDong",
-      render: (text, film, index) => {
+      dataIndex: "maPhim",
+      render: (text, film) => {
         return (
-          <Fragment key={index} className="flex items-center">
-            <NavLink to="/" className="ml-3 text-blue-700 text-lg">
+          <Fragment className="flex items-center">
+            <NavLink key={1} to={`/admin/films/editfilm/${film.maPhim}`} className="ml-3 text-blue-700 text-lg">
               <EditOutlined />{" "}
             </NavLink>
-            <NavLink to="/" className="ml-3 text-red-700 text-lg">
+            <span key={2} className="ml-3 text-red-700 text-lg cursor-pointer" onClick={() => {
+              // Gọi action xóa
+              if(window.confirm('Bạn có chắc muốn xóa phim ' + film.tenPhim) + ' ?'){
+                //Gọi action
+                dispatch(xoaFilmAction(film.maPhim))
+              }
+            }}>
               <DeleteOutlined />{" "}
-            </NavLink>
+            </span>
           </Fragment>
         );
       },
@@ -135,7 +141,7 @@ export default function Films(props) {
         // suffix={suffix}
         onSearch={onSearch}
       />
-      <Table columns={columns} dataSource={data} onChange={onChange} />
+      <Table columns={columns} dataSource={data} onChange={onChange} rowKey={"maPhim"}/>
     </div>
   );
 }

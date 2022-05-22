@@ -27,16 +27,16 @@ export default function Login(props) {
       const action = dangNhapAction(values);
       dispatch(action)
       setTimeout(() => {
-        props.history.goBack();
+        props.history.push('/');
       }, 1000);
     },
   })
   //formik đã xử lý luôn e.preventDefault();
 
-  // if (localStorage.getItem(USER_LOGIN)) {
-  //   alert("Bạn chưa đăng nhập !");
-  //   return <Redirect to="/" />;
-  // }
+  // Kiểm tra xem nếu đã đăng nhập rồi mà nhập đường dẫn login thì sẽ quay về trang chủ
+  if (localStorage.getItem(USER_LOGIN)) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <form onSubmit={formik.handleSubmit} className="lg:w-1/2 xl:max-w-screen-sm bg-black pb-10" id="Login">

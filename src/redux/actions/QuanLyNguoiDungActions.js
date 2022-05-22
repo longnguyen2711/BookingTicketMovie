@@ -12,7 +12,7 @@ export const dangNhapAction = (thongTinDangNhap) => {
           thongTinDangNhap: result.data.content,
         });
         alert("Đăng nhập thành công");
-        history.goBack();
+        history.push('/');
       }
     } catch (error) {
       console.log("error", error.response.data);

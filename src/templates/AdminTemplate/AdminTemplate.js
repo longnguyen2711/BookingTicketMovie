@@ -63,9 +63,9 @@ export const AdminTemplate = (props) => {
                   </Menu.Item>
 
                   {/* Submenu là dropdown button */}
-                  <SubMenu key="2" icon={<FileOutlined />} title="Phim">
+                  <SubMenu key="2" icon={<FileOutlined />} title="Danh sách phim">
                     <Menu.Item key="10" icon={<FileOutlined />}>
-                      <NavLink to="/admin/films">Phim</NavLink>
+                      <NavLink to="/admin/films">Danh sách phim</NavLink>
                     </Menu.Item>
                     <Menu.Item key="3" icon={<FileOutlined />}>
                       <NavLink to="/admin/addnewfilm">Thêm phim</NavLink>

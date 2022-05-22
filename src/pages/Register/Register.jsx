@@ -6,14 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { USER_LOGIN } from "../../util/settings/config";
 
 export default function Register(props) {
-  // Kiểm tra nếu đã đăng nhập rồi mà nhập đường dẫn login thì sẽ quay về trang chủ
-  // useEffect(() => {
-  //   if (localStorage.getItem(USER_LOGIN)) {
-  //     return props.history.push("/");
-  //   }
-  // }, []);
-  
-  const formik = useFormik({
+   const formik = useFormik({
     initialValues: {
       taiKhoanRegister: "",
       matKhauRegister: "",
@@ -30,6 +23,7 @@ export default function Register(props) {
     //   }, 1000);
     // },
   });
+
   return (
     <form
       onSubmit={formik.handleSubmit}

@@ -1,38 +1,51 @@
-import React, { useDebugValue, useState } from "react";
+import React, { useDebugValue, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
-import {
-  Form,
-  Input,
-  Button,
-  Radio,
-  DatePicker,
-  InputNumber,
-  Switch,
-} from "antd";
+import { Form, Input, Radio, DatePicker, InputNumber, Switch } from "antd";
 import moment from "moment";
-import { themPhimMoiAction } from "../../../redux/actions/QuanLyPhimActions";
+import {
+  capNhatFilmAction,
+  layThongTinPhimTruocCapNhatAction,
+} from "../../../redux/actions/QuanLyPhimActions";
 import { GROUPID } from "../../../util/settings/config";
+import TextArea from "antd/lib/input/TextArea";
 
-const AddNewFilm = (props) => {
+const EditFilm = (props) => {
   const [componentSize, setComponentSize] = useState("default");
 
   const dispatch = useDispatch();
+
+  // Lấy thông tin phim trước khi cập nhật từ reducer
+  const { thongTinPhimTruocCapNhat } = useSelector(
+    (state) => state.QuanLyPhimReducer
+  );
+
+  useEffect(() => {
+    let { id } = props.match.params;
+    const action = layThongTinPhimTruocCapNhatAction(id);
+    dispatch(action);
+  }, []);
 
   // Dùng để hiển thị hình ảnh khi cập nhật file
   const [imgSrc, setImgSrc] = useState("");
 
   const formik = useFormik({
+    //Để xét dữ liệu mặc định cho formik từ props của redux phải bật thuộc tính enableReinitialize, thuộc tính này thường chỉ làm làm cho form edit, ko đụngchạm state khác
+    enableReinitialize: true,
+
+    // Cơ chế formik lần đầu tiên render sẽ không có dữ liệu vì chưa gọi api, sau khi render giao diện thì useEffect mới chạy, khi đó mới call api và có dữ liệu và cập nhật vào formik
     initialValues: {
-      tenPhim: "",
-      trailer: "",
-      moTa: "",
-      ngayKhoiChieu: "",
-      dangChieu: false,
-      sapChieu: false,
-      hot: false,
-      danhGia: 0,
-      hinhAnh: {},
+      maPhim: thongTinPhimTruocCapNhat?.maPhim,
+      tenPhim: thongTinPhimTruocCapNhat?.tenPhim,
+      trailer: thongTinPhimTruocCapNhat?.trailer,
+      moTa: thongTinPhimTruocCapNhat?.moTa,
+      ngayKhoiChieu: thongTinPhimTruocCapNhat?.ngayKhoiChieu,
+      dangChieu: thongTinPhimTruocCapNhat?.dangChieu,
+      sapChieu: thongTinPhimTruocCapNhat?.sapChieu,
+      hot: thongTinPhimTruocCapNhat?.hot,
+      danhGia: thongTinPhimTruocCapNhat?.danhGia,
+      // Null là giữ lại ảnh cũ
+      hinhAnh: null,
     },
     onSubmit: (values) => {
       // console.log("values", values);
@@ -44,23 +57,25 @@ const AddNewFilm = (props) => {
         if (key !== "hinhAnh") {
           formData.append(key, values[key]);
         } else {
-          formData.append("File", values.hinhAnh, values.hinhAnh.name); // => vì định dạng file hình ảnh là object phải truyền tới 3 tham số
+          if (values.hinhAnh !== null) {
+            formData.append("File", values.hinhAnh, values.hinhAnh.name); // => vì định dạng file hình ảnh là object phải truyền tới 3 tham số
+          }
         }
       }
       // formik ko thể consose.log ra được do tính bảo mật của browser => console.log(formData.get('tenPhim'))
-      console.log({ values });
-      console.log({ formData });
+      console.log({values})
+      console.log({formData})
 
       // Gọi api gửi các giá trị formData về backend xử lý
-      // ĐÃ UP ĐƯỢC NHƯNG CÓ BÁO LỖI
-      const action = themPhimMoiAction(formData);
+      // ĐÃ CẬP NHÂT ĐƯỢC FILE NHƯNG CÓ BÁO LỖI
+      const action = capNhatFilmAction(formData);
       dispatch(action);
     },
   });
 
   //  Set lại định dạng ngày tháng
   const handleChangeDatePicker = (value) => {
-    let ngayKhoiChieu = moment(value).format("DD/MM/YYYY");
+    let ngayKhoiChieu = moment(value);
     formik.setFieldValue("ngayKhoiChieu", ngayKhoiChieu);
   };
 
@@ -72,7 +87,7 @@ const AddNewFilm = (props) => {
   };
 
   // Dùng để up dạng file
-  const handleChangeFile = (e) => {
+  const handleChangeFile = async (e) => {
     // Lấy file từ e ra ([0] là chỉ lấy file đầu tiên)
     let file = e.target.files[0];
     // Set định dạng ảnh đầu vào
@@ -81,7 +96,9 @@ const AddNewFilm = (props) => {
       file.type === "image/jpg" ||
       file.type === "image/png"
     ) {
-      // Tạo đối tượng để đọc file
+      // Đem dữ liệu file vào formik trước
+      await formik.setFieldValue("hinhAnh", file);
+      // Tạo đối tượng để đọc file load hình ảnh ra giao diện
       // FileReader() cú pháp của JS
       let reader = new FileReader();
       // Đọc file
@@ -91,8 +108,6 @@ const AddNewFilm = (props) => {
         // console.log("e.target.result", e.target.result);
         setImgSrc(e.target.result);
       };
-      // Đem dữ liệu file vào formik
-      formik.setFieldValue("hinhAnh", file);
 
       // Set validation
       // formik.setErrors()
@@ -119,7 +134,7 @@ const AddNewFilm = (props) => {
       onValuesChange={onFormLayoutChange}
       size={componentSize}
     >
-      <h3 className="text-4xl mb-6">Thêm phim mới</h3>
+      <h3 className="text-4xl mb-6">Cập nhật phim {formik.values.tenPhim}</h3>
       <Form.Item label="Kích cỡ" name="size">
         <Radio.Group>
           <Radio.Button value="small">Nhỏ</Radio.Button>
@@ -128,34 +143,63 @@ const AddNewFilm = (props) => {
         </Radio.Group>
       </Form.Item>
       <Form.Item label="Tên Phim">
-        <Input name="tenPhim" onChange={formik.handleChange} />
+        <Input
+          name="tenPhim"
+          onChange={formik.handleChange}
+          value={formik.values.tenPhim}
+        />
       </Form.Item>
       <Form.Item label="Trailer">
-        <Input name="trailer" onChange={formik.handleChange} />
+        <Input
+          name="trailer"
+          onChange={formik.handleChange}
+          value={formik.values.trailer}
+        />
       </Form.Item>
       <Form.Item label="Mô tả">
-        <Input name="moTa" onChange={formik.handleChange} />
+        <TextArea
+          name="moTa"
+          onChange={formik.handleChange}
+          value={formik.values.moTa}
+        />
       </Form.Item>
       <Form.Item label="Ngày khởi chiếu">
-        <DatePicker format={"DD/MM/YYYY"} onChange={handleChangeDatePicker} />
+        <DatePicker
+          format="DD/MM/YYYY"
+          onChange={handleChangeDatePicker}
+          value={moment(formik.values.ngayKhoiChieu)}
+        />
       </Form.Item>
       <Form.Item label="Số sao">
         <InputNumber
           onChange={(value) => {
             formik.setFieldValue("danhGia", value);
           }}
+          value={formik.values.danhGia}
           min={1}
           max={10}
         />
       </Form.Item>
       <Form.Item label="Đang chiếu">
-        <Switch name="dangChieu" onChange={handleChangeSwitch("dangChieu")} />
+        <Switch
+          name="dangChieu"
+          onChange={handleChangeSwitch("dangChieu")}
+          checked={formik.values.dangChieu}
+        />
       </Form.Item>
       <Form.Item label="Sắp chiếu">
-        <Switch name="sapChieu" onChange={handleChangeSwitch("sapChieu")} />
+        <Switch
+          name="sapChieu"
+          onChange={handleChangeSwitch("sapChieu")}
+          checked={formik.values.sapChieu}
+        />
       </Form.Item>
       <Form.Item label="Hot">
-        <Switch name="hot" onChange={handleChangeSwitch("hot")} />
+        <Switch
+          name="hot"
+          onChange={handleChangeSwitch("hot")}
+          checked={formik.values.hot}
+        />
       </Form.Item>
       <Form.Item label="Hình ảnh">
         <input
@@ -167,21 +211,21 @@ const AddNewFilm = (props) => {
         <img
           className="border-1 border-gray-400"
           style={{ width: 150, height: 100 }}
-          src={imgSrc}
+          src={imgSrc === "" ? thongTinPhimTruocCapNhat.hinhAnh : imgSrc}
           alt="..."
         />
       </Form.Item>
       <Form.Item label="Tác vụ">
         <button
           type="submit"
-          title="Bấm để thêm phim"
+          title="Bấm để cập nhật"
           className="py-2 px-3 rounded font-bold border duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white"
         >
-          Thêm phim
+          Cập nhật
         </button>
       </Form.Item>
     </Form>
   );
 };
 
-export default AddNewFilm;
+export default EditFilm;

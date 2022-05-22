@@ -1,9 +1,11 @@
 import {
   SET_CHI_TIET_PHIM,
   SET_DANH_SACH_PHIM,
+  SET_PHIM_CAP_NHAT,
   SET_PHIM_DANG_CHIEU,
   SET_PHIM_MOI,
   SET_PHIM_SAP_CHIEU,
+  SET_THONG_TIN_PHIM_TRUOC_CAP_NHAT,
 } from "../types";
 
 const stateDefault = {
@@ -13,6 +15,7 @@ const stateDefault = {
   arrFilmDefault: [],
   filmDetail: {},
   newFilm: {},
+  thongTinPhimTruocCapNhat: {},
 };
 
 export const QuanLyPhimReducer = (state = stateDefault, action) => {
@@ -48,6 +51,12 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
       state.newFilm = action.phimMoi
       return { ...state };
     }
+
+    case SET_THONG_TIN_PHIM_TRUOC_CAP_NHAT:{
+      state.thongTinPhimTruocCapNhat = action.thongTinPhimTruocCapNhat
+      return { ...state };
+    }
+
 
     default:
       return { ...state };
