@@ -32,6 +32,9 @@ export const SET_PHIM_MOI = "SET_PHIM_MOI";
 
 export const SET_THONG_TIN_PHIM_TRUOC_CAP_NHAT = "SET_THONG_TIN_PHIM_TRUOC_CAP_NHAT";
 
+export const DANG_KY_ACTION = "DANG_KY_ACTION";
+
+
 
 
 

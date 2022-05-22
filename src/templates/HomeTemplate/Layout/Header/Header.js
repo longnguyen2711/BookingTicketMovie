@@ -3,7 +3,11 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import _ from "lodash";
 import "./Header.scss";
-import { ACCESSTOKEN, USER_LOGIN } from "../../../../util/settings/config";
+import {
+  ACCESSTOKEN,
+  USER_LOGIN,
+  LINK_BACKGROUND_HOMEPAGE,
+} from "../../../../util/settings/config";
 
 export default function Header(props) {
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
@@ -154,7 +158,13 @@ export default function Header(props) {
   return (
     <header
       id="header"
-      className="overflow-hidden p-4 md:p-5 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-40 bg-black text-white fixed top-0 left-0 w-full z-10"
+      style={{
+        backgroundImage: `url(${LINK_BACKGROUND_HOMEPAGE})`,
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+      }}
+      className="overflow-hidden p-4 md:p-5 dark:bg-coolGray-800 dark:text-coolGray-100 bg-opacity-50 text-white fixed top-0 left-0 w-full z-10"
     >
       <div className="container flex justify-between h-16 mx-auto max-w-screen-xl">
         <NavLink

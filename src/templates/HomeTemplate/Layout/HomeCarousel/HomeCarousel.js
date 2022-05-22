@@ -9,7 +9,7 @@ const contentStyle = {
   color: "#fff",
   lineHeight: "160px",
   textAlign: "center",
-  backgroundPosition: "bottom",
+  backgroundPosition: "top",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
 };
@@ -52,7 +52,7 @@ export default function HomeCarousel(props) {
   };
 
   return (
-    <section id="Carousel">
+    <section id="Carousel" style={{marginTop: "100px"}}>
       <Slider {...settings} className="relative z-1 m-auto">
         {renderImg()}
       </Slider>

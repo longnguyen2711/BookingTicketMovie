@@ -1,10 +1,11 @@
 import React from 'react'
 import './Products.scss'
+import { LINK_BACKGROUND_HOMEPAGE } from "../../util/settings/config";
 
 export default function Propducts(props) {
   const productTitle = "Bấm để mở trang trên cửa số mới"
   return (
-    <div id="products" className='pt-36 bg-black pb-8'>
+    <div id="products" className='pt-36 pb-8' style={{backgroundImage: `url(${LINK_BACKGROUND_HOMEPAGE})`}}>
       <ul className='flex flex-wrap justify-around items-center'> 
          <li><div><a target="_blank" rel="noreferrer" title={productTitle} href="http://nhl-react-chooseticket.surge.sh">CHOOSE TICKET</a></div></li>
          <li><div><a target="_blank" rel="noreferrer" title={productTitle} href="http://nhl-react-chooseglasses.surge.sh">CHOOSE GLASSES</a></div></li>

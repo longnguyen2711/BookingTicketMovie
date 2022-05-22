@@ -21,7 +21,7 @@ const MultipleRowSlickMobile = (props) => {
     return props.arrFilm?.slice(0, 15).map((item, index) => {
       return (
         <div className={`${styleSlick["width-item"]}`} key={index}>
-          <div className="film-card grid grid-cols-12 relative h-full">
+          <div className="film-card grid grid-cols-12 relative h-full bg-white">
             <div
               className="mul-background flex items-center"
               // style={{ backgroundImage: `url(${item.hinhAnh})` }}

@@ -4,24 +4,25 @@ import { NavLink } from "react-router-dom";
 import "./Register.css";
 import { useDispatch, useSelector } from "react-redux";
 import { USER_LOGIN } from "../../util/settings/config";
+import { dangKyTaiKhoanAction } from "../../redux/actions/QuanLyNguoiDungActions";
 
 export default function Register(props) {
-   const formik = useFormik({
+  const dispatch = useDispatch();
+
+  const formik = useFormik({
     initialValues: {
-      taiKhoanRegister: "",
-      matKhauRegister: "",
-      emailRegister: "",
-      soDienThoaiRegister: "",
-      maNhomRegister: "",
-      hoTenRegister: "",
+      taiKhoan: "",
+      matKhau: "",
+      email: "",
+      soDt: "",
+      maNhom: "",
+      hoTen: "",
+      accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAyMyIsIkhldEhhblN0cmluZyI6IjIwLzEwLzIwMjIiLCJIZXRIYW5UaW1lIjoiMTY2NjIyNDAwMDAwMCIsIm5iZiI6MTYzODExODgwMCwiZXhwIjoxNjY2MzcxNjAwfQ.hoaq9WsA187Q0NvdBYPZsn8c2CRg_ZE4mQO5_lUyAL4",
+      maLoaiNguoiDung: "KhachHang"
     },
-    // onSubmit: values => {
-    //   const action = dangNhapAction(values);
-    //   dispatch(action)
-    //   setTimeout(() => {
-    //     props.history.goBack();
-    //   }, 1000);
-    // },
+    onSubmit: (values) => {
+      dispatch(dangKyTaiKhoanAction(values));
+    },
   });
 
   return (
@@ -58,7 +59,7 @@ export default function Register(props) {
               </label>
               <input
                 className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
-                type="email"
+                type="text"
                 placeholder="nguyenhoanglong@gmail.com"
                 name="emailRegister"
                 id="emailRegister"

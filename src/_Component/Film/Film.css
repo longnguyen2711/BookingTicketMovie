@@ -6,12 +6,12 @@
   border-radius: 5px;
 }
 
-.card{
-  border: 2px solid transparent;
+.card-inner{
+  border: 1px solid black;
 }
 
 .card-inner:hover{
-  box-shadow: 0 0 10px white;
+  box-shadow: 0 0 12px white;
   border-radius: 5px;
   border: 2px solid white;
 }

@@ -7,6 +7,7 @@ import MultipleRowSlickMobile from "../../_Component/RSlick/MultipleRowSlickMobi
 import { layDanhSachPhimAction } from "../../redux/actions/QuanLyPhimActions";
 import { layDanhSachHeThongRapAction } from "../../redux/actions/QuanLyRapActions";
 import HomeCarousel from "../../templates/HomeTemplate/Layout/HomeCarousel/HomeCarousel";
+import { LINK_BACKGROUND_HOMEPAGE } from "../../util/settings/config";
 
 export default function Home(props) {
   const { arrFilm } = useSelector((state) => state.QuanLyPhimReducer);
@@ -46,15 +47,17 @@ export default function Home(props) {
   const renderHomeMenu = () => {
     if (screen.width >= 800) {
       return (
-        <div id="HomeMenu" className="m-20 border border-gray-400 rounded">
-          <HomeMenu heThongRapChieu={heThongRapChieu} />
+        <div id="HomeMenu" className="px-10 lg:px-20 py-16">
+          <div className="p-0 bg-white bg-opacity-80 rounded">
+            <HomeMenu heThongRapChieu={heThongRapChieu} />
+          </div>
         </div>
       );
     } else {
       return (
         <div
           id="HomeMenuMobile"
-          className="m-10 border border-gray-400 rounded"
+          className="p-10 border border-gray-400 rounded"
         >
           <HomeMenuMobile heThongRapChieu={heThongRapChieu} />
         </div>
@@ -65,16 +68,17 @@ export default function Home(props) {
   const renderMultipleRowSlick = () => {
     if (screen.width >= 800) {
       return (
-        <section id="MultipleRowSlick" className="bg-black py-24">
-          <div className="container mx-auto text-gray-600 body-font"></div>
-          <MultipleRowSlick arrFilm={arrFilm} />
+        <section id="MultipleRowSlick" className="pt-16 pb-5">
+          <div className="mx-auto text-gray-600 body-font">
+            <MultipleRowSlick arrFilm={arrFilm} />
+          </div>
         </section>
       );
     } else {
       return (
         <section
           id="MultipleRowSlickMobile"
-          className="mt-10 px-10 mx-auto body-font"
+          className="p-10 pt-20 mx-auto body-font"
         >
           <MultipleRowSlickMobile arrFilm={arrFilm} />
         </section>
@@ -84,11 +88,39 @@ export default function Home(props) {
 
   return (
     <section>
-      <div className="bg-black">
+      <div
+        style={{
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+          backgroundRepeat: "no-repeat",
+          backgroundImage: `url(${LINK_BACKGROUND_HOMEPAGE})`,
+        }}
+      >
         <HomeCarousel />
       </div>
-      {renderMultipleRowSlick()}
-      {renderHomeMenu()}
+
+      <div
+        style={{
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+          backgroundRepeat: "no-repeat",
+          backgroundImage: `url(${LINK_BACKGROUND_HOMEPAGE})`,
+        }}
+      >
+        {" "}
+        {renderMultipleRowSlick()}
+      </div>
+
+      <div
+        style={{
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+          backgroundRepeat: "no-repeat",
+          backgroundImage: `url(${LINK_BACKGROUND_HOMEPAGE})`,
+        }}
+      >
+        {renderHomeMenu()}
+      </div>
     </section>
   );
 }

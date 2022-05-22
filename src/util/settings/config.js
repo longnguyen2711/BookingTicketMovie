@@ -9,3 +9,13 @@ export const GROUPID = "GP01";
 export const ACCESSTOKEN = "accessToken";
 
 export const USER_LOGIN = 'USER_LOGIN'
+
+export const LINK_BACKGROUND_HOMEPAGE = 'https://i.pinimg.com/originals/62/02/b9/6202b931f3d654284e53d6a3e8616a4a.jpg'
+
+export const LINK_BACKGROUND = 'https://images7.alphacoders.com/805/805197.jpg'
+
+
+// https://images8.alphacoders.com/503/503792.jpg
+
+
+

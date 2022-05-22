@@ -1,4 +1,7 @@
 #products {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   ul {
     li {
       width: 25%;
@@ -12,9 +15,10 @@
         text-align: center;
         display: flex;
         justify-content: center;
+        background-color: rgba(0,0,0,0.75);
         a {
-          border: 2px solid #35a22c;
-          box-shadow: 0 0 15px #35a22c;
+          border: 2px solid white;
+          box-shadow: 0 0 5px white;
           padding: 15px 20px;
           border-radius: 5px;
           color: yellow;
@@ -22,9 +26,10 @@
           font-family: "Times New Roman", Times, serif;
           width: 300px;
           &:hover {
-            box-shadow: 0 0 30px rgb(112, 255, 255);
+            box-shadow: 0 0 25px rgb(112, 255, 255);
             border: 2px solid rgb(112, 255, 255);
             transition: 0.3s;
+            background-color: black;
           }
         }
       }

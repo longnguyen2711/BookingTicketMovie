@@ -88,9 +88,10 @@ export default function Detail(props) {
                 </a>
               </div>
               <p className="mb-0">{filmDetail.moTa}</p>
-              <div className="c mt-5 flex items-center">
+              <div className="mt-5 flex items-center">
                 <div
                   className={`c100 p${filmDetail.danhGia * 10} small orange`}
+                  title={`${filmDetail.danhGia * 10}%`}
                 >
                   <span>{filmDetail.danhGia * 10}%</span>
                   <div className="slice">
@@ -102,7 +103,7 @@ export default function Detail(props) {
                   <h1 className="text-yellow-400 font-bold mb-0 text-lg text-center">
                     Đánh giá
                   </h1>
-                  <h1>
+                  <h1 title={`${filmDetail.danhGia / 2} sao`}>
                     <Rate allowHalf value={filmDetail.danhGia / 2} />
                   </h1>
                 </div>
@@ -193,10 +194,41 @@ export default function Detail(props) {
                   </div>
                 </TabPane>
                 <TabPane tab="Thông tin" key="2" style={{ minHeight: 100 }}>
-                  Chưa có thông tin
+                  {filmDetail.moTa ? (
+                    <p className="mb-0 text-left text-justify">
+                      {filmDetail.moTa}
+                    </p>
+                  ) : (
+                    <p>Thông tin phim sẽ được cập nhật trong thời gian tới</p>
+                  )}
                 </TabPane>
                 <TabPane tab="Đánh giá" key="3" style={{ minHeight: 100 }}>
-                  Chưa có đánh giá
+                  {!filmDetail.moTa ? (
+                    <p>Chưa có đánh giá về phim này</p>
+                  ) : (
+                    <div className="mt-5 ml-10 flex items-center">
+                      <div
+                        title={`${filmDetail.danhGia * 10}%`}
+                        className={`c100 p${
+                          filmDetail.danhGia * 10
+                        } small orange`}
+                      >
+                        <span>{filmDetail.danhGia * 10}%</span>
+                        <div className="slice">
+                          <div className="bar" />
+                          <div className="fill" />
+                        </div>
+                      </div>
+                      <div className="ml-3 film-rate-start">
+                        <h1 className="text-yellow-400 font-bold mb-0 text-lg text-left">
+                          Đánh giá
+                        </h1>
+                        <h1 title={`${filmDetail.danhGia / 2} sao`}>
+                          <Rate allowHalf value={filmDetail.danhGia / 2} />
+                        </h1>
+                      </div>
+                    </div>
+                  )}
                 </TabPane>
               </Tabs>
             </div>

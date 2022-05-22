@@ -1,5 +1,7 @@
 import React from "react";
+import { LINK_BACKGROUND } from "../../../../util/settings/config";
 import "./Footer.css";
+
 // import _ from "lodash";
 // import { useSelector } from "react-redux";
 
@@ -84,8 +86,14 @@ export default function Footer(props) {
 
   return (
     <footer
-      className="pt-8 mt-0 bg-coolGray-100 text-coolGray-900 bg-black"
+      className="pt-8 mt-0 bg-coolGray-100 text-coolGray-900"
       id="footer"
+      style={{
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url(${LINK_BACKGROUND})`,
+      }}
     >
       <div className="space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
         <div className="container px-6 mx-auto grid grid-cols-12">

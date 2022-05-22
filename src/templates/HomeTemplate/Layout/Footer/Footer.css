@@ -9,7 +9,9 @@
 #footer .footer-contact ul li {
   margin-right: 20px;
   color: white;
-  text-align: center;
+  text-align: center;  
+  background-color: black;
+  border-radius: 50%;
 }
 
 #footer .footer-contact ul li:hover {
@@ -26,7 +28,7 @@
   border-radius: 50%;
   color: white;
   box-shadow: 0 0 8px #35a22c;
-  
+  background-color: black;
 }
 
 #footer .footer-contact ul li i:hover {
