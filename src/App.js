@@ -9,10 +9,8 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Propducts from "./pages/Propducts/Propducts";
 import Detail from "./pages/Detail/Detail";
-import Profile from "./pages/Profile/Profile";
-
 import ShowTime from "./pages/Admin/ShowTime/ShowTime";
-import DashBoard from "./pages/Admin/DashBoard/DashBoard";
+import Profile from "./pages/Admin/Profile/Profile";
 import Films from "./pages/Admin/Films/Films";
 import Loading from "./_Component/Loading/Loading";
 import AddNewFilm from "./pages/Admin/AddNewFilm/AddNewFilm";
@@ -43,7 +41,6 @@ function App() {
         <HomeTemplate path="/news" exact Component={News} />
         <HomeTemplate path="/products" exact Component={Propducts} />
         <HomeTemplate path="/detail/:id" exact Component={Detail} />
-        <HomeTemplate path="/profile" exact Component={Profile} />        
 
         <CheckoutTemplate path="/checkout/:id" exact Component={Checkout} />
         {/* Suspense: Dữ liệu html load xong mới hiển thị nếu ko sẽ hiển thị h1 */}
@@ -55,7 +52,7 @@ function App() {
         <UserTemplate path="/login" exact Component={Login} />
 
         <AdminTemplate path="/admin" exact Component={Films} />
-        <AdminTemplate path="/admin/users" exact Component={DashBoard} />
+        <AdminTemplate path="/admin/profile" exact Component={Profile} />
         <AdminTemplate path="/admin/films" exact Component={Films} />
         <AdminTemplate path="/admin/films/editfilm/:id" exact Component={EditFilm} />
         <AdminTemplate path="/admin/films/showtime/:id/:tenphim" exact Component={ShowTime} />

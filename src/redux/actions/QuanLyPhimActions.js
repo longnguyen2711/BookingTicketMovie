@@ -5,16 +5,21 @@ import {
   SET_THONG_TIN_PHIM_TRUOC_CAP_NHAT,
 } from "../types";
 import { history } from "../../App";
+import { displayLoadingAction, hideLoadingAction } from "./LoadingAction";
 
 export const layDanhSachPhimAction = (tenPhim="") => {
   return async (dispatch) => {
     try {
+      dispatch(displayLoadingAction);
+
       const result = await quanLyPhimService.layDanhSachPhim(tenPhim="");
 
       dispatch({
         type: SET_DANH_SACH_PHIM,
         arrFilm: result.data.content,
       });
+      dispatch(hideLoadingAction);
+
     } catch (error) {
       console.log("error", error);
     }
@@ -63,8 +68,12 @@ export const capNhatFilmAction = (formDataFilmUpdate) => {
   return async (dispatch) => {
     try {
       const result = await quanLyPhimService.capNhatPhim(formDataFilmUpdate);
+
+
       // ko call được api
       console.log(result,"cập nhật")
+
+
       // Thông báp cập nhật phim thành công
       alert("Cập nhật phim thành công")
       // Lấy lại danh sách phim

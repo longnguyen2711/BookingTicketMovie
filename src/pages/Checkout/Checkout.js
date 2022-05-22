@@ -299,22 +299,24 @@ export default function CheckoutTab(props) {
                 className="text-white font-bold"
                 title="Bấm để đăng xuất"
                 onClick={() => {
-                  // Xóa trong localStorage
-                  localStorage.removeItem(USER_LOGIN);
-                  localStorage.removeItem(ACCESSTOKEN);
-                  // Chuyển hướng về home
-                  props.history.push("/home");
-                  // Reload lại trang web
-                  window.location.reload();
+                  if (window.confirm("Bạn có chắc muốn đăng xuất ?")) {
+                    // Xóa trong localStorage
+                    localStorage.removeItem(USER_LOGIN);
+                    localStorage.removeItem(ACCESSTOKEN);
+                    // Chuyển hướng về home
+                    history.push("/home");
+                    // Reload lại trang web
+                    window.location.reload();
+                  }
                 }}
               >
                 Đăng xuất
               </button>
             </div>
             <div className="profile">
-              <button                
+              <button
                 onClick={() => {
-                  props.history.push("/profile");
+                  props.history.push("/admin/profile");
                 }}
                 className="flex justify-center items-center h-full ml-10 text-white"
                 title="Đến trang cá nhân"
@@ -441,9 +443,9 @@ function KetQuaDatVe(props) {
 
   return (
     <div className="">
-      <section className="text-gray-600 body-font">
-        <div className="px-5 py-24 mx-auto">
-          <div className="w-screen flex flex-col text-center w-full mb-20">
+      <section className="text-gray-600 body-font bg-white z-50">
+        <div className="py-24 mx-auto">
+          <div className="w-screen flex flex-col text-center mb-20">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
               Lịch sử đặt vé khách hàng
             </h1>

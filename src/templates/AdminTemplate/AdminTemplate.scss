@@ -1,0 +1,68 @@
+$navbar-color: black;
+
+#AdminTemplate {
+  .to-profile {
+    color: #000000;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    &:hover {
+      animation: animate-changecolor 1s linear infinite;
+      animation-delay: calc(-0.25s * var(--i));
+      transform-origin: 20px;
+      transition: 0.5s;
+    }
+    .icon-user {
+      color: yellow;
+      border: 1px solid $navbar-color;
+      box-shadow: 0 0 3px $navbar-color;
+    }
+  }
+  .sign-out {
+    color: black;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    &:hover {
+      color: yellow;
+      border: 2px solid yellow;
+      box-shadow: 0 0 15px yellow;
+      background-color: black !important;
+      animation: animate-changecolor 1s linear infinite;
+      animation-delay: calc(-0.25s * var(--i));
+      transform-origin: 20px;
+      transition: 0.5s;
+    }
+  }
+  .back-to-top {
+    color: #ffffff;
+    background-color: rgba(53, 162, 44, 0.5);
+    text-align: center;
+    font-size: 20px;
+    border-radius: 5000px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    position: fixed;
+    right: 25px;
+    bottom: 15px;
+    cursor: pointer !important;
+    &:hover {
+      color: yellow;
+      border: 1px solid #35a22c;
+      box-shadow: 0 0 15px #35a22c;
+      background-color: rgba(0, 0, 0, 1);
+      animation: animate-changecolor 1s linear infinite;
+      animation-delay: calc(-0.25s * var(--i));
+      transform-origin: 20px;
+      transition: 0.5s;
+    }
+  }
+}
+
+@keyframes animate-changecolor {
+  0% {
+    filter: rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}

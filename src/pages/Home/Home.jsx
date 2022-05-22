@@ -8,7 +8,6 @@ import { layDanhSachPhimAction } from "../../redux/actions/QuanLyPhimActions";
 import { layDanhSachHeThongRapAction } from "../../redux/actions/QuanLyRapActions";
 import HomeCarousel from "../../templates/HomeTemplate/Layout/HomeCarousel/HomeCarousel";
 
-
 export default function Home(props) {
   const { arrFilm } = useSelector((state) => state.QuanLyPhimReducer);
   const dispatch = useDispatch();
@@ -23,7 +22,7 @@ export default function Home(props) {
     width: window.innerWidth,
     height: window.innerHeight,
   });
-  
+
   useEffect(() => {
     // Mỗi lần load dữ liệu component lên hoặc resize sẽ xét lại kích thước cho biến screen
     window.onload = () => {
@@ -47,10 +46,7 @@ export default function Home(props) {
   const renderHomeMenu = () => {
     if (screen.width >= 800) {
       return (
-        <div
-          id="HomeMenu"
-          className="m-20 border border-gray-400 rounded"
-        >
+        <div id="HomeMenu" className="m-20 border border-gray-400 rounded">
           <HomeMenu heThongRapChieu={heThongRapChieu} />
         </div>
       );
@@ -88,7 +84,9 @@ export default function Home(props) {
 
   return (
     <section>
-      <HomeCarousel />
+      <div className="bg-black">
+        <HomeCarousel />
+      </div>
       {renderMultipleRowSlick()}
       {renderHomeMenu()}
     </section>

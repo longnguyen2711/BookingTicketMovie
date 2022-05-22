@@ -72,7 +72,7 @@ export default function Films(props) {
         return -1;
       },
       sortDirections: ["descend", "ascend"],
-      width: "33%",
+      width: "28%",
     },
     {
       title: "Khởi chiếu",
@@ -94,19 +94,19 @@ export default function Films(props) {
     },
     {
       title: "Hành động",
-      dataIndex: "hanhDong",
+      dataIndex: "maPhim",
       render: (text, film, index) => {
         return (
           <Fragment key={index} className="flex items-center">
-            <NavLink key={1} to={`/admin/films/editfilm/${film.maPhim}`} className=" text-blue-700 text-lg">
+            <NavLink key={1} to={`/admin/films/editfilm/${film.maPhim}`} className="ml-2 text-blue-700 text-lg">
               <EditOutlined />{" "}
             </NavLink>
-            <NavLink key={1} to={`/admin/films/showtime/${film.maPhim}/${film.tenPhim}`} className="ml-3 text-green-700 text-lg" onClick={() => {
+            <NavLink key={1} to={`/admin/films/showtime/${film.maPhim}/${film.tenPhim}`} className="ml-2 text-green-700 text-lg" onClick={() => {
               localStorage.setItem('filmParams', JSON.stringify(film))
             }}>
               < CalendarOutlined  />{" "}
             </NavLink>           
-            <span key={2} className="ml-3 text-red-700 text-lg cursor-pointer" onClick={() => {
+            <span key={2} className="ml-2 text-red-700 text-lg cursor-pointer" onClick={() => {
               // Gọi action xóa
               if(window.confirm('Bạn có chắc muốn xóa phim ' + film.tenPhim) + ' ?'){
                 //Gọi action
@@ -119,7 +119,7 @@ export default function Films(props) {
         );
       },
       sortDirections: ["descend", "ascend"],
-      width: "15%",
+      width: "20%",
     },
   ];
 

@@ -36,20 +36,22 @@ export default function Header(props) {
           className="sign-out focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-5"
           title="Bấm để đăng xuất"
           onClick={() => {
-            // Xóa trong localStorage
-            localStorage.removeItem(USER_LOGIN);
-            localStorage.removeItem(ACCESSTOKEN);
-            // Chuyển hướng về home
-            props.history.push("/home");
-            // Reload lại trang web
-            window.location.reload();
+            if (window.confirm("Bạn có chắc muốn đăng xuất ?")) {
+              // Xóa trong localStorage
+              localStorage.removeItem(USER_LOGIN);
+              localStorage.removeItem(ACCESSTOKEN);
+              // Chuyển hướng về home
+              props.history.push("/home");
+              // Reload lại trang web
+              window.location.reload();
+            }
           }}
         >
           Đăng xuất
         </button>
         <button
           onClick={() => {
-            props.history.push("/profile");
+            props.history.push("/admin/profile");
           }}
           className="to-profile focus:outline-none rounded self-center font-bold p-2 flex justify-center items-center h-full"
           title={`Tài khoản khách: ${userLogin.taiKhoan} `}
@@ -59,7 +61,6 @@ export default function Header(props) {
             <p className="mb-0 pb-1">{userLogin.taiKhoan.substr(0, 1)}</p>
           </div>
         </button>
-
       </Fragment>
     );
   };
@@ -90,7 +91,7 @@ export default function Header(props) {
                 title="Bấm để đăng nhập"
                 className="md-sign-in bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
               >
-                Đăng
+                Đăng nhập
               </NavLink>
             </div>
           </div>
@@ -108,9 +109,8 @@ export default function Header(props) {
           </button>
           <div className="dropdown-menu hidden text-gray-700 right-0">
             <div className="flex flex-col justify-start items-end">
-
               <NavLink
-                to="/profile"
+                to="/admin/profile"
                 title="Đến trang cá nhân"
                 className="md-sign-in bg-black w-36 text-center z-50 mb-3 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
               >
@@ -121,13 +121,15 @@ export default function Header(props) {
                 className="md-sign-up bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
                 title="Bấm để đăng xuất"
                 onClick={() => {
-                  // Xóa trong localStorage
-                  localStorage.removeItem(USER_LOGIN);
-                  localStorage.removeItem(ACCESSTOKEN);
-                  // Chuyển hướng về home
-                  props.history.push("/home");
-                  // Reload lại trang web
-                  window.location.reload();
+                  if (window.confirm("Bạn có chắc muốn đăng xuất ?")) {
+                    // Xóa trong localStorage
+                    localStorage.removeItem(USER_LOGIN);
+                    localStorage.removeItem(ACCESSTOKEN);
+                    // Chuyển hướng về home
+                    props.history.push("/home");
+                    // Reload lại trang web
+                    window.location.reload();
+                  }
                 }}
               >
                 Đăng xuất
@@ -148,32 +150,6 @@ export default function Header(props) {
     this.classList.add("navigation-active");
   }
   navigation_list.forEach((item) => item.addEventListener("click", activeLink));
-
-  // Xét kích thước màn hình
-  const [screen, setScreen] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-
-  useEffect(() => {
-    window.onload = () => {
-      setScreen({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-    window.onresize = () => {
-      setScreen({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-    return () => {
-      window.removeEventListener("onload");
-      window.removeEventListener("onresize");
-    };
-  }, []);
-
 
   return (
     <header

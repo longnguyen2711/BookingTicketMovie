@@ -41,19 +41,21 @@
     background-color: black;
 }
 
-#Register #taiKhoan,
-#Register #tenDangNhapRegister,
+#Register #maNhomRegister,
+#Register #soDienThoaiRegister,
+#Register #emailRegister,
 #Register #taiKhoanRegister,
 #Register #matKhauRegister,
-#Register #xacNhanMatKhauRegister{
+#Register #hoTenRegister{
     border: 2px solid transparent;
 }
 
-#Register #taiKhoan:focus,
-#Register #tenDangNhapRegister:focus,
+#Register #emailRegister:focus,
 #Register #taiKhoanRegister:focus,
+#Register #soDienThoaiRegister:focus,
+#Register #hoTenRegister:focus,
 #Register #matKhauRegister:focus,
-#Register #xacNhanMatKhauRegister:focus{
+#Register #maNhomRegister:focus{
     border: 2px solid #00efff;
     box-shadow: 0 0 10px #00efff;
     animation: animate-changecolor 1s linear infinite;
