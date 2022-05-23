@@ -40,6 +40,7 @@ export const themPhimMoiAction = (formDataFilm) => {
       await dispatch(layDanhSachPhimAction());
 
     } catch (error) {
+      alert("Thêm phim không thành công");
       console.log("error", error);
     }
   };
@@ -75,10 +76,8 @@ export const capNhatFilmAction = (formDataFilmUpdate) => {
       // Lấy lại danh sách phim
       dispatch(layDanhSachPhimAction())
 
-      // Chuyển hướng về trang admin danh sách phim
-      history.push('admin/films/')
-
     } catch (error) {
+      alert("Cập nhật phim không thành công");
       console.log("error", error);
     }
   };
@@ -97,6 +96,7 @@ export const xoaPhimAction = (maPhim) => {
       dispatch(layDanhSachPhimAction())
 
     } catch (error) {
+      alert("Xóa phim không thành công");
       console.log("error", error);
     }
   };

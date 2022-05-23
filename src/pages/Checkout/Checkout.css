@@ -45,7 +45,6 @@
   transition: 0.5s;
 }
 
-
 /* --------------------------- */
 #checkout {
   background-repeat: no-repeat;
@@ -152,6 +151,17 @@
 #checkout .checkout-right-infoTicket .nutDatVe div:hover{
   border: 1px solid white;
   box-shadow: 0 0 10px white;
+}
+
+/* Lịch sử đặt vé */
+.booking-history h2{
+  color: aqua !important;
+}
+
+.booking-history .ticket-item > div > div:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 10px white;
+  border: 1px solid white !important;
 }
 
 @media screen and (max-width: 1100px) {

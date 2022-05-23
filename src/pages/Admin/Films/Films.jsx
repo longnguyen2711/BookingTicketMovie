@@ -1,12 +1,12 @@
-import React, { Fragment, useEffect } from "react";
-import { Table } from "antd";
-import { Input, Space } from "antd";
-import { AudioOutlined, DeleteOutlined, EditOutlined, CalendarOutlined } from "@ant-design/icons";
-import { Button } from "antd/lib/radio";
-import { useDispatch, useSelector } from "react-redux";
 import { layDanhSachPhimAction, xoaPhimAction } from "../../../redux/actions/QuanLyPhimActions";
+import { DeleteOutlined, EditOutlined, CalendarOutlined } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
+import React, { Fragment, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { Table } from "antd";
 import moment from "moment";
+import { Input} from "antd";
+
 
 export default function Films(props) {
   const { arrFilmDefault } = useSelector((state) => state.QuanLyPhimReducer);
@@ -19,15 +19,6 @@ export default function Films(props) {
   }, []);
 
   const { Search } = Input;
-
-  const suffix = (
-    <AudioOutlined
-      style={{
-        fontSize: 16,
-        color: "#1890ff",
-      }}
-    />
-  );
 
   const columns = [
     {
@@ -140,7 +131,7 @@ export default function Films(props) {
   return (
     <div>
       <h3 className="text-4xl">Quản lý phim</h3>
-      <div className="mt-8 mb-6"><NavLink to="/admin/addnewfilm" className="py-3 px-3 rounded font-bold border-2 duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white">Thêm phim mới</NavLink></div>
+      <div title="Bấm để thêm phim mới" className="mt-8 mb-6"><NavLink to="/admin/addnewfilm" className="py-3 px-3 rounded font-bold border-2 duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white">Thêm phim mới</NavLink></div>
       <Search
         className="mb-5 py-1 px-1 rounded font-bold border duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white"
         placeholder="Nhập từ khóa"

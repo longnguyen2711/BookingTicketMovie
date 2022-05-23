@@ -64,7 +64,7 @@ export default function Header(props) {
             props.history.push("/admin/profile");
           }}
           className="to-profile focus:outline-none rounded self-center font-bold p-2 flex justify-center items-center h-full"
-          title={`Tài khoản khách: ${userLogin.taiKhoan} `}
+          title="Đến trang cá nhân"
         >
           <div className="font-bold">{userLogin.taiKhoan}</div>
           <div className="icon-user w-10 h-10 rounded-full bg-black font-bold flex justify-center items-center ml-3 text-xl">
@@ -79,15 +79,6 @@ export default function Header(props) {
   const renderDropdownMenu = () => {
     if (_.isEmpty(userLogin)) {
       return (
-        <div>      
-          {/* <Select
-            defaultValue="Đăng nhập"
-            style={{ width: 120 }}
-            onChange={handleChange}
-          >
-            <Option value="Đăng nhập">Lucy</Option>
-            <Option value="Đăng ký">Lucy</Option>
-          </Select> */}
           <div className="dropdown-button dropdown inline-block z-50">
             <button className="header__logo md:hidden">
               <img
@@ -96,6 +87,14 @@ export default function Header(props) {
                 width={45}
               />
             </button>
+                      {/* <Select
+            defaultValue="Đăng nhập"
+            style={{ width: 120 }}
+            onChange={handleChange}
+          >
+            <Option value="Đăng nhập">Lucy</Option>
+            <Option value="Đăng ký">Lucy</Option>
+          </Select> */}
             <div className="dropdown-menu hidden text-gray-700 right-0">
               <div className="flex flex-col justify-start items-end">
                 <NavLink
@@ -115,7 +114,6 @@ export default function Header(props) {
               </div>
             </div>
           </div>
-        </div>
       );
     } else {
       return (
@@ -235,7 +233,7 @@ export default function Header(props) {
           </ul>
         </div>
 
-        <div className="sign-in-up items-center flex-shrink-0 hidden md:flex">
+        <div className="sign-in-up hidden md:flex">
           {renderLogin()}
         </div>
 

@@ -1,19 +1,13 @@
-import { Fragment, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Redirect, Route } from "react-router";
-import { Layout, Menu, Breadcrumb } from "antd";
-
-import {
-  AlignLeftOutlined,
-  PlusCircleOutlined,
-  CodeSandboxOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import { NavLink } from "react-router-dom";
-import _ from "lodash";
-import { history } from "../../App";
+import {AlignLeftOutlined, PlusCircleOutlined, CodeSandboxOutlined, UserOutlined} from "@ant-design/icons";
 import { ACCESSTOKEN, USER_LOGIN } from "../../util/settings/config";
+import { Fragment, useEffect, useState } from "react";
+import { Redirect, Route } from "react-router";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { history } from "../../App";
+import { Layout, Menu} from "antd";
 import "./AdminTemplate.scss";
+import _ from "lodash";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -22,6 +16,8 @@ export const AdminTemplate = (props) => {
   const { Component, ...restProps } = props; // path, exact, Component
 
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
+
+  console.log(userLogin)
 
   // Chuyển hướng về đầu trang khi trở lại trang trước đó
   useEffect(() => {
@@ -43,7 +39,7 @@ export const AdminTemplate = (props) => {
   // Trạng thái đăng nhập
   const renderLogin = () => {
     return (
-      <div className="absolute top-5 right-10 z-50 flex">
+      <div className="absolute top-5 right-10 z-10 flex">
         <button
           className="sign-out focus:outline-none rounded self-center font-bold px-7 py-2 border-2 border-black mr-5"
           title="Bấm để đăng xuất"
@@ -64,7 +60,7 @@ export const AdminTemplate = (props) => {
         <NavLink
           to="/admin/profile"
           className="to-profile focus:outline-none rounded self-center font-bold p-2 flex justify-center items-center h-full"
-          title={`Đến trang cá nhân`}
+          title={`Tài khoản: ${userLogin.taiKhoan}`}
         >
           <div className="font-bold">{userLogin.taiKhoan}</div>
           <div className="icon-user w-10 h-10 rounded-full bg-black font-bold flex justify-center items-center ml-3 text-xl">

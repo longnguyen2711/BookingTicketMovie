@@ -1,19 +1,17 @@
-import React, { Fragment, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  datVeAction,
-  layChiTietPhongVeAction,
-} from "../../redux/actions/QuanLyDatVeActions";
+import {ACCESSTOKEN, LINK_BACKGROUND_HOMEPAGE, USER_LOGIN} from "../../util/settings/config";
+import {datVeAction, layChiTietPhongVeAction} from "../../redux/actions/QuanLyDatVeActions";
 import { layThongTinNguoiDungAction } from "../../redux/actions/QuanLyNguoiDungActions";
-import { CHANGE_TAB_ACTIVE, DANG_XUAT_ACTION, DAT_VE } from "../../redux/types";
-import "./Checkout.css";
-import _ from "lodash";
+import { CHANGE_TAB_ACTIVE, DAT_VE } from "../../redux/types";
 import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
+import { useDispatch, useSelector } from "react-redux";
+import React, { Fragment, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { history } from "../../App";
 import { Tabs } from "antd";
 import moment from "moment";
-import { history } from "../../App";
-import { ACCESSTOKEN, USER_LOGIN } from "../../util/settings/config";
-import { NavLink } from "react-router-dom";
+import "./Checkout.css";
+import _ from "lodash";
+
 
 function Checkout(props) {
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
@@ -39,8 +37,6 @@ function Checkout(props) {
     return danhSachGhe.map((ghe, index) => {
       let classGheVip = ghe.loaiGhe === "Vip" ? "gheVip" : "";
       let classGheDaDat = ghe.daDat === true ? "gheDaDat" : "";
-      let classSpacingHeight =
-        ghe.stt % 8 === 0 && ghe.stt % 16 !== 0 ? "bg-green-500" : "";
       let classSpacingWidth =
         ghe.stt >= 65 && ghe.stt <= 80 ? "mb-2 md:mb-4" : "";
 
@@ -86,7 +82,7 @@ function Checkout(props) {
       return (
         <Fragment key={index}>
           {
-            <div className={`flex justify-center ${classSpacingHeight}`}>
+            <div className="flex justify-center">
               <button
                 disabled={ghe.daDat || classGheNguoiKhacDangDat !== ""}
                 className={`ghe ${classSpacingWidth} ${classGheNguoiKhacDangDat} ${classGheVip} ${classGheDaDat} ${classGheDangDat}  ${classGheDaDuocBanThanDat}`}
@@ -344,7 +340,15 @@ export default function CheckoutTab(props) {
   }, []);
 
   return (
-    <div className="ant-checkout flex justify-center bg-black">
+    <div
+      className="ant-checkout flex justify-center"
+      style={{
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url('${LINK_BACKGROUND_HOMEPAGE}')`,
+      }}
+    >
       <Tabs
         tabBarExtraContent={operations}
         defaultActiveKey="1"
@@ -356,12 +360,6 @@ export default function CheckoutTab(props) {
           });
         }}
       >
-        <TabPane tab="01 CHỌN GHẾ - THANH TOÁN" key="1">
-          <Checkout {...props} />
-        </TabPane>
-        <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
-          <KetQuaDatVe {...props} />
-        </TabPane>
         <TabPane
           tab={
             <NavLink
@@ -379,7 +377,25 @@ export default function CheckoutTab(props) {
           }
           key="3"
         ></TabPane>
+        <TabPane tab="01 CHỌN GHẾ - THANH TOÁN" key="1">
+          <Checkout {...props} />
+        </TabPane>
+        <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
+          <KetQuaDatVe {...props} />
+        </TabPane>
       </Tabs>
+      <NavLink
+              to="/"
+              title="Về trang chủ"
+              aria-label="Về trang chủ"
+              className="absolute top-16 left-10 z-10 md:hidden"
+            >
+              <img
+                src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png"
+                alt="cyberlearn.vn"
+                width={100}
+              />
+            </NavLink>
     </div>
   );
 }
@@ -391,47 +407,36 @@ function KetQuaDatVe(props) {
     (state) => state.QuanLyNguoiDungReducer
   );
 
-  const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
-
-  //Kẹt chưa dispatch được
-  //Kẹt chưa dispatch được
-  //Kẹt chưa dispatch được
-  //Kẹt chưa dispatch được
-
   useEffect(() => {
-    console.log("first");
-
     const action = layThongTinNguoiDungAction();
     dispatch(action);
   }, []);
-
-  console.log(thongTinNguoiDung, "thongtingnoidung");
 
   const renderTicketItem = () => {
     return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
       const seats = _.first(ticket.danhSachGhe);
       return (
-        <div className="p-2 lg:w-1/3 md:w-1/2 w-full" key={index}>
-          <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+        <div className="py-2 px-5 md:px-2 lg:w-1/3 md:w-1/2 w-full" key={index}>
+          <div className="h-full flex items-center border-gray-200 border px-8 md:px-4 p-4 rounded-lg bg-black bg-opacity-80 text-white">
             <img
               alt="team"
-              className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
-              src="https://picsum/photo/1000"
+              className="w-28 md:w-16 h-28 md:h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
+              src={ticket.hinhAnh}
             />
             <div className="flex-grow">
-              <h2 className="text-gray-900 title-font">{ticket.tenPhim}</h2>
-              <p className="text-gray-500">
-                Xuất chiếu: {moment(ticket.ngayDat).format("hh:mm A")}{" "}
+              <h2 className="text-xl font-bold">{ticket.tenPhim}</h2>
+              <p className="mb-1">
+                - Ngày chiếu: {moment(ticket.ngayDat).format("DD-MM-YYYY")}
               </p>
-              <p className="text-gray-500">
-                Ngày chiếu {moment(ticket.ngayDat).format("DD-MM-YYYY")}
+              <p className="mb-1">
+                - Xuất chiếu: {moment(ticket.ngayDat).format("hh:mm A")}{" "}
               </p>
-              <p>Địa điểm: {seats.tenHeThongRap}</p>
-              <p>Tên rạp: {seats.tenCumRap}</p>
-              <p>
-                Ghế:{" "}
+              <p className="mb-1">- Địa điểm: {seats.tenHeThongRap}</p>
+              <p className="mb-1">- Tên rạp: {seats.tenCumRap}</p>
+              <p className="mb-1">
+                - Ghế:{" "}
                 {ticket.danhSachGhe.map((ghe, index) => {
-                  return <span key={index}>{ghe.tenGhe}</span>;
+                  return <span key={index}> {ghe.tenGhe}</span>;
                 })}
               </p>
             </div>
@@ -442,20 +447,29 @@ function KetQuaDatVe(props) {
   };
 
   return (
-    <div className="">
-      <section className="text-gray-600 body-font bg-white z-50">
-        <div className="py-24 mx-auto">
-          <div className="w-screen flex flex-col text-center mb-20">
-            <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-              Lịch sử đặt vé khách hàng
-            </h1>
-            <p className=" mx-auto leading-relaxed text-base">
-              Xem thông tin địa chỉ và thời gian để xem phim vui vẻ bạn nhé!
-            </p>
-          </div>
-          <div className="flex flex-wrap -m-2">{renderTicketItem()}</div>
+    <section
+      className="booking-history body-font z-50 border-t border-gray-200"
+      style={{
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url(${LINK_BACKGROUND_HOMEPAGE})`,
+        maxWidth: "1500px",
+      }}
+    >
+      <div className="pt-14 pb-10 mx-auto">
+        <div className="w-screen flex flex-col text-center mb-10">
+          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">
+            Lịch sử đặt vé khách hàng
+          </h1>
+          <p className=" mx-auto leading-relaxed text-lg text-white">
+            Xem thông tin địa chỉ và thời gian để xem phim vui vẻ bạn nhé!
+          </p>
         </div>
-      </section>
-    </div>
+        <div className="ticket-item flex flex-wrap m-5 px-5">
+          {renderTicketItem()}
+        </div>
+      </div>
+    </section>
   );
 }

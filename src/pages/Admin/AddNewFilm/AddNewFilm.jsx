@@ -1,10 +1,9 @@
-import React, { useDebugValue, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import {
   Form,
   Input,
-  Button,
   Radio,
   DatePicker,
   InputNumber,
@@ -48,13 +47,13 @@ const AddNewFilm = (props) => {
         }
       }
       // formik ko thể consose.log ra được do tính bảo mật của browser => console.log(formData.get('tenPhim'))
-      console.log({ values });
-      console.log({ formData });
 
       // Gọi api gửi các giá trị formData về backend xử lý
-      // ĐÃ UP ĐƯỢC NHƯNG CÓ BÁO LỖI
       const action = themPhimMoiAction(formData);
       dispatch(action);
+      setTimeout(() => {
+        props.history.push('/admin/films');
+      }, 1000);
     },
   });
 

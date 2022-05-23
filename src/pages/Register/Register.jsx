@@ -29,7 +29,7 @@ export default function Register(props) {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className="lg:w-1/2 xl:max-w-screen-sm bg-black pb-10"
+      className="w-full lg:w-3/4 z-50 mt-3"
       id="Register"
     >
       <div className="py-12 flex justify-around lg:px-12">
@@ -45,11 +45,11 @@ export default function Register(props) {
         <NavLink to="/home" title="Bấm để quay về trang chủ" className="back-to-homepage-button flex justify-center items-center"><i class="fa fa-home"></i></NavLink>
       </div> */}
       </div>
-      <div className="px-12 sm:px-24 md:px-48 lg:px-12 xl:px-24 xl:max-w-2xl">
-        <h2 className="text-center text-4xl font-display lg:text-left xl:text-4xl xl:text-bold">
+      <div className="px-12 sm:px-24 md:px-48 lg:px-12 xl:px-24">
+        <h2 className="text-center text-4xl font-display lg:text-left xl:text-4xl xl:text-bold font-bold">
           Đăng ký tài khoản
         </h2>
-        <div className="mt-12">
+        <div className="mt-12 pb-12">
           <div className="form-register">
             <div>
               <label
@@ -60,7 +60,7 @@ export default function Register(props) {
               </label>
               <input
                 className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
-                type="text"
+                type="email"
                 placeholder="nguyenhoanglong@gmail.com"
                 name="email"
                 id="email"
@@ -124,7 +124,7 @@ export default function Register(props) {
               </label>
               <input
                 className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
-                type="text"
+                type="number"
                 placeholder="0123456789"
                 name="soDt"
                 id="soDt"

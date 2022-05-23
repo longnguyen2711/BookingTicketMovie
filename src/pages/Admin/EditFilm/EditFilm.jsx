@@ -1,10 +1,9 @@
-import React, { useDebugValue, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 import {
   Form,
   Input,
-  Button,
   Radio,
   DatePicker,
   InputNumber,
@@ -76,6 +75,11 @@ const EditFilm = (props) => {
       // Gọi api gửi các giá trị formData về backend xử lý
       const action = capNhatFilmAction(formData);
       dispatch(action);
+      
+      //Quay về trang trang film sau khi bấm cập nhật
+      setTimeout(() => {
+        props.history.push('/admin/films');
+      }, 1000);
     },
   });
 

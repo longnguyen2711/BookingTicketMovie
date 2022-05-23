@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import HomeMenu from "./HomeMenu/HomeMenu";
+import HomeCarousel from "../../templates/HomeTemplate/Layout/HomeCarousel/HomeCarousel";
+import MultipleRowSlickMobile from "../../_Component/RSlick/MultipleRowSlickMobile";
+import { layDanhSachHeThongRapAction } from "../../redux/actions/QuanLyRapActions";
+import { layDanhSachPhimAction } from "../../redux/actions/QuanLyPhimActions";
+import MultipleRowSlick from "../../_Component/RSlick/MultipleRowSlick";
+import { LINK_BACKGROUND_HOMEPAGE } from "../../util/settings/config";
 import HomeMenuMobile from "./HomeMenu/HomeMenuMobile";
 import { useSelector, useDispatch } from "react-redux";
-import MultipleRowSlick from "../../_Component/RSlick/MultipleRowSlick";
-import MultipleRowSlickMobile from "../../_Component/RSlick/MultipleRowSlickMobile";
-import { layDanhSachPhimAction } from "../../redux/actions/QuanLyPhimActions";
-import { layDanhSachHeThongRapAction } from "../../redux/actions/QuanLyRapActions";
-import HomeCarousel from "../../templates/HomeTemplate/Layout/HomeCarousel/HomeCarousel";
-import { LINK_BACKGROUND_HOMEPAGE } from "../../util/settings/config";
+import React, { useEffect, useState } from "react";
+import HomeMenu from "./HomeMenu/HomeMenu";
 
 export default function Home(props) {
   const { arrFilm } = useSelector((state) => state.QuanLyPhimReducer);
