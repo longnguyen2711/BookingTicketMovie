@@ -1,3 +1,12 @@
+#Carousel {
+  margin-top: 100px;
+}
+@media screen and (max-width: 800px) {
+  #Carousel {
+    margin-top: 96px;
+  }
+}
+
 #Carousel .slick-next:before {
   color: black !important;
   font-size: 2.5rem !important;
@@ -23,12 +32,11 @@
 }
 
 #Carousel .slick-next:hover:before,
-#Carousel .slick-prev:hover:before{
+#Carousel .slick-prev:hover:before {
   box-shadow: 0 0 15px yellow;
   background-color: yellow !important;
-
 }
 
-#Carousel .slick-prev{
+#Carousel .slick-prev {
   z-index: 1;
 }

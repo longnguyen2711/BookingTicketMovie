@@ -10,7 +10,9 @@ import moment from "moment";
 const MultipleRowSlickMobile = (props) => {
   const dispatch = useDispatch();
 
-  const { dangChieu, sapChieu } = useSelector((state) => state.QuanLyPhimReducer);
+  const { dangChieu, sapChieu } = useSelector(
+    (state) => state.QuanLyPhimReducer
+  );
 
   let activeClassDC = dangChieu === true ? "active_Film" : "none_active_Film";
   let activeClassSC = sapChieu === true ? "active_Film" : "none_active_Film";
@@ -32,10 +34,18 @@ const MultipleRowSlickMobile = (props) => {
               />
             </div>
             <div className="film-info flex-col p-0 px-3 py-4">
-              <p className="font-bold text-lg sm:text-xl mb-2" title={item.tenPhim}>
+              <p
+                className="font-bold text-lg sm:text-xl mb-2"
+                title={item.tenPhim}
+              >
                 {item.tenPhim}
               </p>
-              <p className="font-bold mb-0 sm:mb-3 text-sm sm:text-md" title={`Khởi chiếu: ${moment(item.ngayKhoiChieu).format("DD.MM.YYYY")}`}>
+              <p
+                className="font-bold mb-0 sm:mb-3 text-sm sm:text-md"
+                title={`Khởi chiếu: ${moment(item.ngayKhoiChieu).format(
+                  "DD.MM.YYYY"
+                )}`}
+              >
                 Khởi chiếu: {moment(item.ngayKhoiChieu).format("DD.MM.YYYY")}
               </p>
               {item.moTa.length > 175 ? (
@@ -74,25 +84,29 @@ const MultipleRowSlickMobile = (props) => {
 
   return (
     <div>
-      <div className={`${styleSlick['filter-button']}`}>
-        <button
-          className={`${styleSlick[activeClassDC]} px-5 py-3 font-semibold border rounded-md mr-5`}
-          onClick={() => {
-            const action = { type: SET_PHIM_DANG_CHIEU };
-            dispatch(action);
-          }}
-        >
-          PHIM ĐANG CHIẾU
-        </button>
-        <button
-          className={`${styleSlick[activeClassSC]} px-5 py-3 font-semibold border rounded-md`}
-          onClick={() => {
-            const action = { type: SET_PHIM_SAP_CHIEU };
-            dispatch(action);
-          }}
-        >
-          PHIM SẮP CHIẾU
-        </button>
+      <div className={`${styleSlick["filter-button"]} mobile-button flex justify-start`}>
+        <div>
+          <button
+            className={`${styleSlick[activeClassDC]} font-semibold border rounded-md mr-5`}
+            onClick={() => {
+              const action = { type: SET_PHIM_DANG_CHIEU };
+              dispatch(action);
+            }}
+          >
+            PHIM ĐANG CHIẾU
+          </button>
+        </div>
+        <div>
+          <button
+            className={`${styleSlick[activeClassSC]} font-semibold border rounded-md`}
+            onClick={() => {
+              const action = { type: SET_PHIM_SAP_CHIEU };
+              dispatch(action);
+            }}
+          >
+            PHIM SẮP CHIẾU
+          </button>
+        </div>
       </div>
       {renderFilms()}
     </div>

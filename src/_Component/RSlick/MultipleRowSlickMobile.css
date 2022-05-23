@@ -71,7 +71,11 @@
 
 #MultipleRowSlickMobile .filter-button {
   padding-left: 90px;
-  margin-bottom: 30px
+  margin-bottom: 30px;
+}
+
+#MultipleRowSlickMobile .mobile-button button {
+  padding: 12px 20px;
 }
 
 @media screen and (max-width: 450px) {
@@ -84,6 +88,13 @@
   }
   #MultipleRowSlickMobile .film-card {
     margin-bottom: 10px !important;
+  }
+  #MultipleRowSlickMobile .mobile-button {
+    justify-content: center;
+  }
+  #MultipleRowSlickMobile .mobile-button button {
+    padding: 10px 15px;
+    font-size: 12px;
   }
 }
 

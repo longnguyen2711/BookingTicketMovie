@@ -52,7 +52,7 @@ export default function HomeCarousel(props) {
   };
 
   return (
-    <section id="Carousel" style={{marginTop: "100px"}}>
+    <section id="Carousel">
       <Slider {...settings} className="relative z-1 m-auto">
         {renderImg()}
       </Slider>
