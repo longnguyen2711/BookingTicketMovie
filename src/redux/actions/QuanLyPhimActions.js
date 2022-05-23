@@ -12,7 +12,7 @@ export const layDanhSachPhimAction = (tenPhim="") => {
     try {
       dispatch(displayLoadingAction);
 
-      const result = await quanLyPhimService.layDanhSachPhim(tenPhim="");
+      const result = await quanLyPhimService.layDanhSachPhim(tenPhim);
 
       dispatch({
         type: SET_DANH_SACH_PHIM,
@@ -99,7 +99,7 @@ export const xoaPhimAction = (maPhim) => {
       dispatch(layDanhSachPhimAction())
 
     } catch (error) {
-      console.log("error", error.response?.data);
+      console.log("error", error);
     }
   };
 };

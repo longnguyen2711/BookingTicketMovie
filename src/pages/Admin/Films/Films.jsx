@@ -110,6 +110,7 @@ export default function Films(props) {
               // Gọi action xóa
               if(window.confirm('Bạn có chắc muốn xóa phim ' + film.tenPhim) + ' ?'){
                 //Gọi action
+                console.log(film.maPhim)
                 dispatch(xoaPhimAction(film.maPhim))
               }
             }}>
@@ -126,16 +127,16 @@ export default function Films(props) {
   // Gán lại data
   const data = arrFilmDefault;
 
-  function onChange(pagination, filters, sorter, extra) {
-    console.log("params", pagination, filters, sorter, extra);
-  }
 
   const onSearch = (value) => {
-    // Gọi api lấy danh sách phim
-    console.log(value,"value")
+    // Gọi api lấy danh sách phim, trong đó xét điều kiện nếu tên phim = " " thì load ra toàn bộ
     dispatch(layDanhSachPhimAction(value))
     
   };
+
+  function onChange(pagination, filters, sorter, extra) {
+    console.log("params", pagination, filters, sorter, extra);
+  }
  
   return (
     <div>
