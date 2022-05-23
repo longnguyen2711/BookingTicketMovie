@@ -18,9 +18,10 @@ export default function Register(props) {
       maNhom: "",
       hoTen: "",
       accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCAyMyIsIkhldEhhblN0cmluZyI6IjIwLzEwLzIwMjIiLCJIZXRIYW5UaW1lIjoiMTY2NjIyNDAwMDAwMCIsIm5iZiI6MTYzODExODgwMCwiZXhwIjoxNjY2MzcxNjAwfQ.hoaq9WsA187Q0NvdBYPZsn8c2CRg_ZE4mQO5_lUyAL4",
-      maLoaiNguoiDung: "KhachHang"
+      maLoaiNguoiDung: "QuanTri"
     },
     onSubmit: (values) => {
+      console.log(values,"dashidashdkah")
       dispatch(dangKyTaiKhoanAction(values));
     },
   });
@@ -52,7 +53,7 @@ export default function Register(props) {
           <div className="form-register">
             <div>
               <label
-                for="emailRegister"
+                for="email"
                 className="mb-0 ml-1 text-lg font-bold tracking-wide"
               >
                 Email
@@ -61,14 +62,14 @@ export default function Register(props) {
                 className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
                 type="text"
                 placeholder="nguyenhoanglong@gmail.com"
-                name="emailRegister"
-                id="emailRegister"
+                name="email"
+                id="email"
                 onChange={formik.handleChange}
               />
             </div>
             <div className="mt-6">
               <label
-                for="taiKhoanRegister"
+                for="taiKhoan"
                 className="mb-0 ml-1 text-lg font-bold tracking-wide"
               >
                 Tài khoản
@@ -77,14 +78,14 @@ export default function Register(props) {
                 className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
                 type="text"
                 placeholder="nhlong2711"
-                name="taiKhoanRegister"
-                id="taiKhoanRegister"
+                name="taiKhoan"
+                id="taiKhoan"
                 onChange={formik.handleChange}
               />
             </div>
             <div className="mt-6">
               <label
-                for="matKhauRegister"
+                for="matKhau"
                 className="mb-0 ml-1 text-lg font-bold tracking-wide"
               >
                 Mật khẩu
@@ -93,14 +94,14 @@ export default function Register(props) {
                 className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
                 type="password"
                 placeholder="Mật khẩu"
-                name="matKhauRegister"
-                id="matKhauRegister"
+                name="matKhau"
+                id="matKhau"
                 onChange={formik.handleChange}
               />
             </div>
             <div className="mt-6">
               <label
-                for="hoTenRegister"
+                for="hoTen"
                 className="mb-0 ml-1 text-lg font-bold tracking-wide"
               >
                 Họ tên
@@ -109,14 +110,14 @@ export default function Register(props) {
                 className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
                 type="text"
                 placeholder="Nguyễn Hoàng Long"
-                name="hoTenRegister"
-                id="hoTenRegister"
+                name="hoTen"
+                id="hoTen"
                 onChange={formik.handleChange}
               />
             </div>
             <div className="mt-6">
               <label
-                for="soDienThoaiRegister"
+                for="soDt"
                 className="mb-0 ml-1 text-lg font-bold tracking-wide"
               >
                 Số điện thoại
@@ -125,14 +126,14 @@ export default function Register(props) {
                 className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
                 type="text"
                 placeholder="0123456789"
-                name="soDienThoaiRegister"
-                id="soDienThoaiRegister"
+                name="soDt"
+                id="soDt"
                 onChange={formik.handleChange}
               />
             </div>
             <div className="mt-6">
               <label
-                for="maNhomRegister"
+                for="maNhom"
                 className="mb-0 ml-1 text-lg font-bold tracking-wide"
               >
                 Mã nhóm
@@ -141,8 +142,8 @@ export default function Register(props) {
                 className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
                 type="text"
                 placeholder="BC23"
-                name="maNhomRegister"
-                id="maNhomRegister"
+                name="maNhom"
+                id="maNhom"
                 onChange={formik.handleChange}
               />
             </div>

@@ -53,7 +53,7 @@ const MultipleRowSlick = (props) => {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     className: "center variable-width",
-    variableWidth: true,
+    // variableWidth: true,
     centerPadding: "60px",
     infinite: true,
     speed: 500,

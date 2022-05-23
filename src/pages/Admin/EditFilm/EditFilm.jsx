@@ -74,7 +74,6 @@ const EditFilm = (props) => {
 
 
       // Gọi api gửi các giá trị formData về backend xử lý
-      // KO GỌI ĐƯỢC
       const action = capNhatFilmAction(formData);
       dispatch(action);
     },

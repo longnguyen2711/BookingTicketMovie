@@ -110,7 +110,6 @@ export default function Films(props) {
               // Gọi action xóa
               if(window.confirm('Bạn có chắc muốn xóa phim ' + film.tenPhim) + ' ?'){
                 //Gọi action
-                console.log(film.maPhim)
                 dispatch(xoaPhimAction(film.maPhim))
               }
             }}>
