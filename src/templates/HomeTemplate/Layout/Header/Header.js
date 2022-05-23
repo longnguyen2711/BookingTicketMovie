@@ -1,8 +1,9 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import _ from "lodash";
+import { useSelector } from "react-redux";
+import { Select } from "antd";
 import "./Header.scss";
+import _ from "lodash";
 import {
   ACCESSTOKEN,
   USER_LOGIN,
@@ -11,6 +12,11 @@ import {
 
 export default function Header(props) {
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
+  const { Option } = Select;
+
+  const handleChange = (value) => {
+    console.log(`selected ${value}`);
+  };
 
   // Trạng thái đăng nhập
   const renderLogin = () => {
@@ -73,30 +79,40 @@ export default function Header(props) {
   const renderDropdownMenu = () => {
     if (_.isEmpty(userLogin)) {
       return (
-        <div className="dropdown-button dropdown inline-block z-50">
-          <button className="header__logo md:hidden">
-            <img
-              src="https://i.imgur.com/lC22izJ.png"
-              alt="cyberlearn.vn"
-              width={45}
-            />
-          </button>
-          <div className="dropdown-menu hidden text-gray-700 right-0">
-            <div className="flex flex-col justify-start items-end">
-              <NavLink
-                to="/register"
-                title="Bấm để đăng ký"
-                className="md-sign-up bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2  mb-3"
-              >
-                Đăng ký
-              </NavLink>
-              <NavLink
-                to="/login"
-                title="Bấm để đăng nhập"
-                className="md-sign-in bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
-              >
-                Đăng nhập
-              </NavLink>
+        <div>      
+          {/* <Select
+            defaultValue="Đăng nhập"
+            style={{ width: 120 }}
+            onChange={handleChange}
+          >
+            <Option value="Đăng nhập">Lucy</Option>
+            <Option value="Đăng ký">Lucy</Option>
+          </Select> */}
+          <div className="dropdown-button dropdown inline-block z-50">
+            <button className="header__logo md:hidden">
+              <img
+                src="https://i.imgur.com/lC22izJ.png"
+                alt="cyberlearn.vn"
+                width={45}
+              />
+            </button>
+            <div className="dropdown-menu hidden text-gray-700 right-0">
+              <div className="flex flex-col justify-start items-end">
+                <NavLink
+                  to="/register"
+                  title="Bấm để đăng ký"
+                  className="md-sign-up bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2  mb-3"
+                >
+                  Đăng ký
+                </NavLink>
+                <NavLink
+                  to="/login"
+                  title="Bấm để đăng nhập"
+                  className="md-sign-in bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
+                >
+                  Đăng nhập
+                </NavLink>
+              </div>
             </div>
           </div>
         </div>
