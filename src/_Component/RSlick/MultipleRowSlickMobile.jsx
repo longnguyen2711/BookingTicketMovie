@@ -10,9 +10,7 @@ import moment from "moment";
 const MultipleRowSlickMobile = (props) => {
   const dispatch = useDispatch();
 
-  const { dangChieu, sapChieu } = useSelector(
-    (state) => state.QuanLyPhimReducer
-  );
+  const { dangChieu, sapChieu } = useSelector((state) => state.QuanLyPhimReducer);
 
   let activeClassDC = dangChieu === true ? "active_Film" : "none_active_Film";
   let activeClassSC = sapChieu === true ? "active_Film" : "none_active_Film";
@@ -21,7 +19,7 @@ const MultipleRowSlickMobile = (props) => {
     return props.arrFilm?.slice(0, 15).map((item, index) => {
       return (
         <div className={`${styleSlick["width-item"]}`} key={index}>
-          <div className="film-card grid grid-cols-12 relative h-full bg-white">
+          <div className="film-card grid grid-cols-12 relative h-full bg-black bg-opacity-70 text-white">
             <div
               className="mul-background flex items-center"
               // style={{ backgroundImage: `url(${item.hinhAnh})` }}
@@ -52,7 +50,7 @@ const MultipleRowSlickMobile = (props) => {
                 <div className="booking-trailer-button mb-1">
                   <a
                     href={item.trailer}
-                    className="trailer-button py-2 px-4 mr-5 font-bold text-right"
+                    className="trailer-button mr-5 font-bold text-right"
                     title="Xem trailer trên Youtube"
                     target="_blank"
                   >
@@ -60,7 +58,7 @@ const MultipleRowSlickMobile = (props) => {
                   </a>
                   <NavLink
                     to={`/detail/${item.maPhim}`}
-                    className="booking-button py-2 px-5 font-bold "
+                    className="booking-button font-bold "
                     title="Bấm để đặt vé"
                   >
                     Đặt vé
@@ -76,9 +74,9 @@ const MultipleRowSlickMobile = (props) => {
 
   return (
     <div>
-      <div className="mb-6">
+      <div className={`${styleSlick['filter-button']}`}>
         <button
-          className={`${styleSlick[activeClassDC]} px-8 py-3 font-semibold border rounded bg-gray-800 text-white mr-4`}
+          className={`${styleSlick[activeClassDC]} px-5 py-3 font-semibold border rounded-md mr-5`}
           onClick={() => {
             const action = { type: SET_PHIM_DANG_CHIEU };
             dispatch(action);
@@ -87,7 +85,7 @@ const MultipleRowSlickMobile = (props) => {
           PHIM ĐANG CHIẾU
         </button>
         <button
-          className={`${styleSlick[activeClassSC]} px-8 py-3 font-semibold border rounded bg-white text-gray-800 border-gray-800`}
+          className={`${styleSlick[activeClassSC]} px-5 py-3 font-semibold border rounded-md`}
           onClick={() => {
             const action = { type: SET_PHIM_SAP_CHIEU };
             dispatch(action);

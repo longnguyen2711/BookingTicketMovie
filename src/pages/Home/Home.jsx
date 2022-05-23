@@ -48,18 +48,18 @@ export default function Home(props) {
     if (screen.width >= 800) {
       return (
         <div id="HomeMenu" className="px-10 lg:px-20 py-16">
-          <div className="p-0 bg-white bg-opacity-80 rounded">
+          <div className="p-0 bg-black bg-opacity-70 rounded border border-gray-200">
             <HomeMenu heThongRapChieu={heThongRapChieu} />
           </div>
         </div>
       );
     } else {
       return (
-        <div
-          id="HomeMenuMobile"
-          className="p-10 border border-gray-400 rounded"
-        >
-          <HomeMenuMobile heThongRapChieu={heThongRapChieu} />
+        <div id="HomeMenuMobile" className="px-10 pb-20">
+          <div className="border bg-black bg-opacity-70 border-gray-400 rounded-lg">
+            {" "}
+            <HomeMenuMobile heThongRapChieu={heThongRapChieu} />
+          </div>
         </div>
       );
     }
@@ -78,7 +78,7 @@ export default function Home(props) {
       return (
         <section
           id="MultipleRowSlickMobile"
-          className="p-10 pt-20 mx-auto body-font"
+          className="px-10 py-20 mx-auto body-font"
         >
           <MultipleRowSlickMobile arrFilm={arrFilm} />
         </section>

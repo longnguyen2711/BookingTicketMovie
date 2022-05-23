@@ -4,9 +4,9 @@
   padding-right: 10px;
 }
 
+
 #HomeMenuMobile .ant-tabs > .ant-tabs-nav .ant-tabs-nav-more {
-  background-color: rgb(230, 230, 230);
-  color: black;
+  background-color: rgba(230, 230, 230, 0.5);
 }
 
 #HomeMenuMobile .ant-tabs > .ant-tabs-nav {

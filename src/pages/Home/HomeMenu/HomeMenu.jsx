@@ -27,7 +27,7 @@ export default class HomeMenu extends React.PureComponent {
               {" "}
               <img
                 src={heThongRap.logo}
-                className="rounded-full"
+                className="rounded-full m-2"
                 width="50"
                 alt={heThongRap.logo}
                 title={heThongRap.tenHeThongRap}
@@ -51,16 +51,16 @@ export default class HomeMenu extends React.PureComponent {
                         width="40"
                         alt={heThongRap.logo}
                       />{" "}
-                      <div className="text-left ml-5 flex-col justify-center ">
-                        <p className="mb-0 font-bold">{cumRap.tenCumRap}</p>
+                      <div className="text-left ml-5 flex-col justify-center">
+                        <p className="mb-0 font-bold text-gray-100">{cumRap.tenCumRap}</p>
                         <p className="mb-0">
                           {" "}
                           {cumRap.diaChi.length > 40 ? (
-                            <span className="text-gray-600">
+                            <span className="text-gray-300">
                               {cumRap.diaChi.slice(0, 40)}...
                             </span>
                           ) : (
-                            <span className="text-gray-600">
+                            <span className="text-gray-300">
                               {cumRap.diaChi}
                             </span>
                           )}
@@ -71,32 +71,30 @@ export default class HomeMenu extends React.PureComponent {
                   }
                   key={index}
                 >
-                  {cumRap.danhSachPhim.slice(0, 5).map((phim, index) => {
+                  {cumRap.danhSachPhim.slice(0, 8).map((phim, index) => {
                     return (
                       <Fragment key={index}>
                         <div>
-                          <div className="grid grid-cols-12 w-full border-b border-gray-400">
+                          <div className="film-info grid grid-cols-12 w-full border-b border-gray-400">
                             <div
-                              className="col-span-4 lg:col-span-3 h-48 text-center"
+                              className="col-span-4 lg:col-span-2 h-full text-center"
                               title={phim.tenPhim}
                               style={{
                                 backgroundImage: `url(${phim.hinhAnh})`,
                                 backgroundPosition: "center",
-                                backgroundClip: "content-box",
                                 backgroundSize: "cover",
-                                padding: "5px",
                               }}
                             ></div>
-                            <div className="col-span-8 lg:col-span-9 rounded-b p-4 flex flex-col leading-normal">
+                            <div className="col-span-8 lg:col-span-10 rounded-b p-4 flex flex-col leading-normal">
                               <div>
                                 <div
-                                  className="text-gray-900 font-bold text-xl mb-2"
+                                  className="text-gray-100 font-bold text-xl mb-2"
                                   title={phim.tenPhim}
                                 >
                                   {phim.tenPhim}
                                 </div>
                                 <p
-                                  className="text-gray-700 text-base"
+                                  className="text-gray-300 text-base"
                                   title={cumRap.diaChi}
                                 >
                                   {cumRap.diaChi}
@@ -118,7 +116,7 @@ export default class HomeMenu extends React.PureComponent {
                                             title={`Đặt vé lúc ${moment(
                                               lichChieu.ngayChieuGioChieu
                                             ).format("hh:mm A")}`}
-                                            className=" text-blue-600 hover:text-red-600 text-xs cursor-pointer w-16"
+                                            className=" text-blue-500 hover:text-red-500 text-xs cursor-pointer w-16"
                                           >
                                             {moment(
                                               lichChieu.ngayChieuGioChieu

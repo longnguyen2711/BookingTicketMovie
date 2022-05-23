@@ -9,11 +9,23 @@
   margin-bottom: 20px;
 }
 
+#HomeMenu .ant-tabs-top > .ant-tabs-nav {
+  margin-bottom: 0;
+}
+
 #HomeMenu .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab {
   margin-top: 0 !important;
-  padding-top: 15px !important;
-  padding-bottom: 15px !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
   border-radius: 5px;
+}
+
+#HomeMenu
+  .ant-tabs-left
+  > .ant-tabs-content-holder
+  > .ant-tabs-content
+  > .ant-tabs-tabpane {
+  padding-left: 0;
 }
 
 #HomeMenu
@@ -26,12 +38,20 @@
 }
 
 #HomeMenu .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab:hover {
-  background-color: #e5e7eb;
+  background-color: rgba(229, 231, 235, 0.2);
   box-shadow: 0 0 5px black;
+}
+
+#HomeMenu .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab:hover p {
+  color: aqua;
 }
 
 .dropdown:hover .dropdown-menu {
   display: block;
+}
+
+#HomeMenu .film-info:hover {
+  background-color: rgba(229, 231, 235, 0.2);
 }
 
 #HomeMenu .booking-film-info-time {
