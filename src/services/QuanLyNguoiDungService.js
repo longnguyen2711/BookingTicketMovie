@@ -25,6 +25,15 @@ export class QuanLyNguoiDungService extends baseService {
   themNguoiDungMoi = (formDataNguoiDungMoi) => {
     return this.post('/api/QuanLyNguoiDung/ThemNguoiDung', formDataNguoiDungMoi);
   };
+
+  layDanhSachNguoiDung = () => {
+    return this.get('/api/QuanLyNguoiDung/LayDanhSachNguoiDung');
+  };
+
+  xoaNguoiDung = (taiKhoan) => {
+    return this.delete(`api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`);
+ };
+
 }
 
 export const quanLyNguoiDungService = new QuanLyNguoiDungService();

@@ -125,11 +125,21 @@ export const AdminTemplate = (props) => {
                     <SubMenu
                       key="1"
                       icon={<ApartmentOutlined />}
-                      title="Người dùng"
+                      title="Quản lý"
                     >
-                      <Menu.Item key="5" icon={<UserAddOutlined />}>
+                      <Menu.Item key="5" icon={<AlignLeftOutlined />}>
+                        <NavLink to="/admin/user/listuser">
+                          Danh sách
+                        </NavLink>
+                      </Menu.Item>
+                      <Menu.Item key="6" icon={<UserAddOutlined />}>
                         <NavLink to="/admin/user/adduser">
                           Thêm người dùng
+                        </NavLink>
+                      </Menu.Item>
+                      <Menu.Item key="7" icon={<FormOutlined />}>
+                        <NavLink to="/admin/user/edituser">
+                          Sửa người dùng
                         </NavLink>
                       </Menu.Item>
                     </SubMenu>
@@ -139,10 +149,10 @@ export const AdminTemplate = (props) => {
                       icon={<CodeSandboxOutlined />}
                       title="Phim"
                     >
-                      <Menu.Item key="6" icon={<AlignLeftOutlined />}>
+                      <Menu.Item key="8" icon={<AlignLeftOutlined />}>
                         <NavLink to="/admin/films">Danh sách phim</NavLink>
                       </Menu.Item>
-                      <Menu.Item key="7" icon={<PlusCircleOutlined />}>
+                      <Menu.Item key="9" icon={<PlusCircleOutlined />}>
                         <NavLink to="/admin/addnewfilm">Thêm phim</NavLink>
                       </Menu.Item>
                     </SubMenu>

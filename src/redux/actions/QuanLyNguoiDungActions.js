@@ -2,6 +2,7 @@ import { quanLyNguoiDungService } from "../../services/QuanLyNguoiDungService";
 import {
   DANG_KY_ACTION,
   DANG_NHAP_ACTION,
+  SET_DANH_SACH_TAI_KHOAN,
   SET_THONG_TIN_NGUOI_DUNG,
 } from "../types";
 import { history } from "../../App";
@@ -12,12 +13,12 @@ export const dangNhapAction = (thongTinDangNhap) => {
     try {
       const result = await quanLyNguoiDungService.dangNhap(thongTinDangNhap);
       if (result.data.statusCode === 200) {
-       await  dispatch({
+        await dispatch({
           type: DANG_NHAP_ACTION,
           thongTinDangNhap: result.data.content,
         });
-       await alert("Đăng nhập thành công");
-       await history.push("/");
+        await alert("Đăng nhập thành công");
+        await history.push("/");
       }
     } catch (error) {
       alert(
@@ -42,7 +43,6 @@ export const layThongTinNguoiDungAction = () => {
       }
 
       dispatch(hideLoadingAction);
-
     } catch (error) {
       console.log("error", error.response.data);
     }
@@ -94,16 +94,48 @@ export const themNguoiDungMoiAction = (formDataNguoiDungMoi) => {
         formDataNguoiDungMoi
       );
 
+      // Chưa tự load lại được tên trên header
       // if (result.data.statusCode === 200) {
       //   dispatch({
       //     type: DANG_KY_ACTION,
       //     formDataDangKy: result.data.content,
       //   });
-        alert("Thêm người dùng mới thành công");
-        history.push("/login");
-      
+      alert("Thêm người dùng mới thành công");
+      history.push("/login");
     } catch (error) {
       alert("Thêm người dùng thất bại, vui lòng kiểm tra lại");
+      console.log("error", error.response.data);
+    }
+  };
+};
+
+export const layDanhSachNguoiDungAction = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(displayLoadingAction);
+      const result = await quanLyNguoiDungService.layDanhSachNguoiDung();
+      if (result.data.statusCode === 200) {
+        dispatch({
+          type: SET_DANH_SACH_TAI_KHOAN,
+          danhSachTaiKhoan: result.data.content,
+        });
+      }
+      dispatch(hideLoadingAction);
+    } catch (error) {
+      console.log("error", error.response.data);
+    }
+  };
+};
+
+export const xoaNguoiDungAction = (taiKhoan) => {
+  return async (dispatch) => {
+    try {
+      
+      const result = await quanLyNguoiDungService.xoaNguoiDung(taiKhoan);
+      alert("Xóa người dùng thành công");
+      dispatch(layDanhSachNguoiDungAction())
+    } catch (error) {
+      alert("Xóa người dùng thất bại, vui lòng kiểm tra lại");
       console.log("error", error.response.data);
     }
   };

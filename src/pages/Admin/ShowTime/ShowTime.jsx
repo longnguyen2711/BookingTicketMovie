@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { Form, Select } from "antd";
-import { Button } from 'antd';
-import { Cascader } from "antd";
-import { DatePicker } from "antd";
-import { InputNumber } from "antd";
-import { quanLyRapService } from "../../../services/QuanLyRapService";
-import { useFormik } from "formik";
-import moment from "moment";
 import { quanLyDatVeService } from "../../../services/QuanLyDatVeService";
+import { quanLyRapService } from "../../../services/QuanLyRapService";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router";
+import { Form, Select } from "antd";
+import { InputNumber } from "antd";
+import { useFormik } from "formik";
+import { DatePicker } from "antd";
+import { Cascader } from "antd";
+import { Button } from "antd";
+import moment from "moment";
 
 export default function ShowTime(props) {
+  const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
+
   const [state, setState] = useState({
     heThongRapChieu: [],
     cumRapChieu: [],
@@ -22,12 +26,12 @@ export default function ShowTime(props) {
       maRap: "",
       giaVe: "",
     },
-    onSubmit: async (values) => { 
-      console.log(values,"values")
-      try{
+    onSubmit: async (values) => {
+      console.log(values, "values");
+      try {
         const result = await quanLyDatVeService.taoLichChieu(values);
-        alert(result.data.content)
-      } catch(error){
+        alert(result.data.content);
+      } catch (error) {
         console.log("error", error.response?.data);
       }
     },
@@ -88,8 +92,13 @@ export default function ShowTime(props) {
   };
 
   let film = {};
-  if(localStorage.getItem('filmParams')){
-    film = JSON.parse(localStorage.getItem('filmParams'))
+  if (localStorage.getItem("filmParams")) {
+    film = JSON.parse(localStorage.getItem("filmParams"));
+  }
+  // Kiểm tra trong localStorage nếu không phải admin thì chuyển về trang profile
+  if (userLogin.maLoaiNguoiDung !== "QuanTri") {
+    alert("Bạn không có quyền truy cập vào trang này !");
+    return <Redirect to="/admin/films" />;
   }
 
   return (
@@ -104,8 +113,16 @@ export default function ShowTime(props) {
         autoComplete="off"
         onSubmitCapture={formik.handleSubmit}
       >
-        <h3 className="text-4xl">Tạo lịch chiếu - {props.match.params.tenphim}</h3>
-        <img src={film.hinhAnh} alt="..." width={150} height={100} className="mb-10"/>
+        <h3 className="text-4xl">
+          Tạo lịch chiếu - {props.match.params.tenphim}
+        </h3>
+        <img
+          src={film.hinhAnh}
+          alt="..."
+          width={150}
+          height={100}
+          className="mb-10"
+        />
         <Form.Item label="Hệ thống rạp">
           <Select
             options={convertSelectHTR()}
@@ -147,10 +164,7 @@ export default function ShowTime(props) {
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button
-            htmlType="submit"
-            title="Bấm để thêm phim"
-         >
+          <Button htmlType="submit" title="Bấm để thêm phim">
             Tạo lịch chiếu
           </Button>
         </Form.Item>

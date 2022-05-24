@@ -1,8 +1,4 @@
 import {
-  layDanhSachPhimAction,
-  xoaPhimAction,
-} from "../../../redux/actions/QuanLyPhimActions";
-import {
   DeleteOutlined,
   EditOutlined,
   CalendarOutlined,
@@ -14,16 +10,17 @@ import { Redirect } from "react-router";
 import { Table } from "antd";
 import moment from "moment";
 import { Input } from "antd";
+import { layDanhSachNguoiDungAction, xoaNguoiDungAction } from "../../../../redux/actions/QuanLyNguoiDungActions";
 
-export default function Films(props) {
-  const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
-
-  const { arrFilmDefault } = useSelector((state) => state.QuanLyPhimReducer);
+export default function ListUser(props) {
+  const { userLogin, danhSachTaiKhoan } = useSelector(
+    (state) => state.QuanLyNguoiDungReducer
+  );
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const action = layDanhSachPhimAction();
+    const action = layDanhSachNguoiDungAction();
     dispatch(action);
   }, []);
 
@@ -31,90 +28,83 @@ export default function Films(props) {
 
   const columns = [
     {
-      title: "Mã phim",
-      dataIndex: "maPhim",
-      value: (text, object) => {
-        return <span>{text}</span>;
-      },
-      sorter: (a, b) => a.maPhim - b.maPhim,
-      sortDirections: ["descend", "ascend"],
-      width: "12.5%",
-    },
-    {
-      title: "Hình ảnh",
-      dataIndex: "hinhAnh",
-      render: (text, film, index) => {
-        return (
-          <Fragment key={index}>
-            <img
-              src={film.hinhAnh}
-              alt={film.tenPhim}
-              width={50}
-              onError={(e) => {
-                e.target.onError = null;
-                e.target.src = `https://picsum.photos/id/${index}/50/50`;
-              }}
-            />
-          </Fragment>
-        );
-      },
-      width: "12.5%",
-    },
-    {
-      title: "Tên phim",
-      dataIndex: "tenPhim",
+      title: "Họ tên",
+      dataIndex: "hoTen",
       sorter: (a, b) => {
-        let tenPhimA = a.tenPhim.toLowerCase().trim();
-        let tenPhimB = b.tenPhim.toLowerCase().trim();
-        if (tenPhimA > tenPhimB) {
+        let tenA = a.hoTen.toLowerCase().trim();
+        let tenB = b.hoTen.toLowerCase().trim();
+        if (tenA > tenB) {
           return 1;
         }
         return -1;
       },
       sortDirections: ["descend", "ascend"],
-      width: "28%",
+      width: "20%",
     },
     {
-      title: "Khởi chiếu",
-      dataIndex: "ngayKhoiChieu",
-      render: (text, object) => {
-        return <span>{moment(object.ngayKhoiChieu).format("DD/MM/YYYY")}</span>;
+      title: "Tài khoản",
+      dataIndex: "taiKhoan",
+      sorter: (a, b) => {
+        let taiKhoanA = a.taiKhoan.toLowerCase().trim();
+        let taiKhoanB = b.taiKhoan.toLowerCase().trim();
+        if (taiKhoanA > taiKhoanB) {
+          return 1;
+        }
+        return -1;
       },
+      sortDirections: ["descend", "ascend"],
       width: "15%",
     },
     {
-      title: "Đánh giá",
-      dataIndex: "danhGia",
+      title: "Mật khẩu",
+      dataIndex: "matKhau",
+      width: "15%",
+    },
+    {
+      title: "Email",
+      dataIndex: "email",
+      width: "12.5%",
+    },
+    {
+      title: "Số điện thoại",
+      dataIndex: "soDt",
+      width: "10%",
+    },
+    {
+      title: "Loại tài khoản",
+      dataIndex: "maLoaiNguoiDung",
       render: (text, object) => {
-        return <span>{object.danhGia}/10</span>;
+        if (text === "QuanTri") {
+          return <span>Quản Trị</span>;
+        } else {
+          return <span>Người dùng</span>;
+        }
       },
-      sorter: (a, b) => a.danhGia - b.danhGia,
+      sorter: (a, b) => {
+        let nguoiDungA = a.maLoaiNguoiDung.toLowerCase().trim();
+        let nguoiDungB = b.maLoaiNguoiDung.toLowerCase().trim();
+        if (nguoiDungA > nguoiDungB) {
+          return 1;
+        }
+        return -1;
+      },
       sortDirections: ["descend", "ascend"],
-      width: "12%",
+      width: "15%",
     },
     {
       title: "Thao tác",
-      dataIndex: "maPhim",
-      render: (text, film, index) => {
+      dataIndex: "taiKhoan",
+      render: (text, object, index) => {
         return (
           <Fragment key={index} className="flex items-center">
             <NavLink
               key={1}
-              to={`/admin/films/editfilm/${film.maPhim}`}
+              to={`/admin/films/editfilm/`}
               className="ml-2 text-blue-700 text-lg"
             >
               <EditOutlined />{" "}
             </NavLink>
-            <NavLink
-              key={1}
-              to={`/admin/films/showtime/${film.maPhim}/${film.tenPhim}`}
-              className="ml-2 text-green-700 text-lg"
-              onClick={() => {
-                localStorage.setItem("filmParams", JSON.stringify(film));
-              }}
-            >
-              <CalendarOutlined />{" "}
-            </NavLink>
+
             <span
               key={2}
               className="ml-2 text-red-700 text-lg cursor-pointer"
@@ -122,10 +112,14 @@ export default function Films(props) {
                 // Gọi action xóa
                 if (userLogin.maLoaiNguoiDung !== "QuanTri") {
                   alert("Tài khoản của bạn không có quyền xóa phim !");
-                  return <Redirect to="/admin/profile" />;
+                  return <Redirect to="/admin/user/listuser" />;
                 }
-                if(window.confirm("Bạn có chắc muốn xóa phim " + film.tenPhim + " ?" )){
-                  dispatch(xoaPhimAction(film.maPhim));
+                if (
+                  window.confirm(
+                    "Bạn có chắc muốn xóa tài khoản " + object.taiKhoan + " ?"
+                  )
+                ) {
+                  dispatch(xoaNguoiDungAction(text));
                 }
               }}
             >
@@ -135,31 +129,37 @@ export default function Films(props) {
         );
       },
       sortDirections: ["descend", "ascend"],
-      width: "20%",
+      width: "12.5%",
     },
   ];
 
   // Gán lại data
-  const data = arrFilmDefault;
+  const data = danhSachTaiKhoan;
 
   const onSearch = (value) => {
     // Gọi api lấy danh sách phim, trong đó xét điều kiện nếu tên phim = " " thì load ra toàn bộ
-    dispatch(layDanhSachPhimAction(value));
+    // dispatch(layDanhSachPhimAction(value));
   };
 
   function onChange(pagination, filters, sorter, extra) {
     console.log("params", pagination, filters, sorter, extra);
   }
 
-   return (
+  // Kiểm tra trong localStorage nếu không phải admin thì chuyển về trang profile
+  if (userLogin.maLoaiNguoiDung !== "QuanTri") {
+    alert("Bạn không có quyền truy cập vào trang này !");
+    return <Redirect to="/admin/profile" />;
+  }
+
+  return (
     <div>
-      <h3 className="text-4xl mb-10">Quản lý phim</h3>
-      <div title="Bấm để thêm phim mới" className="mt-8 mb-10">
+      <h3 className="text-4xl mb-10">Danh sách tài khoản</h3>
+      <div title="Bấm để thêm tài khoản mới" className="mt-8 mb-10">
         <NavLink
-          to="/admin/addnewfilm"
+          to="/admin/user/adduser"
           className="py-3 px-3 rounded font-bold border-2 duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white"
         >
-          Thêm phim mới
+          Thêm tài khoản
         </NavLink>
       </div>
       <Search

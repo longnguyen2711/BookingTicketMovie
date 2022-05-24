@@ -1,12 +1,17 @@
-import { capNhatFilmAction, layThongTinPhimTruocCapNhatAction} from "../../../redux/actions/QuanLyPhimActions";
+import {
+  capNhatFilmAction,
+  layThongTinPhimTruocCapNhatAction,
+} from "../../../redux/actions/QuanLyPhimActions";
 import { Form, Input, Radio, DatePicker, InputNumber, Switch } from "antd";
 import { GROUPID } from "../../../util/settings/config";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router";
 import { useFormik } from "formik";
 import moment from "moment";
 
 const EditFilm = (props) => {
+  const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
   const [componentSize, setComponentSize] = useState("default");
 
   // Dùng để hiển thị hình ảnh khi cập nhật file
@@ -115,6 +120,12 @@ const EditFilm = (props) => {
   const onFormLayoutChange = ({ size }) => {
     setComponentSize(size);
   };
+
+  // Kiểm tra trong localStorage nếu không phải admin thì chuyển về trang profile
+  if (userLogin.maLoaiNguoiDung !== "QuanTri") {
+    alert("Bạn không có quyền truy cập vào trang này !");
+    return <Redirect to="/admin/films" />;
+  }
 
   return (
     <Form
