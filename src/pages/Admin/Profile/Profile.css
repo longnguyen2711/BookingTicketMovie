@@ -1,0 +1,32 @@
+#Profile table{
+    margin-top: 30px;
+}
+
+#Profile table button {
+  @apply text-base ml-3 px-2 py-1 border rounded border-blue-500 bg-transparent hover:bg-blue-500 text-blue-500 hover:text-white;
+}
+
+#Profile table tbody tr{
+    @apply border-b border-gray-300 text-center
+    
+}
+
+#Profile table tbody tr:last-of-type{
+    @apply border-b-transparent
+}
+
+#Profile table tbody tr td:first-of-type{
+    @apply py-4 font-bold flex justify-between
+}
+
+#Profile table tbody tr td:nth-child(2){
+    @apply ml-3 px-2 py-1 text-left italic
+}
+
+#Profile table tbody tr td:last-of-type{
+    @apply ml-3 px-2 py-1 text-right
+}
+
+#Profile table tbody input{
+    @apply ml-3 px-2 py-1 rounded
+}

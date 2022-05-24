@@ -17,8 +17,6 @@ export const AdminTemplate = (props) => {
 
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
 
-  console.log(userLogin)
-
   // Chuyển hướng về đầu trang khi trở lại trang trước đó
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -62,7 +60,7 @@ export const AdminTemplate = (props) => {
           className="to-profile focus:outline-none rounded self-center font-bold p-2 flex justify-center items-center h-full"
           title={`Tài khoản: ${userLogin.taiKhoan}`}
         >
-          <div className="font-bold">{userLogin.taiKhoan}</div>
+          <div className="font-bold">{userLogin.hoTen}</div>
           <div className="icon-user w-10 h-10 rounded-full bg-black font-bold flex justify-center items-center ml-3 text-xl">
             <p className="mb-0 pb-1">{userLogin.taiKhoan.substr(0, 1)}</p>
           </div>

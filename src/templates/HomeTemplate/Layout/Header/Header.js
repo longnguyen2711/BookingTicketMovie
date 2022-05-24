@@ -66,7 +66,7 @@ export default function Header(props) {
           className="to-profile focus:outline-none rounded self-center font-bold p-2 flex justify-center items-center h-full"
           title="Đến trang cá nhân"
         >
-          <div className="font-bold">{userLogin.taiKhoan}</div>
+          <div className="font-bold">{userLogin.hoTen}</div>
           <div className="icon-user w-10 h-10 rounded-full bg-black font-bold flex justify-center items-center ml-3 text-xl">
             <p className="mb-0 pb-1">{userLogin.taiKhoan.substr(0, 1)}</p>
           </div>
@@ -130,13 +130,13 @@ export default function Header(props) {
               <NavLink
                 to="/admin/profile"
                 title="Đến trang cá nhân"
-                className="md-sign-in bg-black w-36 text-center z-50 mb-3 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
+                className="md-sign-in bg-black w-40 text-center z-50 mb-3 focus:outline-none rounded self-center font-bold px-5 py-2 border-2"
               >
-                {userLogin.taiKhoan}
+                {userLogin.hoTen}
               </NavLink>
 
               <button
-                className="md-sign-up bg-black w-36 text-center z-50 focus:outline-none rounded self-center font-bold px-7 py-2 border-2"
+                className="md-sign-up bg-black w-40 text-center z-50 focus:outline-none rounded self-center font-bold px-5 py-2 border-2"
                 title="Bấm để đăng xuất"
                 onClick={() => {
                   if (window.confirm("Bạn có chắc muốn đăng xuất ?")) {

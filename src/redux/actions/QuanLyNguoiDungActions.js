@@ -31,7 +31,6 @@ export const layThongTinNguoiDungAction = () => {
   return async (dispatch) => {
     try {
       const result = await quanLyNguoiDungService.layThongTinNguoiDung();
-
       if (result.data.statusCode === 200) {
         dispatch({
           type: SET_THONG_TIN_NGUOI_DUNG,

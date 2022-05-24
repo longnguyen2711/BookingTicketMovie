@@ -317,7 +317,7 @@ export default function CheckoutTab(props) {
                 className="flex justify-center items-center h-full ml-10 text-white"
                 title="Đến trang cá nhân"
               >
-                <div className="font-bold">{userLogin.taiKhoan}</div>
+                <div className="font-bold">{userLogin.hoTen}</div>
                 <div className="w-9 h-9 rounded-full bg-black text-yellow-500 font-bold flex justify-center items-center text-2xl ml-3">
                   <p className="mb-0 pb-1">{userLogin.taiKhoan.substr(0, 1)}</p>
                 </div>
