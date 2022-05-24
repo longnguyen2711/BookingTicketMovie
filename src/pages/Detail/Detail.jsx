@@ -1,12 +1,12 @@
-import React, { useEffect, useState, Fragment } from "react";
-import "./Detail.css";
-import { Tabs } from "antd";
-// import { Tabs, Radio, Space } from "antd";
-import { useDispatch, useSelector } from "react-redux";
 import { layThongTinChiTietPhim } from "../../redux/actions/QuanLyRapActions";
-import moment from "moment";
-import { Rate } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Tabs } from "antd";
+import { Rate } from "antd";
+import moment from "moment";
+import "./Detail.css";
+
 
 const { TabPane } = Tabs;
 

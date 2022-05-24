@@ -1,11 +1,6 @@
-import { quanLyPhimService } from "../../services/QuanLyPhimService";
-import {
-  SET_DANH_SACH_PHIM,
-  SET_PHIM_MOI,
-  SET_THONG_TIN_PHIM_TRUOC_CAP_NHAT,
-} from "../types";
-import { history } from "../../App";
+import { SET_DANH_SACH_PHIM, SET_PHIM_MOI, SET_THONG_TIN_PHIM_TRUOC_CAP_NHAT } from "../types";
 import { displayLoadingAction, hideLoadingAction } from "./LoadingAction";
+import { quanLyPhimService } from "../../services/QuanLyPhimService";
 
 export const layDanhSachPhimAction = (tenPhim="") => {
   return async (dispatch) => {
@@ -13,11 +8,11 @@ export const layDanhSachPhimAction = (tenPhim="") => {
       dispatch(displayLoadingAction);
 
       const result = await quanLyPhimService.layDanhSachPhim(tenPhim);
-
       dispatch({
         type: SET_DANH_SACH_PHIM,
         arrFilm: result.data.content,
       });
+      
       dispatch(hideLoadingAction);
 
     } catch (error) {

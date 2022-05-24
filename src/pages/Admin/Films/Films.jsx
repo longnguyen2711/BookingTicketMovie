@@ -11,9 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { Fragment, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Redirect } from "react-router";
-import { Table } from "antd";
+import { Table, Input } from "antd";
 import moment from "moment";
-import { Input } from "antd";
 
 export default function Films(props) {
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);

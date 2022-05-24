@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
-import { useFormik } from "formik";
-import { NavLink } from "react-router-dom";
-import "./Register.css";
-import { useDispatch, useSelector } from "react-redux";
-import { USER_LOGIN } from "../../util/settings/config";
+
 import { dangKyTaiKhoanAction } from "../../redux/actions/QuanLyNguoiDungActions";
+import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { useFormik } from "formik";
+import React from "react";
+import "./Register.css";
+
 
 export default function Register(props) {
   const dispatch = useDispatch();

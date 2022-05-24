@@ -1,5 +1,5 @@
-import React, { Fragment, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import React, { Fragment } from "react";
 
 export default function Loading(props) {
   const { isLoading } = useSelector((state) => state.LoadingReducer);

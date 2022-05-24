@@ -1,10 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { Select, Form, Input, Radio } from "antd";
-import { useFormik } from "formik";
+
 import { themNguoiDungMoiAction } from "../../../../redux/actions/QuanLyNguoiDungActions";
+import { useDispatch, useSelector } from "react-redux";
+import { Select, Form, Input, Radio } from "antd";
 import { Redirect } from "react-router-dom";
+import React, { useState } from "react";
+import { useFormik } from "formik";
+
 
 const AddUser = (props) => {
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);

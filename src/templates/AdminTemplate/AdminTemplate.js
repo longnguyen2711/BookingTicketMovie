@@ -1,17 +1,17 @@
 import {
-  AlignLeftOutlined,
-  PlusCircleOutlined,
-  CodeSandboxOutlined,
   UserOutlined,
-  HistoryOutlined,
-  ProfileOutlined,
   FormOutlined,
   UserAddOutlined,
+  HistoryOutlined,
+  ProfileOutlined,
   ApartmentOutlined,
+  AlignLeftOutlined,
+  PlusCircleOutlined,
+  CodeSandboxOutlined, 
 } from "@ant-design/icons";
 import { ACCESSTOKEN, USER_LOGIN } from "../../util/settings/config";
-import { Fragment, useEffect, useState } from "react";
 import { Redirect, Route } from "react-router";
+import { Fragment, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { history } from "../../App";
@@ -37,12 +37,6 @@ export const AdminTemplate = (props) => {
     alert("Bạn chưa đăng nhập !");
     return <Redirect to="/login" />;
   }
-
-  // // Kiểm tra trong localStorage nếu không phải admin thì chuyển về trang chủ
-  //   if (userLogin.maLoaiNguoiDung !== "QuanTri") {
-  //     alert("Bạn không có quyền truy cập vào trang này !");
-  //     return <Redirect to="/" />;
-  //   }
 
   // Trạng thái đăng nhập
   const renderLogin = () => {
@@ -128,18 +122,11 @@ export const AdminTemplate = (props) => {
                       title="Quản lý"
                     >
                       <Menu.Item key="5" icon={<AlignLeftOutlined />}>
-                        <NavLink to="/admin/user/listuser">
-                          Danh sách
-                        </NavLink>
+                        <NavLink to="/admin/user/listuser">Danh sách</NavLink>
                       </Menu.Item>
                       <Menu.Item key="6" icon={<UserAddOutlined />}>
                         <NavLink to="/admin/user/adduser">
                           Thêm người dùng
-                        </NavLink>
-                      </Menu.Item>
-                      <Menu.Item key="7" icon={<FormOutlined />}>
-                        <NavLink to="/admin/user/edituser">
-                          Sửa người dùng
                         </NavLink>
                       </Menu.Item>
                     </SubMenu>

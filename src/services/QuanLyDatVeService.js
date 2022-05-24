@@ -1,5 +1,6 @@
-import { baseService } from "./baseServices";
 import { ThongTinDatVe } from "../_core/models/ThongTinDatVe";
+import { baseService } from "./baseServices";
+
 export class QuanLyDatVeService extends baseService {
   constructor() {
     super();

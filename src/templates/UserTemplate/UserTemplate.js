@@ -1,6 +1,5 @@
 import { Fragment, useEffect } from "react";
 import { Route } from "react-router-dom";
-import { LINK_BACKGROUND_HOMEPAGE } from "../../util/settings/config";
 
 export const UserTemplate = (props) => {
   const { Component, ...restProps } = props; // path, exact, Component

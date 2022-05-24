@@ -1,11 +1,11 @@
+import { QuanLyNguoiDungReducer } from "./reducers/QuanLyNguoiDungReducer";
 import { applyMiddleware, combineReducers, createStore } from "redux";
-import thunk from "redux-thunk";
-import { CarouselReducer } from "./reducers/CarouselReducer";
+import { QuanLyDatVeReducer } from "./reducers/QuanLyDatVeReducer";
 import { QuanLyPhimReducer } from "./reducers/QuanLyPhimReducer";
 import { QuanLyRapReducer } from "./reducers/QuanLyRapReducer";
-import { QuanLyNguoiDungReducer } from "./reducers/QuanLyNguoiDungReducer";
-import { QuanLyDatVeReducer } from "./reducers/QuanLyDatVeReducer";
+import { CarouselReducer } from "./reducers/CarouselReducer";
 import { LoadingReducer } from "./reducers/LoadingReducer";
+import thunk from "redux-thunk";
 
 
 const rootReducer = combineReducers({

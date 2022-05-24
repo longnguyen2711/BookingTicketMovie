@@ -1,42 +1,16 @@
 import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
-import { Tabs } from "antd";
-// import { Tabs, Radio, Space } from "antd";
-import moment from "moment";
 import "./HomeMenuMobile.css";
+import { Tabs } from "antd";
+import moment from "moment";
+
 const { TabPane } = Tabs;
 
 export default class HomeMenuMobile extends React.PureComponent {
-  state = {
-    tabPosition: "top",
-    // screen: {
-    //   width: window.innerWidth,
-    //   height:   window.innerHeight,
-    // }
-  };
 
-  componentDidMount() {
-    // window.onload = () => {
-    //   this.setState({
-    //     screen: {
-    //       width: window.innerWidth,
-    //       height: window.innerHeight,
-    //     }
-    //   });
-    // };
-    // window.onresize = () => {
-    //   this.setState({
-    //     screen: {
-    //       width: window.innerWidth,
-    //       height: window.innerHeight,
-    //     }
-    //   });
-    // };
-    // return () => {
-    //   window.removeEventListener("onload");
-    //   window.removeEventListener("onresize");
-    // };
-  }
+  state = { tabPosition: "top", };
+
+  componentDidMount() {}
 
   changeTabPosition = (e) => {
     this.setState({ tabPosition: e.target.value });

@@ -1,11 +1,11 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { SET_PHIM_DANG_CHIEU, SET_PHIM_SAP_CHIEU } from "../../redux/types";
 import styleSlick from "./MultipleRowSlick.module.css";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "./MultipleRowSlickMobile.css";
 import { Rate } from "antd";
 import moment from "moment";
+import React from "react";
 
 const MultipleRowSlickMobile = (props) => {
   const dispatch = useDispatch();

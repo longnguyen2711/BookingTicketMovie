@@ -1,9 +1,9 @@
-import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
+import React, { Fragment } from "react";
 import { Tabs } from "antd";
-// import { Tabs, Radio, Space } from "antd";
 import moment from "moment";
 import "./HomeMenu.css";
+
 const { TabPane } = Tabs;
 
 export default class HomeMenu extends React.PureComponent {

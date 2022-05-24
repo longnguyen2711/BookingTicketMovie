@@ -1,6 +1,7 @@
+
+import { LINK_BACKGROUND_HOMEPAGE } from "../../util/settings/config";
 import React from 'react'
 import './Products.scss'
-import { LINK_BACKGROUND_HOMEPAGE } from "../../util/settings/config";
 
 export default function Propducts(props) {
   const productTitle = "Bấm để mở trang trên cửa số mới"

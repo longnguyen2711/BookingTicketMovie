@@ -1,5 +1,5 @@
-import axios from "axios";
 import { ACCESSTOKEN, DOMAIN, TOKEN_CYBERSOFT } from "../util/settings/config";
+import axios from "axios";
 
 export class baseService {
 

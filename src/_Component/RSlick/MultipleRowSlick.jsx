@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Slider from "react-slick";
+
 import { SET_PHIM_DANG_CHIEU, SET_PHIM_SAP_CHIEU } from "../../redux/types";
-import Film from "../Film/Film";
+import { useDispatch, useSelector } from "react-redux";
 import styleSlick from "./MultipleRowSlick.module.css";
+import Slider from "react-slick";
+import Film from "../Film/Film";
+import React from "react";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;

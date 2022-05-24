@@ -109,11 +109,11 @@ export const themNguoiDungMoiAction = (formDataNguoiDungMoi) => {
   };
 };
 
-export const layDanhSachNguoiDungAction = () => {
+export const layDanhSachNguoiDungAction = (taiKhoan="") => {
   return async (dispatch) => {
     try {
       dispatch(displayLoadingAction);
-      const result = await quanLyNguoiDungService.layDanhSachNguoiDung();
+      const result = await quanLyNguoiDungService.layDanhSachNguoiDung(taiKhoan);
       if (result.data.statusCode === 200) {
         dispatch({
           type: SET_DANH_SACH_TAI_KHOAN,

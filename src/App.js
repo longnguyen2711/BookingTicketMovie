@@ -6,7 +6,6 @@ import EditProfile from "./pages/Admin/Profile/EditFrofile/EditProfile";
 import { HomeTemplate } from "./templates/HomeTemplate/HomeTemplate";
 import { UserTemplate } from "./templates/UserTemplate/UserTemplate";
 import AddNewFilm from "./pages/Admin/AddNewFilm/AddNewFilm";
-import EditUser from "./pages/Admin/User/EditUser/EditUser";
 import ListUser from "./pages/Admin/User/ListUser/ListUser";
 import AddUser from "./pages/Admin/User/AddUser/AddUser";
 import ShowTime from "./pages/Admin/ShowTime/ShowTime";
@@ -26,9 +25,6 @@ import News from "./pages/News/News";
 import "./App.css";
 
 // import { Suspense, lazy } from "react";
-
-
-
 // const CheckoutTemplateLazy = lazy(() => import("./templates/CheckoutTemplate/CheckoutTemplate"))
 export const history = createBrowserHistory();
 
@@ -58,8 +54,6 @@ function App() {
         <AdminTemplate path="/admin/profile/historybooking" exact Component={HistoryBooking} />
         <AdminTemplate path="/admin/user/listuser" exact Component={ListUser} />
         <AdminTemplate path="/admin/user/adduser" exact Component={AddUser} />
-        <AdminTemplate path="/admin/user/edituser" exact Component={EditUser} />
-
         <AdminTemplate path="/admin/films" exact Component={Films} />
         <AdminTemplate path="/admin/films/editfilm/:id" exact Component={EditFilm} />
         <AdminTemplate path="/admin/films/showtime/:id/:tenphim" exact Component={ShowTime} />

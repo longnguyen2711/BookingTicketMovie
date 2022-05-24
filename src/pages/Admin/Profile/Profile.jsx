@@ -1,8 +1,9 @@
-import React, { Fragment, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import "./Profile.css";
+
 import { layThongTinNguoiDungAction } from "../../../redux/actions/QuanLyNguoiDungActions";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import "./Profile.css";
 
 export default function Profile() {
   const { thongTinNguoiDung } = useSelector((state) => state.QuanLyNguoiDungReducer);

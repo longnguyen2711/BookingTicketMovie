@@ -1,16 +1,10 @@
-import {
-  DeleteOutlined,
-  EditOutlined,
-  CalendarOutlined,
-} from "@ant-design/icons";
+import { layDanhSachNguoiDungAction, xoaNguoiDungAction } from "../../../../redux/actions/QuanLyNguoiDungActions";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import React, { Fragment, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Redirect } from "react-router";
-import { Table } from "antd";
-import moment from "moment";
-import { Input } from "antd";
-import { layDanhSachNguoiDungAction, xoaNguoiDungAction } from "../../../../redux/actions/QuanLyNguoiDungActions";
+import { Table, Input } from "antd";
 
 export default function ListUser(props) {
   const { userLogin, danhSachTaiKhoan } = useSelector(
@@ -77,7 +71,7 @@ export default function ListUser(props) {
         if (text === "QuanTri") {
           return <span>Quản Trị</span>;
         } else {
-          return <span>Người dùng</span>;
+          return <span>Khách hàng</span>;
         }
       },
       sorter: (a, b) => {
@@ -137,8 +131,8 @@ export default function ListUser(props) {
   const data = danhSachTaiKhoan;
 
   const onSearch = (value) => {
-    // Gọi api lấy danh sách phim, trong đó xét điều kiện nếu tên phim = " " thì load ra toàn bộ
-    // dispatch(layDanhSachPhimAction(value));
+    // Gọi api lấy danh sách phim, trong đó xét điều kiện nếu tai khoản = " " thì load ra toàn bộ
+    dispatch(layDanhSachNguoiDungAction(value));
   };
 
   function onChange(pagination, filters, sorter, extra) {

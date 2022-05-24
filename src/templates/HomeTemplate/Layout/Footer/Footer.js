@@ -1,5 +1,6 @@
-import React from "react";
+
 import { LINK_BACKGROUND } from "../../../../util/settings/config";
+import React from "react";
 import "./Footer.css";
 
 // import _ from "lodash";
