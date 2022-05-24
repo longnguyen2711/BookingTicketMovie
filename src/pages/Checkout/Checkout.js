@@ -448,7 +448,7 @@ function KetQuaDatVe(props) {
 
   return (
     <section
-      className="booking-history body-font z-50 border-t border-gray-200"
+      className="booking-history body-font z-50 border-t border-gray-200 min-h-screen max-h-full"
       style={{
         backgroundSize: "cover",
         backgroundAttachment: "fixed",

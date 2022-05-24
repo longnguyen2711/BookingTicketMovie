@@ -21,7 +21,6 @@ export default function Register(props) {
       maLoaiNguoiDung: "QuanTri"
     },
     onSubmit: (values) => {
-      console.log(values,"dashidashdkah")
       dispatch(dangKyTaiKhoanAction(values));
     },
   });
@@ -29,7 +28,7 @@ export default function Register(props) {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className="w-full lg:w-3/4 z-50 mt-3"
+      className="w-full lg:w-1/2 z-50 mt-3"
       id="Register"
     >
       <div className="py-12 flex justify-around lg:px-12">
@@ -117,14 +116,14 @@ export default function Register(props) {
             </div>
             <div className="mt-6">
               <label
-                for="soDt"
+                for="soDT"
                 className="mb-0 ml-1 text-lg font-bold tracking-wide"
               >
                 Số điện thoại
               </label>
               <input
                 className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
-                type="number"
+                type="text"
                 placeholder="0123456789"
                 name="soDt"
                 id="soDt"

@@ -1,18 +1,14 @@
-import React, { useEffect } from "react";
-import { useFormik } from "formik";
-import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { dangNhapAction } from "../../redux/actions/QuanLyNguoiDungActions";
-import "./Login.css";
 import { USER_LOGIN } from "../../util/settings/config";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { Redirect } from "react-router";
+import { useFormik } from "formik";
+import React from "react";
+import "./Login.css";
 
 export default function Login(props) {
-  // Kiểm tra nếu đã đăng nhập rồi mà nhập đường dẫn login thì sẽ quay về trang chủ
-
-  const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
-
-  const dispatch = useDispatch();
+   const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
@@ -34,7 +30,7 @@ export default function Login(props) {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className="w-full lg:w-3/4 z-50 mt-3"
+      className="w-full lg:w-1/2 z-50 mt-3"
       id="Login"
     >
       <div className="py-12 flex justify-around lg:px-12">

@@ -22,6 +22,9 @@ import Checkout from "./pages/Checkout/Checkout";
 import { UserTemplate } from "./templates/UserTemplate/UserTemplate";
 import { AdminTemplate } from "./templates/AdminTemplate/AdminTemplate";
 import EditFilm from "./pages/Admin/EditFilm/EditFilm";
+import HistoryBooking from "./pages/Admin/Profile/HistoryBooking/HistoryBooking";
+import EditProfile from "./pages/Admin/Profile/EditFrofile/EditProfile";
+import AddUser from "./pages/Admin/User/AddUser/AddUser";
 
 
 
@@ -53,6 +56,10 @@ function App() {
 
         <AdminTemplate path="/admin" exact Component={Films} />
         <AdminTemplate path="/admin/profile" exact Component={Profile} />
+        <AdminTemplate path="/admin/profile/editprofile" exact Component={EditProfile} />
+        <AdminTemplate path="/admin/profile/historybooking" exact Component={HistoryBooking} />
+        <AdminTemplate path="/admin/user/adduser" exact Component={AddUser} />
+
         <AdminTemplate path="/admin/films" exact Component={Films} />
         <AdminTemplate path="/admin/films/editfilm/:id" exact Component={EditFilm} />
         <AdminTemplate path="/admin/films/showtime/:id/:tenphim" exact Component={ShowTime} />

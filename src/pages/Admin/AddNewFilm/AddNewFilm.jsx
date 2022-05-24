@@ -1,19 +1,15 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useFormik } from "formik";
-import {
-  Form,
-  Input,
-  Radio,
-  DatePicker,
-  InputNumber,
-  Switch,
-} from "antd";
-import moment from "moment";
 import { themPhimMoiAction } from "../../../redux/actions/QuanLyPhimActions";
+import { Form, Input, Radio, DatePicker, InputNumber, Switch } from "antd";
 import { GROUPID } from "../../../util/settings/config";
+import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { Redirect } from "react-router";
+import { useFormik } from "formik";
+import moment from "moment";
 
 const AddNewFilm = (props) => {
+  const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
+
   const [componentSize, setComponentSize] = useState("default");
 
   const dispatch = useDispatch();
@@ -52,7 +48,7 @@ const AddNewFilm = (props) => {
       const action = themPhimMoiAction(formData);
       dispatch(action);
       setTimeout(() => {
-        props.history.push('/admin/films');
+        props.history.push("/admin/films");
       }, 1000);
     },
   });
@@ -102,6 +98,12 @@ const AddNewFilm = (props) => {
     setComponentSize(size);
   };
 
+  // Kiểm tra trong localStorage nếu không phải admin thì chuyển về trang profile
+  if (userLogin.maLoaiNguoiDung !== "QuanTri") {
+    alert("Bạn không có quyền truy cập vào trang này !");
+    return <Redirect to="/admin/profile" />;
+  }
+
   return (
     <Form
       onSubmitCapture={formik.handleSubmit}
@@ -118,7 +120,7 @@ const AddNewFilm = (props) => {
       onValuesChange={onFormLayoutChange}
       size={componentSize}
     >
-      <h3 className="text-4xl mb-6">Thêm phim mới</h3>
+      <h3 className="text-4xl mb-10">Thêm phim mới</h3>
       <Form.Item label="Kích cỡ" name="size">
         <Radio.Group>
           <Radio.Button value="small">Nhỏ</Radio.Button>

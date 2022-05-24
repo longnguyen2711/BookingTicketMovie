@@ -1,11 +1,21 @@
-import {AlignLeftOutlined, PlusCircleOutlined, CodeSandboxOutlined, UserOutlined} from "@ant-design/icons";
+import {
+  AlignLeftOutlined,
+  PlusCircleOutlined,
+  CodeSandboxOutlined,
+  UserOutlined,
+  HistoryOutlined,
+  ProfileOutlined,
+  FormOutlined,
+  UserAddOutlined,
+  ApartmentOutlined,
+} from "@ant-design/icons";
 import { ACCESSTOKEN, USER_LOGIN } from "../../util/settings/config";
 import { Fragment, useEffect, useState } from "react";
 import { Redirect, Route } from "react-router";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { history } from "../../App";
-import { Layout, Menu} from "antd";
+import { Layout, Menu } from "antd";
 import "./AdminTemplate.scss";
 import _ from "lodash";
 
@@ -28,7 +38,7 @@ export const AdminTemplate = (props) => {
     return <Redirect to="/login" />;
   }
 
-  // Kiểm tra trong localStorage nếu không phải admin thì chuyển về trang chủ
+  // // Kiểm tra trong localStorage nếu không phải admin thì chuyển về trang chủ
   //   if (userLogin.maLoaiNguoiDung !== "QuanTri") {
   //     alert("Bạn không có quyền truy cập vào trang này !");
   //     return <Redirect to="/" />;
@@ -94,21 +104,45 @@ export const AdminTemplate = (props) => {
 
                   <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
                     {/* Nếu key giống nhau sẽ sổ ra nội dung bên nhau cùng lúc */}
-
-                    <Menu.Item key="1" icon={<UserOutlined />}>
-                      <NavLink to="/admin/profile">Người dùng</NavLink>
-                    </Menu.Item>
-
                     {/* Submenu là dropdown button */}
+
+                    <SubMenu key="1" icon={<UserOutlined />} title="Cá nhân">
+                      <Menu.Item key="2" icon={<ProfileOutlined />}>
+                        <NavLink to="/admin/profile">Thông tin cá nhân</NavLink>
+                      </Menu.Item>
+                      <Menu.Item key="3" icon={<FormOutlined />}>
+                        <NavLink to="/admin/profile/editprofile">
+                          Cập nhật hồ sơ
+                        </NavLink>
+                      </Menu.Item>
+                      <Menu.Item key="4" icon={<HistoryOutlined />}>
+                        <NavLink to="/admin/profile/historybooking">
+                          Lịch sử đặt vé
+                        </NavLink>
+                      </Menu.Item>
+                    </SubMenu>
+
                     <SubMenu
-                      key="2"
-                      icon={<CodeSandboxOutlined />}
-                      title="Danh sách phim"
+                      key="1"
+                      icon={<ApartmentOutlined />}
+                      title="Người dùng"
                     >
-                      <Menu.Item key="10" icon={<AlignLeftOutlined />}>
+                      <Menu.Item key="5" icon={<UserAddOutlined />}>
+                        <NavLink to="/admin/user/adduser">
+                          Thêm người dùng
+                        </NavLink>
+                      </Menu.Item>
+                    </SubMenu>
+
+                    <SubMenu
+                      key="1"
+                      icon={<CodeSandboxOutlined />}
+                      title="Phim"
+                    >
+                      <Menu.Item key="6" icon={<AlignLeftOutlined />}>
                         <NavLink to="/admin/films">Danh sách phim</NavLink>
                       </Menu.Item>
-                      <Menu.Item key="3" icon={<PlusCircleOutlined />}>
+                      <Menu.Item key="7" icon={<PlusCircleOutlined />}>
                         <NavLink to="/admin/addnewfilm">Thêm phim</NavLink>
                       </Menu.Item>
                     </SubMenu>

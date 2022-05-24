@@ -1,21 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useFormik } from "formik";
-import {
-  Form,
-  Input,
-  Radio,
-  DatePicker,
-  InputNumber,
-  Switch,
-} from "antd";
-import moment from "moment";
-import {
-  capNhatFilmAction,
-  layThongTinPhimTruocCapNhatAction,
-  themPhimMoiAction,
-} from "../../../redux/actions/QuanLyPhimActions";
+import { capNhatFilmAction, layThongTinPhimTruocCapNhatAction} from "../../../redux/actions/QuanLyPhimActions";
+import { Form, Input, Radio, DatePicker, InputNumber, Switch } from "antd";
 import { GROUPID } from "../../../util/settings/config";
+import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useFormik } from "formik";
+import moment from "moment";
 
 const EditFilm = (props) => {
   const [componentSize, setComponentSize] = useState("default");
@@ -71,14 +60,13 @@ const EditFilm = (props) => {
       }
       // formik ko thể consose.log ra được do tính bảo mật của browser => console.log(formData.get('tenPhim'))
 
-
       // Gọi api gửi các giá trị formData về backend xử lý
       const action = capNhatFilmAction(formData);
       dispatch(action);
-      
+
       //Quay về trang trang film sau khi bấm cập nhật
       setTimeout(() => {
-        props.history.push('/admin/films');
+        props.history.push("/admin/films");
       }, 1000);
     },
   });
@@ -144,7 +132,7 @@ const EditFilm = (props) => {
       onValuesChange={onFormLayoutChange}
       size={componentSize}
     >
-      <h3 className="text-4xl mb-6">Cập nhật phim {formik.values.tenPhim}</h3>
+      <h3 className="text-4xl mb-10">Cập nhật phim {formik.values.tenPhim}</h3>
       <Form.Item label="Kích cỡ" name="size">
         <Radio.Group>
           <Radio.Button value="small">Nhỏ</Radio.Button>

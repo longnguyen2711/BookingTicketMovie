@@ -7,8 +7,6 @@ import { layThongTinNguoiDungAction } from "../../../redux/actions/QuanLyNguoiDu
 export default function Profile() {
   const { thongTinNguoiDung } = useSelector((state) => state.QuanLyNguoiDungReducer);
 
-  console.log({thongTinNguoiDung})
-
   const dispatch = useDispatch()
 
     useEffect(() => {
@@ -18,46 +16,40 @@ export default function Profile() {
 
   return (
     <div id="Profile">
-      <h3 className="text-4xl">Thông tin tài khoản</h3>
-      <div className="flex justify-center px-5">
-        <table className="w-3/4">
+      <h3 className="text-4xl mb-10">Thông tin tài khoản</h3>
+      <div title="Bấm để đến trang cập nhật" className="mt-8"><NavLink to="/admin/profile/editprofile" className="py-3 px-3 rounded font-bold border-2 duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white">Cập nhật hồ sơ</NavLink></div>
+      <div className="flex justify-start px-5">
+        <table>
           <tbody >
-            <tr className="text-md w-1/3">
-              <td><span>Tài khoản</span></td>
-              <td>{thongTinNguoiDung.taiKhoan}</td>
-              <td></td>
-            </tr>
-            <tr className="text-md w-1/3">
-              <td><span>Mật khẩu</span></td>
-              <td>{thongTinNguoiDung.matKhau}</td>
-              <td><input type="text" /> </td>
-            </tr>
-            <tr className="text-md w-1/3">
-              <td><span>Họ tên</span></td>
-              <td>{thongTinNguoiDung.hoTen}</td>
-              <td><input type="text"/> </td>
-            </tr>
-            <tr className="text-md w-1/3">
-              <td><span>Email</span></td>
-              <td>{thongTinNguoiDung.email}</td>
-              <td><input type="text"/> </td>
-            </tr>
-            <tr className="text-md w-1/3">
-              <td><span>Số điện thoại</span></td>
-              <td>{thongTinNguoiDung.soDT}</td>
-              <td><input type="text"/> </td>
-            </tr>
-            <tr className="text-md w-1/3">
-              <td><span>Mã nhóm</span></td>
-              <td>{thongTinNguoiDung.maNhom}</td>
-              <td><input type="text"/> </td>
-            </tr>
-            <tr className="text-md w-1/3">
-              <td><span>Loại người dùng</span></td>
+            <tr className="text-md">
+              <td><span>Loại người dùng</span><span>:</span></td>
               <td>
                 {thongTinNguoiDung.maLoaiNguoiDung === "QuanTri" ? "Quản trị" : "Khách hàng"}
               </td>
-              <td><input type="text"/> </td>
+            </tr>
+            <tr className="text-md">
+              <td><span>Tài khoản</span><span>:</span></td>
+              <td>{thongTinNguoiDung.taiKhoan}</td>
+            </tr>
+            <tr className="text-md">
+              <td><span>Mật khẩu</span><span>:</span></td>
+              <td>{thongTinNguoiDung.matKhau}</td>
+            </tr>
+            <tr className="text-md">
+              <td><span>Họ tên</span><span>:</span></td>
+              <td>{thongTinNguoiDung.hoTen}</td>
+            </tr>
+            <tr className="text-md">
+              <td><span>Email</span><span>:</span></td>
+              <td>{thongTinNguoiDung.email}</td>
+            </tr>
+            <tr className="text-md">
+              <td><span>Số điện thoại</span><span>:</span></td>
+              <td>{thongTinNguoiDung.soDT}</td>
+            </tr>
+            <tr className="text-md">
+              <td><span>Mã nhóm</span><span>:</span></td>
+              <td>{thongTinNguoiDung.maNhom}</td>
             </tr>
           </tbody>
         </table>

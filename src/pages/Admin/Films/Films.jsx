@@ -1,14 +1,23 @@
-import { layDanhSachPhimAction, xoaPhimAction } from "../../../redux/actions/QuanLyPhimActions";
-import { DeleteOutlined, EditOutlined, CalendarOutlined } from "@ant-design/icons";
+import {
+  layDanhSachPhimAction,
+  xoaPhimAction,
+} from "../../../redux/actions/QuanLyPhimActions";
+import {
+  DeleteOutlined,
+  EditOutlined,
+  CalendarOutlined,
+} from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import React, { Fragment, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { Redirect } from "react-router";
 import { Table } from "antd";
 import moment from "moment";
-import { Input} from "antd";
-
+import { Input } from "antd";
 
 export default function Films(props) {
+  const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
+
   const { arrFilmDefault } = useSelector((state) => state.QuanLyPhimReducer);
 
   const dispatch = useDispatch();
@@ -89,24 +98,40 @@ export default function Films(props) {
       render: (text, film, index) => {
         return (
           <Fragment key={index} className="flex items-center">
-            <NavLink key={1} to={`/admin/films/editfilm/${film.maPhim}`} className="ml-2 text-blue-700 text-lg">
+            <NavLink
+              key={1}
+              to={`/admin/films/editfilm/${film.maPhim}`}
+              className="ml-2 text-blue-700 text-lg"
+            >
               <EditOutlined />{" "}
             </NavLink>
-            <NavLink key={1} to={`/admin/films/showtime/${film.maPhim}/${film.tenPhim}`} className="ml-2 text-green-700 text-lg" onClick={() => {
-              localStorage.setItem('filmParams', JSON.stringify(film))
-            }}>
-              < CalendarOutlined  />{" "}
-            </NavLink>           
-            <span key={2} className="ml-2 text-red-700 text-lg cursor-pointer" onClick={() => {
-              // Gọi action xóa
-              if(window.confirm('Bạn có chắc muốn xóa phim ' + film.tenPhim) + ' ?'){
-                //Gọi action
-                dispatch(xoaPhimAction(film.maPhim))
-              }
-            }}>
+            <NavLink
+              key={1}
+              to={`/admin/films/showtime/${film.maPhim}/${film.tenPhim}`}
+              className="ml-2 text-green-700 text-lg"
+              onClick={() => {
+                localStorage.setItem("filmParams", JSON.stringify(film));
+              }}
+            >
+              <CalendarOutlined />{" "}
+            </NavLink>
+            <span
+              key={2}
+              className="ml-2 text-red-700 text-lg cursor-pointer"
+              onClick={() => {
+                // Gọi action xóa
+                if (
+                  window.confirm("Bạn có chắc muốn xóa phim " + film.tenPhim) +
+                  " ?"
+                ) {
+                  //Gọi action
+                  dispatch(xoaPhimAction(film.maPhim));
+                }
+              }}
+            >
               <DeleteOutlined />{" "}
             </span>
-             </Fragment>
+          </Fragment>
         );
       },
       sortDirections: ["descend", "ascend"],
@@ -117,23 +142,34 @@ export default function Films(props) {
   // Gán lại data
   const data = arrFilmDefault;
 
-
   const onSearch = (value) => {
     // Gọi api lấy danh sách phim, trong đó xét điều kiện nếu tên phim = " " thì load ra toàn bộ
-    dispatch(layDanhSachPhimAction(value))
-    
+    dispatch(layDanhSachPhimAction(value));
   };
 
   function onChange(pagination, filters, sorter, extra) {
     console.log("params", pagination, filters, sorter, extra);
   }
- 
+
+  // Kiểm tra trong localStorage nếu không phải admin thì chuyển về trang profile
+  if (userLogin.maLoaiNguoiDung !== "QuanTri") {
+    alert("Bạn không có quyền truy cập vào trang này !");
+    return <Redirect to="/admin/profile" />;
+  }
+
   return (
     <div>
-      <h3 className="text-4xl">Quản lý phim</h3>
-      <div title="Bấm để thêm phim mới" className="mt-8 mb-6"><NavLink to="/admin/addnewfilm" className="py-3 px-3 rounded font-bold border-2 duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white">Thêm phim mới</NavLink></div>
+      <h3 className="text-4xl mb-10">Quản lý phim</h3>
+      <div title="Bấm để thêm phim mới" className="mt-8 mb-10">
+        <NavLink
+          to="/admin/addnewfilm"
+          className="py-3 px-3 rounded font-bold border-2 duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white"
+        >
+          Thêm phim mới
+        </NavLink>
+      </div>
       <Search
-        className="mb-5 py-1 px-1 rounded font-bold border duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white"
+        className="mb-8 py-1 px-1 rounded font-bold border duration-500 border-blue-600 bg-white hover:bg-blue-600 text-blue-600 hover:text-white"
         placeholder="Nhập từ khóa"
         // Nếu bỏ enterButton sẽ hiện kính lúp
         enterButton="Search"
