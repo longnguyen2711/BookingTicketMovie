@@ -83,7 +83,7 @@ const EditProfile = (props) => {
         </div>
       </Form.Item>
       <Form.Item label="Mật khẩu">
-        <Input
+        <Input.Password
           name="matKhau"
           onChange={formik.handleChange}
           value={formik.values.matKhau}

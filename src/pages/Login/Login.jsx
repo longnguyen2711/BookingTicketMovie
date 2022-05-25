@@ -1,14 +1,15 @@
 import { dangNhapAction } from "../../redux/actions/QuanLyNguoiDungActions";
 import { USER_LOGIN } from "../../util/settings/config";
 import { NavLink } from "react-router-dom";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { Redirect } from "react-router";
 import { useFormik } from "formik";
+import { Input } from "antd";
 import React from "react";
 import "./Login.css";
 
 export default function Login(props) {
-   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
@@ -54,16 +55,19 @@ export default function Login(props) {
         <div className="mt-12">
           <div className="form-login">
             <div>
-              <label
-                for="taiKhoan"
-                className="mb-0 ml-1 text-lg font-bold tracking-wide"
-              >
-                Tài khoản
-              </label>
-              <input
-                className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
+              <div className="mb-2">
+                {" "}
+                <label
+                  for="taiKhoan"
+                  className="mb-1 ml-1 pb-2 text-lg font-bold tracking-wide"
+                >
+                  Tài khoản
+                </label>
+              </div>
+              <Input
+                className="w-full rounded-md text-lg pl-4 py-2 mt-4 focus:outline-none"
                 type="text"
-                placeholder="Nhập vào email"
+                placeholder="Nhập vào tài khoản (vd: nhlong2711)"
                 name="taiKhoan"
                 id="taiKhoan"
                 onChange={formik.handleChange}
@@ -87,10 +91,10 @@ export default function Login(props) {
                   </a>
                 </div>
               </div>
-              <input
-                className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
+              <Input.Password
+                className="input-password w-full rounded-md text-lg pl-4 py-4 mt-2 focus:outline-none"
                 type="password"
-                placeholder="Nhập vào mật khẩu"
+                placeholder="Nhập vào mật khẩu (vd: nhlong2711)"
                 name="matKhau"
                 id="matKhau"
                 onChange={formik.handleChange}

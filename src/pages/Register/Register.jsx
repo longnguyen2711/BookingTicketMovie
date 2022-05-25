@@ -1,12 +1,11 @@
-
 import { dangKyTaiKhoanAction } from "../../redux/actions/QuanLyNguoiDungActions";
 import { TOKEN_CYBERSOFT } from "../../util/settings/config";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useFormik } from "formik";
+import { Input } from "antd";
 import React from "react";
 import "./Register.css";
-
 
 export default function Register(props) {
   const dispatch = useDispatch();
@@ -20,10 +19,10 @@ export default function Register(props) {
       maNhom: "",
       hoTen: "",
       accessToken: TOKEN_CYBERSOFT,
-      maLoaiNguoiDung: "KhachHang"
+      maLoaiNguoiDung: "KhachHang",
     },
     onSubmit: (values) => {
-      console.log(values)
+      console.log(values);
       dispatch(dangKyTaiKhoanAction(values));
     },
   });
@@ -53,14 +52,17 @@ export default function Register(props) {
         </h2>
         <div className="mt-12 pb-12">
           <div className="form-register">
-          <div>
-              <label
-                for="maLoaiNguoiDung"
-                className="mb-0 ml-1 text-lg font-bold tracking-wide"
-              >
-                Loại tài khoản
-              </label>
-              <input
+            <div>
+              <div className="mb-2">
+                {" "}
+                <label
+                  for="maLoaiNguoiDung"
+                  className="mb-0 ml-1 text-lg font-bold tracking-wide"
+                >
+                  Loại tài khoản
+                </label>
+              </div>
+              <Input
                 className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
                 type="text"
                 placeholder="BC23"
@@ -69,15 +71,18 @@ export default function Register(props) {
                 value="Khách hàng"
               />
             </div>
-            <div className="mt-6">
-              <label
-                for="email"
-                className="mb-0 ml-1 text-lg font-bold tracking-wide"
-              >
-                Email
-              </label>
-              <input
-                className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
+            <div className="mt-5">
+              <div className="mb-2">
+                {" "}
+                <label
+                  for="email"
+                  className="mb-0 ml-1 text-lg font-bold tracking-wide"
+                >
+                  Email
+                </label>
+              </div>
+              <Input
+                className="w-full rounded-md text-lg pl-4 py-2 mt-4 focus:outline-none"
                 type="email"
                 placeholder="nguyenhoanglong@gmail.com"
                 name="email"
@@ -85,15 +90,18 @@ export default function Register(props) {
                 onChange={formik.handleChange}
               />
             </div>
-            <div className="mt-6">
-              <label
-                for="taiKhoan"
-                className="mb-0 ml-1 text-lg font-bold tracking-wide"
-              >
-                Tài khoản
-              </label>
-              <input
-                className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
+            <div className="mt-5">
+              <div className="mb-2">
+                {" "}
+                <label
+                  for="taiKhoan"
+                  className="mb-0 ml-1 text-lg font-bold tracking-wide"
+                >
+                  Tài khoản
+                </label>
+              </div>
+              <Input
+                className="w-full rounded-md text-lg pl-4 py-2 mt-4 focus:outline-none"
                 type="text"
                 placeholder="nhlong2711"
                 name="taiKhoan"
@@ -101,15 +109,18 @@ export default function Register(props) {
                 onChange={formik.handleChange}
               />
             </div>
-            <div className="mt-6">
-              <label
-                for="matKhau"
-                className="mb-0 ml-1 text-lg font-bold tracking-wide"
-              >
-                Mật khẩu
-              </label>
-              <input
-                className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
+            <div className="mt-5">
+              <div className="mb-2">
+                {" "}
+                <label
+                  for="matKhau"
+                  className="mb-0 ml-1 text-lg font-bold tracking-wide"
+                >
+                  Mật khẩu
+                </label>
+              </div>
+              <Input.Password
+                className="w-full rounded-md text-lg pl-4 py-2 focus:outline-none"
                 type="password"
                 placeholder="Mật khẩu"
                 name="matKhau"
@@ -117,15 +128,18 @@ export default function Register(props) {
                 onChange={formik.handleChange}
               />
             </div>
-            <div className="mt-6">
-              <label
-                for="hoTen"
-                className="mb-0 ml-1 text-lg font-bold tracking-wide"
-              >
-                Họ tên
-              </label>
-              <input
-                className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
+            <div className="mt-5">
+              <div className="mb-2">
+                {" "}
+                <label
+                  for="hoTen"
+                  className="mb-0 ml-1 text-lg font-bold tracking-wide"
+                >
+                  Họ tên
+                </label>
+              </div>
+              <Input
+                className="w-full rounded-md text-lg pl-4 py-2 mt-4 focus:outline-none"
                 type="text"
                 placeholder="Nguyễn Hoàng Long"
                 name="hoTen"
@@ -133,15 +147,18 @@ export default function Register(props) {
                 onChange={formik.handleChange}
               />
             </div>
-            <div className="mt-6">
-              <label
-                for="soDt"
-                className="mb-0 ml-1 text-lg font-bold tracking-wide"
-              >
-                Số điện thoại
-              </label>
-              <input
-                className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
+            <div className="mt-5">
+              <div className="mb-2">
+                {" "}
+                <label
+                  for="soDt"
+                  className="mb-0 ml-1 text-lg font-bold tracking-wide"
+                >
+                  Số điện thoại
+                </label>
+              </div>
+              <Input
+                className="w-full rounded-md text-lg pl-4 py-2 mt-4 focus:outline-none"
                 type="text"
                 placeholder="0123456789"
                 name="soDt"
@@ -149,22 +166,25 @@ export default function Register(props) {
                 onChange={formik.handleChange}
               />
             </div>
-            <div className="mt-6">
-              <label
-                for="maNhom"
-                className="mb-0 ml-1 text-lg font-bold tracking-wide"
-              >
-                Mã nhóm
-              </label>
-              <input
-                className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
+            {/* <div className="mt-5">
+              <div className="mb-2">
+                {" "}
+                <label
+                  for="maNhom"
+                  className="mb-0 ml-1 text-lg font-bold tracking-wide"
+                >
+                  Mã nhóm
+                </label>
+              </div>
+              <Input
+                className="w-full rounded-md text-lg pl-4 py-2 mt-4 focus:outline-none"
                 type="text"
                 placeholder="BC23"
                 name="maNhom"
                 id="maNhom"
                 onChange={formik.handleChange}
               />
-            </div>
+            </div> */}
 
             <div className="mt-10 flex justify-center">
               <button

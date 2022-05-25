@@ -46,7 +46,7 @@
     border: 2px solid transparent;
 }
 
-#Login #taiKhoan:focus,
+/* #Login #taiKhoan:focus,
 #Login #matKhau:focus{
     border: 2px solid #00efff;
     box-shadow: 0 0 10px #00efff;
@@ -54,7 +54,7 @@
     animation-delay: calc(-0.25s * var(--i));
     transform-origin: 20px;
     transition: 1s;
-}
+} */
 
 @keyframes animate-changecolor {
     0% {
