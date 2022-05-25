@@ -33,7 +33,7 @@
   backdrop-filter: blur(2px);
   text-align: justify;
   box-shadow: 0 0 15px white;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
 }
 
@@ -42,9 +42,9 @@
 }
 
 .Detail__overlay__booking > div {
-  border: 1px solid black;
+  border: 1px solid white;
   box-shadow: 0 0 15px white;
-  padding: 20px;
+  color: white;
 }
 
 .Detail__overlay__booking .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab {
@@ -53,8 +53,12 @@
 }
 
 .Detail__overlay__booking .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab:hover {
-  background-color: #e5e7eb;
+  background-color: rgba(229, 231, 235, 0.2);
   box-shadow: 0 0 5px black;
+}
+
+.Detail__overlay__booking .ant-tabs-top > .ant-tabs-nav{
+  margin-bottom: 0;
 }
 
 .Detail__overlay__booking
@@ -80,7 +84,6 @@
   > .ant-tabs-tabpane
   > div {
   padding: 15px;
-  border-radius: 5px;
 }
 
 .Detail__overlay__booking
@@ -89,7 +92,7 @@
   > .ant-tabs-content
   > .ant-tabs-tabpane
   > div:hover {
-  background-color: #e5e7eb;
+  background-color: rgba(229, 231, 235, 0.2);
   box-shadow: 0 0 5px black;
 }
 .Detail__overlay__booking .ant-tabs-tab + .ant-tabs-tab > div,
@@ -102,6 +105,17 @@
 .Detail__overlay__booking .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   font-weight: bold;
   font-family: "Times New Roman", Times, serif;
+  color: white;
+}
+
+.Detail__overlay__booking .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+  color: #1890ff !important;
+}
+
+
+
+.Detail__overlay__booking .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list{
+  padding-top: 10px;
   padding-bottom: 10px;
 }
 
@@ -114,11 +128,11 @@
   display: block;
   padding: 8px 20px;
   font-weight: bold;
-  color: white;
+  color: white !important;
 }
 
 .Detail .film-information .btn-trailer:hover {
-  box-shadow: 0 0 15px yellow;
+  box-shadow: 0 0 10px yellow;
   border: 1px solid yellow;
 }
 
@@ -135,13 +149,10 @@
   margin-left: 66px;
 }
 
-.Detail .Detail__overlay__booking .ant-tabs > .ant-tabs-nav .ant-tabs-nav-list {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.Detail .Detail__overlay__booking .booking-info {
-  margin-left: 20px;
+@media screen and (max-width: 1024px) {
+  .Detail .ant-tabs > .ant-tabs-nav .ant-tabs-nav-wrap  > div > div{
+    margin-right: 30px;
+  }
 }
 
 @media screen and (max-width: 450px) {

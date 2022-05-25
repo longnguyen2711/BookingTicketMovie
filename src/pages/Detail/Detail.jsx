@@ -7,7 +7,6 @@ import { Rate } from "antd";
 import moment from "moment";
 import "./Detail.css";
 
-
 const { TabPane } = Tabs;
 
 export default function Detail(props) {
@@ -111,9 +110,9 @@ export default function Detail(props) {
             </div>
           </div>
           <div className="Detail__overlay__booking flex justify-center w-full mt-10 md:mt-16 ">
-            <div className="rounded bg-white px-5 py-5 w-3/4">
+            <div className="rounded-md bg-black bg-opacity-60 w-3/4">
               <Tabs defaultActiveKey="1" centered>
-                <TabPane tab="Lịch chiếu" key="1" style={{ minHeight: 100 }}>
+                <TabPane tab="Lịch chiếu" key="1" style={{ minHeight: 150 }}>
                   <div>
                     <Tabs tabPosition={selectTabPosition}>
                       {filmDetail.heThongRapChieu?.map((htr, index) => {
@@ -130,7 +129,7 @@ export default function Detail(props) {
                                   height={50}
                                   alt={htr.logo}
                                 />
-                                <p className="ml-3 mb-0 font-bold hidden md:block">
+                                <p className="ml-3 mb-0 font-bold hidden md:block text-white">
                                   {htr.tenHeThongRap}
                                 </p>
                               </div>
@@ -140,7 +139,7 @@ export default function Detail(props) {
                             {htr.cumRapChieu?.map((cumRap, index) => {
                               return (
                                 <div
-                                  className="pb-4 booking-info"
+                                  className="pl-8 md:pl-4 p-4 booking-info hover:bg-gray-200 hover:bg-opacity-20"
                                   key={index}
                                   title={cumRap.diaChi}
                                 >
@@ -153,11 +152,11 @@ export default function Detail(props) {
                                       title={cumRap.tenCumRap}
                                       className="img-info"
                                     />
-                                    <div className="text-left">
+                                    <div className="text-left text-white">
                                       <p className="ml-4 mb-1 font-bold">
                                         {cumRap.tenCumRap}
                                       </p>
-                                      <p className="ml-4 mb-0 text-gray-600">
+                                      <p className="ml-4 mb-0 text-gray-300">
                                         Địa chỉ: {cumRap.diaChi}
                                       </p>
                                     </div>
@@ -193,42 +192,48 @@ export default function Detail(props) {
                     </Tabs>
                   </div>
                 </TabPane>
-                <TabPane tab="Thông tin" key="2" style={{ minHeight: 100 }}>
-                  {filmDetail.moTa ? (
-                    <p className="mb-0 text-left text-justify">
-                      {filmDetail.moTa}
-                    </p>
-                  ) : (
-                    <p>Thông tin phim sẽ được cập nhật trong thời gian tới</p>
-                  )}
+                <TabPane tab="Thông tin" key="2" style={{ minHeight: 150 }}>
+                  <div className="p-5">
+                    {filmDetail.moTa ? (
+                      <p className="mb-0 text-left text-white font-sans">
+                        {filmDetail.moTa}
+                      </p>
+                    ) : (
+                      <p className="mb-0 text-left text-white">
+                        Thông tin phim sẽ được cập nhật trong thời gian tới
+                      </p>
+                    )}
+                  </div>
                 </TabPane>
-                <TabPane tab="Đánh giá" key="3" style={{ minHeight: 100 }}>
-                  {!filmDetail.moTa ? (
-                    <p>Chưa có đánh giá về phim này</p>
-                  ) : (
-                    <div className="mt-5 ml-10 flex items-center">
-                      <div
-                        title={`${filmDetail.danhGia * 10}%`}
-                        className={`c100 p${
-                          filmDetail.danhGia * 10
-                        } small orange`}
-                      >
-                        <span>{filmDetail.danhGia * 10}%</span>
-                        <div className="slice">
-                          <div className="bar" />
-                          <div className="fill" />
+                <TabPane tab="Đánh giá" key="3" style={{ minHeight: 150 }} >
+                  <div className="p-5 flex items-center">
+                    {!filmDetail.moTa ? (
+                      <p>Chưa có đánh giá về phim này</p>
+                    ) : (
+                      <div className="ml-10 flex items-center">
+                        <div
+                          title={`${filmDetail.danhGia * 10}%`}
+                          className={`c100 p${
+                            filmDetail.danhGia * 10
+                          } small orange`}
+                        >
+                          <span>{filmDetail.danhGia * 10}%</span>
+                          <div className="slice">
+                            <div className="bar" />
+                            <div className="fill" />
+                          </div>
+                        </div>
+                        <div className="ml-3 film-rate-start">
+                          <h1 className="text-yellow-400 font-bold mb-0 text-lg text-left">
+                            Đánh giá
+                          </h1>
+                          <h1 title={`${filmDetail.danhGia / 2} sao`}>
+                            <Rate allowHalf value={filmDetail.danhGia / 2} />
+                          </h1>
                         </div>
                       </div>
-                      <div className="ml-3 film-rate-start">
-                        <h1 className="text-yellow-400 font-bold mb-0 text-lg text-left">
-                          Đánh giá
-                        </h1>
-                        <h1 title={`${filmDetail.danhGia / 2} sao`}>
-                          <Rate allowHalf value={filmDetail.danhGia / 2} />
-                        </h1>
-                      </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </TabPane>
               </Tabs>
             </div>
