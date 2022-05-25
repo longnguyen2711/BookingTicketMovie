@@ -62,7 +62,7 @@ export default class HomeMenuMobile extends React.PureComponent {
                   }
                   key={index}
                 >
-                  {cumRap.danhSachPhim.slice(0, 12).map((phim, index) => {
+                  {cumRap.danhSachPhim.slice(1, 13).map((phim, index) => {
                     return (
                       <Fragment key={index}>
                         <div className="booking-film w-full grid grid-cols-12">

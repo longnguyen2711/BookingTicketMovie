@@ -71,7 +71,7 @@ export default class HomeMenu extends React.PureComponent {
                   }
                   key={index}
                 >
-                  {cumRap.danhSachPhim.slice(0, 8).map((phim, index) => {
+                  {cumRap.danhSachPhim.slice(1, 9).map((phim, index) => {
                     return (
                       <Fragment key={index}>
                         <div>
