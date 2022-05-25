@@ -1,4 +1,3 @@
-
 import { LINK_BACKGROUND } from "../../../../util/settings/config";
 import React from "react";
 import "./Footer.css";
@@ -7,7 +6,6 @@ import "./Footer.css";
 // import { useSelector } from "react-redux";
 
 export default function Footer(props) {
-
   // const { heThongRapChieu } = useSelector((state) => state.QuanLyRapReducer);
   // Tạo ra mảng ít phức tạp hơn, chỉ chứa những thông tin cần thiết bằng lodash
   // Reload lại trang sẽ biến mất
@@ -110,8 +108,8 @@ export default function Footer(props) {
                 title="Bấm để xem trên google map"
                 className="mb-2 "
               >
-                <i className="fa fa-map-marker-alt"></i>Địa chỉ: 112 Cao Thắng, Quận
-                3
+                <i className="fa fa-map-marker-alt"></i>Địa chỉ: 112 Cao Thắng,
+                Quận 3
               </a>
               <a
                 href="tel:0961011014"
@@ -132,10 +130,12 @@ export default function Footer(props) {
                 <i className="fa fa-envelope"></i>Email: cybersoft@gmail.com
               </a>
             </nav>
-            <hr className="lg:hidden"/>
+            <hr className="lg:hidden" />
           </div>
           <div className="footer-partner col-span-full text-left md:col-span-7 lg:col-span-4 md:mt-0">
-            <p className="footer-title pb-1 text-lg font-medium text-white">ĐỐI TÁC</p>
+            <p className="footer-title pb-1 text-lg font-medium text-white">
+              ĐỐI TÁC
+            </p>
             {/* <div className="flex justify-center md:justify-start" style={{ color: "#fff" }}>
               {arrHeThongRap.map((heThongRap, index) => {
                 return (
@@ -154,10 +154,7 @@ export default function Footer(props) {
                 );
               })}
             </div> */}
-            <div
-              className="flex justify-start"
-              style={{ color: "#fff" }}
-            >
+            <div className="flex justify-start" style={{ color: "#fff" }}>
               {arrPartner.map((partner, index) => {
                 return (
                   <a

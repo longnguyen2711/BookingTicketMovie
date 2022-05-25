@@ -1,12 +1,12 @@
-import { quanLyNguoiDungService } from "../../services/QuanLyNguoiDungService";
 import {
   DANG_KY_ACTION,
   DANG_NHAP_ACTION,
   SET_DANH_SACH_TAI_KHOAN,
   SET_THONG_TIN_NGUOI_DUNG,
 } from "../types";
-import { history } from "../../App";
+import { quanLyNguoiDungService } from "../../services/QuanLyNguoiDungService";
 import { displayLoadingAction, hideLoadingAction } from "./LoadingAction";
+import { history } from "../../App";
 
 export const dangNhapAction = (thongTinDangNhap) => {
   return async (dispatch) => {
@@ -17,9 +17,12 @@ export const dangNhapAction = (thongTinDangNhap) => {
           type: DANG_NHAP_ACTION,
           thongTinDangNhap: result.data.content,
         });
-        await alert("Đăng nhập thành công");
-        await history.push("/");
+
+        // Link thay đổi nhưng ko tự chuyển trang phải bấm relaod mới được
+        // alert("Đăng nhập thành công");
+        // history.push('/');       
       }
+
     } catch (error) {
       alert(
         "Đăng nhập không thành công, tên đăng nhập hoặc mật khẩu không chính xác"
@@ -61,9 +64,12 @@ export const dangKyTaiKhoanAction = (formDataDangKy) => {
           type: DANG_KY_ACTION,
           formDataDangKy: result.data.content,
         });
+
+        // Link thay đổi nhưng ko tự chuyển trang phải bấm relaod mới được
         alert("Đăng ký thành công");
         history.push("/login");
       }
+      
     } catch (error) {
       alert("Đăng ký thất bại, vui lòng kiểm tra lại");
       console.log("error", error.response.data);

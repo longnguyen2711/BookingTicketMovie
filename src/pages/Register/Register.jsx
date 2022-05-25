@@ -23,6 +23,7 @@ export default function Register(props) {
       maLoaiNguoiDung: "KhachHang"
     },
     onSubmit: (values) => {
+      console.log(values)
       dispatch(dangKyTaiKhoanAction(values));
     },
   });
@@ -52,7 +53,23 @@ export default function Register(props) {
         </h2>
         <div className="mt-12 pb-12">
           <div className="form-register">
-            <div>
+          <div>
+              <label
+                for="maLoaiNguoiDung"
+                className="mb-0 ml-1 text-lg font-bold tracking-wide"
+              >
+                Loại tài khoản
+              </label>
+              <input
+                className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
+                type="text"
+                placeholder="BC23"
+                name="maLoaiNguoiDung"
+                id="maLoaiNguoiDung"
+                value="Khách hàng"
+              />
+            </div>
+            <div className="mt-6">
               <label
                 for="email"
                 className="mb-0 ml-1 text-lg font-bold tracking-wide"
@@ -118,7 +135,7 @@ export default function Register(props) {
             </div>
             <div className="mt-6">
               <label
-                for="soDT"
+                for="soDt"
                 className="mb-0 ml-1 text-lg font-bold tracking-wide"
               >
                 Số điện thoại

@@ -195,11 +195,11 @@ export default function Detail(props) {
                 <TabPane tab="Thông tin" key="2" style={{ minHeight: 150 }}>
                   <div className="p-5">
                     {filmDetail.moTa ? (
-                      <p className="mb-0 text-left text-white font-sans">
+                      <p className="mb-0 text-justify text-white font-sans">
                         {filmDetail.moTa}
                       </p>
                     ) : (
-                      <p className="mb-0 text-left text-white">
+                      <p className="mb-0 text-white">
                         Thông tin phim sẽ được cập nhật trong thời gian tới
                       </p>
                     )}

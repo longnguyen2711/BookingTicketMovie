@@ -1,7 +1,7 @@
 import { dangNhapAction } from "../../redux/actions/QuanLyNguoiDungActions";
 import { USER_LOGIN } from "../../util/settings/config";
-import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { useDispatch} from "react-redux";
 import { Redirect } from "react-router";
 import { useFormik } from "formik";
 import React from "react";
@@ -24,6 +24,7 @@ export default function Login(props) {
 
   // Kiểm tra xem nếu đã đăng nhập rồi mà nhập đường dẫn login thì sẽ quay về trang chủ
   if (localStorage.getItem(USER_LOGIN)) {
+    alert("Đăng nhập thành công");
     return <Redirect to="/" />;
   }
 
