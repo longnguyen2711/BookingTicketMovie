@@ -25,7 +25,7 @@ export default function Login(props) {
 
   // Kiểm tra xem nếu đã đăng nhập rồi mà nhập đường dẫn login thì sẽ quay về trang chủ
   if (localStorage.getItem(USER_LOGIN)) {
-    alert("Đăng nhập thành công");
+    alert("Bạn đã đăng nhập rồi");
     return <Redirect to="/" />;
   }
 

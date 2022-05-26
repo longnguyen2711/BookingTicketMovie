@@ -18,9 +18,9 @@ export const dangNhapAction = (thongTinDangNhap) => {
           thongTinDangNhap: result.data.content,
         });
 
-        // Link thay đổi nhưng ko tự chuyển trang phải bấm relaod mới được
-        // alert("Đăng nhập thành công");
-        // history.push('/');       
+        alert("Đăng nhập thành công");
+        history.push('/'); 
+        window.location.reload();      
       }
 
     } catch (error) {
@@ -66,8 +66,9 @@ export const dangKyTaiKhoanAction = (formDataDangKy) => {
         });
 
         // Link thay đổi nhưng ko tự chuyển trang phải bấm relaod mới được
-        alert("Đăng ký thành công");
+        alert("Đăng ký thành công, chuyển đến trang đăng nhập");
         history.push("/login");
+        window.location.reload();
       }
       
     } catch (error) {
@@ -86,6 +87,7 @@ export const capNhatThongTinNguoiDungnAction = (formDataCapNhat) => {
 
       alert("Cập nhật thành công");
       history.push("/admin/profile");
+      window.location.reload();
     } catch (error) {
       alert("Cập nhật thất bại, vui lòng kiểm tra lại");
       console.log("error", error.response.data);
@@ -107,7 +109,7 @@ export const themNguoiDungMoiAction = (formDataNguoiDungMoi) => {
       //     formDataDangKy: result.data.content,
       //   });
       alert("Thêm người dùng mới thành công");
-      history.push("/login");
+      // history.push("/login");
     } catch (error) {
       alert("Thêm người dùng thất bại, vui lòng kiểm tra lại");
       console.log("error", error.response.data);
