@@ -17,6 +17,36 @@ const contentStyle = {
 export default function HomeCarousel(props) {
   const { arrImg } = useSelector((state) => state.CarouselReducer);
 
+  const arrImg2 = [
+    {
+      "maBanner": 1001,
+      "maPhim": 111111,
+      "hinhAnh": "https://4.bp.blogspot.com/-eqPNLqeDI-w/XI51rOAe22I/AAAAAAAAAts/gBOCnWl70iQc6POs9ORbgAFWip5j-jogACKgBGAs/w0/avengers-endgame-movie-characters-uhdpaper.com-4K-52.jpg"
+    },
+    {
+      "maBanner": 1002,
+      "maPhim": 111112,
+      "hinhAnh": "https://images2.alphacoders.com/117/thumb-1920-1170277.jpg"
+    },
+    {
+      "maBanner": 1003,
+      "maPhim": 111113,
+      "hinhAnh": "https://b-static.besthdwallpaper.com/doctor-strange-cua-marvel-studios-trong-nhan-vat-truyen-tranh-dien-ro-doctor-strange-phan-tiep-theo-cua-sieu-anh-hung-hinh-nen-1920x1080-95920_48.jpg"
+    },
+    {
+      "maBanner": 1004,
+      "maPhim": 111114,
+      "hinhAnh": "https://wallpapercave.com/wp/wp9429759.jpg"
+    },
+    {
+      "maBanner": 1005,
+      "maPhim": 111115,
+      "hinhAnh": "https://images.alphacoders.com/122/1229316.jpg"
+    },
+  ]
+
+  const arrImgSum = arrImg2.concat(arrImg)
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +54,7 @@ export default function HomeCarousel(props) {
   }, []);
 
   const renderImg = () => {
-    return arrImg.map((item, index) => {
+    return arrImgSum.map((item, index) => {
       return (
         <div key={index}>
           <div
