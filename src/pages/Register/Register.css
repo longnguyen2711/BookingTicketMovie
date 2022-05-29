@@ -1,5 +1,5 @@
-#Register .form-register, h2 {
-    color: yellow !important;
+#Register .form-register, h2, h3 {
+    color: yellow!important;
     font-family: 'Times New Roman', Times, serif;
 }
 

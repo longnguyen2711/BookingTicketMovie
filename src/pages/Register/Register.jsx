@@ -3,12 +3,33 @@ import { TOKEN_CYBERSOFT } from "../../util/settings/config";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useFormik } from "formik";
+import { setLocale } from "yup";
 import { Input } from "antd";
+import * as yup from "yup";
 import React from "react";
 import "./Register.css";
 
 export default function Register(props) {
   const dispatch = useDispatch();
+
+  const validationSchema = yup.object().shape({
+    email: yup
+      .string()
+      .required("Không được để trống")
+      .email("Email không hợp lệ"),
+    taiKhoan: yup
+      .string()
+      .required("Không được để trống")
+      .min(6, "Tài khoản phải từ 6 ký tự")
+      .max(16, "Tài khoản không được quá 16 ký tự"),
+    matKhau: yup
+      .string()
+      .required("Không được để trống")
+      .min(6, "Mật khẩu phải từ 6 ký tự")
+      .max(16, "Mật khẩu không được quá 16 ký tự"),
+    hoTen: yup.string().required("Không được để trống"),
+    soDt: yup.string().required("Không được để trống"),
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -21,6 +42,11 @@ export default function Register(props) {
       accessToken: TOKEN_CYBERSOFT,
       maLoaiNguoiDung: "KhachHang",
     },
+
+    validationSchema,
+    validateOnChange: true,
+    validateOnBlur: true,
+
     onSubmit: (values) => {
       console.log(values);
       dispatch(dangKyTaiKhoanAction(values));
@@ -48,29 +74,10 @@ export default function Register(props) {
       </div>
       <div className="px-12 sm:px-24 md:px-48 lg:px-12 xl:px-24">
         <h2 className="text-center text-4xl font-display lg:text-left xl:text-4xl xl:text-bold font-bold">
-          Đăng ký tài khoản
+          Đăng ký tài khoản <h3 className="mt-2 font-bold">khách hàng</h3> 
         </h2>
         <div className="mt-12 pb-12">
           <div className="form-register">
-            <div>
-              <div className="mb-2">
-                {" "}
-                <label
-                  for="maLoaiNguoiDung"
-                  className="mb-0 ml-1 text-lg font-bold tracking-wide"
-                >
-                  Loại tài khoản
-                </label>
-              </div>
-              <Input
-                className="w-full rounded-md text-lg pl-4 py-2 mt-2 focus:outline-none"
-                type="text"
-                placeholder="BC23"
-                name="maLoaiNguoiDung"
-                id="maLoaiNguoiDung"
-                value="Khách hàng"
-              />
-            </div>
             <div className="mt-5">
               <div className="mb-2">
                 {" "}
@@ -89,8 +96,16 @@ export default function Register(props) {
                 id="email"
                 onChange={formik.handleChange}
               />
+              <div className="text-red-500 mt-1 ml-1">
+                {" "}
+                {formik.errors.email ? (
+                  formik.errors.email
+                ) : (
+                  <div style={{ visibility: "hidden" }}>1</div>
+                )}
+              </div>
             </div>
-            <div className="mt-5">
+            <div className="mt-3">
               <div className="mb-2">
                 {" "}
                 <label
@@ -108,8 +123,16 @@ export default function Register(props) {
                 id="taiKhoan"
                 onChange={formik.handleChange}
               />
+              <div className="text-red-500 mt-1 ml-1">
+                {" "}
+                {formik.errors.taiKhoan ? (
+                  formik.errors.taiKhoan
+                ) : (
+                  <div style={{ visibility: "hidden" }}>1</div>
+                )}
+              </div>
             </div>
-            <div className="mt-5">
+            <div className="mt-3">
               <div className="mb-2">
                 {" "}
                 <label
@@ -127,8 +150,16 @@ export default function Register(props) {
                 id="matKhau"
                 onChange={formik.handleChange}
               />
+              <div className="text-red-500 mt-1 ml-1">
+                {" "}
+                {formik.errors.matKhau ? (
+                  formik.errors.matKhau
+                ) : (
+                  <div style={{ visibility: "hidden" }}>1</div>
+                )}
+              </div>
             </div>
-            <div className="mt-5">
+            <div className="mt-3">
               <div className="mb-2">
                 {" "}
                 <label
@@ -146,8 +177,16 @@ export default function Register(props) {
                 id="hoTen"
                 onChange={formik.handleChange}
               />
+              <div className="text-red-500 mt-1 ml-1">
+                {" "}
+                {formik.errors.hoTen ? (
+                  formik.errors.hoTen
+                ) : (
+                  <div style={{ visibility: "hidden" }}>1</div>
+                )}
+              </div>
             </div>
-            <div className="mt-5">
+            <div className="mt-3">
               <div className="mb-2">
                 {" "}
                 <label
@@ -165,6 +204,14 @@ export default function Register(props) {
                 id="soDt"
                 onChange={formik.handleChange}
               />
+              <div className="text-red-500 mt-1 ml-1">
+                {" "}
+                {formik.errors.soDt ? (
+                  formik.errors.soDt
+                ) : (
+                  <div style={{ visibility: "hidden" }}>1</div>
+                )}
+              </div>
             </div>
             {/* <div className="mt-5">
               <div className="mb-2">

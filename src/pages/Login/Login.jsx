@@ -30,6 +30,7 @@ export default function Login(props) {
       taiKhoan: "",
       matKhau: "",
     },
+    
     validationSchema,
     validateOnChange: true,
     validateOnBlur: true,
@@ -98,7 +99,7 @@ export default function Login(props) {
                 )}
               </div>
             </div>
-            <div className="forgot-password mt-6">
+            <div className="forgot-password mt-4">
               <div className="flex justify-between items-center">
                 <label
                   for="matKhau"
