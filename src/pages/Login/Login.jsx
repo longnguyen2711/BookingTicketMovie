@@ -5,17 +5,35 @@ import { useDispatch } from "react-redux";
 import { Redirect } from "react-router";
 import { useFormik } from "formik";
 import { Input } from "antd";
+import * as yup from "yup";
 import React from "react";
 import "./Login.css";
 
 export default function Login(props) {
   const dispatch = useDispatch();
 
+  const validationSchema = yup.object().shape({
+    taiKhoan: yup
+      .string()
+      .required("Không được để trống")
+      .min(6, "Tài khoản phải từ 6 ký tự")
+      .max(16, "Tài khoản không được quá 16 ký tự"),
+    matKhau: yup
+      .string()
+      .required("Không được để trống")
+      .min(6, "Mật khẩu phải từ 6 ký tự")
+      .max(16, "Mật khẩu không được quá 16 ký tự"),
+  });
+
   const formik = useFormik({
     initialValues: {
       taiKhoan: "",
       matKhau: "",
     },
+    validationSchema,
+    validateOnChange: true,
+    validateOnBlur: true,
+
     onSubmit: (values) => {
       const action = dangNhapAction(values);
       dispatch(action);
@@ -72,6 +90,13 @@ export default function Login(props) {
                 id="taiKhoan"
                 onChange={formik.handleChange}
               />
+              <div className="text-red-500 mt-2">
+                {formik.errors.taiKhoan ? (
+                  formik.errors.taiKhoan
+                ) : (
+                  <div style={{ visibility: "hidden" }}>1</div>
+                )}
+              </div>
             </div>
             <div className="forgot-password mt-6">
               <div className="flex justify-between items-center">
@@ -99,6 +124,13 @@ export default function Login(props) {
                 id="matKhau"
                 onChange={formik.handleChange}
               />
+              <div className="text-red-500 mt-2">
+                {formik.errors.matKhau ? (
+                  formik.errors.matKhau
+                ) : (
+                  <div style={{ visibility: "hidden" }}>1</div>
+                )}
+              </div>
             </div>
             <div className="mt-10 flex justify-center">
               <button
