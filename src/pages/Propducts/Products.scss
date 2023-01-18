@@ -2,6 +2,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  min-height: calc(100vh - 270px);
+  display: flex;
   ul {
     li {
       width: 25%;

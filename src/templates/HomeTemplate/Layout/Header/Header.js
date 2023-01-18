@@ -7,7 +7,6 @@ import _ from "lodash";
 import {
   ACCESSTOKEN,
   USER_LOGIN,
-  LINK_BACKGROUND_HOMEPAGE,
 } from "../../../../util/settings/config";
 
 export default function Header(props) {
@@ -15,7 +14,7 @@ export default function Header(props) {
   const { Option } = Select;
 
   const handleChange = (value) => {
-    console.log(`selected ${value}`);
+    // console.log(`selected ${value}`);
   };
 
   // Trạng thái đăng nhập
@@ -173,7 +172,7 @@ export default function Header(props) {
     <header
       id="header"
       style={{
-        backgroundImage: `url(${LINK_BACKGROUND_HOMEPAGE})`,
+        backgroundImage: `url("/assets/images/bg-home-page.jpeg")`,
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
         backgroundSize: "cover",

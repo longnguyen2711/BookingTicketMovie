@@ -6,11 +6,12 @@ import { Redirect } from "react-router";
 import { useFormik } from "formik";
 import { Input } from "antd";
 import * as yup from "yup";
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 
 export default function Login(props) {
   const dispatch = useDispatch();
+  const [validateAfterSubmit, setValidateAfterSubmit] = useState(false);
 
   const validationSchema = yup.object().shape({
     taiKhoan: yup
@@ -30,9 +31,9 @@ export default function Login(props) {
       taiKhoan: "",
       matKhau: "",
     },
-    
+
     validationSchema,
-    validateOnChange: true,
+    validateOnChange: validateAfterSubmit,
     validateOnBlur: true,
 
     onSubmit: (values) => {
@@ -135,6 +136,10 @@ export default function Login(props) {
             </div>
             <div className="mt-10 flex justify-center">
               <button
+                onClick={() => {
+                  setValidateAfterSubmit(true);
+                  formik.handleSubmit();
+                }}
                 title="Bấm để đăng nhập"
                 type="submit"
                 className="login-button text-xl text-white bg-indigo-600 p-3 w-full rounded-full tracking-wide font-semibold font-display focus:outline-none focus:shadow-outline shadow-lg"

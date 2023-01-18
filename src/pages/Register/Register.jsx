@@ -6,11 +6,12 @@ import { useFormik } from "formik";
 import { setLocale } from "yup";
 import { Input } from "antd";
 import * as yup from "yup";
-import React from "react";
+import React, { useState } from "react";
 import "./Register.css";
 
 export default function Register(props) {
   const dispatch = useDispatch();
+  const [validateAfterSubmit, setValidateAfterSubmit] = useState(false);
 
   const validationSchema = yup.object().shape({
     email: yup
@@ -44,11 +45,10 @@ export default function Register(props) {
     },
 
     validationSchema,
-    validateOnChange: true,
-    validateOnBlur: true,
+    validateOnChange: validateAfterSubmit,
+    validateOnBlur: false,
 
     onSubmit: (values) => {
-      console.log(values);
       dispatch(dangKyTaiKhoanAction(values));
     },
   });
@@ -74,7 +74,10 @@ export default function Register(props) {
       </div>
       <div className="px-12 sm:px-24 md:px-48 lg:px-12 xl:px-24">
         <h2 className="text-center text-4xl font-display lg:text-left xl:text-4xl xl:text-bold font-bold">
-          Đăng ký tài khoản <h3 className="mt-2 font-bold">khách hàng</h3> 
+          Đăng ký tài khoản{" "}
+          <h3 style={{ display: "inline" }} className="mt-2 font-bold">
+            khách hàng
+          </h3>
         </h2>
         <div className="mt-12 pb-12">
           <div className="form-register">
@@ -235,6 +238,10 @@ export default function Register(props) {
 
             <div className="mt-10 flex justify-center">
               <button
+                onClick={() => {
+                  setValidateAfterSubmit(true);
+                  formik.handleSubmit();
+                }}
                 title="Bấm để đăng ký tài khoản"
                 type="submit"
                 className="login-button text-xl text-white bg-indigo-600 p-3 w-full rounded-full tracking-wide font-semibold font-display focus:outline-none focus:shadow-outline shadow-lg"

@@ -1,12 +1,13 @@
 import React from "react";
-import { LINK_BACKGROUND_HOMEPAGE } from "../../util/settings/config";
+import "./News.css";
 
 export default function News(props) {
   return (
     <div
+      id = "news"
       className="pb-96"
       style={{
-        backgroundImage: `url(${LINK_BACKGROUND_HOMEPAGE})`,
+        backgroundImage: `url("/assets/images/bg-home-page.jpeg")`,
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
         backgroundSize: "cover",

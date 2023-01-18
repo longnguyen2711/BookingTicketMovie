@@ -1,12 +1,11 @@
 
-import { LINK_BACKGROUND_HOMEPAGE } from "../../util/settings/config";
 import React from 'react'
 import './Products.scss'
 
 export default function Propducts(props) {
   const productTitle = "Bấm để mở trang trên cửa số mới"
   return (
-    <div id="products" className='pt-36 pb-8' style={{backgroundImage: `url(${LINK_BACKGROUND_HOMEPAGE})`}}>
+    <div id="products" className='pt-36 pb-8' style={{backgroundImage: `url("/assets/images/bg-home-page.jpeg")`}}>
       <ul className='flex flex-wrap justify-around items-center'> 
          <li><div><a target="_blank" rel="noreferrer" title={productTitle} href="http://nhl-honda.surge.sh">HONDA</a></div></li>
          <li><div><a target="_blank" rel="noreferrer" title={productTitle} href="http://nhl-myportfolio.surge.sh">MY PORTFOLIO</a></div></li>

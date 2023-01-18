@@ -3,7 +3,6 @@ import MultipleRowSlickMobile from "../../_Component/RSlick/MultipleRowSlickMobi
 import { layDanhSachHeThongRapAction } from "../../redux/actions/QuanLyRapActions";
 import { layDanhSachPhimAction } from "../../redux/actions/QuanLyPhimActions";
 import MultipleRowSlick from "../../_Component/RSlick/MultipleRowSlick";
-import { LINK_BACKGROUND_HOMEPAGE } from "../../util/settings/config";
 import HomeMenuMobile from "./HomeMenu/HomeMenuMobile";
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
@@ -93,7 +92,7 @@ export default function Home(props) {
           backgroundSize: "cover",
           backgroundAttachment: "fixed",
           backgroundRepeat: "no-repeat",
-          backgroundImage: `url(${LINK_BACKGROUND_HOMEPAGE})`,
+          backgroundImage: `url("/assets/images/bg-home-page.jpeg")`,
         }}
       >
         <HomeCarousel />
@@ -104,7 +103,7 @@ export default function Home(props) {
           backgroundSize: "cover",
           backgroundAttachment: "fixed",
           backgroundRepeat: "no-repeat",
-          backgroundImage: `url(${LINK_BACKGROUND_HOMEPAGE})`,
+          backgroundImage: `url("/assets/images/bg-home-page.jpeg")`,
         }}
       >
         {" "}
@@ -116,7 +115,7 @@ export default function Home(props) {
           backgroundSize: "cover",
           backgroundAttachment: "fixed",
           backgroundRepeat: "no-repeat",
-          backgroundImage: `url(${LINK_BACKGROUND_HOMEPAGE})`,
+          backgroundImage: `url("/assets/images/bg-home-page.jpeg")`,
         }}
       >
         {renderHomeMenu()}

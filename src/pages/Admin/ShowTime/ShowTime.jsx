@@ -26,7 +26,6 @@ export default function ShowTime(props) {
       giaVe: "",
     },
     onSubmit: async (values) => {
-      console.log(values, "values");
       try {
         const result = await quanLyDatVeService.taoLichChieu(values);
         alert(result.data.content);

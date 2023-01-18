@@ -1,49 +1,60 @@
-#Login .form-login, h2 {
-    color: yellow !important;
-    font-family: 'Times New Roman', Times, serif;
+#Login .form-login,
+h2 {
+  color: yellow !important;
+  font-family: "Times New Roman", Times, serif;
 }
 
-#Login .form-login input{
-    color:  black;
+#Login .form-login input {
+  color: black;
+  height: 40px;
+  border-radius: 4px;
 }
 
-#Login .register{
-    font-family: 'Times New Roman', Times, serif;
+#Login .input-password {
+  border-radius: 4px;
 }
 
-#Login .register-button{
-    border: 1px solid transparent;
-    padding: 7px 12px;
-    border-radius: 5px;
+#Login #matKhau {
+  height: 32px;
+}
+
+#Login .register {
+  font-family: "Times New Roman", Times, serif;
+}
+
+#Login .register-button {
+  border: 1px solid transparent;
+  padding: 7px 12px;
+  border-radius: 5px;
 }
 
 #Login .register-button:hover,
-#Login .forgot-password .forgot-password-title:hover{
-    border: 1px solid yellow;
-    box-shadow: 0 0 15px yellow;
-    color: yellow;
-    transition: none;
+#Login .forgot-password .forgot-password-title:hover {
+  border: 1px solid yellow;
+  box-shadow: 0 0 15px yellow;
+  color: yellow;
+  transition: none;
 }
 
 #Login .forgot-password .forgot-password-title {
-    border: 1px solid transparent;
-    border-radius: 5px;
-    padding: 6px 8px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 6px 8px;
 }
-#Login .login-button{
-    border: 2px solid transparent;
+#Login .login-button {
+  border: 2px solid transparent;
 }
 
-#Login .login-button:hover{
-    border: 2px solid yellow;
-    box-shadow: 0 0 15px yellow;
-    color: yellow;
-    background-color: black;
+#Login .login-button:hover {
+  border: 2px solid yellow;
+  box-shadow: 0 0 15px yellow;
+  color: yellow;
+  background-color: black;
 }
 
 #Login #taiKhoan,
-#Login #matKhau{
-    border: 2px solid transparent;
+#Login #matKhau {
+  border: 2px solid transparent;
 }
 
 /* #Login #taiKhoan:focus,
@@ -57,32 +68,32 @@
 } */
 
 @keyframes animate-changecolor {
-    0% {
-      filter: rotate(0deg);
-    }
-    100% {
-      filter: hue-rotate(360deg); 
-    }
+  0% {
+    filter: rotate(0deg);
   }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
 
 /* Nút quay về trang chủ */
 #Login .back-to-homepage-button i {
-    font-size: 30px;    
+  font-size: 30px;
 }
 
-#Login .back-to-homepage-button{
-    padding: 20px;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    color: yellow;
-  }
+#Login .back-to-homepage-button {
+  padding: 20px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  color: yellow;
+}
 
-  #Login .back-to-homepage-button:hover{
-    border: 2px solid yellow;
-    box-shadow: 0 0 15px yellow;
+#Login .back-to-homepage-button:hover {
+  border: 2px solid yellow;
+  box-shadow: 0 0 15px yellow;
 
-    animation: animate-changecolor 2s linear infinite;
-    animation-delay: calc(-0.25s * var(--i));
-    transform-origin: 20px;
-    transition: 0.8s;
-  }
+  animation: animate-changecolor 2s linear infinite;
+  animation-delay: calc(-0.25s * var(--i));
+  transform-origin: 20px;
+  transition: 0.8s;
+}

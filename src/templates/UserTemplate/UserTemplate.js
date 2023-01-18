@@ -22,7 +22,7 @@ export const UserTemplate = (props) => {
                 backgroundSize: "cover",
                 backgroundAttachment: "fixed",
                 backgroundRepeat: "no-repeat",
-                backgroundImage: `url(https://images8.alphacoders.com/503/503792.jpg)`,
+                backgroundImage: `url("/assets/images/bg-login.jpeg")`,
               }}
             > <div className="bg-black bg-opacity-60 absolute top-0 left-0 w-full h-full"></div>
               <Component {...propsRoute} />
@@ -33,3 +33,4 @@ export const UserTemplate = (props) => {
     />
   );
 };
+

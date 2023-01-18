@@ -147,7 +147,7 @@ export default function Films(props) {
   };
 
   function onChange(pagination, filters, sorter, extra) {
-    console.log("params", pagination, filters, sorter, extra);
+    // console.log("params", pagination, filters, sorter, extra);
   }
 
    return (

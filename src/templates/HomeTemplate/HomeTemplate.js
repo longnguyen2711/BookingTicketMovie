@@ -9,7 +9,7 @@ export const HomeTemplate = (props) => {
   // Chuyển hướng về đầu trang khi trở lại trang trước đó
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   return (
     <Route

@@ -1,12 +1,13 @@
 import React from "react";
-import { LINK_BACKGROUND_HOMEPAGE } from "../../util/settings/config";
+import "./Contact.css";
 
 export default function Contact(props) {
   return (
     <div
+      id="contact"
       className="pb-96"
       style={{
-        backgroundImage: `url(${LINK_BACKGROUND_HOMEPAGE})`,
+        backgroundImage: `url("/assets/images/bg-home-page.jpeg")`,
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
         backgroundSize: "cover",

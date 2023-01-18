@@ -1,4 +1,4 @@
-import {ACCESSTOKEN, LINK_BACKGROUND_HOMEPAGE, USER_LOGIN} from "../../util/settings/config";
+import {ACCESSTOKEN, USER_LOGIN} from "../../util/settings/config";
 import {datVeAction, layChiTietPhongVeAction} from "../../redux/actions/QuanLyDatVeActions";
 import { layThongTinNguoiDungAction } from "../../redux/actions/QuanLyNguoiDungActions";
 import { CHANGE_TAB_ACTIVE, DAT_VE } from "../../redux/types";
@@ -346,7 +346,7 @@ export default function CheckoutTab(props) {
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
         backgroundRepeat: "no-repeat",
-        backgroundImage: `url('${LINK_BACKGROUND_HOMEPAGE}')`,
+        backgroundImage: `url('/assets/images/bg-home-page.jpeg')`,
       }}
     >
       <Tabs
@@ -453,7 +453,7 @@ function KetQuaDatVe(props) {
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
         backgroundRepeat: "no-repeat",
-        backgroundImage: `url(${LINK_BACKGROUND_HOMEPAGE})`,
+        backgroundImage: `url("/assets/images/bg-home-page.jpeg")`,
         maxWidth: "1500px",
       }}
     >

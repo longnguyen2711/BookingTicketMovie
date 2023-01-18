@@ -31,7 +31,7 @@ export default function HomeCarousel(props) {
     {
       "maBanner": 1003,
       "maPhim": 111113,
-      "hinhAnh": "https://b-static.besthdwallpaper.com/doctor-strange-cua-marvel-studios-trong-nhan-vat-truyen-tranh-dien-ro-doctor-strange-phan-tiep-theo-cua-sieu-anh-hung-hinh-nen-1920x1080-95920_48.jpg"
+      "hinhAnh": "https://bloganchoi.com/wp-content/uploads/2022/12/anh-bia-avatar-2.jpg"
     },
     {
       "maBanner": 1004,

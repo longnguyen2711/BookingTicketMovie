@@ -136,7 +136,7 @@ export default function ListUser(props) {
   };
 
   function onChange(pagination, filters, sorter, extra) {
-    console.log("params", pagination, filters, sorter, extra);
+    // console.log("params", pagination, filters, sorter, extra);
   }
 
   // Kiểm tra trong localStorage nếu không phải admin thì chuyển về trang profile

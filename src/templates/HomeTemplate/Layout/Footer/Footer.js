@@ -91,7 +91,7 @@ export default function Footer(props) {
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
         backgroundRepeat: "no-repeat",
-        backgroundImage: `url(${LINK_BACKGROUND})`,
+        backgroundImage: `url("/assets/images/bg-footer.jpeg")`,
       }}
     >
       <div className="space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">

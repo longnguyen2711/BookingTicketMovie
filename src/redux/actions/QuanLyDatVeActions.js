@@ -27,8 +27,7 @@ export const datVeAction = (thongTinDatVe = new ThongTinDatVe()) => {
     try {
       dispatch(displayLoadingAction);
       const result = await quanLyDatVeService.datVe(thongTinDatVe);
-      console.log(result.data.content);
-
+      
       // Đặt vé thành công gọi api load lại phòng vé
       await dispatch(layChiTietPhongVeAction(thongTinDatVe.maLichChieu));
       dispatch({ type: DAT_VE_HOAN_TAT });
