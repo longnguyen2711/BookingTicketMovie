@@ -138,7 +138,6 @@ export default function Login(props) {
               <button
                 onClick={() => {
                   setValidateAfterSubmit(true);
-                  formik.handleSubmit();
                 }}
                 title="Bấm để đăng nhập"
                 type="submit"

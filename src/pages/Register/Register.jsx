@@ -240,7 +240,6 @@ export default function Register(props) {
               <button
                 onClick={() => {
                   setValidateAfterSubmit(true);
-                  formik.handleSubmit();
                 }}
                 title="Bấm để đăng ký tài khoản"
                 type="submit"
