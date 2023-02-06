@@ -6,7 +6,7 @@ export default function Loading(props) {
 
   return (
     <Fragment>
-      {!isLoading ? (
+      {isLoading ? (
         <div
           className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50 bg-black"
           style={{ backgroundColor: "rgba(34,34,34,1)" }}
