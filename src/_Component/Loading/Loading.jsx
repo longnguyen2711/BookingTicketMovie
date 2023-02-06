@@ -6,14 +6,14 @@ export default function Loading(props) {
 
   return (
     <Fragment>
-      {isLoading ? (
+      {!isLoading ? (
         <div
           className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-50 bg-black"
-          style={{ backgroundColor: "rgba(0,0,0,1)" }}
+          style={{ backgroundColor: "rgba(34,34,34,1)" }}
         >
           <img
-            style={{ width: "400px" }}
-            src="https://www.mesanationalhq.com/admin/postimages/265def50d8be004698739c6718f6a03a.gif"
+            style={{ width: "500px" }}
+            src="https://i0.wp.com/codemyui.com/wp-content/uploads/2017/09/rotate-pulsating-loading-animation.gif?fit=880%2C440&ssl=1"
             alt="loading-gif"
           />
         </div>
